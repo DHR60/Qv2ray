@@ -2,7 +2,8 @@
 
 #include "BuiltinProtocolPlugin.hpp"
 
-VmessOutboundEditor::VmessOutboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
+VmessOutboundEditor::VmessOutboundEditor(QWidget *parent)
+    : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
     setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", true);
@@ -14,18 +15,21 @@ void VmessOutboundEditor::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 
 void VmessOutboundEditor::SetContent(const QJsonObject &content)
 {
-    this->content = content;
+    QJsonObject mutableContent = content;
     PLUGIN_EDITOR_LOADING_SCOPE({
-        if (content["vnext"].toArray().isEmpty())
-            content["vnext"] = QJsonArray{ QJsonObject{} };
-        vmess = VMessServerObject::fromJson(content["vnext"].toArray().first().toObject());
+        if (mutableContent.value(QStringLiteral("vnext")).toArray().isEmpty())
+            mutableContent.insert(QStringLiteral("vnext"), QJsonArray{ QJsonObject{} });
+        vmess = VMessServerObject::fromJson(mutableContent.value(QStringLiteral("vnext")).toArray().first().toObject());
         if (vmess.users.empty())
             vmess.users.push_back({});
         const auto &user = vmess.users.front();
@@ -34,6 +38,7 @@ void VmessOutboundEditor::SetContent(const QJsonObject &content)
 
         securityCombo->setCurrentText(user.security);
     })
+    this->content = mutableContent;
 
     if (alterLineEdit->value() > 0)
     {

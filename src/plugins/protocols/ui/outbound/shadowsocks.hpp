@@ -5,12 +5,12 @@
 #include "ui_shadowsocks.h"
 
 class ShadowsocksOutboundEditor
-    : public Qv2rayPlugin::QvPluginEditor
-    , private Ui::shadowsocksOutEditor
+    : public Qv2rayPlugin::QvPluginEditor,
+      private Ui::shadowsocksOutEditor
 {
     Q_OBJECT
 
-  public:
+public:
     explicit ShadowsocksOutboundEditor(QWidget *parent = nullptr);
 
     void SetHostAddress(const QString &addr, int port) override
@@ -26,10 +26,16 @@ class ShadowsocksOutboundEditor
     void SetContent(const QJsonObject &content) override
     {
         PLUGIN_EDITOR_LOADING_SCOPE({
-            if (content["servers"].toArray().isEmpty())
-                content["servers"] = QJsonArray{ QJsonObject{} };
+            QJsonArray servers = content.value(QStringLiteral("servers")).toArray();
+            if (servers.isEmpty())
+            {
+                servers = QJsonArray{ QJsonObject{} };
+                QJsonObject mutableContent = content;
+                mutableContent.insert(QStringLiteral("servers"), servers);
+                this->content = mutableContent;
+            }
             // ShadowSocks Configs
-            shadowsocks = ShadowSocksServerObject::fromJson(content["servers"].toArray().first().toObject());
+            shadowsocks = ShadowSocksServerObject::fromJson(servers.first().toObject());
             ss_passwordTxt->setText(shadowsocks.password);
             ss_encryptionMethod->setCurrentText(shadowsocks.method);
         })
@@ -43,13 +49,13 @@ class ShadowsocksOutboundEditor
         return result;
     }
 
-  protected:
+protected:
     void changeEvent(QEvent *e) override;
 
-  private slots:
+private slots:
     void on_ss_encryptionMethod_currentTextChanged(const QString &arg1);
     void on_ss_passwordTxt_textEdited(const QString &arg1);
 
-  private:
+private:
     ShadowSocksServerObject shadowsocks;
 };

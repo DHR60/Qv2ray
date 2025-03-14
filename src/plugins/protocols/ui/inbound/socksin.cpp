@@ -2,7 +2,8 @@
 
 #include "BuiltinProtocolPlugin.hpp"
 
-SocksInboundEditor::SocksInboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
+SocksInboundEditor::SocksInboundEditor(QWidget *parent)
+    : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
     setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", true);
@@ -13,8 +14,11 @@ void SocksInboundEditor::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 
@@ -23,13 +27,20 @@ void SocksInboundEditor::SetContent(const QJsonObject &content)
     PLUGIN_EDITOR_LOADING_SCOPE({
         this->content = content;
         // SOCKS
-        socksAuthCombo->setCurrentText(content["auth"].toString());
-        socksUDPCB->setChecked(content["udp"].toBool());
-        socksUDPIPAddrTxt->setText(content["ip"].toString());
+        socksAuthCombo->setCurrentText(content.value(QStringLiteral("auth")).toString());
+        socksUDPCB->setChecked(content.value(QStringLiteral("udp")).toBool(false));
+        socksUDPIPAddrTxt->setText(content.value(QStringLiteral("ip")).toString(QString()));
 
-        for (auto user : content["accounts"].toArray())
+        QJsonArray accounts = content.value(QStringLiteral("accounts")).toArray();
+        for (const auto &userValue : std::as_const(accounts))
         {
-            socksAccountListBox->addItem(user.toObject()["user"].toString() + ":" + user.toObject()["pass"].toString());
+            if (userValue.isObject())
+            {
+                QJsonObject user = userValue.toObject();
+                QString username = user.value(QStringLiteral("user")).toString();
+                QString password = user.value(QStringLiteral("pass")).toString();
+                socksAccountListBox->addItem(username + ":" + password);
+            }
         }
     })
 }
@@ -40,7 +51,7 @@ void SocksInboundEditor::on_socksRemoveUserBtn_clicked()
     if (socksAccountListBox->currentRow() != -1)
     {
         auto item = socksAccountListBox->currentItem();
-        auto list = content["accounts"].toArray();
+        auto list = content.value(QStringLiteral("accounts")).toArray();
 
         for (int i = 0; i < list.count(); i++)
         {
@@ -50,7 +61,7 @@ void SocksInboundEditor::on_socksRemoveUserBtn_clicked()
             if (entry == item->text().trimmed())
             {
                 list.removeAt(i);
-                content["accounts"] = list;
+                content.insert(QStringLiteral("accounts"), list);
                 socksAccountListBox->takeItem(socksAccountListBox->currentRow());
                 return;
             }
@@ -58,7 +69,7 @@ void SocksInboundEditor::on_socksRemoveUserBtn_clicked()
     }
     else
     {
-        InternalProtocolSupportPluginInstance->PluginErrorMessageBox(tr("Removing a user"), tr("You haven't selected a user yet."));
+        emit InternalProtocolSupportPluginInstance->PluginErrorMessageBox(tr("Removing a user"), tr("You haven't selected a user yet."));
     }
 }
 
@@ -68,7 +79,7 @@ void SocksInboundEditor::on_socksAddUserBtn_clicked()
     auto user = socksAddUserTxt->text();
     auto pass = socksAddPasswordTxt->text();
     //
-    auto list = content["accounts"].toArray();
+    auto list = content.value(QStringLiteral("accounts")).toArray();
 
     for (int i = 0; i < list.count(); i++)
     {
@@ -76,7 +87,7 @@ void SocksInboundEditor::on_socksAddUserBtn_clicked()
 
         if (_user["user"].toString() == user)
         {
-            InternalProtocolSupportPluginInstance->PluginErrorMessageBox(tr("Add a user"), tr("This user exists already."));
+            emit InternalProtocolSupportPluginInstance->PluginErrorMessageBox(tr("Add a user"), tr("This user exists already."));
             return;
         }
     }
@@ -88,23 +99,23 @@ void SocksInboundEditor::on_socksAddUserBtn_clicked()
     entry["pass"] = pass;
     list.append(entry);
     socksAccountListBox->addItem(user + ":" + pass);
-    content["accounts"] = list;
+    content.insert(QStringLiteral("accounts"), list);
 }
 
 void SocksInboundEditor::on_socksUDPCB_stateChanged(int arg1)
 {
     PLUGIN_EDITOR_LOADING_GUARD
-    content["udp"] = arg1 == Qt::Checked;
+    content.insert(QStringLiteral("udp"), arg1 == Qt::Checked);
 }
 
 void SocksInboundEditor::on_socksUDPIPAddrTxt_textEdited(const QString &arg1)
 {
     PLUGIN_EDITOR_LOADING_GUARD
-    content["ip"] = arg1;
+    content.insert(QStringLiteral("ip"), arg1);
 }
 
 void SocksInboundEditor::on_socksAuthCombo_currentIndexChanged(int arg1)
 {
     PLUGIN_EDITOR_LOADING_GUARD
-    content["auth"] = socksAuthCombo->itemText(arg1).toLower();
+    content.insert(QStringLiteral("auth"), socksAuthCombo->itemText(arg1).toLower());
 }

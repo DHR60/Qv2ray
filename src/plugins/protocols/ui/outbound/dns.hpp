@@ -4,12 +4,12 @@
 #include "ui_dns.h"
 
 class DnsOutboundEditor
-    : public Qv2rayPlugin::QvPluginEditor
-    , private Ui::dnsOutEditor
+    : public Qv2rayPlugin::QvPluginEditor,
+      private Ui::dnsOutEditor
 {
     Q_OBJECT
 
-  public:
+public:
     explicit DnsOutboundEditor(QWidget *parent = nullptr);
 
     void SetHostAddress(const QString &, int) override{};
@@ -22,19 +22,23 @@ class DnsOutboundEditor
     {
         this->content = _content;
         PLUGIN_EDITOR_LOADING_SCOPE({
-            if (content.contains("network"))
+            if (content.contains(QStringLiteral("network")))
             {
-                tcpCB->setChecked(content["network"] == "tcp");
-                udpCB->setChecked(content["network"] == "udp");
+                tcpCB->setChecked(content.value(QStringLiteral("network")).toString() == QStringLiteral("tcp"));
+                udpCB->setChecked(content.value(QStringLiteral("network")).toString() == QStringLiteral("udp"));
             }
             else
             {
                 originalCB->setChecked(true);
             }
-            if (content.contains("address"))
-                addressTxt->setText(content["address"].toString());
-            if (content.contains("port"))
-                portSB->setValue(content["port"].toInt());
+            if (content.contains(QStringLiteral("address")))
+            {
+                addressTxt->setText(content.value(QStringLiteral("address")).toString());
+            }
+            if (content.contains(QStringLiteral("port")))
+            {
+                portSB->setValue(content.value(QStringLiteral("port")).toInt());
+            }
         })
     };
     const QJsonObject GetContent() const override
@@ -42,10 +46,10 @@ class DnsOutboundEditor
         return content;
     };
 
-  protected:
+protected:
     void changeEvent(QEvent *e) override;
 
-  private slots:
+private slots:
     void on_tcpCB_clicked();
     void on_udpCB_clicked();
     void on_originalCB_clicked();

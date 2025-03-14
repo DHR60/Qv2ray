@@ -4,12 +4,12 @@
 #include "ui_freedom.h"
 
 class FreedomOutboundEditor
-    : public Qv2rayPlugin::QvPluginEditor
-    , private Ui::freedomOutEditor
+    : public Qv2rayPlugin::QvPluginEditor,
+      private Ui::freedomOutEditor
 {
     Q_OBJECT
 
-  public:
+public:
     explicit FreedomOutboundEditor(QWidget *parent = nullptr);
 
     void SetHostAddress(const QString &, int) override{};
@@ -22,8 +22,8 @@ class FreedomOutboundEditor
     {
         this->content = content;
         PLUGIN_EDITOR_LOADING_SCOPE({
-            DSCB->setCurrentText(content["domainStrategy"].toString());
-            redirectTxt->setText(content["redirect"].toString());
+            DSCB->setCurrentText(content.value(QStringLiteral("domainStrategy")).toString());
+            redirectTxt->setText(content.value(QStringLiteral("redirect")).toString());
         })
     };
     const QJsonObject GetContent() const override
@@ -31,10 +31,10 @@ class FreedomOutboundEditor
         return content;
     };
 
-  protected:
+protected:
     void changeEvent(QEvent *e) override;
 
-  private slots:
+private slots:
     void on_DSCB_currentTextChanged(const QString &arg1);
     void on_redirectTxt_textEdited(const QString &arg1);
 };

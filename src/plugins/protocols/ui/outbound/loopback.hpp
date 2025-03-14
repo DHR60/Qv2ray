@@ -4,12 +4,12 @@
 #include "ui_loopback.h"
 
 class LoopbackSettingsEditor
-    : public Qv2rayPlugin::QvPluginEditor
-    , private Ui::loopback
+    : public Qv2rayPlugin::QvPluginEditor,
+      private Ui::loopback
 {
     Q_OBJECT
 
-  public:
+public:
     explicit LoopbackSettingsEditor(QWidget *parent = nullptr);
     void SetHostAddress(const QString &, int){};
     QPair<QString, int> GetHostAddress() const
@@ -20,7 +20,7 @@ class LoopbackSettingsEditor
     void SetContent(const QJsonObject &content)
     {
         loopbackSettings = content;
-        inboundTagTxt->setText(content["inboundTag"].toString());
+        inboundTagTxt->setText(content.value(QStringLiteral("inboundTag")).toString());
     }
 
     const QJsonObject GetContent() const
@@ -28,12 +28,12 @@ class LoopbackSettingsEditor
         return loopbackSettings;
     }
 
-  protected:
+protected:
     void changeEvent(QEvent *e);
 
-  private slots:
+private slots:
     void on_inboundTagTxt_textEdited(const QString &arg1);
 
-  private:
+private:
     QJsonObject loopbackSettings;
 };
