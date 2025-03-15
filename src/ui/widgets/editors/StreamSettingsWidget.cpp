@@ -21,7 +21,7 @@ void StreamSettingsWidget::SetStreamObject(const Qv2ray::Models::StreamSettingsO
 {
     stream = sso;
     transportCombo->setCurrentText(stream.network);
-    // TLS XTLS
+    // TLS
     {
         const static QMap<QString, int> securityIndexMap{ { "none", 0 }, { "tls", 1 } };
         if (securityIndexMap.contains(stream.security))
@@ -31,9 +31,12 @@ void StreamSettingsWidget::SetStreamObject(const Qv2ray::Models::StreamSettingsO
 
         {
             serverNameTxt->setText(stream.tlsSettings->serverName);
-            disableSessionResumptionCB->setChecked(stream.tlsSettings->disableSessionResumption);
+            enableSessionResumptionCB->setChecked(stream.tlsSettings->enableSessionResumption);
             disableSystemRoot->setChecked(stream.tlsSettings->disableSystemRoot);
             alpnTxt->setText(stream.tlsSettings->alpn->join("|"));
+            allowInsecureCB->setChecked(stream.tlsSettings->allowInsecure);
+            pinnedPeerCertificateChainSha256Txt->setText(stream.tlsSettings->pinnedPeerCertificateChainSha256->join("|"));
+            utlsFingerprintCB->setCurrentText(stream.tlsSettings->fingerprint);
         }
     }
     // TCP
@@ -283,9 +286,9 @@ void StreamSettingsWidget::on_serverNameTxt_textEdited(const QString &arg1)
     stream.tlsSettings->serverName = arg1.trimmed();
 }
 
-void StreamSettingsWidget::on_disableSessionResumptionCB_stateChanged(int arg1)
+void StreamSettingsWidget::on_enableSessionResumptionCB_stateChanged(int arg1)
 {
-    stream.tlsSettings->disableSessionResumption = arg1 == Qt::Checked;
+    stream.tlsSettings->enableSessionResumption = arg1 == Qt::Checked;
 }
 
 void StreamSettingsWidget::on_alpnTxt_textEdited(const QString &arg1)
@@ -325,6 +328,21 @@ void StreamSettingsWidget::on_wsEarlyDataHeaderTxt_textEdited(const QString &arg
 void StreamSettingsWidget::on_httpMethodTxt_textEdited(const QString &arg1)
 {
     stream.httpSettings->method = arg1;
+}
+
+void StreamSettingsWidget::on_allowInsecureCB_stateChanged(int arg1)
+{
+    stream.tlsSettings->allowInsecure = arg1 == Qt::Checked;
+}
+
+void StreamSettingsWidget::on_pinnedPeerCertificateChainSha256Txt_textEdited(const QString &arg1)
+{
+    stream.tlsSettings->pinnedPeerCertificateChainSha256 = arg1.split("|", Qt::SplitBehaviorFlags::SkipEmptyParts);
+}
+
+void StreamSettingsWidget::on_utlsFingerprintCB_currentTextChanged(const QString &arg1)
+{
+    stream.tlsSettings->fingerprint = arg1;
 }
 
 void StreamSettingsWidget::on_hy2PasswordTxt_textEdited(const QString &arg1)
