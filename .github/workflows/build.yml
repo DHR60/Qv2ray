@@ -35,7 +35,7 @@ jobs:
             name: "Windows MSVC", artifact: "Windows",
             os: windows-latest,
             cc: "cl.exe", cxx: "cl.exe",
-            arch: "win64_msvc2019_64",
+            arch: "win64_msvc2022_64",
             has_msvc: true,
             has_release: true,
             vcpkgTriplet: x64-windows
@@ -59,24 +59,22 @@ jobs:
         submodules: 'recursive'
 
     - name: Install ninja-build tool
-      uses: seanmiddleditch/gha-setup-ninja@v3
+      uses: seanmiddleditch/gha-setup-ninja@v4
 
     - name: Install MSVC compiler
       if: matrix.config.has_msvc
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v2.14.0
+      uses: jurplel/install-qt-action@v4
       with:
-        version: 6.2.2
-        py7zrversion: ' '
-        aqtversion: ' '
-        setup-python: false
+        version: 6.8.2
+        arch: ${{ matrix.config.arch }}
 
     - name: run-vcpkg
-      uses: lukka/run-vcpkg@v10
+      uses: lukka/run-vcpkg@v11
       with:
-        vcpkgGitCommitId: "cc2dd8fed39acc588c9a9a04b1ea4d04ce5308f0"
+        vcpkgGitCommitId: "aac8812f26c3d13ea42bc1baaffae273385911aa"
         vcpkgJsonGlob: '**/vcpkg.json'
         runVcpkgInstall: true
   
