@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QvGUIPluginInterface.h"
+#include "QvGUIPluginInterface.hpp"
 #include "ui_socksin.h"
 
 #include <QJsonArray>

@@ -6,7 +6,7 @@
 #include "core/handler/ConfigHandler.h"
 #include "core/kernel/V2RayKernelInteractions.h"
 #include "core/settings/SettingsBackend.h"
-#include "src/plugin-interface/QvPluginInterface.h"
+#include "src/plugin-interface/QvPluginInterface.hpp"
 #include "ui/common/autolaunch/QvAutoLaunch.h"
 #include "ui/widgets/styles/StyleManager.h"
 #include "ui/widgets/widgets/DnsSettingsWidget.h"
@@ -555,7 +555,7 @@ void PreferencesWindow::on_proxyDefaultCb_stateChanged(int arg1)
 void PreferencesWindow::on_selectVAssetBtn_clicked()
 {
     NEEDRESTART
-    QString dir = QFileDialog::getExistingDirectory(this, tr("Open V2Ray assets folder"), QDir::currentPath());
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Xray assets folder"), QDir::currentPath());
 
     if (!dir.isEmpty())
     {
@@ -566,7 +566,7 @@ void PreferencesWindow::on_selectVAssetBtn_clicked()
 
 void PreferencesWindow::on_selectVCoreBtn_clicked()
 {
-    QString core = QFileDialog::getOpenFileName(this, tr("Open V2Ray core file"), QDir::currentPath());
+    QString core = QFileDialog::getOpenFileName(this, tr("Open Xray core file"), QDir::currentPath());
 
     if (!core.isEmpty())
     {
@@ -789,31 +789,31 @@ void PreferencesWindow::on_checkVCoreSettings_clicked()
     // prevent some bullshit situations.
     if (const auto vCorePathSmallCased = vcorePath.toLower(); vCorePathSmallCased.endsWith("qv2ray") || vCorePathSmallCased.endsWith("qv2ray.exe"))
     {
-        const auto content = tr("You may be about to set V2Ray core incorrectly to Qv2ray itself, which is absolutely not correct.\r\n"
+        const auto content = tr("You may be about to set Xray core incorrectly to Qv2ray itself, which is absolutely not correct.\r\n"
                                 "This won't trigger a fork bomb, however, since Qv2ray works in singleton mode.\r\n"
-                                "If your V2Ray core filename happened to be 'qv2ray'-something, you are totally free to ignore this warning.");
+                                "If your Xray core filename happened to be 'qv2ray'-something, you are totally free to ignore this warning.");
         QvMessageBoxWarn(this, tr("Watch Out!"), content);
     }
 #endif // QV2RAY_FEATURE(kernel_check_filename)
 
     if (const auto &&[result, msg] = V2RayKernelInstance::ValidateKernel(vcorePath, vAssetsPath); !result)
     {
-        QvMessageBoxWarn(this, tr("V2Ray Core Settings"), *msg);
+        QvMessageBoxWarn(this, tr("Xray Core Settings"), *msg);
     }
 #if QV2RAY_FEATURE(kernel_check_output)
     else if (!msg->toLower().contains("xray"))
     {
-        const auto content = tr("This does not seem like an output from V2Ray Core.") + NEWLINE +                         //
+        const auto content = tr("This does not seem like an output from Xray Core.") + NEWLINE +                          //
                              tr("If you are looking for plugins settings, you should go to plugin settings.") + NEWLINE + //
                              tr("Output:") + NEWLINE +                                                                    //
                              NEWLINE + *msg;
-        QvMessageBoxWarn(this, tr("'V2Ray Core' Settings"), content);
+        QvMessageBoxWarn(this, tr("'Xray Core' Settings"), content);
     }
 #endif // QV2RAY_FEATURE(kernel_check_output)
     else
     {
-        const auto content = tr("V2Ray path configuration check passed.") + NEWLINE + NEWLINE + tr("Current version of V2Ray is: ") + NEWLINE + *msg;
-        QvMessageBoxInfo(this, tr("V2Ray Core Settings"), content);
+        const auto content = tr("Xray path configuration check passed.") + NEWLINE + NEWLINE + tr("Current version of Xray is: ") + NEWLINE + *msg;
+        QvMessageBoxInfo(this, tr("Xray Core Settings"), content);
     }
 }
 

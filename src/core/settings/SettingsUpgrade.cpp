@@ -203,7 +203,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
                 nullptr, QObject::tr("Deprecated"),
                 QObject::tr("PAC is now deprecated and is not encouraged to be used anymore.") + NEWLINE +
                     QObject::tr("It will be removed or be provided as a plugin in the future.") + NEWLINE + NEWLINE +
-                    QObject::tr("PAC will still work currently, but please switch to the V2Ray built-in routing as soon as possible."));
+                    QObject::tr("PAC will still work currently, but please switch to the Xray built-in routing as soon as possible."));
         }
         else
         {

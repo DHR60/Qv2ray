@@ -114,7 +114,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             //
             QMap<KernelOptionFlags, QVariant> _inboundSettings;
 
-            LOG("V2RayIntegration: " + QSTRN(pluginPort) + " = " + outProtocol);
+            LOG("XrayIntegration: " + QSTRN(pluginPort) + " = " + outProtocol);
             _inboundSettings[KERNEL_HTTP_ENABLED] = false;
             _inboundSettings[KERNEL_SOCKS_ENABLED] = true;
             _inboundSettings[KERNEL_SOCKS_PORT] = pluginPort;
@@ -176,7 +176,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             }
             currentId = id;
             //
-            // Also start V2Ray-core.
+            // Also start Xray-core.
             auto result = vCoreInstance->StartConnection(fullConfig);
             //
             if (result.has_value())
@@ -193,8 +193,8 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
         }
         else if (kernelMap.contains(firstOutboundProtocol))
         {
-            // Connections without V2Ray Integration will have and ONLY have ONE kernel.
-            LOG("Starting kernel " + firstOutboundProtocol + " without V2Ray Integration");
+            // Connections without Xray Integration will have and ONLY have ONE kernel.
+            LOG("Starting kernel " + firstOutboundProtocol + " without Xray Integration");
             {
                 auto kernel =
                     PluginHost->GetPlugin(kernelMap[firstOutbound["protocol"].toString()])->pluginInterface->GetKernel()->CreateKernel();
@@ -239,7 +239,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
         }
         else
         {
-            LOG("Starting V2Ray without plugin.");
+            LOG("Starting Xray without plugin.");
             currentId = id;
             auto result = vCoreInstance->StartConnection(fullConfig);
             if (result.has_value())
@@ -326,7 +326,7 @@ void KernelInstanceHandler::OnV2RayStatsDataRcvd_p(const QMap<StatisticsType, Qv
 void KernelInstanceHandler::OnPluginStatsDataRcvd_p(const long uploadSpeed, const long downloadSpeed)
 {
     OnV2RayStatsDataRcvd_p({
-        { API_OUTBOUND_PROXY, { uploadSpeed, downloadSpeed } }
+        {API_OUTBOUND_PROXY, { uploadSpeed, downloadSpeed }}
     });
 }
 } // namespace Qv2ray::core::handler

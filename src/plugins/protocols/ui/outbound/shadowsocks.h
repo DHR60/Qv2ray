@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CommonTypes.h"
-#include "QvGUIPluginInterface.h"
+#include "QvGUIPluginInterface.hpp"
 #include "ui_shadowsocks.h"
 
 class ShadowsocksOutboundEditor

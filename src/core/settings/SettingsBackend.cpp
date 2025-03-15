@@ -227,7 +227,7 @@ bool LocateConfiguration()
 
     if (!QDir(QV2RAY_GENERATED_DIR).exists())
     {
-        // The dir used to generate final config file, for V2Ray interaction.
+        // The dir used to generate final config file, for Xray interaction.
         QDir().mkdir(QV2RAY_GENERATED_DIR);
         LOG("Created config generation dir at: " + QV2RAY_GENERATED_DIR);
     }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QvPluginInterface.h"
+#include "QvPluginInterface.hpp"
 
 #include <QObject>
 #include <QtPlugin>

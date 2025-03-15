@@ -190,15 +190,15 @@ void SetLaunchAtLoginStatus(bool enable)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         ts.setCodec("UTF-8");
 #endif
-        ts << QLatin1String("[Desktop Entry]") << NEWLINE                                 //
-           << QLatin1String("Name=") << appName << NEWLINE                                //
-           << QLatin1String("GenericName=") << QLatin1String("V2Ray Frontend") << NEWLINE //
-           << QLatin1String("Exec=") << appCmdList.join(" ") << NEWLINE                   //
-           << QLatin1String("Terminal=") << "false" << NEWLINE                            //
-           << QLatin1String("Icon=") << "qv2ray" << NEWLINE                               //
-           << QLatin1String("Categories=") << "Network" << NEWLINE                        //
-           << QLatin1String("Type=") << "Application" << NEWLINE                          //
-           << QLatin1String("StartupNotify=") << "false" << NEWLINE                       //
+        ts << QLatin1String("[Desktop Entry]") << NEWLINE                                //
+           << QLatin1String("Name=") << appName << NEWLINE                               //
+           << QLatin1String("GenericName=") << QLatin1String("Xray Frontend") << NEWLINE //
+           << QLatin1String("Exec=") << appCmdList.join(" ") << NEWLINE                  //
+           << QLatin1String("Terminal=") << "false" << NEWLINE                           //
+           << QLatin1String("Icon=") << "qv2ray" << NEWLINE                              //
+           << QLatin1String("Categories=") << "Network" << NEWLINE                       //
+           << QLatin1String("Type=") << "Application" << NEWLINE                         //
+           << QLatin1String("StartupNotify=") << "false" << NEWLINE                      //
            << QLatin1String("X-GNOME-Autostart-enabled=") << "true" << NEWLINE;
         ts.flush();
         iniFile.close();

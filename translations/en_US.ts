@@ -1741,12 +1741,6 @@ But could damage your server if improperly used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You may be about to set V2Ray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
-This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
-If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Check System Date and Time from the Internet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1818,27 +1812,7 @@ If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Open V2Ray assets folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open V2Ray core file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>V2Ray path configuration check passed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Current version of V2Ray is: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Force Direct for All Connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&apos;V2Ray Core&apos; Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1918,10 +1892,6 @@ If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This does not seem like an output from V2Ray Core.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Output:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1989,6 +1959,40 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
 This option may be useful for some desktop environments without tray support.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Open Xray assets folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Xray core file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You may be about to set Xray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
+This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
+If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Xray Core Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This does not seem like an output from Xray Core.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&apos;Xray Core&apos; Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Xray path configuration check passed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current version of Xray is: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -2034,10 +2038,6 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
     <message>
         <source>Exit Qv2ray</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Qv2ray - A cross-platform Qt frontend for V2Ray.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2333,10 +2333,6 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>PAC will still work currently, but please switch to the V2Ray built-in routing as soon as possible.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Configuration Upgrade Failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2374,6 +2370,14 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
     <message>
         <source>missing uuid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PAC will still work currently, but please switch to the Xray built-in routing as soon as possible.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Qv2ray - A cross-platform Qt frontend for Xray.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2518,13 +2522,6 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
     <message>
         <source>A subscription plugin is missing?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Qv2ray::core::kernel::APIWorker</name>
-    <message>
-        <source>Failed to get statistics data, please check if V2Ray is running properly</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3855,6 +3852,13 @@ Maybe you have downloaded the wrong core?</source>
     </message>
     <message>
         <source>One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Qv2ray::core::kernel::APIWorker</name>
+    <message>
+        <source>Failed to get statistics data, please check if Xray is running properly</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

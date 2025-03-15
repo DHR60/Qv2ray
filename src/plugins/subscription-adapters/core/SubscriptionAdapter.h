@@ -1,6 +1,6 @@
 #pragma once
 #include "CommonTypes.h"
-#include "QvPluginProcessor.h"
+#include "QvPluginProcessor.hpp"
 
 #include <QRegularExpression>
 

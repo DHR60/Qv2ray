@@ -2,7 +2,7 @@
 # Qv2ray Development and Research WorkGroup
 set(CPACK_PACKAGE_VENDOR "Qv2ray Development Group")
 set(CPACK_PACKAGE_VERSION ${QV2RAY_VERSION_STRING})
-set(CPACK_PACKAGE_DESCRIPTION "Cross-platform V2Ray Client written in Qt.")
+set(CPACK_PACKAGE_DESCRIPTION "Cross-platform Xray Client written in Qt.")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://qv2ray.net")
 set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/assets/icons/qv2ray.ico")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
