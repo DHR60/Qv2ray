@@ -79,6 +79,9 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
     // handle encryption
     const auto hasEncryption = query.hasQueryItem("encryption");
     const auto encryption = hasEncryption ? query.queryItemValue("encryption") : "none";
+    const auto flow = query.queryItemValue("flow");
+
+    QJsonIO::SetValue(outbound, flow, { "settings", "vnext", 0, "users", 0, "flow" });
     QJsonIO::SetValue(outbound, encryption, { "settings", "vnext", 0, "users", 0, "encryption" });
 
     // type-wise settings

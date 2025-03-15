@@ -10,9 +10,6 @@
 [submodule "src/plugin-interface"]
 	path = src/plugin-interface
 	url = https://github.com/Qv2ray/QvPlugin-Interface
-[submodule "3rdparty/QJsonStruct"]
-	path = 3rdparty/QJsonStruct
-	url = https://github.com/Qv2ray/QJsonStruct
 [submodule "3rdparty/libuv"]
     path = 3rdparty/libuv
     url = https://github.com/libuv/libuv.git
@@ -28,3 +25,6 @@
 [submodule "3rdparty/qt-qrcode"]
 	path = 3rdparty/qt-qrcode
 	url = https://github.com/danielsanfr/qt-qrcode
+[submodule "3rdparty/QJsonStruct"]
+	path = 3rdparty/QJsonStruct
+	url = https://github.com/DHR60/QJsonStruct
