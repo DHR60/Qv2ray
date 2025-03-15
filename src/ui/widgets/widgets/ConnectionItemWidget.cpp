@@ -1,14 +1,15 @@
-#include "ConnectionItemWidget.hpp"
+#include "ConnectionItemWidget.h"
 
-#include "core/handler/ConfigHandler.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "core/handler/ConfigHandler.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
 
 #include <QStyleFactory>
 
 #define QV_MODULE_NAME "ConnectionItemWidget"
 
-ConnectionItemWidget::ConnectionItemWidget(QWidget *parent) : QWidget(parent), connectionId(NullConnectionId), groupId(NullGroupId)
+ConnectionItemWidget::ConnectionItemWidget(QWidget *parent)
+    : QWidget(parent), connectionId(NullConnectionId), groupId(NullGroupId)
 {
     setupUi(this);
     connect(ConnectionManager, &QvConfigHandler::OnConnected, this, &ConnectionItemWidget::OnConnected);
@@ -18,7 +19,8 @@ ConnectionItemWidget::ConnectionItemWidget(QWidget *parent) : QWidget(parent), c
     connect(ConnectionManager, &QvConfigHandler::OnLatencyTestFinished, this, &ConnectionItemWidget::OnLatencyTestFinished);
 }
 
-ConnectionItemWidget::ConnectionItemWidget(const ConnectionGroupPair &id, QWidget *parent) : ConnectionItemWidget(parent)
+ConnectionItemWidget::ConnectionItemWidget(const ConnectionGroupPair &id, QWidget *parent)
+    : ConnectionItemWidget(parent)
 {
     connectionId = id.connectionId;
     groupId = id.groupId;
@@ -27,10 +29,12 @@ ConnectionItemWidget::ConnectionItemWidget(const ConnectionGroupPair &id, QWidge
     indentSpacer->changeSize(10, indentSpacer->sizeHint().height());
     //
     auto latency = GetConnectionLatency(id.connectionId);
-    latencyLabel->setText(latency == LATENCY_TEST_VALUE_NODATA ?     //
-                              tr("Not Tested") :                     //
+    latencyLabel->setText(latency == LATENCY_TEST_VALUE_NODATA ? //
+                              tr("Not Tested")
+                                                               :     //
                               (latency == LATENCY_TEST_VALUE_ERROR ? //
-                                   tr("Error") :                     //
+                                   tr("Error")
+                                                                   : //
                                    (QSTRN(latency) + " ms")));       //
     //
     connTypeLabel->setText(GetConnectionProtocolString(id.connectionId).toUpper());
@@ -51,7 +55,8 @@ ConnectionItemWidget::ConnectionItemWidget(const ConnectionGroupPair &id, QWidge
 }
 
 // ======================================= Initialisation for root nodes.
-ConnectionItemWidget::ConnectionItemWidget(const GroupId &id, QWidget *parent) : ConnectionItemWidget(parent)
+ConnectionItemWidget::ConnectionItemWidget(const GroupId &id, QWidget *parent)
+    : ConnectionItemWidget(parent)
 {
     layout()->removeWidget(connTypeLabel);
     layout()->removeWidget(dataLabel);

@@ -1,8 +1,8 @@
-#include "components/proxy/QvProxyConfigurator.hpp"
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
-#include "w_MainWindow.hpp"
+#include "components/proxy/QvProxyConfigurator.h"
+#include "ui/widgets/Qv2rayWidgetApplication.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
+#include "w_MainWindow.h"
 
 #ifdef Q_OS_MAC
 #include <ApplicationServices/ApplicationServices.h>
@@ -131,9 +131,12 @@ bool MainWindow::StartAutoConnectionEntry()
         return false;
     switch (GlobalConfig.autoStartBehavior)
     {
-        case AUTO_CONNECTION_NONE: return false;
-        case AUTO_CONNECTION_FIXED: return ConnectionManager->StartConnection(GlobalConfig.autoStartId);
-        case AUTO_CONNECTION_LAST_CONNECTED: return ConnectionManager->StartConnection(GlobalConfig.lastConnectedId);
+    case AUTO_CONNECTION_NONE:
+        return false;
+    case AUTO_CONNECTION_FIXED:
+        return ConnectionManager->StartConnection(GlobalConfig.autoStartId);
+    case AUTO_CONNECTION_LAST_CONNECTED:
+        return ConnectionManager->StartConnection(GlobalConfig.lastConnectedId);
     }
     Q_UNREACHABLE();
 }
@@ -168,11 +171,10 @@ void MainWindow::CheckSubscriptionsUpdate()
 
     if (!updateList.isEmpty())
     {
-        const auto result = GlobalConfig.uiConfig.quietMode ? Yes :
-                                                              QvMessageBoxAsk(this, tr("Update Subscriptions"),                            //
-                                                                              tr("Do you want to update these subscriptions?") + NEWLINE + //
-                                                                                  updateNamesList.join(NEWLINE),                           //
-                                                                              { Yes, No, Ignore });
+        const auto result = GlobalConfig.uiConfig.quietMode ? Yes : QvMessageBoxAsk(this, tr("Update Subscriptions"),                            //
+                                                                                    tr("Do you want to update these subscriptions?") + NEWLINE + //
+                                                                                        updateNamesList.join(NEWLINE),                           //
+                                                                                    { Yes, No, Ignore });
 
         for (const auto &[name, id] : updateList)
         {

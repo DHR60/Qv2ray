@@ -1,18 +1,18 @@
-#include "w_PreferencesWindow.hpp"
+#include "w_PreferencesWindow.h"
 
-#include "components/ntp/QvNTPClient.hpp"
-#include "components/translations/QvTranslator.hpp"
-#include "core/connection/ConnectionIO.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "core/kernel/V2RayKernelInteractions.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "src/plugin-interface/QvPluginInterface.hpp"
-#include "ui/common/autolaunch/QvAutoLaunch.hpp"
-#include "ui/widgets/styles/StyleManager.hpp"
-#include "ui/widgets/widgets/DnsSettingsWidget.hpp"
-#include "ui/widgets/widgets/RouteSettingsMatrix.hpp"
-#include "utils/HTTPRequestHelper.hpp"
-#include "utils/QvHelpers.hpp"
+#include "components/ntp/QvNTPClient.h"
+#include "components/translations/QvTranslator.h"
+#include "core/connection/ConnectionIO.h"
+#include "core/handler/ConfigHandler.h"
+#include "core/kernel/V2RayKernelInteractions.h"
+#include "core/settings/SettingsBackend.h"
+#include "src/plugin-interface/QvPluginInterface.h"
+#include "ui/common/autolaunch/QvAutoLaunch.h"
+#include "ui/widgets/styles/StyleManager.h"
+#include "ui/widgets/widgets/DnsSettingsWidget.h"
+#include "ui/widgets/widgets/RouteSettingsMatrix.h"
+#include "utils/HTTPRequestHelper.h"
+#include "utils/QvHelpers.h"
 
 #include <QColorDialog>
 #include <QCompleter>
@@ -27,31 +27,60 @@ using Qv2ray::common::validation::IsIPv6Address;
 using Qv2ray::common::validation::IsValidDNSServer;
 using Qv2ray::common::validation::IsValidIPAddress;
 
-#define LOADINGCHECK                                                                                                                                 \
-    if (!finishedLoading)                                                                                                                            \
+#define LOADINGCHECK      \
+    if (!finishedLoading) \
         return;
-#define NEEDRESTART                                                                                                                                  \
-    LOADINGCHECK                                                                                                                                     \
-    if (finishedLoading)                                                                                                                             \
+#define NEEDRESTART      \
+    LOADINGCHECK         \
+    if (finishedLoading) \
         NeedRestart = true;
 
-#define SET_PROXY_UI_ENABLE(_enabled)                                                                                                                \
-    qvProxyTypeCombo->setEnabled(_enabled);                                                                                                          \
-    qvProxyAddressTxt->setEnabled(_enabled);                                                                                                         \
+#define SET_PROXY_UI_ENABLE(_enabled)        \
+    qvProxyTypeCombo->setEnabled(_enabled);  \
+    qvProxyAddressTxt->setEnabled(_enabled); \
     qvProxyPortCB->setEnabled(_enabled);
 
-#define SET_AUTOSTART_UI_ENABLED(_enabled)                                                                                                           \
-    autoStartConnCombo->setEnabled(_enabled);                                                                                                        \
+#define SET_AUTOSTART_UI_ENABLED(_enabled)    \
+    autoStartConnCombo->setEnabled(_enabled); \
     autoStartSubsCombo->setEnabled(_enabled);
 
 #define SET_AUTOSTART_START_MINIMIZED_ENABLED(_enabled) startMinimizedCB->setEnabled(_enabled);
 
-PreferencesWindow::PreferencesWindow(QWidget *parent) : QvDialog("PreferenceWindow", parent), CurrentConfig()
+PreferencesWindow::PreferencesWindow(QWidget *parent)
+    : QvDialog("PreferenceWindow", parent), CurrentConfig()
 {
-    addStateOptions("width", { [&] { return width(); }, [&](QJsonValue val) { resize(val.toInt(), size().height()); } });
-    addStateOptions("height", { [&] { return height(); }, [&](QJsonValue val) { resize(size().width(), val.toInt()); } });
-    addStateOptions("x", { [&] { return x(); }, [&](QJsonValue val) { move(val.toInt(), y()); } });
-    addStateOptions("y", { [&] { return y(); }, [&](QJsonValue val) { move(x(), val.toInt()); } });
+    addStateOptions("width", { [&]
+                               {
+                                   return width();
+                               },
+                               [&](QJsonValue val)
+                               {
+                                   resize(val.toInt(), size().height());
+                               } });
+    addStateOptions("height", { [&]
+                                {
+                                    return height();
+                                },
+                                [&](QJsonValue val)
+                                {
+                                    resize(size().width(), val.toInt());
+                                } });
+    addStateOptions("x", { [&]
+                           {
+                               return x();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(val.toInt(), y());
+                           } });
+    addStateOptions("y", { [&]
+                           {
+                               return y();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(x(), val.toInt());
+                           } });
 
     setupUi(this);
     //
@@ -313,11 +342,12 @@ QvMessageBusSlotImpl(PreferencesWindow)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME: break;
+    case UPDATE_COLORSCHEME:
+        break;
     }
 }
 
-PreferencesWindow::~PreferencesWindow(){};
+PreferencesWindow::~PreferencesWindow() {};
 
 std::optional<QString> PreferencesWindow::checkTProxySettings() const
 {
@@ -847,7 +877,7 @@ void PreferencesWindow::on_enableAPI_stateChanged(int arg1)
 void PreferencesWindow::on_updateChannelCombo_currentIndexChanged(int index)
 {
     LOADINGCHECK
-    CurrentConfig.updateConfig.updateChannel = (Qv2rayConfig_Update::UpdateChannel) index;
+    CurrentConfig.updateConfig.updateChannel = (Qv2rayConfig_Update::UpdateChannel)index;
     CurrentConfig.updateConfig.ignoredVersion.clear();
 }
 
@@ -1123,7 +1153,7 @@ void PreferencesWindow::on_pushButton_clicked()
 #if QV2RAY_FEATURE(util_has_ntp)
     const auto ntpTitle = tr("NTP Checker");
     const auto ntpHint = tr("Check date and time from server:");
-    const static QStringList ntpServerList = { "cn.pool.ntp.org",      "cn.ntp.org.cn",           "edu.ntp.org.cn",
+    const static QStringList ntpServerList = { "cn.pool.ntp.org", "cn.ntp.org.cn", "edu.ntp.org.cn",
                                                "time.pool.aliyun.com", "time1.cloud.tencent.com", "ntp.neu.edu.cn" };
     bool ok = false;
     const auto ntpServer = QInputDialog::getItem(this, ntpTitle, ntpHint, ntpServerList, 0, true, &ok).trimmed();
@@ -1131,27 +1161,28 @@ void PreferencesWindow::on_pushButton_clicked()
         return;
 
     auto client = new ntp::NtpClient(this);
-    connect(client, &ntp::NtpClient::replyReceived, [&](const QHostAddress &, quint16, const ntp::NtpReply &reply) {
-        const int offsetSecTotal = reply.localClockOffset() / 1000;
-        if (offsetSecTotal >= 90 || offsetSecTotal <= -90)
-        {
-            const auto inaccurateWarning = tr("Your time offset is %1 seconds, which is too high.") + NEWLINE + //
-                                           tr("Please synchronize your system to use the VMess protocol.");
-            QvMessageBoxWarn(this, tr("Time Inaccurate"), inaccurateWarning.arg(offsetSecTotal));
-        }
-        else if (offsetSecTotal > 15 || offsetSecTotal < -15)
-        {
-            const auto smallErrorWarning = tr("Your time offset is %1 seconds, which is a little high.") + NEWLINE + //
-                                           tr("VMess protocol may still work, but we suggest you synchronize your clock.");
-            QvMessageBoxInfo(this, tr("Time Somewhat Inaccurate"), smallErrorWarning.arg(offsetSecTotal));
-        }
-        else
-        {
-            const auto accurateInfo = tr("Your time offset is %1 seconds, which looks good.") + NEWLINE + //
-                                      tr("VMess protocol may not suffer from time inaccuracy.");
-            QvMessageBoxInfo(this, tr("Time Accurate"), accurateInfo.arg(offsetSecTotal));
-        }
-    });
+    connect(client, &ntp::NtpClient::replyReceived, [&](const QHostAddress &, quint16, const ntp::NtpReply &reply)
+            {
+                const int offsetSecTotal = reply.localClockOffset() / 1000;
+                if (offsetSecTotal >= 90 || offsetSecTotal <= -90)
+                {
+                    const auto inaccurateWarning = tr("Your time offset is %1 seconds, which is too high.") + NEWLINE + //
+                                                   tr("Please synchronize your system to use the VMess protocol.");
+                    QvMessageBoxWarn(this, tr("Time Inaccurate"), inaccurateWarning.arg(offsetSecTotal));
+                }
+                else if (offsetSecTotal > 15 || offsetSecTotal < -15)
+                {
+                    const auto smallErrorWarning = tr("Your time offset is %1 seconds, which is a little high.") + NEWLINE + //
+                                                   tr("VMess protocol may still work, but we suggest you synchronize your clock.");
+                    QvMessageBoxInfo(this, tr("Time Somewhat Inaccurate"), smallErrorWarning.arg(offsetSecTotal));
+                }
+                else
+                {
+                    const auto accurateInfo = tr("Your time offset is %1 seconds, which looks good.") + NEWLINE + //
+                                              tr("VMess protocol may not suffer from time inaccuracy.");
+                    QvMessageBoxInfo(this, tr("Time Accurate"), accurateInfo.arg(offsetSecTotal));
+                }
+            });
 
     const auto hostInfo = QHostInfo::fromName(ntpServer);
     if (hostInfo.error() == QHostInfo::NoError)

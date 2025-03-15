@@ -1,6 +1,7 @@
-#include "loopback.hpp"
+#include "loopback.h"
 
-LoopbackSettingsEditor::LoopbackSettingsEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
+LoopbackSettingsEditor::LoopbackSettingsEditor(QWidget *parent)
+    : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
 }
@@ -10,8 +11,11 @@ void LoopbackSettingsEditor::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 

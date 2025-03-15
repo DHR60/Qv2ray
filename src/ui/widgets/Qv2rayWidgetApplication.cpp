@@ -1,11 +1,11 @@
-#include "Qv2rayWidgetApplication.hpp"
+#include "Qv2rayWidgetApplication.h"
 
-#include "base/Qv2rayBase.hpp"
-#include "components/translations/QvTranslator.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "ui/widgets/styles/StyleManager.hpp"
-#include "ui/widgets/windows/w_MainWindow.hpp"
-#include "utils/QvHelpers.hpp"
+#include "base/Qv2rayBase.h"
+#include "components/translations/QvTranslator.h"
+#include "core/settings/SettingsBackend.h"
+#include "ui/widgets/styles/StyleManager.h"
+#include "ui/widgets/windows/w_MainWindow.h"
+#include "utils/QvHelpers.h"
 
 #include <QApplication>
 #include <QDesktopServices>
@@ -21,7 +21,8 @@
 
 constexpr auto QV2RAY_WIDGETUI_STATE_FILENAME = "UIState.json";
 
-Qv2rayWidgetApplication::Qv2rayWidgetApplication(int &argc, char *argv[]) : Qv2rayPlatformApplication(argc, argv)
+Qv2rayWidgetApplication::Qv2rayWidgetApplication(int &argc, char *argv[])
+    : Qv2rayPlatformApplication(argc, argv)
 {
 }
 
@@ -77,49 +78,49 @@ void Qv2rayWidgetApplication::onMessageReceived(quint32 clientId, QByteArray _ms
     {
         switch (argument)
         {
-            case Qv2rayStartupArguments::EXIT:
+        case Qv2rayStartupArguments::EXIT:
+        {
+            SetExitReason(EXIT_NORMAL);
+            quit();
+            break;
+        }
+        case Qv2rayStartupArguments::NORMAL:
+        {
+            mainWindow->show();
+            mainWindow->raise();
+            mainWindow->activateWindow();
+            break;
+        }
+        case Qv2rayStartupArguments::RECONNECT:
+        {
+            ConnectionManager->RestartConnection();
+            break;
+        }
+        case Qv2rayStartupArguments::DISCONNECT:
+        {
+            ConnectionManager->StopConnection();
+            break;
+        }
+        case Qv2rayStartupArguments::QV2RAY_LINK:
+        {
+            for (const auto &link : msg.links)
             {
-                SetExitReason(EXIT_NORMAL);
-                quit();
-                break;
-            }
-            case Qv2rayStartupArguments::NORMAL:
-            {
-                mainWindow->show();
-                mainWindow->raise();
-                mainWindow->activateWindow();
-                break;
-            }
-            case Qv2rayStartupArguments::RECONNECT:
-            {
-                ConnectionManager->RestartConnection();
-                break;
-            }
-            case Qv2rayStartupArguments::DISCONNECT:
-            {
-                ConnectionManager->StopConnection();
-                break;
-            }
-            case Qv2rayStartupArguments::QV2RAY_LINK:
-            {
-                for (const auto &link : msg.links)
+                const auto url = QUrl::fromUserInput(link);
+                const auto command = url.host();
+                auto subcommands = url.path().split("/");
+                subcommands.removeAll("");
+                QMap<QString, QString> args;
+                for (const auto &kvp : QUrlQuery(url).queryItems())
                 {
-                    const auto url = QUrl::fromUserInput(link);
-                    const auto command = url.host();
-                    auto subcommands = url.path().split("/");
-                    subcommands.removeAll("");
-                    QMap<QString, QString> args;
-                    for (const auto &kvp : QUrlQuery(url).queryItems())
-                    {
-                        args.insert(kvp.first, kvp.second);
-                    }
-                    if (command == "open")
-                    {
-                        emit mainWindow->ProcessCommand(command, subcommands, args);
-                    }
+                    args.insert(kvp.first, kvp.second);
                 }
-                break;
+                if (command == "open")
+                {
+                    emit mainWindow->ProcessCommand(command, subcommands, args);
+                }
             }
+            break;
+        }
         }
     }
 }
@@ -154,24 +155,26 @@ Qv2rayExitReason Qv2rayWidgetApplication::runQv2rayInternal()
         }
     }
 #ifdef Q_OS_MACOS
-    connect(this, &QApplication::applicationStateChanged, [this](Qt::ApplicationState state) {
-        switch (state)
-        {
-            case Qt::ApplicationActive:
+    connect(this, &QApplication::applicationStateChanged, [this](Qt::ApplicationState state)
             {
-                mainWindow->show();
-                mainWindow->raise();
-                mainWindow->activateWindow();
-                break;
-            }
-            case Qt::ApplicationHidden:
-            case Qt::ApplicationInactive:
-            case Qt::ApplicationSuspended: break;
-        }
-    });
+                switch (state)
+                {
+                case Qt::ApplicationActive:
+                {
+                    mainWindow->show();
+                    mainWindow->raise();
+                    mainWindow->activateWindow();
+                    break;
+                }
+                case Qt::ApplicationHidden:
+                case Qt::ApplicationInactive:
+                case Qt::ApplicationSuspended:
+                    break;
+                }
+            });
 #endif
     isInitialized = true;
-    return (Qv2rayExitReason) exec();
+    return (Qv2rayExitReason)exec();
 }
 
 void Qv2rayWidgetApplication::OpenURL(const QString &url)

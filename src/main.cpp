@@ -1,18 +1,18 @@
 #include <QtGlobal>
 
 #ifdef QV2RAY_CLI
-#include "ui/cli/Qv2rayCliApplication.hpp"
+#include "ui/cli/Qv2rayCliApplication.h"
 #endif
 
 #ifdef QV2RAY_GUI_QWIDGETS
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
+#include "ui/widgets/Qv2rayWidgetApplication.h"
 #endif
 
 #ifdef QV2RAY_GUI_QML
-#include "ui/qml/Qv2rayQMLApplication.hpp"
+#include "ui/qml/Qv2rayQMLApplication.h"
 #endif
 
-#include "utils/QvHelpers.hpp"
+#include "utils/QvHelpers.h"
 
 #include <csignal>
 
@@ -58,16 +58,16 @@ const QString SayLastWords() noexcept
         SymInitialize(process, NULL, TRUE);
         SymSetOptions(SYMOPT_LOAD_ANYTHING);
         WORD numberOfFrames = CaptureStackBackTrace(0, 1024, stack, NULL);
-        SYMBOL_INFO *symbol = (SYMBOL_INFO *) malloc(sizeof(SYMBOL_INFO) + (512 - 1) * sizeof(TCHAR));
+        SYMBOL_INFO *symbol = (SYMBOL_INFO *)malloc(sizeof(SYMBOL_INFO) + (512 - 1) * sizeof(TCHAR));
         symbol->MaxNameLen = 512;
         symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
         DWORD displacement;
-        IMAGEHLP_LINE64 *line = (IMAGEHLP_LINE64 *) malloc(sizeof(IMAGEHLP_LINE64));
+        IMAGEHLP_LINE64 *line = (IMAGEHLP_LINE64 *)malloc(sizeof(IMAGEHLP_LINE64));
         line->SizeOfStruct = sizeof(IMAGEHLP_LINE64);
         //
         for (int i = 0; i < numberOfFrames; i++)
         {
-            const auto address = (DWORD64) stack[i];
+            const auto address = (DWORD64)stack[i];
             SymFromAddr(process, address, NULL, symbol);
             if (SymGetLineFromAddr64(process, address, &displacement, line))
             {
@@ -261,8 +261,14 @@ int main(int argc, char *argv[])
     }
 
 #ifndef Q_OS_WIN
-    signal(SIGUSR1, [](int) { ConnectionManager->RestartConnection(); });
-    signal(SIGUSR2, [](int) { ConnectionManager->StopConnection(); });
+    signal(SIGUSR1, [](int)
+           {
+               ConnectionManager->RestartConnection();
+           });
+    signal(SIGUSR2, [](int)
+           {
+               ConnectionManager->StopConnection();
+           });
 #endif
 
     app.RunQv2ray();

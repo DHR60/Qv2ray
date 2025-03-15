@@ -9,9 +9,9 @@ set(BUILTIN_SUBSCRIPTION_PLUGIN_SOURCES
     ${QVPLUGIN_INTERFACE_HEADERS}
     ${QVGUIPLUGIN_INTERFACE_HEADERS}
     ${CMAKE_CURRENT_LIST_DIR}/BuiltinSubscriptionAdapter.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/BuiltinSubscriptionAdapter.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/BuiltinSubscriptionAdapter.h
     ${CMAKE_CURRENT_LIST_DIR}/core/SubscriptionAdapter.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/core/SubscriptionAdapter.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/core/SubscriptionAdapter.h
     )
 list(APPEND PLUGIN_TRANSLATION_SOURCES ${BUILTIN_PROTOCOL_PLUGIN_SOURCES})
 

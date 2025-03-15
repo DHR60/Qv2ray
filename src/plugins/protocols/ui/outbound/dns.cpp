@@ -1,4 +1,4 @@
-#include "dns.hpp"
+#include "dns.h"
 
 DnsOutboundEditor::DnsOutboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)

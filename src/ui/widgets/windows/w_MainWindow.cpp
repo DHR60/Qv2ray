@@ -1,34 +1,34 @@
-#include "w_MainWindow.hpp"
+#include "w_MainWindow.h"
 
-#include "components/update/UpdateChecker.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "plugin-interface/QvGUIPluginInterface.hpp"
-#include "ui/widgets/Qv2rayWidgetApplication.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "ui/widgets/editors/w_OutboundEditor.hpp"
-#include "ui/widgets/editors/w_RoutesEditor.hpp"
-#include "ui/widgets/widgets/ConnectionInfoWidget.hpp"
-#include "ui/widgets/windows/w_GroupManager.hpp"
-#include "ui/widgets/windows/w_ImportConfig.hpp"
-#include "ui/widgets/windows/w_PluginManager.hpp"
-#include "ui/widgets/windows/w_PreferencesWindow.hpp"
+#include "components/update/UpdateChecker.h"
+#include "core/handler/ConfigHandler.h"
+#include "core/settings/SettingsBackend.h"
+#include "plugin-interface/QvGUIPluginInterface.h"
+#include "ui/widgets/Qv2rayWidgetApplication.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "ui/widgets/editors/w_OutboundEditor.h"
+#include "ui/widgets/editors/w_RoutesEditor.h"
+#include "ui/widgets/widgets/ConnectionInfoWidget.h"
+#include "ui/widgets/windows/w_GroupManager.h"
+#include "ui/widgets/windows/w_ImportConfig.h"
+#include "ui/widgets/windows/w_PluginManager.h"
+#include "ui/widgets/windows/w_PreferencesWindow.h"
 
 #include <QClipboard>
 #include <QInputDialog>
 #include <QScrollBar>
 
-#define QV_MODULE_NAME "MainWindow"
+#define QV_MODULE_NAME      "MainWindow"
 #define TRAY_TOOLTIP_PREFIX "Qv2ray " QV2RAY_VERSION_STRING
 
-#define CheckCurrentWidget                                                                                                                           \
-    auto widget = GetIndexWidget(connectionTreeView->currentIndex());                                                                                \
-    if (widget == nullptr)                                                                                                                           \
+#define CheckCurrentWidget                                            \
+    auto widget = GetIndexWidget(connectionTreeView->currentIndex()); \
+    if (widget == nullptr)                                            \
         return;
 
-#define GetIndexWidget(item) (qobject_cast<ConnectionItemWidget *>(connectionTreeView->indexWidget(item)))
-#define NumericString(i) (QString("%1").arg(i, 30, 10, QLatin1Char('0')))
+#define GetIndexWidget(item)       (qobject_cast<ConnectionItemWidget *>(connectionTreeView->indexWidget(item)))
+#define NumericString(i)           (QString("%1").arg(i, 30, 10, QLatin1Char('0')))
 
 #define PLUGIN_BUTTON_PROPERTY_KEY "plugin_list_index"
 
@@ -39,12 +39,12 @@ QvMessageBusSlotImpl(MainWindow)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBUpdateColorSchemeDefaultImpl;
-        case RETRANSLATE:
-        {
-            retranslateUi(this);
-            UpdateActionTranslations();
-            break;
-        }
+    case RETRANSLATE:
+    {
+        retranslateUi(this);
+        UpdateActionTranslations();
+        break;
+    }
     }
 }
 
@@ -57,7 +57,7 @@ void MainWindow::SortConnectionList(ConnectionInfoRole byCol, bool asending)
 void MainWindow::ReloadRecentConnectionList()
 {
     QList<ConnectionGroupPair> newRecentConnections;
-    const auto iterateRange = std::min(GlobalConfig.uiConfig.maxJumpListCount, (int) GlobalConfig.uiConfig.recentConnections.count());
+    const auto iterateRange = std::min(GlobalConfig.uiConfig.maxJumpListCount, (int)GlobalConfig.uiConfig.recentConnections.count());
     for (auto i = 0; i < iterateRange; i++)
     {
         const auto &item = GlobalConfig.uiConfig.recentConnections.at(i);
@@ -78,18 +78,50 @@ void MainWindow::OnRecentConnectionsMenuReadyToShow()
         if (ConnectionManager->IsValidId(conn))
         {
             const auto name = GetDisplayName(conn.connectionId) + " (" + GetDisplayName(conn.groupId) + ")";
-            tray_RecentConnectionsMenu->addAction(name, [=]() { emit ConnectionManager->StartConnection(conn); });
+            tray_RecentConnectionsMenu->addAction(name, [=]()
+                                                  {
+                                                      emit ConnectionManager->StartConnection(conn);
+                                                  });
         }
     }
 }
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("MainWindow")
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent), QvStateObject("MainWindow")
 {
     setupUi(this);
-    addStateOptions("width", { [&] { return width(); }, [&](QJsonValue val) { resize(val.toInt(), size().height()); } });
-    addStateOptions("height", { [&] { return height(); }, [&](QJsonValue val) { resize(size().width(), val.toInt()); } });
-    addStateOptions("x", { [&] { return x(); }, [&](QJsonValue val) { move(val.toInt(), y()); } });
-    addStateOptions("y", { [&] { return y(); }, [&](QJsonValue val) { move(x(), val.toInt()); } });
+    addStateOptions("width", { [&]
+                               {
+                                   return width();
+                               },
+                               [&](QJsonValue val)
+                               {
+                                   resize(val.toInt(), size().height());
+                               } });
+    addStateOptions("height", { [&]
+                                {
+                                    return height();
+                                },
+                                [&](QJsonValue val)
+                                {
+                                    resize(size().width(), val.toInt());
+                                } });
+    addStateOptions("x", { [&]
+                           {
+                               return x();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(val.toInt(), y());
+                           } });
+    addStateOptions("y", { [&]
+                           {
+                               return y();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(x(), val.toInt());
+                           } });
 
 #if 0
     const auto setSplitterSize = [&](QJsonValue val) { splitter->setSizes({ val.toArray()[0].toInt(), val.toArray()[1].toInt() }); };
@@ -102,7 +134,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
 #else
     constexpr auto sizeRatioA = 0.382;
     constexpr auto sizeRatioB = 1 - sizeRatioA;
-    splitter->setSizes({ (int) (width() * sizeRatioA), (int) (width() * sizeRatioB) });
+    splitter->setSizes({ (int)(width() * sizeRatioA), (int)(width() * sizeRatioB) });
 #endif
 
     QvMessageBusConnect(MainWindow);
@@ -123,21 +155,23 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     UpdateActionTranslations();
     //
     //
-    connect(ConnectionManager, &QvConfigHandler::OnKernelCrashed, [this](const ConnectionGroupPair &, const QString &reason) {
-        MWShowWindow();
-        QvMessageBoxWarn(this, tr("Kernel terminated."),
-                         tr("The kernel terminated unexpectedly:") + NEWLINE + reason + NEWLINE + NEWLINE +
-                             tr("To solve the problem, read the kernel log in the log text browser."));
-    });
+    connect(ConnectionManager, &QvConfigHandler::OnKernelCrashed, [this](const ConnectionGroupPair &, const QString &reason)
+            {
+                MWShowWindow();
+                QvMessageBoxWarn(this, tr("Kernel terminated."),
+                                 tr("The kernel terminated unexpectedly:") + NEWLINE + reason + NEWLINE + NEWLINE +
+                                     tr("To solve the problem, read the kernel log in the log text browser."));
+            });
     //
     connect(ConnectionManager, &QvConfigHandler::OnConnected, this, &MainWindow::OnConnected);
     connect(ConnectionManager, &QvConfigHandler::OnDisconnected, this, &MainWindow::OnDisconnected);
     connect(ConnectionManager, &QvConfigHandler::OnStatsAvailable, this, &MainWindow::OnStatsAvailable);
     connect(ConnectionManager, &QvConfigHandler::OnKernelLogAvailable, this, &MainWindow::OnVCoreLogAvailable);
     //
-    connect(ConnectionManager, &QvConfigHandler::OnSubscriptionAsyncUpdateFinished, [](const GroupId &gid) {
-        QvWidgetApplication->ShowTrayMessage(tr("Subscription \"%1\" has been updated").arg(GetDisplayName(gid))); //
-    });
+    connect(ConnectionManager, &QvConfigHandler::OnSubscriptionAsyncUpdateFinished, [](const GroupId &gid)
+            {
+                QvWidgetApplication->ShowTrayMessage(tr("Subscription \"%1\" has been updated").arg(GetDisplayName(gid))); //
+            });
     //
     connect(infoWidget, &ConnectionInfoWidget::OnEditRequested, this, &MainWindow::OnEditRequested);
     connect(infoWidget, &ConnectionInfoWidget::OnJsonEditRequested, this, &MainWindow::OnEditJsonRequested);
@@ -181,7 +215,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     //
     connect(tray_action_ToggleVisibility, &QAction::triggered, this, &MainWindow::MWToggleVisibility);
     connect(tray_action_Preferences, &QAction::triggered, this, &MainWindow::on_preferencesBtn_clicked);
-    connect(tray_action_Start, &QAction::triggered, [this] { ConnectionManager->StartConnection(lastConnected); });
+    connect(tray_action_Start, &QAction::triggered, [this]
+            {
+                ConnectionManager->StartConnection(lastConnected);
+            });
     connect(tray_action_Stop, &QAction::triggered, ConnectionManager, &QvConfigHandler::StopConnection);
     connect(tray_action_Restart, &QAction::triggered, ConnectionManager, &QvConfigHandler::RestartConnection);
     connect(tray_action_Quit, &QAction::triggered, this, &MainWindow::Action_Exit);
@@ -189,12 +226,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     connect(tray_action_ClearBypassCN, &QAction::triggered, this, &MainWindow::on_clearBypassCNBtn_clicked);
     connect(tray_action_SetSystemProxy, &QAction::triggered, this, &MainWindow::MWSetSystemProxy);
     connect(tray_action_ClearSystemProxy, &QAction::triggered, this, &MainWindow::MWClearSystemProxy);
-    connect(tray_ClearRecentConnectionsAction, &QAction::triggered, [this]() {
-        GlobalConfig.uiConfig.recentConnections.clear();
-        ReloadRecentConnectionList();
-        if (!GlobalConfig.uiConfig.quietMode)
-            QvWidgetApplication->ShowTrayMessage(tr("Recent Connection list cleared."));
-    });
+    connect(tray_ClearRecentConnectionsAction, &QAction::triggered, [this]()
+            {
+                GlobalConfig.uiConfig.recentConnections.clear();
+                ReloadRecentConnectionList();
+                if (!GlobalConfig.uiConfig.quietMode)
+                    QvWidgetApplication->ShowTrayMessage(tr("Recent Connection list cleared."));
+            });
     connect(qvAppTrayIcon, &QSystemTrayIcon::activated, this, &MainWindow::on_activatedTray);
     //
     // Actions for right click the log text browser
@@ -204,14 +242,26 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     logRCM_Menu->addSeparator();
     logRCM_Menu->addAction(action_RCM_SwitchCoreLog);
     logRCM_Menu->addAction(action_RCM_SwitchQv2rayLog);
-    connect(masterLogBrowser, &QTextBrowser::customContextMenuRequested, [this](const QPoint &) { logRCM_Menu->popup(QCursor::pos()); });
-    connect(action_RCM_SwitchCoreLog, &QAction::triggered, [this] { masterLogBrowser->setDocument(vCoreLogDocument); });
-    connect(action_RCM_SwitchQv2rayLog, &QAction::triggered, [this] { masterLogBrowser->setDocument(qvLogDocument); });
+    connect(masterLogBrowser, &QTextBrowser::customContextMenuRequested, [this](const QPoint &)
+            {
+                logRCM_Menu->popup(QCursor::pos());
+            });
+    connect(action_RCM_SwitchCoreLog, &QAction::triggered, [this]
+            {
+                masterLogBrowser->setDocument(vCoreLogDocument);
+            });
+    connect(action_RCM_SwitchQv2rayLog, &QAction::triggered, [this]
+            {
+                masterLogBrowser->setDocument(qvLogDocument);
+            });
     connect(action_RCM_CopyRecentLogs, &QAction::triggered, this, &MainWindow::Action_CopyRecentLogs);
     connect(action_RCM_CopySelected, &QAction::triggered, masterLogBrowser, &QTextBrowser::copy);
     //
     speedChartWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(speedChartWidget, &QWidget::customContextMenuRequested, [this](const QPoint &) { graphWidgetMenu->popup(QCursor::pos()); });
+    connect(speedChartWidget, &QWidget::customContextMenuRequested, [this](const QPoint &)
+            {
+                graphWidgetMenu->popup(QCursor::pos());
+            });
     //
     masterLogBrowser->setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     {
@@ -276,12 +326,30 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), QvStateObject("Ma
     sortMenu->addAction(sortAction_SortByPing_Asc);
     sortMenu->addAction(sortAction_SortByPing_Dsc);
     //
-    connect(sortAction_SortByName_Asc, &QAction::triggered, [this] { SortConnectionList(ROLE_DISPLAYNAME, true); });
-    connect(sortAction_SortByName_Dsc, &QAction::triggered, [this] { SortConnectionList(ROLE_DISPLAYNAME, false); });
-    connect(sortAction_SortByData_Asc, &QAction::triggered, [this] { SortConnectionList(ROLE_DATA_USAGE, true); });
-    connect(sortAction_SortByData_Dsc, &QAction::triggered, [this] { SortConnectionList(ROLE_DATA_USAGE, false); });
-    connect(sortAction_SortByPing_Asc, &QAction::triggered, [this] { SortConnectionList(ROLE_LATENCY, true); });
-    connect(sortAction_SortByPing_Dsc, &QAction::triggered, [this] { SortConnectionList(ROLE_LATENCY, false); });
+    connect(sortAction_SortByName_Asc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_DISPLAYNAME, true);
+            });
+    connect(sortAction_SortByName_Dsc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_DISPLAYNAME, false);
+            });
+    connect(sortAction_SortByData_Asc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_DATA_USAGE, true);
+            });
+    connect(sortAction_SortByData_Dsc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_DATA_USAGE, false);
+            });
+    connect(sortAction_SortByPing_Asc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_LATENCY, true);
+            });
+    connect(sortAction_SortByPing_Dsc, &QAction::triggered, [this]
+            {
+                SortConnectionList(ROLE_LATENCY, false);
+            });
     //
     sortBtn->setMenu(sortMenu);
     //
@@ -466,7 +534,6 @@ void MainWindow::keyReleaseEvent(QKeyEvent *e)
 
 void MainWindow::changeEvent(QEvent *e)
 {
-
     if (e->type() == QEvent::WindowStateChange)
     {
         MWToggleVisibilitySetText();
@@ -704,13 +771,14 @@ void MainWindow::OnConnected(const ConnectionGroupPair &id)
     GlobalConfig.uiConfig.recentConnections.push_front(id);
     ReloadRecentConnectionList();
     //
-    QTimer::singleShot(1000, ConnectionManager, [id]() {
-        // After the kernel initialization is complete, we can test the delay without worry
-        if (GlobalConfig.advancedConfig.testLatencyOnConnected)
-        {
-            ConnectionManager->StartLatencyTest(id.connectionId);
-        }
-    });
+    QTimer::singleShot(1000, ConnectionManager, [id]()
+                       {
+                           // After the kernel initialization is complete, we can test the delay without worry
+                           if (GlobalConfig.advancedConfig.testLatencyOnConnected)
+                           {
+                               ConnectionManager->StartLatencyTest(id.connectionId);
+                           }
+                       });
     if (GlobalConfig.inboundConfig.systemProxySettings.setSystemProxy)
     {
         MWSetSystemProxy();
@@ -738,28 +806,29 @@ void MainWindow::OnStatsAvailable(const ConnectionGroupPair &id, const QMap<Stat
         const auto downSpeed = data.first.second;
         switch (type)
         {
-            case API_INBOUND:
-                if (!isOutbound)
-                {
-                    pointData[SpeedWidget::INBOUND_UP] = upSpeed;
-                    pointData[SpeedWidget::INBOUND_DOWN] = downSpeed;
-                }
-                break;
-            case API_OUTBOUND_PROXY:
-                if (isOutbound)
-                {
-                    pointData[SpeedWidget::OUTBOUND_PROXY_UP] = upSpeed;
-                    pointData[SpeedWidget::OUTBOUND_PROXY_DOWN] = downSpeed;
-                }
-                break;
-            case API_OUTBOUND_DIRECT:
-                if (hasDirect)
-                {
-                    pointData[SpeedWidget::OUTBOUND_DIRECT_UP] = upSpeed;
-                    pointData[SpeedWidget::OUTBOUND_DIRECT_DOWN] = downSpeed;
-                }
-                break;
-            case API_OUTBOUND_BLACKHOLE: break;
+        case API_INBOUND:
+            if (!isOutbound)
+            {
+                pointData[SpeedWidget::INBOUND_UP] = upSpeed;
+                pointData[SpeedWidget::INBOUND_DOWN] = downSpeed;
+            }
+            break;
+        case API_OUTBOUND_PROXY:
+            if (isOutbound)
+            {
+                pointData[SpeedWidget::OUTBOUND_PROXY_UP] = upSpeed;
+                pointData[SpeedWidget::OUTBOUND_PROXY_DOWN] = downSpeed;
+            }
+            break;
+        case API_OUTBOUND_DIRECT:
+            if (hasDirect)
+            {
+                pointData[SpeedWidget::OUTBOUND_DIRECT_UP] = upSpeed;
+                pointData[SpeedWidget::OUTBOUND_DIRECT_DOWN] = downSpeed;
+            }
+            break;
+        case API_OUTBOUND_BLACKHOLE:
+            break;
         }
     }
 
@@ -1072,7 +1141,7 @@ void MainWindow::Action_CopyRecentLogs()
     if (!accepted)
         return;
     const auto totalLinesCount = lines.count();
-    const auto linesToCopy = std::min((int) totalLinesCount, line);
+    const auto linesToCopy = std::min((int)totalLinesCount, line);
     QStringList result;
     for (auto i = totalLinesCount - linesToCopy; i < totalLinesCount; i++)
     {

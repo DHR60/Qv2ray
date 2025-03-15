@@ -1,7 +1,7 @@
-#include "Qv2rayQMLApplication.hpp"
+#include "Qv2rayQMLApplication.h"
 
-#include "components/translations/QvTranslator.hpp"
-#include "core/settings/SettingsBackend.hpp"
+#include "components/translations/QvTranslator.h"
+#include "core/settings/SettingsBackend.h"
 
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -15,7 +15,8 @@
 #include <qmllive/remotereceiver.h>
 #endif
 
-Qv2rayQMLApplication::Qv2rayQMLApplication(int &argc, char *argv[]) : Qv2rayPlatformApplication(argc, argv)
+Qv2rayQMLApplication::Qv2rayQMLApplication(int &argc, char *argv[])
+    : Qv2rayPlatformApplication(argc, argv)
 {
 }
 
@@ -48,7 +49,8 @@ Qv2rayExitReason Qv2rayQMLApplication::runQv2rayInternal()
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
     const QUrl url("qrc:/forms/MainWindow.qml");
-    const auto connectLambda = [url](QObject *obj, const QUrl &objUrl) {
+    const auto connectLambda = [url](QObject *obj, const QUrl &objUrl)
+    {
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     };
@@ -82,7 +84,7 @@ Qv2rayExitReason Qv2rayQMLApplication::runQv2rayInternal()
     QList<QQmlError> warnings;
     node.usePreloadedDocument(applicationDirPath() + "/forms/MainWindow.qml", window, warnings);
 #endif
-    return (Qv2rayExitReason) exec();
+    return (Qv2rayExitReason)exec();
 }
 
 void Qv2rayQMLApplication::terminateUIInternal()

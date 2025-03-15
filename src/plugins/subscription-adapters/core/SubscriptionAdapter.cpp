@@ -1,4 +1,4 @@
-#include "SubscriptionAdapter.hpp"
+#include "SubscriptionAdapter.h"
 
 #include <QJsonArray>
 #include <QJsonDocument>

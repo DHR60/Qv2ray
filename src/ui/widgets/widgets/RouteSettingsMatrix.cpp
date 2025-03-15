@@ -1,16 +1,17 @@
-#include "RouteSettingsMatrix.hpp"
+#include "RouteSettingsMatrix.h"
 
-#include "components/geosite/QvGeositeReader.hpp"
-#include "components/route/RouteSchemeIO.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "components/geosite/QvGeositeReader.h"
+#include "components/route/RouteSchemeIO.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
 
 #include <QFileDialog>
 #include <QInputDialog>
 
 #define QV_MODULE_NAME "RouteSettingsMatrix"
 
-RouteSettingsMatrixWidget::RouteSettingsMatrixWidget(const QString &assetsDirPath, QWidget *parent) : QWidget(parent), assetsDirPath(assetsDirPath)
+RouteSettingsMatrixWidget::RouteSettingsMatrixWidget(const QString &assetsDirPath, QWidget *parent)
+    : QWidget(parent), assetsDirPath(assetsDirPath)
 {
     setupUi(this);
     //
@@ -53,7 +54,10 @@ QAction *RouteSettingsMatrixWidget::schemeToAction(const QString &name, const Qv
 {
     QAction *action = new QAction(this);
     action->setText(name);
-    connect(action, &QAction::triggered, [this, &scheme] { this->SetRouteConfig(scheme); });
+    connect(action, &QAction::triggered, [this, &scheme]
+            {
+                this->SetRouteConfig(scheme);
+            });
     return action;
 }
 

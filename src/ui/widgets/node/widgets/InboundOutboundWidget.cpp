@@ -1,13 +1,14 @@
-#include "InboundOutboundWidget.hpp"
+#include "InboundOutboundWidget.h"
 
-#include "base/Qv2rayBase.hpp"
-#include "core/CoreUtils.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "ui/widgets/editors/w_InboundEditor.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "ui/widgets/editors/w_OutboundEditor.hpp"
+#include "base/Qv2rayBase.h"
+#include "core/CoreUtils.h"
+#include "core/handler/ConfigHandler.h"
+#include "ui/widgets/editors/w_InboundEditor.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "ui/widgets/editors/w_OutboundEditor.h"
 
-InboundOutboundWidget::InboundOutboundWidget(ComplexTagNodeMode mode, std::shared_ptr<NodeDispatcher> _d, QWidget *parent) : QvNodeWidget(_d, parent)
+InboundOutboundWidget::InboundOutboundWidget(ComplexTagNodeMode mode, std::shared_ptr<NodeDispatcher> _d, QWidget *parent)
+    : QvNodeWidget(_d, parent)
 {
     workingMode = mode;
     setupUi(this);
@@ -37,12 +38,13 @@ void InboundOutboundWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange:
-        {
-            retranslateUi(this);
-            break;
-        }
-        default: break;
+    case QEvent::LanguageChange:
+    {
+        retranslateUi(this);
+        break;
+    }
+    default:
+        break;
     }
 }
 

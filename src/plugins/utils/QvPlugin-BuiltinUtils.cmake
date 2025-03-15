@@ -9,13 +9,13 @@ set(BUILTIN_SUBSCRIPTION_PLUGIN_SOURCES
     ${QVPLUGIN_INTERFACE_HEADERS}
     ${QVGUIPLUGIN_INTERFACE_HEADERS}
     ${CMAKE_CURRENT_LIST_DIR}/BuiltinUtils.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/BuiltinUtils.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/BuiltinUtils.h
     ${CMAKE_CURRENT_LIST_DIR}/core/EventHandler.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/core/EventHandler.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/core/EventHandler.h
     ${CMAKE_CURRENT_LIST_DIR}/core/GUIInterface.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/core/GUIInterface.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/core/GUIInterface.h
     ${CMAKE_CURRENT_LIST_DIR}/core/MainWindowWidget.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/core/MainWindowWidget.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/core/MainWindowWidget.h
     ${CMAKE_CURRENT_LIST_DIR}/core/MainWindowWidget.ui
     )
 list(APPEND PLUGIN_TRANSLATION_SOURCES ${BUILTIN_PROTOCOL_PLUGIN_SOURCES})

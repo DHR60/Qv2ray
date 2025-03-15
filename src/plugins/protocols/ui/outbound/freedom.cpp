@@ -1,4 +1,4 @@
-#include "freedom.hpp"
+#include "freedom.h"
 
 FreedomOutboundEditor::FreedomOutboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)

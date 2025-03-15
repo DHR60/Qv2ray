@@ -1,8 +1,9 @@
-#include "MainWindowWidget.hpp"
+#include "MainWindowWidget.h"
 
 #include <QFocusEvent>
 
-MainWindowWidget::MainWindowWidget(QWidget *parent) : Qv2rayPlugin::QvPluginMainWindowWidget(parent)
+MainWindowWidget::MainWindowWidget(QWidget *parent)
+    : Qv2rayPlugin::QvPluginMainWindowWidget(parent)
 {
     setupUi(this);
 }
@@ -13,8 +14,11 @@ void MainWindowWidget::changeEvent(QEvent *e)
 
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 
     if (!isActiveWindow())

@@ -1,27 +1,27 @@
-#include "DnsSettingsWidget.hpp"
+#include "DnsSettingsWidget.h"
 
-#include "components/geosite/QvGeositeReader.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/widgets/QvAutoCompleteTextEdit.hpp"
-#include "utils/QvHelpers.hpp"
+#include "components/geosite/QvGeositeReader.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/widgets/QvAutoCompleteTextEdit.h"
+#include "utils/QvHelpers.h"
 
 using Qv2ray::common::validation::IsIPv4Address;
 using Qv2ray::common::validation::IsIPv6Address;
 using Qv2ray::common::validation::IsValidDNSServer;
 using Qv2ray::common::validation::IsValidIPAddress;
 
-#define CHECK_DISABLE_MOVE_BTN                                                                                                                       \
-    if (serversListbox->count() <= 1)                                                                                                                \
-    {                                                                                                                                                \
-        moveServerUpBtn->setEnabled(false);                                                                                                          \
-        moveServerDownBtn->setEnabled(false);                                                                                                        \
+#define CHECK_DISABLE_MOVE_BTN                \
+    if (serversListbox->count() <= 1)         \
+    {                                         \
+        moveServerUpBtn->setEnabled(false);   \
+        moveServerDownBtn->setEnabled(false); \
     }
 
-#define UPDATE_UI_ENABLED_STATE                                                                                                                      \
-    detailsSettingsGB->setEnabled(serversListbox->count() > 0);                                                                                      \
-    serverAddressTxt->setEnabled(serversListbox->count() > 0);                                                                                       \
-    removeServerBtn->setEnabled(serversListbox->count() > 0);                                                                                        \
-    ProcessDnsPortEnabledState();                                                                                                                    \
+#define UPDATE_UI_ENABLED_STATE                                 \
+    detailsSettingsGB->setEnabled(serversListbox->count() > 0); \
+    serverAddressTxt->setEnabled(serversListbox->count() > 0);  \
+    removeServerBtn->setEnabled(serversListbox->count() > 0);   \
+    ProcessDnsPortEnabledState();                               \
     CHECK_DISABLE_MOVE_BTN
 
 #define currentServerIndex serversListbox->currentRow()
@@ -36,7 +36,8 @@ void DnsSettingsWidget::updateColorScheme()
     removeStaticHostBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("minus")));
 }
 
-DnsSettingsWidget::DnsSettingsWidget(QWidget *parent) : QWidget(parent)
+DnsSettingsWidget::DnsSettingsWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
     QvMessageBusConnect(DnsSettingsWidget);
@@ -47,9 +48,15 @@ DnsSettingsWidget::DnsSettingsWidget(QWidget *parent) : QWidget(parent)
     domainListTxt = new AutoCompleteTextEdit("geosite", sourceStringsDomain, this);
     ipListTxt = new AutoCompleteTextEdit("geoip", sourceStringsIP, this);
     connect(domainListTxt, &AutoCompleteTextEdit::textChanged,
-            [&]() { this->dns.servers[currentServerIndex].domains = SplitLines(domainListTxt->toPlainText()); });
+            [&]()
+            {
+                this->dns.servers[currentServerIndex].domains = SplitLines(domainListTxt->toPlainText());
+            });
     connect(ipListTxt, &AutoCompleteTextEdit::textChanged,
-            [&]() { this->dns.servers[currentServerIndex].expectIPs = SplitLines(ipListTxt->toPlainText()); });
+            [&]()
+            {
+                this->dns.servers[currentServerIndex].expectIPs = SplitLines(ipListTxt->toPlainText());
+            });
 
     domainsLayout->addWidget(domainListTxt);
     expectedIPsLayout->addWidget(ipListTxt);
@@ -64,13 +71,14 @@ QvMessageBusSlotImpl(DnsSettingsWidget)
     switch (msg)
     {
         MBRetranslateDefaultImpl;
-        case HIDE_WINDOWS:
-        case SHOW_WINDOWS: break;
-        case UPDATE_COLORSCHEME:
-        {
-            updateColorScheme();
-            break;
-        }
+    case HIDE_WINDOWS:
+    case SHOW_WINDOWS:
+        break;
+    case UPDATE_COLORSCHEME:
+    {
+        updateColorScheme();
+        break;
+    }
     }
 }
 
@@ -83,7 +91,10 @@ void DnsSettingsWidget::SetDNSObject(const DNSObject &_dns, const FakeDNSObject 
     dnsTagTxt->setText(dns.tag);
 
     serversListbox->clear();
-    std::for_each(dns.servers.begin(), dns.servers.end(), [&](const auto &dns) { serversListbox->addItem(dns.address); });
+    std::for_each(dns.servers.begin(), dns.servers.end(), [&](const auto &dns)
+                  {
+                      serversListbox->addItem(dns.address);
+                  });
 
     if (serversListbox->count() > 0)
     {

@@ -1,6 +1,6 @@
-#include "BuiltinSubscriptionAdapter.hpp"
+#include "BuiltinSubscriptionAdapter.h"
 
-#include "core/SubscriptionAdapter.hpp"
+#include "core/SubscriptionAdapter.h"
 
 bool InternalSubscriptionSupportPlugin::InitializePlugin(const QString &, const QJsonObject &settings)
 {

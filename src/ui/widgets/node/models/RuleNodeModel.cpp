@@ -1,21 +1,23 @@
-#include "RuleNodeModel.hpp"
+#include "RuleNodeModel.h"
 
-#include "core/CoreUtils.hpp"
-#include "ui/widgets/node/widgets/RuleWidget.hpp"
+#include "core/CoreUtils.h"
+#include "ui/widgets/node/widgets/RuleWidget.h"
 
 #define QV_MODULE_NAME "Node::RuleNodeModel"
 
-RuleNodeModel::RuleNodeModel(std::shared_ptr<NodeDispatcher> _dispatcher, std::shared_ptr<node_data_t> data) : NodeDataModel()
+RuleNodeModel::RuleNodeModel(std::shared_ptr<NodeDispatcher> _dispatcher, std::shared_ptr<node_data_t> data)
+    : NodeDataModel()
 {
     dataptr = data;
     dispatcher = _dispatcher;
     widget = new QvNodeRuleWidget(dispatcher);
     connect(widget, &QvNodeWidget::OnSizeUpdated, this, &NodeDataModel::embeddedWidgetSizeUpdated);
-    ((QvNodeRuleWidget *) widget)->setValue(data);
+    ((QvNodeRuleWidget *)widget)->setValue(data);
     widget->setWindowFlags(Qt::FramelessWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground);
     //
-    const auto renameFunc = [this](ComplexTagNodeMode mode, const QString originalTag, const QString newTag) {
+    const auto renameFunc = [this](ComplexTagNodeMode mode, const QString originalTag, const QString newTag)
+    {
         if (mode == NODE_INBOUND)
         {
             if (dataptr->inboundTag.contains(originalTag))
@@ -35,7 +37,7 @@ RuleNodeModel::RuleNodeModel(std::shared_ptr<NodeDispatcher> _dispatcher, std::s
     connect(dispatcher.get(), &NodeDispatcher::OnObjectTagChanged, renameFunc);
 }
 
-void RuleNodeModel::inputConnectionCreated(const QtNodes::Connection &){};
+void RuleNodeModel::inputConnectionCreated(const QtNodes::Connection &) {};
 void RuleNodeModel::inputConnectionDeleted(const QtNodes::Connection &c)
 {
     if (dispatcher->IsNodeConstructing())
@@ -45,7 +47,7 @@ void RuleNodeModel::inputConnectionDeleted(const QtNodes::Connection &c)
     dataptr->inboundTag.removeAll(inboundTag);
 }
 
-void RuleNodeModel::outputConnectionCreated(const QtNodes::Connection &){};
+void RuleNodeModel::outputConnectionCreated(const QtNodes::Connection &) {};
 void RuleNodeModel::outputConnectionDeleted(const QtNodes::Connection &)
 {
     if (dispatcher->IsNodeConstructing())
@@ -72,5 +74,5 @@ void RuleNodeModel::setInData(std::vector<std::shared_ptr<NodeData>> indata, Por
     }
 }
 
-void RuleNodeModel::onNodeHoverEnter(){};
-void RuleNodeModel::onNodeHoverLeave(){};
+void RuleNodeModel::onNodeHoverEnter() {};
+void RuleNodeModel::onNodeHoverLeave() {};

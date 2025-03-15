@@ -27,9 +27,9 @@
  * delete this exception statement from your version.
  */
 
-#include "speedwidget.hpp"
+#include "speedwidget.h"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/Qv2rayBase.h"
 
 #include <QPainter>
 
@@ -38,7 +38,8 @@
 // table of supposed nice steps for grid marks to get nice looking quarters of scale
 const static double roundingTable[] = { 1.2, 1.6, 2, 2.4, 2.8, 3.2, 4, 6, 8 };
 
-SpeedWidget::SpeedWidget(QWidget *parent) : QGraphicsView(parent)
+SpeedWidget::SpeedWidget(QWidget *parent)
+    : QGraphicsView(parent)
 {
     UpdateSpeedPlotSettings();
 }
@@ -89,11 +90,15 @@ int friendlyUnitPrecision(const SizeUnit unit)
     // friendlyUnit's number of digits after the decimal point
     switch (unit)
     {
-        case SizeUnit::Byte: return 0;
-        case SizeUnit::KByte:
-        case SizeUnit::MByte: return 1;
-        case SizeUnit::GByte: return 2;
-        default: return 3;
+    case SizeUnit::Byte:
+        return 0;
+    case SizeUnit::KByte:
+    case SizeUnit::MByte:
+        return 1;
+    case SizeUnit::GByte:
+        return 2;
+    default:
+        return 3;
     }
 }
 struct SplittedValue
@@ -163,7 +168,8 @@ void SpeedWidget::UpdateSpeedPlotSettings()
 {
     auto &Graph = GlobalConfig.uiConfig.graphConfig;
 
-    const auto apply_penconfig = [&](StatisticsType x, QvPair<QvGraphPenConfig> y) {
+    const auto apply_penconfig = [&](StatisticsType x, QvPair<QvGraphPenConfig> y)
+    {
         if (!Graph.colorConfig.contains(x))
             Graph.colorConfig[x] = y;
     };
@@ -172,8 +178,11 @@ void SpeedWidget::UpdateSpeedPlotSettings()
     apply_penconfig(API_OUTBOUND_PROXY, Graph.colorConfig[API_INBOUND]);
     apply_penconfig(API_OUTBOUND_DIRECT, Qv2rayConfig_Graph::DirectPen);
 
-    const auto getPen = [](const QvGraphPenConfig &conf) {
-        QPen p{ { conf.R, conf.G, conf.B } };
+    const auto getPen = [](const QvGraphPenConfig &conf)
+    {
+        QPen p{
+            { conf.R, conf.G, conf.B }
+        };
         p.setStyle(conf.style);
         p.setWidthF(conf.width);
         return p;

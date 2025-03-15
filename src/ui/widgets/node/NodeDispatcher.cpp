@@ -1,16 +1,17 @@
-#include "NodeDispatcher.hpp"
+#include "NodeDispatcher.h"
 
-#include "core/CoreUtils.hpp"
-#include "models/InboundNodeModel.hpp"
-#include "models/OutboundNodeModel.hpp"
-#include "models/RuleNodeModel.hpp"
-#include "utils/QvHelpers.hpp"
+#include "core/CoreUtils.h"
+#include "models/InboundNodeModel.h"
+#include "models/OutboundNodeModel.h"
+#include "models/RuleNodeModel.h"
+#include "utils/QvHelpers.h"
 
 #include <nodes/Node>
 
 #define QV_MODULE_NAME "NodeDispatcher"
 
-NodeDispatcher::NodeDispatcher(QObject *parent) : QObject(parent)
+NodeDispatcher::NodeDispatcher(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -122,16 +123,16 @@ void NodeDispatcher::OnNodeDeleted(const QtNodes::Node &node)
             Q_ASSERT_X(!isInbound && !isOutbound, "Delete Node", "Node Type Error");
     }
 
-#define CLEANUP(type)                                                                                                                                \
-    if (!type##Nodes.values().contains(nodeId))                                                                                                      \
-    {                                                                                                                                                \
-        LOG("Could not find a " #type " with id: " + nodeId.toString());                                                                             \
-        return;                                                                                                                                      \
-    }                                                                                                                                                \
-    const auto type##Tag = type##Nodes.key(nodeId);                                                                                                  \
-    const auto type = type##s.value(type##Tag);                                                                                                      \
-                                                                                                                                                     \
-    type##Nodes.remove(type##Tag);                                                                                                                   \
+#define CLEANUP(type)                                                    \
+    if (!type##Nodes.values().contains(nodeId))                          \
+    {                                                                    \
+        LOG("Could not find a " #type " with id: " + nodeId.toString()); \
+        return;                                                          \
+    }                                                                    \
+    const auto type##Tag = type##Nodes.key(nodeId);                      \
+    const auto type = type##s.value(type##Tag);                          \
+                                                                         \
+    type##Nodes.remove(type##Tag);                                       \
     type##s.remove(type##Tag);
 
     if (isInbound)

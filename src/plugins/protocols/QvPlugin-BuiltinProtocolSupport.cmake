@@ -8,7 +8,7 @@ include(${CMAKE_SOURCE_DIR}/src/plugin-interface/QvGUIPluginInterface.cmake)
 macro(ADD_SOURCE mode name)
     list(APPEND PLUGIN_UI_SOURCE "${CMAKE_CURRENT_LIST_DIR}/ui/${mode}/${name}.ui")
     list(APPEND PLUGIN_UI_SOURCE "${CMAKE_CURRENT_LIST_DIR}/ui/${mode}/${name}.cpp")
-    list(APPEND PLUGIN_UI_SOURCE "${CMAKE_CURRENT_LIST_DIR}/ui/${mode}/${name}.hpp")
+    list(APPEND PLUGIN_UI_SOURCE "${CMAKE_CURRENT_LIST_DIR}/ui/${mode}/${name}.h")
 endmacro()
 
 ADD_SOURCE(outbound blackhole)
@@ -30,14 +30,14 @@ ADD_SOURCE(inbound socksin)
 
 set(BUILTIN_PROTOCOL_PLUGIN_SOURCES
     ${PLUGIN_UI_SOURCE}
-    ${CMAKE_CURRENT_LIST_DIR}/../common/CommonTypes.hpp
-    ${CMAKE_CURRENT_LIST_DIR}/BuiltinProtocolPlugin.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/../common/CommonTypes.h
+    ${CMAKE_CURRENT_LIST_DIR}/BuiltinProtocolPlugin.h
     ${CMAKE_CURRENT_LIST_DIR}/BuiltinProtocolPlugin.cpp
     ${CMAKE_CURRENT_LIST_DIR}/core/OutboundHandler.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/core/OutboundHandler.hpp
-    ${CMAKE_CURRENT_LIST_DIR}/ui/Interface.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/core/OutboundHandler.h
+    ${CMAKE_CURRENT_LIST_DIR}/ui/Interface.h
     ${CMAKE_CURRENT_LIST_DIR}/ui/PluginSettingsWidget.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/ui/PluginSettingsWidget.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/ui/PluginSettingsWidget.h
     ${CMAKE_CURRENT_LIST_DIR}/ui/PluginSettingsWidget.ui
     ${QVPLUGIN_INTERFACE_HEADERS}
     ${QVGUIPLUGIN_INTERFACE_HEADERS}

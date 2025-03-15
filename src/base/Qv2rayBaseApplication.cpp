@@ -1,8 +1,8 @@
-#include "Qv2rayBaseApplication.hpp"
+#include "Qv2rayBaseApplication.h"
 
-#include "components/translations/QvTranslator.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "utils/QvHelpers.hpp"
+#include "components/translations/QvTranslator.h"
+#include "core/settings/SettingsBackend.h"
+#include "utils/QvHelpers.h"
 
 #define QV_MODULE_NAME "BaseApplication"
 inline QString makeAbs(const QString &p)

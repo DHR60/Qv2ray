@@ -1,17 +1,18 @@
-#include "w_OutboundEditor.hpp"
+#include "w_OutboundEditor.h"
 
-#include "core/connection/Generation.hpp"
-#include "plugin-interface/QvGUIPluginInterface.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "ui/widgets/editors/w_RoutesEditor.hpp"
+#include "core/connection/Generation.h"
+#include "plugin-interface/QvGUIPluginInterface.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "ui/widgets/editors/w_RoutesEditor.h"
 
 #include <QFile>
 #include <QIntValidator>
 
 #define QV_MODULE_NAME "OutboundEditor"
 
-OutboundEditor::OutboundEditor(QWidget *parent) : QDialog(parent), tag(OUTBOUND_TAG_PROXY)
+OutboundEditor::OutboundEditor(QWidget *parent)
+    : QDialog(parent), tag(OUTBOUND_TAG_PROXY)
 {
     QvMessageBusConnect(OutboundEditor);
     setupUi(this);
@@ -53,11 +54,13 @@ QvMessageBusSlotImpl(OutboundEditor)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME: break;
+    case UPDATE_COLORSCHEME:
+        break;
     }
 }
 
-OutboundEditor::OutboundEditor(const OUTBOUND &outboundEntry, QWidget *parent) : OutboundEditor(parent)
+OutboundEditor::OutboundEditor(const OUTBOUND &outboundEntry, QWidget *parent)
+    : OutboundEditor(parent)
 {
     originalConfig = outboundEntry;
     reloadGUI();

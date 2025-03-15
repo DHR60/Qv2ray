@@ -1,12 +1,13 @@
-#include "RoutingEditorWidget.hpp"
+#include "RoutingEditorWidget.h"
 
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/node/NodeBase.hpp"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/node/NodeBase.h"
 
 constexpr auto GRAPH_GLOBAL_OFFSET_X = -100;
 constexpr auto GRAPH_GLOBAL_OFFSET_Y = -100;
 
-RoutingEditorWidget::RoutingEditorWidget(std::shared_ptr<NodeDispatcher> dispatcher, QWidget *parent) : QWidget(parent), dispatcher(dispatcher)
+RoutingEditorWidget::RoutingEditorWidget(std::shared_ptr<NodeDispatcher> dispatcher, QWidget *parent)
+    : QWidget(parent), dispatcher(dispatcher)
 {
     setupUi(this);
     QvMessageBusConnect(RoutingEditorWidget);
@@ -42,7 +43,8 @@ QvMessageBusSlotImpl(RoutingEditorWidget)
     {
         MBRetranslateDefaultImpl;
         MBUpdateColorSchemeDefaultImpl;
-        default: break;
+    default:
+        break;
     }
 }
 
@@ -51,8 +53,11 @@ void RoutingEditorWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 void RoutingEditorWidget::OnDispatcherInboundCreated(std::shared_ptr<INBOUND>, QtNodes::Node &node)

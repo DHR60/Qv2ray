@@ -1,4 +1,4 @@
-#include "NodeBase.hpp"
+#include "NodeBase.h"
 std::shared_ptr<NodeDataType> InboundNodeModel::dataType(PortType, PortIndex) const
 {
     return NODE_TYPE_INBOUND;
@@ -13,9 +13,12 @@ std::shared_ptr<NodeDataType> RuleNodeModel::dataType(PortType portType, PortInd
 {
     switch (portType)
     {
-        case PortType::In: return NODE_TYPE_INBOUND;
-        case PortType::Out: return NODE_TYPE_OUTBOUND;
-        default: return {};
+    case PortType::In:
+        return NODE_TYPE_INBOUND;
+    case PortType::Out:
+        return NODE_TYPE_OUTBOUND;
+    default:
+        return {};
     }
 }
 

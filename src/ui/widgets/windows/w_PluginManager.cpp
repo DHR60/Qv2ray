@@ -1,18 +1,47 @@
-#include "w_PluginManager.hpp"
+#include "w_PluginManager.h"
 
-#include "components/plugins/QvPluginHost.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "utils/QvHelpers.hpp"
+#include "components/plugins/QvPluginHost.h"
+#include "core/settings/SettingsBackend.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "utils/QvHelpers.h"
 
 #include <QDesktopServices>
 
-PluginManageWindow::PluginManageWindow(QWidget *parent) : QvDialog("PluginManager", parent)
+PluginManageWindow::PluginManageWindow(QWidget *parent)
+    : QvDialog("PluginManager", parent)
 {
-    addStateOptions("width", { [&] { return width(); }, [&](QJsonValue val) { resize(val.toInt(), size().height()); } });
-    addStateOptions("height", { [&] { return height(); }, [&](QJsonValue val) { resize(size().width(), val.toInt()); } });
-    addStateOptions("x", { [&] { return x(); }, [&](QJsonValue val) { move(val.toInt(), y()); } });
-    addStateOptions("y", { [&] { return y(); }, [&](QJsonValue val) { move(x(), val.toInt()); } });
+    addStateOptions("width", { [&]
+                               {
+                                   return width();
+                               },
+                               [&](QJsonValue val)
+                               {
+                                   resize(val.toInt(), size().height());
+                               } });
+    addStateOptions("height", { [&]
+                                {
+                                    return height();
+                                },
+                                [&](QJsonValue val)
+                                {
+                                    resize(size().width(), val.toInt());
+                                } });
+    addStateOptions("x", { [&]
+                           {
+                               return x();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(val.toInt(), y());
+                           } });
+    addStateOptions("y", { [&]
+                           {
+                               return y();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(x(), val.toInt());
+                           } });
 
     setupUi(this);
     for (auto &plugin : PluginHost->AllPlugins())
@@ -30,7 +59,10 @@ PluginManageWindow::PluginManageWindow(QWidget *parent) : QvDialog("PluginManage
         on_pluginListWidget_currentItemChanged(pluginListWidget->item(0), nullptr);
 }
 
-QvMessageBusSlotImpl(PluginManageWindow){ Q_UNUSED(msg) }
+QvMessageBusSlotImpl(PluginManageWindow)
+{
+    Q_UNUSED(msg)
+}
 
 PluginManageWindow::~PluginManageWindow()
 {

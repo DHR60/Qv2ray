@@ -1,8 +1,9 @@
-#include "BalancerWidget.hpp"
+#include "BalancerWidget.h"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/Qv2rayBase.h"
 
-BalancerWidget::BalancerWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent) : QvNodeWidget(_dispatcher, parent)
+BalancerWidget::BalancerWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent)
+    : QvNodeWidget(_dispatcher, parent)
 {
     setupUi(this);
     balancerAddBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("add")));
@@ -27,8 +28,11 @@ void BalancerWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 

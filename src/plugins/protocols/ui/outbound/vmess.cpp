@@ -1,6 +1,6 @@
-#include "vmess.hpp"
+#include "vmess.h"
 
-#include "BuiltinProtocolPlugin.hpp"
+#include "BuiltinProtocolPlugin.h"
 
 VmessOutboundEditor::VmessOutboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)

@@ -1,6 +1,6 @@
-#include "socksin.hpp"
+#include "socksin.h"
 
-#include "BuiltinProtocolPlugin.hpp"
+#include "BuiltinProtocolPlugin.h"
 
 SocksInboundEditor::SocksInboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)

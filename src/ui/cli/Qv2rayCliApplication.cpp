@@ -1,6 +1,7 @@
-#include "Qv2rayCliApplication.hpp"
+#include "Qv2rayCliApplication.h"
 
-Qv2rayCliApplication::Qv2rayCliApplication(int &argc, char *argv[]) : Qv2rayPlatformApplication(argc, argv)
+Qv2rayCliApplication::Qv2rayCliApplication(int &argc, char *argv[])
+    : Qv2rayPlatformApplication(argc, argv)
 {
 }
 
@@ -10,7 +11,7 @@ QStringList Qv2rayCliApplication::checkPrerequisitesInternal()
 }
 Qv2rayExitReason Qv2rayCliApplication::runQv2rayInternal()
 {
-    return (Qv2rayExitReason) exec();
+    return (Qv2rayExitReason)exec();
 }
 
 void Qv2rayCliApplication::terminateUIInternal()

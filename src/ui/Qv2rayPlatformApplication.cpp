@@ -1,6 +1,6 @@
-#include "Qv2rayPlatformApplication.hpp"
+#include "Qv2rayPlatformApplication.h"
 
-#include "core/settings/SettingsBackend.hpp"
+#include "core/settings/SettingsBackend.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QSessionManager>
@@ -89,12 +89,13 @@ bool Qv2rayPlatformApplication::Initialize()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setFallbackSessionManagementEnabled(false);
 #endif
-    connect(this, &QGuiApplication::commitDataRequest, [] {
-        RouteManager->SaveRoutes();
-        ConnectionManager->SaveConnectionConfig();
-        PluginHost->SavePluginSettings();
-        SaveGlobalSettings();
-    });
+    connect(this, &QGuiApplication::commitDataRequest, []
+            {
+                RouteManager->SaveRoutes();
+                ConnectionManager->SaveConnectionConfig();
+                PluginHost->SavePluginSettings();
+                SaveGlobalSettings();
+            });
 #endif
 
 #ifdef Q_OS_WIN
@@ -246,8 +247,8 @@ bool Qv2rayPlatformApplication::parseCommandLine(QString *errorMessage, bool *ca
         StartupArguments.arguments << Qv2rayStartupArguments::RECONNECT;
     }
 
-#define ProcessExtraStartupOptions(option)                                                                                                           \
-    DEBUG("Startup Options:" QVLOG_A(parser.isSet(option##Option)));                                                                                 \
+#define ProcessExtraStartupOptions(option)                           \
+    DEBUG("Startup Options:" QVLOG_A(parser.isSet(option##Option))); \
     StartupArguments.option = parser.isSet(option##Option);
 
     ProcessExtraStartupOptions(noAPI);

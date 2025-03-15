@@ -1,11 +1,12 @@
-#include "ChainEditorWidget.hpp"
+#include "ChainEditorWidget.h"
 
-#include "ui/widgets/node/NodeBase.hpp"
+#include "ui/widgets/node/NodeBase.h"
 
 constexpr auto GRAPH_GLOBAL_OFFSET_X = -20;
 constexpr auto GRAPH_GLOBAL_OFFSET_Y = -300;
 
-ChainEditorWidget::ChainEditorWidget(std::shared_ptr<NodeDispatcher> dispatcher, QWidget *parent) : QWidget(parent), dispatcher(dispatcher)
+ChainEditorWidget::ChainEditorWidget(std::shared_ptr<NodeDispatcher> dispatcher, QWidget *parent)
+    : QWidget(parent), dispatcher(dispatcher)
 {
     setupUi(this);
     QvMessageBusConnect(ChainEditorWidget);
@@ -29,11 +30,12 @@ ChainEditorWidget::ChainEditorWidget(std::shared_ptr<NodeDispatcher> dispatcher,
     connect(dispatcher.get(), &NodeDispatcher::OnChainedDeleted, this, &ChainEditorWidget::OnDispatcherChainDeleted);
     connect(dispatcher.get(), &NodeDispatcher::OnObjectTagChanged, this, &ChainEditorWidget::OnDispatcherObjectTagChanged);
     //
-    connect(dispatcher.get(), &NodeDispatcher::OnFullConfigLoadCompleted, [this]() {
-        if (!chains.isEmpty())
-            currentChain = chains.first();
-        ShowChainLinkedList();
-    });
+    connect(dispatcher.get(), &NodeDispatcher::OnFullConfigLoadCompleted, [this]()
+            {
+                if (!chains.isEmpty())
+                    currentChain = chains.first();
+                ShowChainLinkedList();
+            });
     //
     connect(dispatcher.get(), &NodeDispatcher::RequestEditChain, this, &ChainEditorWidget::BeginEditChain);
     //
@@ -47,7 +49,8 @@ QvMessageBusSlotImpl(ChainEditorWidget)
     {
         MBRetranslateDefaultImpl;
         MBUpdateColorSchemeDefaultImpl;
-        default: break;
+    default:
+        break;
     }
 }
 
@@ -67,8 +70,11 @@ void ChainEditorWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 
@@ -132,8 +138,8 @@ std::tuple<bool, QString, QStringList> ChainEditorWidget::VerifyChainLinkedList(
         // Loop against all items.
         while (iter != conns.end())
         {
-#define NEED_ITERATE(x)                                                                                                                              \
-    needReIterate = x;                                                                                                                               \
+#define NEED_ITERATE(x) \
+    needReIterate = x;  \
     continue
             const auto &id = iter->first;
             const auto &connection = iter->second;
@@ -186,7 +192,7 @@ std::tuple<bool, QString, QStringList> ChainEditorWidget::VerifyChainLinkedList(
             }
 #undef NEED_ITERATE
         }
-        if ((ulong) resultList.count() == expectedChainLength)
+        if ((ulong)resultList.count() == expectedChainLength)
         {
             return { true, tr("OK"), resultList };
         }

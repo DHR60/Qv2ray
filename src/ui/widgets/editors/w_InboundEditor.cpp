@@ -1,20 +1,21 @@
-#include "w_InboundEditor.hpp"
+#include "w_InboundEditor.h"
 
-#include "core/CoreUtils.hpp"
-#include "core/connection/ConnectionIO.hpp"
-#include "plugin-interface/QvGUIPluginInterface.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/widgets/StreamSettingsWidget.hpp"
-#include "utils/QvHelpers.hpp"
+#include "core/CoreUtils.h"
+#include "core/connection/ConnectionIO.h"
+#include "plugin-interface/QvGUIPluginInterface.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/widgets/StreamSettingsWidget.h"
+#include "utils/QvHelpers.h"
 
 #include <QGridLayout>
 
 #define QV_MODULE_NAME "InboundEditor"
-#define CHECKLOADING                                                                                                                                 \
-    if (isLoading)                                                                                                                                   \
+#define CHECKLOADING \
+    if (isLoading)   \
         return;
 
-InboundEditor::InboundEditor(INBOUND source, QWidget *parent) : QDialog(parent), original(source)
+InboundEditor::InboundEditor(INBOUND source, QWidget *parent)
+    : QDialog(parent), original(source)
 {
     QvMessageBusConnect(InboundEditor);
     setupUi(this);
@@ -71,7 +72,8 @@ QvMessageBusSlotImpl(InboundEditor)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME: break;
+    case UPDATE_COLORSCHEME:
+        break;
     }
 }
 
@@ -209,23 +211,23 @@ void InboundEditor::on_sniffMetaDataOnlyCB_clicked(bool checked)
     sniffingSettings["metadataOnly"] = checked;
 }
 
-#define SET_SNIFF_DEST_OVERRIDE                                                                                                                      \
-    do                                                                                                                                               \
-    {                                                                                                                                                \
-        const auto hasHTTP = sniffHTTPCB->isChecked();                                                                                               \
-        const auto hasTLS = sniffTLSCB->isChecked();                                                                                                 \
-        const auto hasFakeDNS = sniffFakeDNSCB->isChecked();                                                                                         \
-        const auto hasFakeDNSOthers = sniffFakeDNSOtherCB->isChecked();                                                                              \
-        QStringList list;                                                                                                                            \
-        if (hasHTTP)                                                                                                                                 \
-            list << "http";                                                                                                                          \
-        if (hasTLS)                                                                                                                                  \
-            list << "tls";                                                                                                                           \
-        if (hasFakeDNS)                                                                                                                              \
-            list << "fakedns";                                                                                                                       \
-        if (hasFakeDNSOthers)                                                                                                                        \
-            list << "fakedns+others";                                                                                                                \
-        sniffingSettings["destOverride"] = QJsonArray::fromStringList(list);                                                                         \
+#define SET_SNIFF_DEST_OVERRIDE                                              \
+    do                                                                       \
+    {                                                                        \
+        const auto hasHTTP = sniffHTTPCB->isChecked();                       \
+        const auto hasTLS = sniffTLSCB->isChecked();                         \
+        const auto hasFakeDNS = sniffFakeDNSCB->isChecked();                 \
+        const auto hasFakeDNSOthers = sniffFakeDNSOtherCB->isChecked();      \
+        QStringList list;                                                    \
+        if (hasHTTP)                                                         \
+            list << "http";                                                  \
+        if (hasTLS)                                                          \
+            list << "tls";                                                   \
+        if (hasFakeDNS)                                                      \
+            list << "fakedns";                                               \
+        if (hasFakeDNSOthers)                                                \
+            list << "fakedns+others";                                        \
+        sniffingSettings["destOverride"] = QJsonArray::fromStringList(list); \
     } while (0)
 
 void InboundEditor::on_sniffHTTPCB_stateChanged(int)

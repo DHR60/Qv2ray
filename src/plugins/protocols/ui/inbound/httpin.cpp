@@ -1,6 +1,6 @@
-#include "httpin.hpp"
+#include "httpin.h"
 
-#include "BuiltinProtocolPlugin.hpp"
+#include "BuiltinProtocolPlugin.h"
 
 HTTPInboundEditor::HTTPInboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)
@@ -102,8 +102,8 @@ void HTTPInboundEditor::on_httpAddUserBtn_clicked()
     httpAddUserTxt->clear();
     httpAddPasswordTxt->clear();
     list.append(QJsonObject{
-        {"user",  user},
-        { "pass", pass}
+        { "user", user },
+        { "pass", pass }
     });
     httpAccountListBox->addItem(user + ":" + pass);
     content.insert(QStringLiteral("accounts"), list);

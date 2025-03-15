@@ -1,11 +1,12 @@
-#include "w_ChainSha256Editor.hpp"
+#include "w_ChainSha256Editor.h"
 
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
 
 #include <QDesktopServices>
 
-ChainSha256Editor::ChainSha256Editor(QWidget *parent, const QList<QString> &chain) : QDialog(parent)
+ChainSha256Editor::ChainSha256Editor(QWidget *parent, const QList<QString> &chain)
+    : QDialog(parent)
 {
     setupUi(this);
     chainSha256Edit->setPlainText(chain.join("\r\n"));
@@ -19,7 +20,8 @@ QvMessageBusSlotImpl(ChainSha256Editor)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME: break;
+    case UPDATE_COLORSCHEME:
+        break;
     }
 }
 
@@ -54,7 +56,7 @@ std::optional<QString> ChainSha256Editor::validateError(const QList<QString> &ne
 #endif
     for (const auto &entry : newChain)
     {
-        if(!sha256.match(entry).hasMatch())
+        if (!sha256.match(entry).hasMatch())
             return tr("invalid SHA256: %1").arg(entry);
     }
 

@@ -1,7 +1,7 @@
-#include "BuiltinUtils.hpp"
+#include "BuiltinUtils.h"
 
-#include "core/EventHandler.hpp"
-#include "core/GUIInterface.hpp"
+#include "core/EventHandler.h"
+#include "core/GUIInterface.h"
 
 bool InternalUtilsPlugin::InitializePlugin(const QString &, const QJsonObject &settings)
 {

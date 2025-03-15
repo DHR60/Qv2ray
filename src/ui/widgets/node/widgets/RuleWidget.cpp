@@ -1,24 +1,26 @@
-#include "RuleWidget.hpp"
+#include "RuleWidget.h"
 
-#include "base/Qv2rayBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "base/Qv2rayBase.h"
+#include "utils/QvHelpers.h"
 
-#define LOAD_FLAG_END isLoading = false;
+#define LOAD_FLAG_END   isLoading = false;
 #define LOAD_FLAG_BEGIN isLoading = true;
-#define LOADINGCHECK                                                                                                                                 \
-    if (isLoading)                                                                                                                                   \
+#define LOADINGCHECK \
+    if (isLoading)   \
         return;
 
 #define rule (*(this->ruleptr))
 
-const static auto Split_RemoveDuplicate_Sort = [](const QString &in) {
+const static auto Split_RemoveDuplicate_Sort = [](const QString &in)
+{
     auto entries = SplitLines(in);
     entries.removeDuplicates();
     entries.sort();
     return entries;
 };
 
-QvNodeRuleWidget::QvNodeRuleWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent) : QvNodeWidget(_dispatcher, parent)
+QvNodeRuleWidget::QvNodeRuleWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent)
+    : QvNodeWidget(_dispatcher, parent)
 {
     setupUi(this);
     settingsFrame->setVisible(false);
@@ -30,12 +32,13 @@ void QvNodeRuleWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange:
-        {
-            retranslateUi(this);
-            break;
-        }
-        default: break;
+    case QEvent::LanguageChange:
+    {
+        retranslateUi(this);
+        break;
+    }
+    default:
+        break;
     }
 }
 

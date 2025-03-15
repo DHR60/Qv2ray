@@ -1,4 +1,4 @@
-#include "blackhole.hpp"
+#include "blackhole.h"
 
 BlackholeOutboundEditor::BlackholeOutboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)
@@ -37,6 +37,6 @@ void BlackholeOutboundEditor::on_responseTypeCB_currentTextChanged(const QString
 {
     PLUGIN_EDITOR_LOADING_GUARD
     content = QJsonObject{
-        {"response", QJsonObject{ { "type", arg1 } }}
+        { "response", QJsonObject{ { "type", arg1 } } }
     };
 }

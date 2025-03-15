@@ -1,13 +1,14 @@
-#include "StreamSettingsWidget.hpp"
+#include "StreamSettingsWidget.h"
 
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "ui/widgets/editors/w_ChainSha256Editor.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "utils/QvHelpers.hpp"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "ui/widgets/editors/w_ChainSha256Editor.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "utils/QvHelpers.h"
 
 #define QV_MODULE_NAME "StreamSettingsWidget"
 
-StreamSettingsWidget::StreamSettingsWidget(QWidget *parent) : QWidget(parent)
+StreamSettingsWidget::StreamSettingsWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
     QvMessageBusConnect(StreamSettingsWidget);
@@ -18,9 +19,10 @@ QvMessageBusSlotImpl(StreamSettingsWidget)
     switch (msg)
     {
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME:
-        case HIDE_WINDOWS:
-        case SHOW_WINDOWS: break;
+    case UPDATE_COLORSCHEME:
+    case HIDE_WINDOWS:
+    case SHOW_WINDOWS:
+        break;
     }
 }
 
@@ -35,19 +37,23 @@ void StreamSettingsWidget::SetStreamObject(const StreamSettingsObject &sso)
     transportCombo->setCurrentText(stream.network);
     // TLS XTLS
     {
-        const static QMap<QString, int> securityIndexMap{ { "none", 0 }, { "tls", 1 }, { "xtls", 2 } };
+        const static QMap<QString, int> securityIndexMap{
+            { "none", 0 },
+            { "tls",  1 },
+            { "xtls", 2 }
+        };
         if (securityIndexMap.contains(stream.security))
             securityTypeCB->setCurrentIndex(securityIndexMap[stream.security]);
         else
             LOG("Unsupported Security Type:", stream.security);
 
-#define tls_xtls_process(prefix)                                                                                                                     \
-    {                                                                                                                                                \
-        serverNameTxt->setText(stream.prefix##Settings.serverName);                                                                                  \
-        allowInsecureCB->setChecked(stream.prefix##Settings.allowInsecure);                                                                          \
-        enableSessionResumptionCB->setChecked(stream.prefix##Settings.enableSessionResumption);                                                      \
-        disableSystemRoot->setChecked(stream.prefix##Settings.disableSystemRoot);                                                                    \
-        alpnTxt->setText(stream.prefix##Settings.alpn.join("|"));                                                                                    \
+#define tls_xtls_process(prefix)                                                                \
+    {                                                                                           \
+        serverNameTxt->setText(stream.prefix##Settings.serverName);                             \
+        allowInsecureCB->setChecked(stream.prefix##Settings.allowInsecure);                     \
+        enableSessionResumptionCB->setChecked(stream.prefix##Settings.enableSessionResumption); \
+        disableSystemRoot->setChecked(stream.prefix##Settings.disableSystemRoot);               \
+        alpnTxt->setText(stream.prefix##Settings.alpn.join("|"));                               \
     }
 
         tls_xtls_process(tls);

@@ -1,19 +1,19 @@
-#include "w_RoutesEditor.hpp"
+#include "w_RoutesEditor.h"
 
-#include "components/plugins/QvPluginHost.hpp"
-#include "core/connection/Generation.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "ui/widgets/node/NodeBase.hpp"
-#include "ui/widgets/node/models/InboundNodeModel.hpp"
-#include "ui/widgets/node/models/OutboundNodeModel.hpp"
-#include "ui/widgets/node/models/RuleNodeModel.hpp"
-#include "ui/widgets/widgets/DnsSettingsWidget.hpp"
-#include "ui/widgets/widgets/complex/ChainEditorWidget.hpp"
-#include "ui/widgets/widgets/complex/RoutingEditorWidget.hpp"
-#include "ui/widgets/windows/w_ImportConfig.hpp"
-#include "w_InboundEditor.hpp"
-#include "w_JsonEditor.hpp"
-#include "w_OutboundEditor.hpp"
+#include "components/plugins/QvPluginHost.h"
+#include "core/connection/Generation.h"
+#include "core/handler/ConfigHandler.h"
+#include "ui/widgets/node/NodeBase.h"
+#include "ui/widgets/node/models/InboundNodeModel.h"
+#include "ui/widgets/node/models/OutboundNodeModel.h"
+#include "ui/widgets/node/models/RuleNodeModel.h"
+#include "ui/widgets/widgets/DnsSettingsWidget.h"
+#include "ui/widgets/widgets/complex/ChainEditorWidget.h"
+#include "ui/widgets/widgets/complex/RoutingEditorWidget.h"
+#include "ui/widgets/windows/w_ImportConfig.h"
+#include "w_InboundEditor.h"
+#include "w_JsonEditor.h"
+#include "w_OutboundEditor.h"
 
 #include <nodes/ConnectionStyle>
 #include <nodes/FlowScene>
@@ -32,31 +32,31 @@ using namespace Qv2ray::ui::nodemodels;
 
 namespace
 {
-    constexpr auto NODE_TAB_ROUTE_EDITOR = 0;
-    constexpr auto NODE_TAB_CHAIN_EDITOR = 1;
-    constexpr auto DarkConnectionStyle = R"({"ConnectionStyle": {"ConstructionColor": "gray","NormalColor": "black","SelectedColor": "gray",
+constexpr auto NODE_TAB_ROUTE_EDITOR = 0;
+constexpr auto NODE_TAB_CHAIN_EDITOR = 1;
+constexpr auto DarkConnectionStyle = R"({"ConnectionStyle": {"ConstructionColor": "gray","NormalColor": "black","SelectedColor": "gray",
                                          "SelectedHaloColor": "deepskyblue","HoveredColor": "deepskyblue","LineWidth": 3.0,
                                          "ConstructionLineWidth": 2.0,"PointDiameter": 10.0,"UseDataDefinedColors": true}})";
-    constexpr auto LightNodeStyle = R"({"NodeStyle": {"NormalBoundaryColor": "darkgray","SelectedBoundaryColor": "deepskyblue",
+constexpr auto LightNodeStyle = R"({"NodeStyle": {"NormalBoundaryColor": "darkgray","SelectedBoundaryColor": "deepskyblue",
                                     "GradientColor0": "mintcream","GradientColor1": "mintcream","GradientColor2": "mintcream",
                                     "GradientColor3": "mintcream","ShadowColor": [200, 200, 200],"FontColor": [10, 10, 10],
                                     "FontColorFaded": [100, 100, 100],"ConnectionPointColor": "white","PenWidth": 2.0,"HoveredPenWidth": 2.5,
                                     "ConnectionPointDiameter": 10.0,"Opacity": 1.0}})";
-    constexpr auto LightViewStyle =
-        R"({"FlowViewStyle": {"BackgroundColor": [255, 255, 240],"FineGridColor": [245, 245, 230],"CoarseGridColor": [235, 235, 220]}})";
-    constexpr auto LightConnectionStyle = R"({"ConnectionStyle": {"ConstructionColor": "gray","NormalColor": "black","SelectedColor": "gray",
+constexpr auto LightViewStyle =
+    R"({"FlowViewStyle": {"BackgroundColor": [255, 255, 240],"FineGridColor": [245, 245, 230],"CoarseGridColor": [235, 235, 220]}})";
+constexpr auto LightConnectionStyle = R"({"ConnectionStyle": {"ConstructionColor": "gray","NormalColor": "black","SelectedColor": "gray",
                                           "SelectedHaloColor": "deepskyblue","HoveredColor": "deepskyblue","LineWidth": 3.0,"ConstructionLineWidth": 2.0,
                                           "PointDiameter": 10.0,"UseDataDefinedColors": false}})";
-    constexpr auto IMPORT_ALL_CONNECTIONS_FAKE_ID = "__ALL_CONNECTIONS__";
-    constexpr auto IMPORT_ALL_CONNECTIONS_SEPARATOR = "_";
+constexpr auto IMPORT_ALL_CONNECTIONS_FAKE_ID = "__ALL_CONNECTIONS__";
+constexpr auto IMPORT_ALL_CONNECTIONS_SEPARATOR = "_";
 
 } // namespace
 
-#define LOADINGCHECK                                                                                                                                 \
-    if (isLoading)                                                                                                                                   \
+#define LOADINGCHECK \
+    if (isLoading)   \
         return;
 #define LOAD_FLAG_BEGIN isLoading = true;
-#define LOAD_FLAG_END isLoading = false;
+#define LOAD_FLAG_END   isLoading = false;
 
 void RouteEditor::updateColorScheme()
 {
@@ -77,7 +77,8 @@ void RouteEditor::updateColorScheme()
     }
 }
 
-RouteEditor::RouteEditor(QJsonObject connection, QWidget *parent) : QvDialog("RouteEditor", parent), root(connection), original(connection)
+RouteEditor::RouteEditor(QJsonObject connection, QWidget *parent)
+    : QvDialog("RouteEditor", parent), root(connection), original(connection)
 {
     setupUi(this);
     QvMessageBusConnect(RouteEditor);
@@ -100,7 +101,8 @@ RouteEditor::RouteEditor(QJsonObject connection, QWidget *parent) : QvDialog("Ro
     connect(nodeDispatcher.get(), &NodeDispatcher::RequestEditChain, this, &RouteEditor::OnDispatcherEditChainRequested);
     connect(nodeDispatcher.get(), &NodeDispatcher::OnObjectTagChanged, this, &RouteEditor::OnDispatcherObjectTagChanged);
 
-    const auto SetUpLayout = [](QWidget *parent, QWidget *child) {
+    const auto SetUpLayout = [](QWidget *parent, QWidget *child)
+    {
         if (!parent->layout())
             parent->setLayout(new QVBoxLayout());
         auto l = parent->layout();
@@ -301,8 +303,8 @@ CONFIGROOT RouteEditor::OpenEditor()
         if (!bfListenIPTxt->text().trimmed().isEmpty())
         {
             root["browserForwarder"] = QJsonObject{
-                { "listenAddr", bfListenIPTxt->text() },
-                { "listenPort", bfListenPortTxt->value() },
+                {"listenAddr",  bfListenIPTxt->text()   },
+                { "listenPort", bfListenPortTxt->value()},
             };
         }
     }
@@ -337,8 +339,13 @@ void RouteEditor::on_addDefaultBtn_clicked()
     // Add default connection from GlobalConfig
     //
     const auto &inboundConfig = GlobalConfig.inboundConfig;
-    const static QJsonObject sniffingOff{ { "enabled", false } };
-    const static QJsonObject sniffingOn{ { "enabled", true }, { "destOverride", QJsonArray{ "http", "tls" } } };
+    const static QJsonObject sniffingOff{
+        {"enabled", false}
+    };
+    const static QJsonObject sniffingOn{
+        {"enabled",       true                       },
+        { "destOverride", QJsonArray{ "http", "tls" }}
+    };
     //
     if (inboundConfig.useHTTP)
     {
@@ -376,8 +383,13 @@ void RouteEditor::on_addDefaultBtn_clicked()
         const auto tproxy_network = networks.join(",");
         auto tproxyInSettings = GenerateDokodemoIN("", 0, tproxy_network, 0, true);
         //
-        const static QJsonObject tproxy_sniff{ { "enabled", true }, { "destOverride", QJsonArray{ "http", "tls" } } };
-        const QJsonObject tproxy_streamSettings{ { "sockopt", QJsonObject{ { "tproxy", ts.mode } } } };
+        const static QJsonObject tproxy_sniff{
+            {"enabled",       true                       },
+            { "destOverride", QJsonArray{ "http", "tls" }}
+        };
+        const QJsonObject tproxy_streamSettings{
+            {"sockopt", QJsonObject{ { "tproxy", ts.mode } }}
+        };
         {
             auto tProxyIn = GenerateInboundEntry("tProxy IPv4", "dokodemo-door", ts.tProxyIP, ts.port, tproxyInSettings);
             tProxyIn.insert("sniffing", tproxy_sniff);
@@ -450,7 +462,8 @@ void RouteEditor::on_defaultOutboundCombo_currentTextChanged(const QString &arg1
 
 void RouteEditor::on_importExistingBtn_clicked()
 {
-    const auto ImportConnection = [this](const ConnectionId &_id) {
+    const auto ImportConnection = [this](const ConnectionId &_id)
+    {
         const auto root = ConnectionManager->GetConnectionRoot(_id);
         auto outbound = OUTBOUND(root["outbounds"].toArray()[0].toObject());
         outbound["tag"] = GetDisplayName(_id);
@@ -480,7 +493,8 @@ void RouteEditor::on_importExistingBtn_clicked()
 
 void RouteEditor::on_linkExistingBtn_clicked()
 {
-    const auto ImportConnection = [this](const ConnectionId &_id) {
+    const auto ImportConnection = [this](const ConnectionId &_id)
+    {
         auto _ = nodeDispatcher->CreateOutbound(make_external_outbound(_id, GetDisplayName(_id)));
         Q_UNUSED(_)
     };

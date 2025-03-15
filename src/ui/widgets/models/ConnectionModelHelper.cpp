@@ -1,11 +1,12 @@
-#include "ConnectionModelHelper.hpp"
+#include "ConnectionModelHelper.h"
 
-#include "core/handler/ConfigHandler.hpp"
-#include "ui/widgets/widgets/ConnectionItemWidget.hpp"
+#include "core/handler/ConfigHandler.h"
+#include "ui/widgets/widgets/ConnectionItemWidget.h"
 
 #define NumericString(i) (QString("%1").arg(i, 30, 10, QLatin1Char('0')))
 
-ConnectionListHelper::ConnectionListHelper(QTreeView *view, QObject *parent) : QObject(parent)
+ConnectionListHelper::ConnectionListHelper(QTreeView *view, QObject *parent)
+    : QObject(parent)
 {
     parentView = view;
     model = new QStandardItemModel();
@@ -18,7 +19,8 @@ ConnectionListHelper::ConnectionListHelper(QTreeView *view, QObject *parent) : Q
             addConnectionItem({ connection, group });
         }
     }
-    const auto renamedLambda = [&](const ConnectionId &id, const QString &, const QString &newName) {
+    const auto renamedLambda = [&](const ConnectionId &id, const QString &, const QString &newName)
+    {
         for (const auto &gid : ConnectionManager->GetConnectionContainedIn(id))
         {
             ConnectionGroupPair pair{ id, gid };
@@ -27,7 +29,8 @@ ConnectionListHelper::ConnectionListHelper(QTreeView *view, QObject *parent) : Q
         }
     };
 
-    const auto latencyLambda = [&](const ConnectionId &id, const int avg) {
+    const auto latencyLambda = [&](const ConnectionId &id, const int avg)
+    {
         for (const auto &gid : ConnectionManager->GetConnectionContainedIn(id))
         {
             ConnectionGroupPair pair{ id, gid };
@@ -36,7 +39,8 @@ ConnectionListHelper::ConnectionListHelper(QTreeView *view, QObject *parent) : Q
         }
     };
 
-    const auto statsLambda = [&](const ConnectionGroupPair &id, const QMap<StatisticsType, QvStatsSpeedData> &data) {
+    const auto statsLambda = [&](const ConnectionGroupPair &id, const QMap<StatisticsType, QvStatsSpeedData> &data)
+    {
         if (connections.contains(id.connectionId))
         {
             for (const auto &index : connections[id.connectionId])
@@ -99,11 +103,12 @@ QStandardItem *ConnectionListHelper::addConnectionItem(const ConnectionGroupPair
     const auto connectionIndex = connectionItem->index();
     //
     auto widget = new ConnectionItemWidget(id, parentView);
-    connect(widget, &ConnectionItemWidget::RequestWidgetFocus, [widget, connectionIndex, this]() {
-        parentView->setCurrentIndex(connectionIndex);
-        parentView->scrollTo(connectionIndex);
-        parentView->clicked(connectionIndex);
-    });
+    connect(widget, &ConnectionItemWidget::RequestWidgetFocus, [widget, connectionIndex, this]()
+            {
+                parentView->setCurrentIndex(connectionIndex);
+                parentView->scrollTo(connectionIndex);
+                parentView->clicked(connectionIndex);
+            });
     //
     parentView->setIndexWidget(connectionIndex, widget);
     pairs[id] = connectionItem;

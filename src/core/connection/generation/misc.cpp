@@ -1,24 +1,24 @@
-#include "core/connection/Generation.hpp"
+#include "core/connection/Generation.h"
 
 namespace Qv2ray::core::connection::generation::misc
 {
-    QJsonObject GenerateAPIEntry(const QString &tag, bool withHandler, bool withLogger, bool withStats)
-    {
-        QJsonObject root;
-        QJsonArray services;
+QJsonObject GenerateAPIEntry(const QString &tag, bool withHandler, bool withLogger, bool withStats)
+{
+    QJsonObject root;
+    QJsonArray services;
 
-        services << "ReflectionService";
+    services << "ReflectionService";
 
-        if (withHandler)
-            services << "HandlerService";
+    if (withHandler)
+        services << "HandlerService";
 
-        if (withLogger)
-            services << "LoggerService";
+    if (withLogger)
+        services << "LoggerService";
 
-        if (withStats)
-            services << "StatsService";
+    if (withStats)
+        services << "StatsService";
 
-        JADD(services, tag)
-        return root;
-    }
+    JADD(services, tag)
+    return root;
+}
 } // namespace Qv2ray::core::connection::generation::misc

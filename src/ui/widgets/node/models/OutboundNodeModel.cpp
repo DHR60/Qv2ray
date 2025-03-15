@@ -1,47 +1,48 @@
-#include "OutboundNodeModel.hpp"
+#include "OutboundNodeModel.h"
 
-#include "core/CoreUtils.hpp"
-#include "ui/widgets/node/widgets/BalancerWidget.hpp"
-#include "ui/widgets/node/widgets/ChainWidget.hpp"
-#include "ui/widgets/node/widgets/InboundOutboundWidget.hpp"
+#include "core/CoreUtils.h"
+#include "ui/widgets/node/widgets/BalancerWidget.h"
+#include "ui/widgets/node/widgets/ChainWidget.h"
+#include "ui/widgets/node/widgets/InboundOutboundWidget.h"
 
 #define QV_MODULE_NAME "Node::OutboundNodeModel"
 
-OutboundNodeModel::OutboundNodeModel(std::shared_ptr<NodeDispatcher> _dispatcher, std::shared_ptr<node_data_t> data) : NodeDataModel()
+OutboundNodeModel::OutboundNodeModel(std::shared_ptr<NodeDispatcher> _dispatcher, std::shared_ptr<node_data_t> data)
+    : NodeDataModel()
 {
     dataptr = data;
     dispatcher = _dispatcher;
     switch (data->metaType)
     {
-        case complex::METAOUTBOUND_ORIGINAL:
-        case complex::METAOUTBOUND_EXTERNAL:
-        {
-            widget = new InboundOutboundWidget(NODE_OUTBOUND, dispatcher);
-            ((InboundOutboundWidget *) widget)->setValue(data);
-            break;
-        }
-        case complex::METAOUTBOUND_BALANCER:
-        {
-            widget = new BalancerWidget(dispatcher);
-            ((BalancerWidget *) widget)->setValue(data);
-            break;
-        }
-        case complex::METAOUTBOUND_CHAIN:
-        {
-            widget = new ChainWidget(dispatcher);
-            ((ChainWidget *) widget)->setValue(data);
-            break;
-        }
+    case complex::METAOUTBOUND_ORIGINAL:
+    case complex::METAOUTBOUND_EXTERNAL:
+    {
+        widget = new InboundOutboundWidget(NODE_OUTBOUND, dispatcher);
+        ((InboundOutboundWidget *)widget)->setValue(data);
+        break;
+    }
+    case complex::METAOUTBOUND_BALANCER:
+    {
+        widget = new BalancerWidget(dispatcher);
+        ((BalancerWidget *)widget)->setValue(data);
+        break;
+    }
+    case complex::METAOUTBOUND_CHAIN:
+    {
+        widget = new ChainWidget(dispatcher);
+        ((ChainWidget *)widget)->setValue(data);
+        break;
+    }
     }
     connect(widget, &QvNodeWidget::OnSizeUpdated, this, &OutboundNodeModel::embeddedWidgetSizeUpdated);
     widget->setWindowFlags(Qt::FramelessWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground);
 }
 
-void OutboundNodeModel::inputConnectionCreated(const QtNodes::Connection &){};
-void OutboundNodeModel::inputConnectionDeleted(const QtNodes::Connection &){};
-void OutboundNodeModel::outputConnectionCreated(const QtNodes::Connection &){};
-void OutboundNodeModel::outputConnectionDeleted(const QtNodes::Connection &){};
+void OutboundNodeModel::inputConnectionCreated(const QtNodes::Connection &) {};
+void OutboundNodeModel::inputConnectionDeleted(const QtNodes::Connection &) {};
+void OutboundNodeModel::outputConnectionCreated(const QtNodes::Connection &) {};
+void OutboundNodeModel::outputConnectionDeleted(const QtNodes::Connection &) {};
 void OutboundNodeModel::setInData(std::vector<std::shared_ptr<NodeData>> indata, PortIndex)
 {
     if (dispatcher->IsNodeConstructing())
@@ -70,7 +71,7 @@ void OutboundNodeModel::setInData(std::vector<std::shared_ptr<NodeData>> indata,
     }
 }
 
-void OutboundNodeModel::onNodeHoverLeave(){};
+void OutboundNodeModel::onNodeHoverLeave() {};
 void OutboundNodeModel::onNodeHoverEnter()
 {
     if (dataptr->metaType == METAOUTBOUND_ORIGINAL)

@@ -1,7 +1,7 @@
-#include "BuiltinProtocolPlugin.hpp"
+#include "BuiltinProtocolPlugin.h"
 
-#include "core/OutboundHandler.hpp"
-#include "ui/Interface.hpp"
+#include "core/OutboundHandler.h"
+#include "ui/Interface.h"
 
 bool InternalProtocolSupportPlugin::InitializePlugin(const QString &, const QJsonObject &settings)
 {

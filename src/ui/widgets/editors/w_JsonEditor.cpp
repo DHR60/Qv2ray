@@ -1,9 +1,10 @@
-#include "w_JsonEditor.hpp"
+#include "w_JsonEditor.h"
 
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
 
-JsonEditor::JsonEditor(QJsonObject rootObject, QWidget *parent) : QDialog(parent)
+JsonEditor::JsonEditor(QJsonObject rootObject, QWidget *parent)
+    : QDialog(parent)
 {
     setupUi(this);
     QvMessageBusConnect(JsonEditor);
@@ -34,7 +35,8 @@ QvMessageBusSlotImpl(JsonEditor)
         MBShowDefaultImpl;
         MBHideDefaultImpl;
         MBRetranslateDefaultImpl;
-        case UPDATE_COLORSCHEME: break;
+    case UPDATE_COLORSCHEME:
+        break;
     }
 }
 

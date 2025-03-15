@@ -1,34 +1,63 @@
-#include "w_ImportConfig.hpp"
+#include "w_ImportConfig.h"
 
-#include "core/connection/Serialization.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "ui/common/QRCodeHelper.hpp"
-#include "ui/widgets/editors/w_JsonEditor.hpp"
-#include "ui/widgets/editors/w_OutboundEditor.hpp"
-#include "ui/widgets/editors/w_RoutesEditor.hpp"
-#include "ui/widgets/windows/w_GroupManager.hpp"
-#include "w_ScreenShot_Core.hpp"
+#include "core/connection/Serialization.h"
+#include "core/handler/ConfigHandler.h"
+#include "ui/common/QRCodeHelper.h"
+#include "ui/widgets/editors/w_JsonEditor.h"
+#include "ui/widgets/editors/w_OutboundEditor.h"
+#include "ui/widgets/editors/w_RoutesEditor.h"
+#include "ui/widgets/windows/w_GroupManager.h"
+#include "w_ScreenShot_Core.h"
 
 #include <QFileDialog>
 #define QV_MODULE_NAME "ImportWindow"
 
 namespace
 {
-    constexpr auto LINK_PAGE = 0;
+constexpr auto LINK_PAGE = 0;
 #if QV2RAY_FEATURE(ui_has_import_qrcode)
-    constexpr auto QRCODE_PAGE = 1;
-    constexpr auto ADVANCED_PAGE = 2;
+constexpr auto QRCODE_PAGE = 1;
+constexpr auto ADVANCED_PAGE = 2;
 #else
-    constexpr auto ADVANCED_PAGE = 1;
+constexpr auto ADVANCED_PAGE = 1;
 #endif
 } // namespace
 
-ImportConfigWindow::ImportConfigWindow(QWidget *parent) : QvDialog("ImportWindow", parent)
+ImportConfigWindow::ImportConfigWindow(QWidget *parent)
+    : QvDialog("ImportWindow", parent)
 {
-    addStateOptions("width", { [&] { return width(); }, [&](QJsonValue val) { resize(val.toInt(), size().height()); } });
-    addStateOptions("height", { [&] { return height(); }, [&](QJsonValue val) { resize(size().width(), val.toInt()); } });
-    addStateOptions("x", { [&] { return x(); }, [&](QJsonValue val) { move(val.toInt(), y()); } });
-    addStateOptions("y", { [&] { return y(); }, [&](QJsonValue val) { move(x(), val.toInt()); } });
+    addStateOptions("width", { [&]
+                               {
+                                   return width();
+                               },
+                               [&](QJsonValue val)
+                               {
+                                   resize(val.toInt(), size().height());
+                               } });
+    addStateOptions("height", { [&]
+                                {
+                                    return height();
+                                },
+                                [&](QJsonValue val)
+                                {
+                                    resize(size().width(), val.toInt());
+                                } });
+    addStateOptions("x", { [&]
+                           {
+                               return x();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(val.toInt(), y());
+                           } });
+    addStateOptions("y", { [&]
+                           {
+                               return y();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(x(), val.toInt());
+                           } });
 
     setupUi(this);
     QvMessageBusConnect(ImportConfigWindow);
@@ -195,106 +224,106 @@ void ImportConfigWindow::on_beginImportBtn_clicked()
 
     switch (tabWidget->currentIndex())
     {
-        case LINK_PAGE:
+    case LINK_PAGE:
+    {
+        QStringList linkList = SplitLines(vmessConnectionStringTxt->toPlainText());
+        //
+        // Clear UI and error lists
+        linkErrors.clear();
+        vmessConnectionStringTxt->clear();
+        errorsList->clear();
+        //
+        LOG(linkList.count(), "entries found.");
+
+        while (!linkList.isEmpty())
         {
-            QStringList linkList = SplitLines(vmessConnectionStringTxt->toPlainText());
-            //
-            // Clear UI and error lists
-            linkErrors.clear();
-            vmessConnectionStringTxt->clear();
-            errorsList->clear();
-            //
-            LOG(linkList.count(), "entries found.");
+            aliasPrefix = nameTxt->text();
+            const auto link = linkList.takeFirst().trimmed();
+            if (link.isEmpty() || link.startsWith("#") || link.startsWith("//"))
+                continue;
 
-            while (!linkList.isEmpty())
+            // warn if someone tries to import a https:// link
+            if (link.startsWith("https://"))
             {
-                aliasPrefix = nameTxt->text();
-                const auto link = linkList.takeFirst().trimmed();
-                if (link.isEmpty() || link.startsWith("#") || link.startsWith("//"))
-                    continue;
-
-                // warn if someone tries to import a https:// link
-                if (link.startsWith("https://"))
-                {
-                    errorsList->addItem(tr("WARNING: You may have mistaken 'subscription link' with 'share link'"));
-                }
-
-                QString errMessage;
-                QString newGroupName;
-                const auto config = ConvertConfigFromString(link, &aliasPrefix, &errMessage, &newGroupName);
-
-                // If the config is empty or we have any err messages.
-                if (config.isEmpty() || !errMessage.isEmpty())
-                {
-                    // To prevent duplicated values.
-                    linkErrors[link] = QSTRN(linkErrors.count() + 1) + ": " + errMessage;
-                    continue;
-                }
-                else if (newGroupName.isEmpty())
-                {
-                    for (const auto &conf : config)
-                    {
-                        connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(conf.first, conf.second);
-                    }
-                }
-                else
-                {
-                    for (const auto &conf : config)
-                    {
-                        connectionsToNewGroup[newGroupName].insert(conf.first, conf.second);
-                    }
-                }
+                errorsList->addItem(tr("WARNING: You may have mistaken 'subscription link' with 'share link'"));
             }
 
-            if (!linkErrors.isEmpty())
+            QString errMessage;
+            QString newGroupName;
+            const auto config = ConvertConfigFromString(link, &aliasPrefix, &errMessage, &newGroupName);
+
+            // If the config is empty or we have any err messages.
+            if (config.isEmpty() || !errMessage.isEmpty())
             {
-                for (const auto &item : qAsConst(linkErrors))
-                {
-                    vmessConnectionStringTxt->appendPlainText(linkErrors.key(item));
-                    errorsList->addItem(item);
-                }
-
-                vmessConnectionStringTxt->setLineWidth(errorsList->lineWidth());
-                errorsList->sortItems();
-                return;
+                // To prevent duplicated values.
+                linkErrors[link] = QSTRN(linkErrors.count() + 1) + ": " + errMessage;
+                continue;
             }
-
-            break;
+            else if (newGroupName.isEmpty())
+            {
+                for (const auto &conf : config)
+                {
+                    connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(conf.first, conf.second);
+                }
+            }
+            else
+            {
+                for (const auto &conf : config)
+                {
+                    connectionsToNewGroup[newGroupName].insert(conf.first, conf.second);
+                }
+            }
         }
+
+        if (!linkErrors.isEmpty())
+        {
+            for (const auto &item : qAsConst(linkErrors))
+            {
+                vmessConnectionStringTxt->appendPlainText(linkErrors.key(item));
+                errorsList->addItem(item);
+            }
+
+            vmessConnectionStringTxt->setLineWidth(errorsList->lineWidth());
+            errorsList->sortItems();
+            return;
+        }
+
+        break;
+    }
 #if QV2RAY_FEATURE(ui_has_import_qrcode)
-        case QRCODE_PAGE:
+    case QRCODE_PAGE:
+    {
+        QString errorMsg;
+        const auto root = ConvertConfigFromString(qrCodeLinkTxt->text(), &aliasPrefix, &errorMsg);
+        if (!errorMsg.isEmpty())
         {
-            QString errorMsg;
-            const auto root = ConvertConfigFromString(qrCodeLinkTxt->text(), &aliasPrefix, &errorMsg);
-            if (!errorMsg.isEmpty())
-            {
-                QvMessageBoxWarn(this, tr("Failed to import connection"), errorMsg);
-                break;
-            }
-            for (const auto &conf : root)
-            {
-                connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(conf.first, conf.second);
-            }
+            QvMessageBoxWarn(this, tr("Failed to import connection"), errorMsg);
             break;
         }
+        for (const auto &conf : root)
+        {
+            connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(conf.first, conf.second);
+        }
+        break;
+    }
 #endif
-        case ADVANCED_PAGE:
+    case ADVANCED_PAGE:
+    {
+        // From File...
+        bool ImportAsComplex = keepImportedInboundCheckBox->isChecked();
+        const auto path = fileLineTxt->text();
+
+        if (const auto &result = V2RayKernelInstance::ValidateConfig(path); result)
         {
-            // From File...
-            bool ImportAsComplex = keepImportedInboundCheckBox->isChecked();
-            const auto path = fileLineTxt->text();
-
-            if (const auto &result = V2RayKernelInstance::ValidateConfig(path); result)
-            {
-                QvMessageBoxWarn(this, tr("Import config file"), *result);
-                return;
-            }
-
-            aliasPrefix += "_" + QFileInfo(path).fileName();
-            CONFIGROOT config = ConvertConfigFromFile(path, ImportAsComplex);
-            connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(aliasPrefix, config);
-            break;
+            QvMessageBoxWarn(this, tr("Import config file"), *result);
+            return;
         }
+
+        aliasPrefix += "_" + QFileInfo(path).fileName();
+        CONFIGROOT config = ConvertConfigFromFile(path, ImportAsComplex);
+        connectionsToExistingGroup[GroupId{ groupCombo->currentData().toString() }].insert(aliasPrefix, config);
+        break;
+    }
     }
 
     accept();

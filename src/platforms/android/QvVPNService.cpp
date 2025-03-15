@@ -1,8 +1,9 @@
-#include "QvVPNService.hpp"
+#include "QvVPNService.h"
 
 #include <QtAndroid>
 
-QvVPNService::QvVPNService(int &argc, char *argv[]) : QAndroidService(argc, argv)
+QvVPNService::QvVPNService(int &argc, char *argv[])
+    : QAndroidService(argc, argv)
 {
 }
 

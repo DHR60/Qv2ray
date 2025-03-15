@@ -1,7 +1,7 @@
-#include "w_ScreenShot_Core.hpp"
+#include "w_ScreenShot_Core.h"
 
-#include "base/Qv2rayBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "base/Qv2rayBase.h"
+#include "utils/QvHelpers.h"
 
 #include <QMessageBox>
 #include <QStyleFactory>
@@ -9,7 +9,8 @@
 
 #define QV2RAY_SCREENSHOT_DIM_RATIO 0.6f
 
-ScreenShotWindow::ScreenShotWindow() : QDialog(), rubber(QRubberBand::Rectangle, this)
+ScreenShotWindow::ScreenShotWindow()
+    : QDialog(), rubber(QRubberBand::Rectangle, this)
 {
     setupUi(this);
     // Fusion prevents the KDE Plasma Breeze's "Move window when dragging in the empty area" issue

@@ -1,10 +1,10 @@
-#include "ConnectionInfoWidget.hpp"
+#include "ConnectionInfoWidget.h"
 
-#include "core/CoreUtils.hpp"
-#include "core/connection/Serialization.hpp"
-#include "ui/common/QRCodeHelper.hpp"
-#include "ui/widgets/common/WidgetUIBase.hpp"
-#include "utils/QvHelpers.hpp"
+#include "core/CoreUtils.h"
+#include "core/connection/Serialization.h"
+#include "ui/common/QRCodeHelper.h"
+#include "ui/widgets/common/WidgetUIBase.h"
+#include "utils/QvHelpers.h"
 
 constexpr auto INDEX_CONNECTION = 0;
 constexpr auto INDEX_GROUP = 1;
@@ -15,8 +15,9 @@ QvMessageBusSlotImpl(ConnectionInfoWidget)
     {
         MBRetranslateDefaultImpl;
         MBUpdateColorSchemeDefaultImpl;
-        case HIDE_WINDOWS:
-        case SHOW_WINDOWS: break;
+    case HIDE_WINDOWS:
+    case SHOW_WINDOWS:
+        break;
     }
 }
 
@@ -38,7 +39,8 @@ void ConnectionInfoWidget::updateColorScheme()
     connectBtn->setIcon(QIcon(isCurrentItem ? QV2RAY_COLORSCHEME_FILE("stop") : QV2RAY_COLORSCHEME_FILE("start")));
 }
 
-ConnectionInfoWidget::ConnectionInfoWidget(QWidget *parent) : QWidget(parent)
+ConnectionInfoWidget::ConnectionInfoWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
     //

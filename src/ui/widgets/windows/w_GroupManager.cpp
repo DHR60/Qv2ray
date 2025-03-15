@@ -1,44 +1,73 @@
-#include "w_GroupManager.hpp"
+#include "w_GroupManager.h"
 
-#include "core/connection/Generation.hpp"
-#include "core/handler/ConfigHandler.hpp"
-#include "core/handler/RouteHandler.hpp"
-#include "core/settings/SettingsBackend.hpp"
-#include "ui/widgets/widgets/DnsSettingsWidget.hpp"
-#include "ui/widgets/widgets/RouteSettingsMatrix.hpp"
-#include "utils/QvHelpers.hpp"
+#include "core/connection/Generation.h"
+#include "core/handler/ConfigHandler.h"
+#include "core/handler/RouteHandler.h"
+#include "core/settings/SettingsBackend.h"
+#include "ui/widgets/widgets/DnsSettingsWidget.h"
+#include "ui/widgets/widgets/RouteSettingsMatrix.h"
+#include "utils/QvHelpers.h"
 
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QListWidgetItem>
 
-#define SELECTED_ROWS_INDEX                                                                                                                          \
-    ([&]() {                                                                                                                                         \
-        const auto &__selection = connectionsTable->selectedItems();                                                                                 \
-        QSet<int> rows;                                                                                                                              \
-        for (const auto &selection : __selection)                                                                                                    \
-        {                                                                                                                                            \
-            rows.insert(connectionsTable->row(selection));                                                                                           \
-        }                                                                                                                                            \
-        return rows;                                                                                                                                 \
+#define SELECTED_ROWS_INDEX                                          \
+    ([&]() {                                                         \
+        const auto &__selection = connectionsTable->selectedItems(); \
+        QSet<int> rows;                                              \
+        for (const auto &selection : __selection)                    \
+        {                                                            \
+            rows.insert(connectionsTable->row(selection));           \
+        }                                                            \
+        return rows;                                                 \
     }())
 
-#define GET_SELECTED_CONNECTION_IDS(connectionIdList)                                                                                                \
-    ([&]() {                                                                                                                                         \
-        QList<ConnectionId> _list;                                                                                                                   \
-        for (const auto &i : connectionIdList)                                                                                                       \
-        {                                                                                                                                            \
-            _list.push_back(ConnectionId(connectionsTable->item(i, 0)->data(Qt::UserRole).toString()));                                              \
-        }                                                                                                                                            \
-        return _list;                                                                                                                                \
+#define GET_SELECTED_CONNECTION_IDS(connectionIdList)                                                   \
+    ([&]() {                                                                                            \
+        QList<ConnectionId> _list;                                                                      \
+        for (const auto &i : connectionIdList)                                                          \
+        {                                                                                               \
+            _list.push_back(ConnectionId(connectionsTable->item(i, 0)->data(Qt::UserRole).toString())); \
+        }                                                                                               \
+        return _list;                                                                                   \
     }())
 
-GroupManager::GroupManager(QWidget *parent) : QvDialog("GroupManager", parent)
+GroupManager::GroupManager(QWidget *parent)
+    : QvDialog("GroupManager", parent)
 {
-    addStateOptions("width", { [&] { return width(); }, [&](QJsonValue val) { resize(val.toInt(), size().height()); } });
-    addStateOptions("height", { [&] { return height(); }, [&](QJsonValue val) { resize(size().width(), val.toInt()); } });
-    addStateOptions("x", { [&] { return x(); }, [&](QJsonValue val) { move(val.toInt(), y()); } });
-    addStateOptions("y", { [&] { return y(); }, [&](QJsonValue val) { move(x(), val.toInt()); } });
+    addStateOptions("width", { [&]
+                               {
+                                   return width();
+                               },
+                               [&](QJsonValue val)
+                               {
+                                   resize(val.toInt(), size().height());
+                               } });
+    addStateOptions("height", { [&]
+                                {
+                                    return height();
+                                },
+                                [&](QJsonValue val)
+                                {
+                                    resize(size().width(), val.toInt());
+                                } });
+    addStateOptions("x", { [&]
+                           {
+                               return x();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(val.toInt(), y());
+                           } });
+    addStateOptions("y", { [&]
+                           {
+                               return y();
+                           },
+                           [&](QJsonValue val)
+                           {
+                               move(x(), val.toInt());
+                           } });
 
     setupUi(this);
     QvMessageBusConnect(GroupManager);
@@ -78,7 +107,10 @@ GroupManager::GroupManager(QWidget *parent) : QvDialog("GroupManager", parent)
     connect(exportConnectionAction, &QAction::triggered, this, &GroupManager::onRCMExportConnectionTriggered);
     connect(deleteConnectionAction, &QAction::triggered, this, &GroupManager::onRCMDeleteConnectionTriggered);
     //
-    connect(ConnectionManager, &QvConfigHandler::OnConnectionLinkedWithGroup, [this] { reloadConnectionsList(currentGroupId); });
+    connect(ConnectionManager, &QvConfigHandler::OnConnectionLinkedWithGroup, [this]
+            {
+                reloadConnectionsList(currentGroupId);
+            });
     //
     connect(ConnectionManager, &QvConfigHandler::OnGroupCreated, this, &GroupManager::reloadGroupRCMActions);
     connect(ConnectionManager, &QvConfigHandler::OnGroupDeleted, this, &GroupManager::reloadGroupRCMActions);
@@ -119,46 +151,47 @@ void GroupManager::onRCMExportConnectionTriggered()
     QFileDialog d;
     switch (list.count())
     {
-        case 0: return;
-        case 1:
+    case 0:
+        return;
+    case 1:
+    {
+        const auto id = ConnectionId(list.first());
+        auto filePath = d.getSaveFileName(this, GetDisplayName(id));
+        if (filePath.isEmpty())
+            return;
+        auto root = RouteManager->GenerateFinalConfig({ id, currentGroupId }, false);
+        //
+        // Apply export filter
+        exportConnectionFilter(root);
+        //
+        if (filePath.endsWith(".json"))
         {
-            const auto id = ConnectionId(list.first());
-            auto filePath = d.getSaveFileName(this, GetDisplayName(id));
-            if (filePath.isEmpty())
-                return;
-            auto root = RouteManager->GenerateFinalConfig({ id, currentGroupId }, false);
+            filePath += ".json";
+        }
+        //
+        StringToFile(JsonToString(root), filePath);
+        QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(filePath).absoluteDir().absolutePath()));
+        break;
+    }
+    default:
+    {
+        const auto path = d.getExistingDirectory();
+        if (path.isEmpty())
+            return;
+        for (const auto &connId : list)
+        {
+            ConnectionId id(connId);
+            auto root = RouteManager->GenerateFinalConfig({ id, currentGroupId });
             //
             // Apply export filter
             exportConnectionFilter(root);
             //
-            if (filePath.endsWith(".json"))
-            {
-                filePath += ".json";
-            }
-            //
-            StringToFile(JsonToString(root), filePath);
-            QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(filePath).absoluteDir().absolutePath()));
-            break;
+            const auto fileName = RemoveInvalidFileName(GetDisplayName(id)) + ".json";
+            StringToFile(JsonToString(root), path + "/" + fileName);
         }
-        default:
-        {
-            const auto path = d.getExistingDirectory();
-            if (path.isEmpty())
-                return;
-            for (const auto &connId : list)
-            {
-                ConnectionId id(connId);
-                auto root = RouteManager->GenerateFinalConfig({ id, currentGroupId });
-                //
-                // Apply export filter
-                exportConnectionFilter(root);
-                //
-                const auto fileName = RemoveInvalidFileName(GetDisplayName(id)) + ".json";
-                StringToFile(JsonToString(root), path + "/" + fileName);
-            }
-            QDesktopServices::openUrl(QUrl::fromLocalFile(path));
-            break;
-        }
+        QDesktopServices::openUrl(QUrl::fromLocalFile(path));
+        break;
+    }
     }
 }
 
@@ -277,7 +310,7 @@ QvMessageBusSlotImpl(GroupManager)
     }
 }
 
-GroupManager::~GroupManager(){};
+GroupManager::~GroupManager() {};
 void GroupManager::on_addGroupButton_clicked()
 {
     auto const key = tr("New Group") + " - " + GenerateRandomString(5);
@@ -418,12 +451,12 @@ void GroupManager::on_groupList_itemClicked(QListWidgetItem *item)
 
 void GroupManager::on_IncludeRelation_currentTextChanged(const QString &)
 {
-    ConnectionManager->SetSubscriptionIncludeRelation(currentGroupId, (SubscriptionFilterRelation) IncludeRelation->currentIndex());
+    ConnectionManager->SetSubscriptionIncludeRelation(currentGroupId, (SubscriptionFilterRelation)IncludeRelation->currentIndex());
 }
 
 void GroupManager::on_ExcludeRelation_currentTextChanged(const QString &)
 {
-    ConnectionManager->SetSubscriptionExcludeRelation(currentGroupId, (SubscriptionFilterRelation) ExcludeRelation->currentIndex());
+    ConnectionManager->SetSubscriptionExcludeRelation(currentGroupId, (SubscriptionFilterRelation)ExcludeRelation->currentIndex());
 }
 
 void GroupManager::on_IncludeKeywords_textChanged()

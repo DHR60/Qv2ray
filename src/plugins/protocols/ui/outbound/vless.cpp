@@ -1,10 +1,11 @@
-#include "vless.hpp"
+#include "vless.h"
 
-#define ENSURE_USERS                                                                                                                                 \
-    if (vless.users.isEmpty())                                                                                                                       \
+#define ENSURE_USERS           \
+    if (vless.users.isEmpty()) \
         vless.users.push_back({});
 
-VlessOutboundEditor::VlessOutboundEditor(QWidget *parent) : Qv2rayPlugin::QvPluginEditor(parent)
+VlessOutboundEditor::VlessOutboundEditor(QWidget *parent)
+    : Qv2rayPlugin::QvPluginEditor(parent)
 {
     setupUi(this);
     setProperty("QV2RAY_INTERNAL_HAS_STREAMSETTINGS", true);
@@ -16,8 +17,11 @@ void VlessOutboundEditor::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 
@@ -44,7 +48,6 @@ void VlessOutboundEditor::on_vLessSecurityCombo_currentTextChanged(const QString
 
 void VlessOutboundEditor::on_flowCombo_currentTextChanged(const QString &arg1)
 {
-
     ENSURE_USERS
     PLUGIN_EDITOR_LOADING_GUARD
     vless.users.front().flow = arg1;

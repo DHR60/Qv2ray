@@ -1,8 +1,9 @@
-#include "ChainWidget.hpp"
+#include "ChainWidget.h"
 
-#include "base/Qv2rayBase.hpp"
+#include "base/Qv2rayBase.h"
 
-ChainWidget::ChainWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent) : QvNodeWidget(_dispatcher, parent)
+ChainWidget::ChainWidget(std::shared_ptr<NodeDispatcher> _dispatcher, QWidget *parent)
+    : QvNodeWidget(_dispatcher, parent)
 {
     setupUi(this);
     editChainBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("edit")));
@@ -19,8 +20,11 @@ void ChainWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }
 

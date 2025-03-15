@@ -1,6 +1,6 @@
-#include "GUIInterface.hpp"
+#include "GUIInterface.h"
 
-#include "MainWindowWidget.hpp"
+#include "MainWindowWidget.h"
 
 GUIInterface::GUIInterface()
 {

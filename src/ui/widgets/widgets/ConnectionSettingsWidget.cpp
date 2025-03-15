@@ -1,6 +1,7 @@
-#include "ConnectionSettingsWidget.hpp"
+#include "ConnectionSettingsWidget.h"
 
-ConnectionSettingsWidget::ConnectionSettingsWidget(QWidget *parent) : QWidget(parent)
+ConnectionSettingsWidget::ConnectionSettingsWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
 }
@@ -10,7 +11,10 @@ void ConnectionSettingsWidget::changeEvent(QEvent *e)
     QWidget::changeEvent(e);
     switch (e->type())
     {
-        case QEvent::LanguageChange: retranslateUi(this); break;
-        default: break;
+    case QEvent::LanguageChange:
+        retranslateUi(this);
+        break;
+    default:
+        break;
     }
 }

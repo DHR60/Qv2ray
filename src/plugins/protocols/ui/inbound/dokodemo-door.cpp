@@ -1,4 +1,4 @@
-#include "dokodemo-door.hpp"
+#include "dokodemo-door.h"
 
 DokodemoDoorInboundEditor::DokodemoDoorInboundEditor(QWidget *parent)
     : Qv2rayPlugin::QvPluginEditor(parent)
