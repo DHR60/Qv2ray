@@ -9,11 +9,11 @@
     </message>
     <message>
       <source>Show / Hide</source>
-      <translation type="unfinished">Show / Hide</translation>
+      <translation>顯示/隱藏</translation>
     </message>
     <message>
       <source>Selector</source>
-      <translation type="unfinished">Selector</translation>
+      <translation>選擇器</translation>
     </message>
     <message>
       <source>Strategy</source>
@@ -24,7 +24,7 @@
     <name>CertificateItemWidget</name>
     <message>
       <source>Certificate Item Editor</source>
-      <translation type="unfinished">Certificate Item Editor</translation>
+      <translation>證書項編輯器</translation>
     </message>
     <message>
       <source>Usage</source>
@@ -39,63 +39,63 @@
 &lt;li&gt;&lt;code&gt;verify&lt;/code&gt;: Used for verification of remote ceritificate. CA certificates are required.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;issue&lt;/code&gt;: Used to issue other certificates. CA certificates are required.&lt;/li&gt;
 &lt;/ul&gt;</source>
-      <translation type="unfinished">Usage of certifcate. The default value is &lt;code&gt;encipherment&lt;/code&gt;.
+      <translation>證書的用途。預設值是 &lt;code&gt;encipherment&lt;/code&gt;。
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;encipherment&lt;/code&gt;: Used for TLS authentication and encipherment.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;verify&lt;/code&gt;: Used for verification of remote ceritificate. CA certificates are required.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;issue&lt;/code&gt;: Used to issue other certificates. CA certificates are required.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;encipherment&lt;/code&gt;: 用於 TLS 身份驗證和加密。 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;verify&lt;/code&gt;: 用於驗證遠程證書。需要CA證書。 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;issue&lt;/code&gt;: 用於簽發其他證書。需要CA證書。 &lt;/li&gt;
 &lt;/ul&gt;</translation>
     </message>
     <message>
       <source>Certificate</source>
       <extracomment>Certificate Tab</extracomment>
-      <translation type="unfinished">Certificate</translation>
+      <translation>證書</translation>
     </message>
     <message>
       <source>From File</source>
-      <translation type="unfinished">From File</translation>
+      <translation>從檔案</translation>
     </message>
     <message>
       <source>Alt+C, Alt+F</source>
-      <translation type="unfinished">Alt+C, Alt+F</translation>
+      <translation>Alt+C, Alt+F</translation>
     </message>
     <message>
       <source>Drag and drop *.crt here...</source>
-      <translation type="unfinished">Drag and drop *.crt here...</translation>
+      <translation>拖拽*.crt 至此處...</translation>
     </message>
     <message>
       <source>Configure Manually</source>
-      <translation type="unfinished">Configure Manually</translation>
+      <translation>手動設定...</translation>
     </message>
     <message>
       <source>Alt+C, Alt+M</source>
-      <translation type="unfinished">Alt+C, Alt+M</translation>
+      <translation>Alt+C, Alt+M</translation>
     </message>
     <message>
       <source>Certificate Key</source>
       <extracomment>Tab Certificate Key</extracomment>
-      <translation type="unfinished">Certificate Key</translation>
+      <translation>證書金鑰</translation>
     </message>
     <message>
       <source>Alt+K, Alt+F</source>
-      <translation type="unfinished">Alt+K, Alt+F</translation>
+      <translation>Alt+K, Alt+F</translation>
     </message>
     <message>
       <source>Alt+K, Alt+M</source>
-      <translation type="unfinished">Alt+K, Alt+M</translation>
+      <translation>Alt+K, Alt+M</translation>
     </message>
     <message>
       <source>-----BEGIN RSA PRIVATE KEY-----... </source>
-      <translation type="unfinished">-----BEGIN RSA PRIVATE KEY-----... </translation>
+      <translation>-----BEGIN RSA PRIVATE KEY-----... </translation>
     </message>
     <message>
       <source>Certificate Key is not necessarily set if usage is set to &lt;code&gt;verify&lt;/code&gt;.</source>
-      <translation type="unfinished">Certificate Key is not necessarily set if usage is set to &lt;code&gt;verify&lt;/code&gt;.</translation>
+      <translation>若證書用途設為 &lt;code&gt;verify&lt;/code&gt;，則證書金鑰不一定需要設定。</translation>
     </message>
     <message>
       <source>Unset</source>
-      <translation type="unfinished">Unset</translation>
+      <translation>未設置</translation>
     </message>
   </context>
   <context>
@@ -382,11 +382,11 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>Disable Cache</source>
-      <translation type="unfinished">Disable Cache</translation>
+      <translation>停用快取</translation>
     </message>
     <message>
       <source>Query Strategy</source>
-      <translation type="unfinished">Query Strategy</translation>
+      <translation>查詢策略</translation>
     </message>
     <message>
       <source>Enabled</source>
@@ -394,19 +394,19 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>Disable Fallback</source>
-      <translation type="unfinished">Disable Fallback</translation>
+      <translation>停用回退</translation>
     </message>
     <message>
       <source>Miscellaneous</source>
-      <translation type="unfinished">Miscellaneous</translation>
+      <translation>雜項</translation>
     </message>
     <message>
       <source>Fake DNS IP Pool</source>
-      <translation type="unfinished">Fake DNS IP Pool</translation>
+      <translation>Fake DNS IP 池</translation>
     </message>
     <message>
       <source>Fake DNS Pool Size</source>
-      <translation type="unfinished">Fake DNS Pool Size</translation>
+      <translation>Fake DNS IP 池大小</translation>
     </message>
   </context>
   <context>
@@ -608,7 +608,7 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>Import as Complex Config</source>
-      <translation type="unfinished">Import as Complex Config</translation>
+      <translation>導入為複雜配置</translation>
     </message>
   </context>
   <context>
@@ -679,15 +679,15 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>FakeDNS</source>
-      <translation type="unfinished">FakeDNS</translation>
+      <translation>FakeDNS</translation>
     </message>
     <message>
       <source>Metadata Only</source>
-      <translation type="unfinished">Metadata Only</translation>
+      <translation>僅限元資料</translation>
     </message>
     <message>
       <source>FakeDNS-Others</source>
-      <translation type="unfinished">FakeDNS-Others</translation>
+      <translation>FakeDNS-其他</translation>
     </message>
     <message>
       <source>Destination Override</source>
@@ -1123,19 +1123,19 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>Do you want to remove this group as well?</source>
-      <translation type="unfinished">Do you want to remove this group as well?</translation>
+      <translation>您要同時移除此群組嗎？</translation>
     </message>
     <message>
       <source>Group: </source>
-      <translation type="unfinished">Group: </translation>
+      <translation>群組：</translation>
     </message>
     <message>
       <source>Removing Connection</source>
-      <translation type="unfinished">Removing Connection</translation>
+      <translation>刪除連接</translation>
     </message>
     <message>
       <source>Copy selected.</source>
-      <translation type="unfinished">Copy selected.</translation>
+      <translation>复制所选项</translation>
     </message>
     <message>
       <source>Bypass CN Mainland</source>
@@ -1143,11 +1143,11 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     </message>
     <message>
       <source>Enable Bypassing CN Mainland</source>
-      <translation type="unfinished">Enable Bypassing CN Mainland</translation>
+      <translation>啟用繞過中國大陸</translation>
     </message>
     <message>
       <source>Disable Bypassing CN Mainland</source>
-      <translation type="unfinished">Disable Bypassing CN Mainland</translation>
+      <translation>停用繞過中國大陸</translation>
     </message>
     <message>
       <source>Clear log</source>
@@ -1900,23 +1900,23 @@ V2Ray 核心可執行檔的檔案名通常是 &apos;v2ray&apos; 或者 &apos;v2r
     </message>
     <message>
       <source>Config Directory</source>
-      <translation type="unfinished">Config Directory</translation>
+      <translation>設定檔目錄</translation>
     </message>
     <message>
       <source>Open Directory</source>
-      <translation type="unfinished">Open Directory</translation>
+      <translation>開啟目錄</translation>
     </message>
     <message>
       <source>Test Latency On Connected</source>
-      <translation type="unfinished">Test Latency On Connected</translation>
+      <translation>連接實測試延遲</translation>
     </message>
     <message>
       <source>Start Minimized</source>
-      <translation type="unfinished">Start Minimized</translation>
+      <translation>啟動時最小化</translation>
     </message>
     <message>
       <source>Adapt Glyph Tray Icon</source>
-      <translation type="unfinished">Adapt Glyph Tray Icon</translation>
+      <translation>粒子效果托盤圖示</translation>
     </message>
     <message>
       <source>Destination Override</source>
@@ -1932,51 +1932,51 @@ V2Ray 核心可執行檔的檔案名通常是 &apos;v2ray&apos; 或者 &apos;v2r
     </message>
     <message>
       <source>Please synchronize your system to use the VMess protocol.</source>
-      <translation type="unfinished">Please synchronize your system to use the VMess protocol.</translation>
+      <translation>請同步系統時間，否則無法正常使用 VMess協議。</translation>
     </message>
     <message>
       <source>VMess protocol may still work, but we suggest you synchronize your clock.</source>
-      <translation type="unfinished">VMess protocol may still work, but we suggest you synchronize your clock.</translation>
+      <translation>VMess協議運作可能不受影響，但我們建議同步時間。</translation>
     </message>
     <message>
       <source>VMess protocol may not suffer from time inaccuracy.</source>
-      <translation type="unfinished">VMess protocol may not suffer from time inaccuracy.</translation>
+      <translation>VMess協議會正常運作。</translation>
     </message>
     <message>
       <source>This does not seem like an output from V2Ray Core.</source>
-      <translation type="unfinished">This does not seem like an output from V2Ray Core.</translation>
+      <translation>這似乎不是來自 V2Ray Core 的輸出。</translation>
     </message>
     <message>
       <source>Output:</source>
-      <translation type="unfinished">Output:</translation>
+      <translation>輸出：</translation>
     </message>
     <message>
       <source>If you are looking for plugins settings, you should go to plugin settings.</source>
-      <translation type="unfinished">If you are looking for plugins settings, you should go to plugin settings.</translation>
+      <translation>如果你正在尋找插件設定，你應該去插件設定。</translation>
     </message>
     <message>
       <source>No NTP Backend</source>
-      <translation type="unfinished">No NTP Backend</translation>
+      <translation>無 NTP 後端</translation>
     </message>
     <message>
       <source>Qv2ray was not built with NTP support.</source>
-      <translation type="unfinished">Qv2ray was not built with NTP support.</translation>
+      <translation>Qv2ray 構建時未開啟 NTP 支援選項。</translation>
     </message>
     <message>
       <source>Metadata Only</source>
-      <translation type="unfinished">Metadata Only</translation>
+      <translation>僅限元資料</translation>
     </message>
     <message>
       <source>FakeDNS</source>
-      <translation type="unfinished">FakeDNS</translation>
+      <translation>FakeDNS</translation>
     </message>
     <message>
       <source>Invalid tproxy listening ipv4 address.</source>
-      <translation type="unfinished">Invalid tproxy listening ipv4 address.</translation>
+      <translation>無效的透明代理 IPv4 監聽位址。</translation>
     </message>
     <message>
       <source>Browser Forwarder Settings</source>
-      <translation type="unfinished">Browser Forwarder Settings</translation>
+      <translation>瀏覽器轉發器設定</translation>
     </message>
     <message>
       <source>Listening Address</source>
@@ -1986,35 +1986,35 @@ V2Ray 核心可執行檔的檔案名通常是 &apos;v2ray&apos; 或者 &apos;v2r
     <message>
       <source>Listening Port</source>
       <comment>Listening Port for Browser Forwarder</comment>
-      <translation type="unfinished">Listening Port</translation>
+      <translation>監聽端口</translation>
     </message>
     <message>
       <source>This applies to Simple Configs with Browser Forwarder on.</source>
-      <translation type="unfinished">This applies to Simple Configs with Browser Forwarder on.</translation>
+      <translation>適用於啟用了瀏覽器轉發器的簡單配置。</translation>
     </message>
     <message>
       <source>Test Latency Periodically</source>
-      <translation type="unfinished">Test Latency Periodically</translation>
+      <translation>定時測試延遲</translation>
     </message>
     <message>
       <source>Run TCPing or ICMPing periodically after connecting to a server.
 Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
-      <translation type="unfinished">Run TCPing or ICMPing periodically after connecting to a server.
-Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</translation>
+      <translation>連接到節點之後，對節點進行週期性的延遲監測。
+若啟用，Qv2ray 對節點的延遲監測將會更加準確，但這也許會提升您伺服器被暴露的風險。</translation>
     </message>
     <message>
       <source>FakeDNS+Others</source>
-      <translation type="unfinished">FakeDNS+Others</translation>
+      <translation>FakeDNS-其他</translation>
     </message>
     <message>
       <source>Click Close Button to Exit</source>
-      <translation type="unfinished">Click Close Button to Exit</translation>
+      <translation>點擊關閉按鈕退出程序</translation>
     </message>
     <message>
       <source>Exit instead of minimizing to tray when the close button clicked.
 This option may be useful for some desktop environments without tray support.</source>
-      <translation type="unfinished">Exit instead of minimizing to tray when the close button clicked.
-This option may be useful for some desktop environments without tray support.</translation>
+      <translation>退出程序，而不是在點擊關閉按鈕時最小化到托盤。
+此選項可能對某些桌面環境有用，而無需托盤支援。</translation>
     </message>
   </context>
   <context>
@@ -2037,51 +2037,51 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message>
       <source>Disable gRPC API subsystem</source>
-      <translation type="unfinished">Disable gRPC API subsystem</translation>
+      <translation>停用 gRPC API 子系統</translation>
     </message>
     <message>
       <source>Disable plugins feature</source>
-      <translation type="unfinished">Disable plugins feature</translation>
+      <translation>停用插件功能</translation>
     </message>
     <message>
       <source>Enable debug output</source>
-      <translation type="unfinished">Enable debug output</translation>
+      <translation>開啟除錯輸出</translation>
     </message>
     <message>
       <source>Do not automatically connect</source>
-      <translation type="unfinished">Do not automatically connect</translation>
+      <translation>不要自動連接</translation>
     </message>
     <message>
       <source>Stop current connection</source>
-      <translation type="unfinished">Stop current connection</translation>
+      <translation>終止當前連線</translation>
     </message>
     <message>
       <source>Reconnect last connection</source>
-      <translation type="unfinished">Reconnect last connection</translation>
+      <translation>重新連接上次連接</translation>
     </message>
     <message>
       <source>Exit Qv2ray</source>
-      <translation type="unfinished">Exit Qv2ray</translation>
+      <translation>退出 Qv2ray</translation>
     </message>
     <message>
       <source>Qv2ray - A cross-platform Qt frontend for V2Ray.</source>
-      <translation type="unfinished">Qv2ray - A cross-platform Qt frontend for V2Ray.</translation>
+      <translation>Qv2ray - 跨平台的 V2Ray Qt 前端。</translation>
     </message>
     <message>
       <source>DNS not resolved</source>
-      <translation type="unfinished">DNS not resolved</translation>
+      <translation>無法解析 DNS</translation>
     </message>
     <message>
       <source>Socket creation failed</source>
-      <translation type="unfinished">Socket creation failed</translation>
+      <translation>插座創建失敗</translation>
     </message>
     <message>
       <source>Failed to setup TTL value</source>
-      <translation type="unfinished">Failed to setup TTL value</translation>
+      <translation>無法設定 TTL 數值</translation>
     </message>
     <message>
       <source>Destination unreachable</source>
-      <translation type="unfinished">Destination unreachable</translation>
+      <translation>無法到達目標</translation>
     </message>
     <message>
       <source>Timeout</source>
@@ -2089,7 +2089,7 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message>
       <source>Unknown error</source>
-      <translation type="unfinished">Unknown error</translation>
+      <translation>未知錯誤</translation>
     </message>
     <message>
       <source>None</source>
@@ -2097,7 +2097,7 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message>
       <source>Settings Widget</source>
-      <translation type="unfinished">Settings Widget</translation>
+      <translation>設定組件</translation>
     </message>
     <message>
       <source>Inbound Editor</source>
@@ -2105,31 +2105,31 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message>
       <source>Outbound Editor</source>
-      <translation type="unfinished">Outbound Editor</translation>
+      <translation>出站編輯器</translation>
     </message>
     <message>
       <source>MainWindow Widget</source>
-      <translation type="unfinished">MainWindow Widget</translation>
+      <translation>主視窗組件</translation>
     </message>
     <message>
       <source>Unknown type.</source>
-      <translation type="unfinished">Unknown type.</translation>
+      <translation>未知類型</translation>
     </message>
     <message>
       <source>Kernel</source>
-      <translation type="unfinished">Kernel</translation>
+      <translation>核心</translation>
     </message>
     <message>
       <source>Outbound Handler/Parser</source>
-      <translation type="unfinished">Outbound Handler/Parser</translation>
+      <translation>出站處理/分析器</translation>
     </message>
     <message>
       <source>Subscription Adapter</source>
-      <translation type="unfinished">Subscription Adapter</translation>
+      <translation>訂閱適配器</translation>
     </message>
     <message>
       <source>Event Handler</source>
-      <translation type="unfinished">Event Handler</translation>
+      <translation>事件處理</translation>
     </message>
     <message>
       <source>GUI Components</source>
@@ -2137,271 +2137,271 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message>
       <source>Unsupported share link format.</source>
-      <translation type="unfinished">Unsupported share link format.</translation>
+      <translation>不支援的分享鏈接格式。</translation>
     </message>
     <message>
       <source>SS URI is too short</source>
-      <translation type="unfinished">SS URI is too short</translation>
+      <translation>Shadowsocks 分享鏈接過短</translation>
     </message>
     <message>
       <source>Can&apos;t find the colon separator between method and password</source>
-      <translation type="unfinished">Can&apos;t find the colon separator between method and password</translation>
+      <translation>模式和密碼之間缺少冒號</translation>
     </message>
     <message>
       <source>Can&apos;t find the at separator between password and hostname</source>
-      <translation type="unfinished">Can&apos;t find the at separator between password and hostname</translation>
+      <translation>密碼和主機名之間缺少分隔符</translation>
     </message>
     <message>
       <source>Can&apos;t find the colon separator between hostname and port</source>
-      <translation type="unfinished">Can&apos;t find the colon separator between hostname and port</translation>
+      <translation>主機名和端口之間缺少冒號分隔符</translation>
     </message>
     <message>
       <source>Invalid ssd link: json: field %1 must exist</source>
-      <translation type="unfinished">Invalid ssd link: json: field %1 must exist</translation>
+      <translation>無效的 ssd 鏈接: json: 字段 %1 必須存在</translation>
     </message>
     <message>
       <source>Invalid ssd link: json: field %1 must be valid port number</source>
-      <translation type="unfinished">Invalid ssd link: json: field %1 must be valid port number</translation>
+      <translation>無效的 ssd 鏈接: json: 字段 %1 必須是有效的端口號</translation>
     </message>
     <message>
       <source>Invalid ssd link: json: field %1 must be of type &apos;string&apos;</source>
-      <translation type="unfinished">Invalid ssd link: json: field %1 must be of type &apos;string&apos;</translation>
+      <translation>無效的 ssd 鏈接: json: 字段 %1 必須是 &apos;字符串&apos; 類型</translation>
     </message>
     <message>
       <source>Invalid ssd link: json: field %1 must be an array</source>
-      <translation type="unfinished">Invalid ssd link: json: field %1 must be an array</translation>
+      <translation>無效的 ssd 鏈接: json: 字段 %1 必須是一個陣列</translation>
     </message>
     <message>
       <source>Skipping invalid ssd server: server must be an object</source>
-      <translation type="unfinished">Skipping invalid ssd server: server must be an object</translation>
+      <translation>跳過無效的 ssd 服務器：服務器必須是對象</translation>
     </message>
     <message>
       <source>Skipping invalid ssd server: missing required field %1</source>
-      <translation type="unfinished">Skipping invalid ssd server: missing required field %1</translation>
+      <translation>跳过无效的 ssd 服务器: 缺少必填字段 %1</translation>
     </message>
     <message>
       <source>Skipping invalid ssd server: field %1 should be of type &apos;string&apos;</source>
-      <translation type="unfinished">Skipping invalid ssd server: field %1 should be of type &apos;string&apos;</translation>
+      <translation>跳過無效的 ssd 服務器: 字段 %1 應該是 &apos;字符串&apos; 類型</translation>
     </message>
     <message>
       <source>Invalid ssd link: should begin with ssd://</source>
-      <translation type="unfinished">Invalid ssd link: should begin with ssd://</translation>
+      <translation>無效的 ssd 鏈接: 應以 ssd:// 開頭</translation>
     </message>
     <message>
       <source>Invalid ssd link: base64 parse failed</source>
-      <translation type="unfinished">Invalid ssd link: base64 parse failed</translation>
+      <translation>無效的 ssd 鏈接: Base64 解析失敗</translation>
     </message>
     <message>
       <source>Invalid ssd link: json parse failed: </source>
-      <translation type="unfinished">Invalid ssd link: json parse failed: </translation>
+      <translation>無效的 ssd 鏈接: JSON 解析失敗: </translation>
     </message>
     <message>
       <source>Invalid ssd link: rc4-md5 encryption is not supported by v2ray-core</source>
-      <translation type="unfinished">Invalid ssd link: rc4-md5 encryption is not supported by v2ray-core</translation>
+      <translation>無效的 ssd 鏈接: rc4-md5 加密不被 v2ray-core 支援</translation>
     </message>
     <message>
       <source>VMess string should start with &apos;vmess://&apos;</source>
-      <translation type="unfinished">VMess string should start with &apos;vmess://&apos;</translation>
+      <translation>VMess 鏈接應以 &apos;vmess://&apos; 開頭</translation>
     </message>
     <message>
       <source>VMess string should be a valid base64 string</source>
-      <translation type="unfinished">VMess string should be a valid base64 string</translation>
+      <translation>VMess 字符串應該是一個有效的 Base64 字符串</translation>
     </message>
     <message>
       <source>JSON should not be empty</source>
-      <translation type="unfinished">JSON should not be empty</translation>
+      <translation>JSON 不應該為空</translation>
     </message>
     <message>
       <source>vmess:// url is invalid</source>
-      <translation type="unfinished">vmess:// url is invalid</translation>
+      <translation>無效的 vmess:// 鏈接</translation>
     </message>
     <message>
       <source>Invalid streamSettings protocol: </source>
-      <translation type="unfinished">Invalid streamSettings protocol: </translation>
+      <translation>無效的流設置協議：</translation>
     </message>
     <message>
       <source>Unknown transport method: </source>
-      <translation type="unfinished">Unknown transport method: </translation>
+      <translation>未知傳輸方式：</translation>
     </message>
     <message>
       <source>(Empty Users)</source>
-      <translation type="unfinished">(Empty Users)</translation>
+      <translation>(空用戶)</translation>
     </message>
     <message>
       <source>N/A</source>
-      <translation type="unfinished">N/A</translation>
+      <translation>N/A</translation>
     </message>
     <message>
       <source>core executable file %1 does not exist</source>
-      <translation type="unfinished">core executable file %1 does not exist</translation>
+      <translation>核心執行文件 %1 不存在</translation>
     </message>
     <message>
       <source>cannot open core executable file %1 in read-only mode</source>
-      <translation type="unfinished">cannot open core executable file %1 in read-only mode</translation>
+      <translation>無法以唯讀模式打開核心執行文件 %1</translation>
     </message>
     <message>
       <source>core executable file %1 is an empty file</source>
-      <translation type="unfinished">core executable file %1 is an empty file</translation>
+      <translation>核心執行文件 %1 為空白檔案</translation>
     </message>
     <message>
       <source>core executable file %1 is too short to be executed</source>
-      <translation type="unfinished">core executable file %1 is too short to be executed</translation>
+      <translation>核心執行文件 %1 太短，無法執行</translation>
     </message>
     <message>
       <source>cannot deduce the type of core executable file %1</source>
-      <translation type="unfinished">cannot deduce the type of core executable file %1</translation>
+      <translation>無法推斷核心執行文件 %1 的類型</translation>
     </message>
     <message>
       <source>Windows PE executable</source>
-      <translation type="unfinished">Windows PE executable</translation>
+      <translation>Windows PE 執行文件</translation>
     </message>
     <message>
       <source>macOS Mach-O executable</source>
-      <translation type="unfinished">macOS Mach-O executable</translation>
+      <translation>macOS Mach-O 執行文件</translation>
     </message>
     <message>
       <source>ELF x86 executable</source>
-      <translation type="unfinished">ELF x86 executable</translation>
+      <translation>ELF x86 執行文件</translation>
     </message>
     <message>
       <source>ELF amd64 executable</source>
-      <translation type="unfinished">ELF amd64 executable</translation>
+      <translation>ELF amd64 執行文件</translation>
     </message>
     <message>
       <source>ELF arm64 executable</source>
-      <translation type="unfinished">ELF arm64 executable</translation>
+      <translation>ELF arm64 執行文件</translation>
     </message>
     <message>
       <source>ELF arm executable</source>
-      <translation type="unfinished">ELF arm executable</translation>
+      <translation>ELF arm 執行文件</translation>
     </message>
     <message>
       <source>other ELF executable</source>
-      <translation type="unfinished">other ELF executable</translation>
+      <translation>其他 ELF 執行文件</translation>
     </message>
     <message>
       <source>trusted abi</source>
-      <translation type="unfinished">trusted abi</translation>
+      <translation>可信任的 abi</translation>
     </message>
     <message>
       <source>unknown abi</source>
-      <translation type="unfinished">unknown abi</translation>
+      <translation>未知的 abi</translation>
     </message>
     <message>
       <source>Cannot Start Qv2ray</source>
-      <translation type="unfinished">Cannot Start Qv2ray</translation>
+      <translation>無法啟動 Qv2ray</translation>
     </message>
     <message>
       <source>Cannot find a place to store config files.</source>
-      <translation type="unfinished">Cannot find a place to store config files.</translation>
+      <translation>找不到保存配置文件的地方。</translation>
     </message>
     <message>
       <source>Qv2ray has searched these paths below:</source>
-      <translation type="unfinished">Qv2ray has searched these paths below:</translation>
+      <translation>Qv2ray 搜索了以下路徑：</translation>
     </message>
     <message>
       <source>It usually means you don&apos;t have the write permission to all of those locations.</source>
-      <translation type="unfinished">It usually means you don&apos;t have the write permission to all of those locations.</translation>
+      <translation>這通常意味著你對所有這些地方都沒有寫入權限。</translation>
     </message>
     <message>
       <source>Qv2ray will now exit.</source>
-      <translation type="unfinished">Qv2ray will now exit.</translation>
+      <translation>Qv2ray將會退出</translation>
     </message>
     <message>
       <source>Failed to initialise Qv2ray</source>
-      <translation type="unfinished">Failed to initialise Qv2ray</translation>
+      <translation>Qv2ray 初始化失敗</translation>
     </message>
     <message>
       <source>Failed to determine the location of config file:</source>
-      <translation type="unfinished">Failed to determine the location of config file:</translation>
+      <translation>無法確定配置文件的位置：</translation>
     </message>
     <message>
       <source>Qv2ray has found a config file, but it failed to be loaded due to some errors.</source>
-      <translation type="unfinished">Qv2ray has found a config file, but it failed to be loaded due to some errors.</translation>
+      <translation>Qv2ray 找到了一個配置文件，但由於一些錯誤未能加載。</translation>
     </message>
     <message>
       <source>A workaround is to remove the this file and restart Qv2ray:</source>
-      <translation type="unfinished">A workaround is to remove the this file and restart Qv2ray:</translation>
+      <translation>解決方案是移除此文件並重新啟動 Qv2ray：</translation>
     </message>
     <message>
       <source>Please report if you think it&apos;s a bug.</source>
-      <translation type="unfinished">Please report if you think it&apos;s a bug.</translation>
+      <translation>如果您認為它是一個bug，請回報。</translation>
     </message>
     <message>
       <source>Qv2ray Cannot Continue</source>
-      <translation type="unfinished">Qv2ray Cannot Continue</translation>
+      <translation>Qv2ray 無法繼續</translation>
     </message>
     <message>
       <source>You are running a lower version of Qv2ray compared to the current config file.</source>
-      <translation type="unfinished">You are running a lower version of Qv2ray compared to the current config file.</translation>
+      <translation>與當前配置文件相比，您正在運行一個較低版本的 Qv2ray。</translation>
     </message>
     <message>
       <source>Please check if there&apos;s an issue explaining about it.</source>
-      <translation type="unfinished">Please check if there&apos;s an issue explaining about it.</translation>
+      <translation>請檢查是否存在有關此問題的說明。</translation>
     </message>
     <message>
       <source>Or submit a new issue if you think this is an error.</source>
-      <translation type="unfinished">Or submit a new issue if you think this is an error.</translation>
+      <translation>或者如果你認為這是一個錯誤，請提交一個新 Issue。</translation>
     </message>
     <message>
       <source>Default Group</source>
-      <translation type="unfinished">Default Group</translation>
+      <translation>預設分组</translation>
     </message>
     <message>
       <source>Deprecated</source>
-      <translation type="unfinished">Deprecated</translation>
+      <translation>已棄用</translation>
     </message>
     <message>
       <source>PAC is now deprecated and is not encouraged to be used anymore.</source>
-      <translation type="unfinished">PAC is now deprecated and is not encouraged to be used anymore.</translation>
+      <translation>PAC 現已被廢棄，不再被建議使用。</translation>
     </message>
     <message>
       <source>It will be removed or be provided as a plugin in the future.</source>
-      <translation type="unfinished">It will be removed or be provided as a plugin in the future.</translation>
+      <translation>它將被刪除或在將來作為插件提供。</translation>
     </message>
     <message>
       <source>PAC will still work currently, but please switch to the V2Ray built-in routing as soon as possible.</source>
-      <translation type="unfinished">PAC will still work currently, but please switch to the V2Ray built-in routing as soon as possible.</translation>
+      <translation>PAC 目前仍在運行，但請盡快切換到V2Ray內置路由。</translation>
     </message>
     <message>
       <source>Configuration Upgrade Failed</source>
-      <translation type="unfinished">Configuration Upgrade Failed</translation>
+      <translation>配置更新失敗</translation>
     </message>
     <message>
       <source>Unsupported config version number: </source>
-      <translation type="unfinished">Unsupported config version number: </translation>
+      <translation>不支援的配置版本號：</translation>
     </message>
     <message>
       <source>Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again.</source>
-      <translation type="unfinished">Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again.</translation>
+      <translation>請先升級到 Qv2ray v2.0/v2.1 然後重試。</translation>
     </message>
     <message>
       <source>Qv2ray has encountered an uncaught exception: </source>
-      <translation type="unfinished">Qv2ray has encountered an uncaught exception: </translation>
+      <translation>Qv2ray 遇到未知異常：</translation>
     </message>
     <message>
       <source>Please report a bug via Github with the file located here: </source>
-      <translation type="unfinished">Please report a bug via Github with the file located here: </translation>
+      <translation>請通過 GitHub 報告該文件的錯誤訊息：</translation>
     </message>
     <message>
       <source>VLESS link should start with vless://</source>
-      <translation type="unfinished">VLESS link should start with vless://</translation>
+      <translation>VLess 鏈接應以 vless:// 開頭</translation>
     </message>
     <message>
       <source>link parse failed: %1</source>
-      <translation type="unfinished">link parse failed: %1</translation>
+      <translation>鏈接解析失敗： %1</translation>
     </message>
     <message>
       <source>empty host</source>
-      <translation type="unfinished">empty host</translation>
+      <translation>主機名為空</translation>
     </message>
     <message>
       <source>missing port</source>
-      <translation type="unfinished">missing port</translation>
+      <translation>缺少端口</translation>
     </message>
     <message>
       <source>missing uuid</source>
-      <translation type="unfinished">missing uuid</translation>
+      <translation>缺少 UUID</translation>
     </message>
   </context>
   <context>
@@ -2435,80 +2435,80 @@ This option may be useful for some desktop environments without tray support.</t
     <name>Qv2ray::components::QvUpdateChecker</name>
     <message>
       <source>Qv2ray Update</source>
-      <translation type="unfinished">Qv2ray Update</translation>
+      <translation>Qv2ray 更新</translation>
     </message>
   </context>
   <context>
     <name>Qv2ray::components::plugins::QvPluginHost</name>
     <message>
       <source>Failed to load plugin</source>
-      <translation type="unfinished">Failed to load plugin</translation>
+      <translation>加載插件失敗</translation>
     </message>
     <message>
       <source>Cannot load plugin</source>
-      <translation type="unfinished">Cannot load plugin</translation>
+      <translation>無法載入插件</translation>
     </message>
     <message>
       <source>The plugin cannot be loaded: </source>
-      <translation type="unfinished">The plugin cannot be loaded: </translation>
+      <translation>無法載入插件：</translation>
     </message>
     <message>
       <source>This plugin was built against a different version of the Plugin Interface.</source>
-      <translation type="unfinished">This plugin was built against a different version of the Plugin Interface.</translation>
+      <translation>此插件是在不同版本的插件接口上構建的。</translation>
     </message>
     <message>
       <source>Please contact the plugin provider or report the issue to Qv2ray Workgroup.</source>
-      <translation type="unfinished">Please contact the plugin provider or report the issue to Qv2ray Workgroup.</translation>
+      <translation>請聯繫插件提供者或將問題報告到 Qv2ray 工作組。</translation>
     </message>
     <message>
       <source>Enabling a plugin</source>
-      <translation type="unfinished">Enabling a plugin</translation>
+      <translation>啟用外掛程式</translation>
     </message>
     <message>
       <source>The plugin will become fully functional after restarting Qv2ray.</source>
-      <translation type="unfinished">The plugin will become fully functional after restarting Qv2ray.</translation>
+      <translation>重新啟動 Qv2ray 後插件將完全啟用。</translation>
     </message>
   </context>
   <context>
     <name>Qv2ray::core::handler::KernelInstanceHandler</name>
     <message>
       <source>There are other processes occupying the ports necessary to start the connection:</source>
-      <translation type="unfinished">There are other processes occupying the ports necessary to start the connection:</translation>
+      <translation>其他進程佔用了啟動連接所需的端口：</translation>
     </message>
     <message>
       <source>Endpoint: %1:%2 for inbound: &quot;%3&quot;</source>
-      <translation type="unfinished">Endpoint: %1:%2 for inbound: &quot;%3&quot;</translation>
+      <translation>端口: %1:%2 for inbound: &quot;%3&quot;</translation>
     </message>
     <message>
       <source>Local port: %1 for plugin integration.</source>
-      <translation type="unfinished">Local port: %1 for plugin integration.</translation>
+      <translation>本地端口： %1 用於插件集成。</translation>
     </message>
     <message>
       <source>A plugin kernel failed to start. Please check the outbound settings.</source>
-      <translation type="unfinished">A plugin kernel failed to start. Please check the outbound settings.</translation>
+      <translation>插件內核啟動失敗。請檢查出站設置。</translation>
     </message>
   </context>
   <context>
     <name>Qv2ray::core::handler::QvConfigHandler</name>
     <message>
       <source>Group: %1</source>
-      <translation type="unfinished">Group: %1</translation>
+      <translation>分组: %1</translation>
     </message>
     <message>
       <source>Group does not exist</source>
-      <translation type="unfinished">Group does not exist</translation>
+      <translation>分組不存在</translation>
     </message>
     <message>
       <source>Default Group</source>
-      <translation type="unfinished">Default Group</translation>
+      <translation>預設分组</translation>
     </message>
     <message>
       <source>Failed to start connection</source>
-      <translation type="unfinished">Failed to start connection</translation>
+      <translation>啟動連線失敗</translation>
     </message>
     <message>
       <source>Unknown subscription type: %1</source>
-      <translation type="unfinished">Unknown subscription type: %1</translation>
+      <translation>未知訂閱類型： %1</translation>
     </message>
     <message>
       <source>Update Subscription</source>
@@ -2516,107 +2516,107 @@ This option may be useful for some desktop environments without tray support.</t
     </message>
     <message numerus="yes">
       <source>%n entrie(s) have been found from the subscription source, do you want to continue?</source>
-      <translation type="unfinished">
-        <numerusform>%n entrie(s) have been found from the subscription source, do you want to continue?</numerusform>
+      <translation>
+        <numerusform>在訂閱源只找到了 %n 個條目，您想要繼續嗎？</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <source>%1 out of %n entrie(s) have been filtered out, do you want to continue?</source>
-      <translation type="unfinished">
-        <numerusform>%1 out of %n entrie(s) have been filtered out, do you want to continue?</numerusform>
+      <translation>
+        <numerusform>%1 個條目中的 %n 個條目已被過濾出來，您想要繼續嗎？</numerusform>
       </translation>
     </message>
     <message numerus="yes">
       <source>There&apos;re %n connection(s) in the group that do not belong the current subscription (any more).</source>
-      <translation type="unfinished">
-        <numerusform>There&apos;re %n connection(s) in the group that do not belong the current subscription (any more).</numerusform>
+      <translation>
+        <numerusform>有 %n 個連接已不再屬於當前訂閱分組。</numerusform>
       </translation>
     </message>
     <message>
       <source>Would you like to remove them?</source>
-      <translation type="unfinished">Would you like to remove them?</translation>
+      <translation>您想要刪除它們嗎？</translation>
     </message>
     <message>
       <source>Cannot Update Subscription</source>
-      <translation type="unfinished">Cannot Update Subscription</translation>
+      <translation>無法更新訂閱</translation>
     </message>
     <message>
       <source>A subscription plugin is missing?</source>
-      <translation type="unfinished">A subscription plugin is missing?</translation>
+      <translation>缺少訂閱插件？</translation>
     </message>
   </context>
   <context>
     <name>Qv2ray::core::kernel::APIWorker</name>
     <message>
       <source>Failed to get statistics data, please check if V2Ray is running properly</source>
-      <translation type="unfinished">Failed to get statistics data, please check if V2Ray is running properly</translation>
+      <translation>無法獲取統計數據，請檢查 V2Ray 是否正常運行</translation>
     </message>
   </context>
   <context>
     <name>Qv2ray::core::kernel::V2RayKernelInstance</name>
     <message>
       <source>Core file is lacking executable permission for the current user.</source>
-      <translation type="unfinished">Core file is lacking executable permission for the current user.</translation>
+      <translation>核心文件缺少當前用戶的執行權限。</translation>
     </message>
     <message>
       <source>Qv2ray tried to set, but failed because permission denied.</source>
-      <translation type="unfinished">Qv2ray tried to set, but failed because permission denied.</translation>
+      <translation>Qv2ray 嘗試設置，但由於權限不足而失敗。</translation>
     </message>
     <message>
       <source>Check is skipped</source>
-      <translation type="unfinished">Check is skipped</translation>
+      <translation>檢查已跳過</translation>
     </message>
     <message>
       <source>V2Ray core executable not found.</source>
-      <translation type="unfinished">V2Ray core executable not found.</translation>
+      <translation>找不到 V2Ray 核心執行文件。</translation>
     </message>
     <message>
       <source>V2Ray core file cannot be opened, please ensure there&apos;s a file instead of a folder.</source>
-      <translation type="unfinished">V2Ray core file cannot be opened, please ensure there&apos;s a file instead of a folder.</translation>
+      <translation>V2Ray 核心文件無法打開，請確保路徑指向文件而不是文件夾。</translation>
     </message>
     <message>
       <source>V2Ray core is incompatible with your platform.<byte value="xd"/>
 Expected core ABI is %1, but got actual %2.<byte value="xd"/>
 Maybe you have downloaded the wrong core?</source>
-      <translation type="unfinished">V2Ray core is incompatible with your platform.
-Expected core ABI is %1, but got actual %2.
-Maybe you have downloaded the wrong core?</translation>
+      <translation>V2Ray 核心與您的平台不兼容。
+預期的核心 ABI 是 %1，但實際上是 %2。
+你可能下載了錯誤的核心？</translation>
     </message>
     <message>
       <source>V2Ray assets path is not valid.</source>
-      <translation type="unfinished">V2Ray assets path is not valid.</translation>
+      <translation>V2Ray 資源路徑無效。</translation>
     </message>
     <message>
       <source>No geoip.dat in assets path.</source>
-      <translation type="unfinished">No geoip.dat in assets path.</translation>
+      <translation>資源路徑中沒有 geoip.dat。</translation>
     </message>
     <message>
       <source>No geosite.dat in assets path.</source>
-      <translation type="unfinished">No geosite.dat in assets path.</translation>
+      <translation>資源路徑中沒有 geosite.dat。</translation>
     </message>
     <message>
       <source>V2Ray core failed with an exit code: </source>
-      <translation type="unfinished">V2Ray core failed with an exit code: </translation>
+      <translation>V2Ray 核心運行失敗，退出代碼：</translation>
     </message>
     <message>
       <source>V2Ray core returns empty string.</source>
-      <translation type="unfinished">V2Ray core returns empty string.</translation>
+      <translation>V2Ray 核心返回空字符串。</translation>
     </message>
     <message>
       <source>Configuration Error</source>
-      <translation type="unfinished">Configuration Error</translation>
+      <translation>配置錯誤</translation>
     </message>
     <message>
       <source>Invalid V2Ray Instance Status.</source>
-      <translation type="unfinished">Invalid V2Ray Instance Status.</translation>
+      <translation>無效的 V2Ray 實例狀態。</translation>
     </message>
     <message>
       <source>Core file not executable.</source>
-      <translation type="unfinished">Core file not executable.</translation>
+      <translation>核心文件不可執行。</translation>
     </message>
     <message>
       <source>V2Ray kernel failed to start: </source>
-      <translation type="unfinished">V2Ray kernel failed to start: </translation>
+      <translation>V2Ray 內核啟動失敗：</translation>
     </message>
   </context>
   <context>
@@ -2742,71 +2742,71 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Connection Template</source>
-      <translation type="unfinished">Connection Template</translation>
+      <translation>連接模板</translation>
     </message>
     <message>
       <source>Inbound</source>
-      <translation type="unfinished">Inbound</translation>
+      <translation>入站</translation>
     </message>
     <message>
       <source>Outbound</source>
-      <translation type="unfinished">Outbound</translation>
+      <translation>出站</translation>
     </message>
     <message>
       <source>Override global DNS settings</source>
-      <translation type="unfinished">Override global DNS settings</translation>
+      <translation>覆蓋全局 DNS 設置</translation>
     </message>
     <message>
       <source>Inbound / Outbound Info</source>
-      <translation type="unfinished">Inbound / Outbound Info</translation>
+      <translation>入站/出站訊息</translation>
     </message>
     <message>
       <source>Rules Ordering</source>
-      <translation type="unfinished">Rules Ordering</translation>
+      <translation>規則順序</translation>
     </message>
     <message>
       <source>Importing All Connections</source>
-      <translation type="unfinished">Importing All Connections</translation>
+      <translation>匯入全部連接</translation>
     </message>
     <message>
       <source>Do you want to import all the connections?</source>
-      <translation type="unfinished">Do you want to import all the connections?</translation>
+      <translation>您確定要匯入所有連接嗎？</translation>
     </message>
     <message>
       <source>(All Connections)</source>
-      <translation type="unfinished">(All Connections)</translation>
+      <translation>(所有連接)</translation>
     </message>
     <message>
       <source>Add Inbound</source>
-      <translation type="unfinished">Add Inbound</translation>
+      <translation>新增入站</translation>
     </message>
     <message>
       <source>Add Inbound from Global Settings</source>
-      <translation type="unfinished">Add Inbound from Global Settings</translation>
+      <translation>從全局設置中新增入站</translation>
     </message>
     <message>
       <source>Import Outbound</source>
-      <translation type="unfinished">Import Outbound</translation>
+      <translation>導入出站</translation>
     </message>
     <message>
       <source>Add Outbound</source>
-      <translation type="unfinished">Add Outbound</translation>
+      <translation>新增出站</translation>
     </message>
     <message>
       <source>Add Blackhole Outbound</source>
-      <translation type="unfinished">Add Blackhole Outbound</translation>
+      <translation>新增黑洞出站</translation>
     </message>
     <message>
       <source>Add Freedom Outbound</source>
-      <translation type="unfinished">Add Freedom Outbound</translation>
+      <translation>新增自由出站</translation>
     </message>
     <message>
       <source>Add Balancer</source>
-      <translation type="unfinished">Add Balancer</translation>
+      <translation>新增均衡器</translation>
     </message>
     <message>
       <source>Add Proxy Chain</source>
-      <translation type="unfinished">Add Proxy Chain</translation>
+      <translation>新增代理鏈</translation>
     </message>
     <message>
       <source>Group</source>
@@ -2814,23 +2814,23 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Connection</source>
-      <translation type="unfinished">Connection</translation>
+      <translation>連線</translation>
     </message>
     <message>
       <source>Copy Connection</source>
-      <translation type="unfinished">Copy Connection</translation>
+      <translation>複製連接</translation>
     </message>
     <message>
       <source>Reference Connection</source>
-      <translation type="unfinished">Reference Connection</translation>
+      <translation>引用連接</translation>
     </message>
     <message>
       <source>Misc</source>
-      <translation type="unfinished">Misc</translation>
+      <translation>其它</translation>
     </message>
     <message>
       <source>Browser Forwarder</source>
-      <translation type="unfinished">Browser Forwarder</translation>
+      <translation>瀏覽器轉發器</translation>
     </message>
     <message>
       <source>Listening Address</source>
@@ -2838,15 +2838,15 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>:Listening Port</source>
-      <translation type="unfinished">:Listening Port</translation>
+      <translation>:監聽端口</translation>
     </message>
     <message>
       <source> Observatory</source>
-      <translation type="unfinished"> Observatory</translation>
+      <translation> 連接觀測</translation>
     </message>
     <message>
       <source>Subject Selector</source>
-      <translation type="unfinished">Subject Selector</translation>
+      <translation>主題選擇器</translation>
     </message>
   </context>
   <context>
@@ -2909,7 +2909,7 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Matcher</source>
-      <translation type="unfinished">Matcher</translation>
+      <translation>匹配器</translation>
     </message>
     <message>
       <source>Original</source>
@@ -2917,7 +2917,7 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Minimal Perfect Hash Matcher</source>
-      <translation type="unfinished">Minimal Perfect Hash Matcher</translation>
+      <translation>最小完美雜湊匹配器</translation>
     </message>
   </context>
   <context>
@@ -3194,7 +3194,7 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Enable Session Resumption</source>
-      <translation type="unfinished">Enable Session Resumption</translation>
+      <translation>啟用會話恢復</translation>
     </message>
     <message>
       <source>Security Type</source>
@@ -3250,27 +3250,27 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Open Certificate Editor</source>
-      <translation type="unfinished">Open Certificate Editor</translation>
+      <translation>開啟證書編輯器</translation>
     </message>
     <message>
       <source>Certificates</source>
-      <translation type="unfinished">Certificates</translation>
+      <translation>證書</translation>
     </message>
     <message>
       <source>AllowInsecure is insecure, do not allow insecure.</source>
-      <translation type="unfinished">AllowInsecure is insecure, do not allow insecure.</translation>
+      <translation>AllowInsecure 是不安全的，请勿 AllowInsecure。</translation>
     </message>
     <message>
       <source>Service Name</source>
-      <translation type="unfinished">Service Name</translation>
+      <translation>服務名稱</translation>
     </message>
     <message>
       <source>Max Early Data</source>
-      <translation type="unfinished">Max Early Data</translation>
+      <translation>最大 Early Data</translation>
     </message>
     <message>
       <source>Browser Forwarding</source>
-      <translation type="unfinished">Browser Forwarding</translation>
+      <translation>瀏覽器轉發</translation>
     </message>
     <message>
       <source>Mode</source>
@@ -3278,19 +3278,19 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Open pinnedPeerCertificateChainSha256 Editor</source>
-      <translation type="unfinished">Open pinnedPeerCertificateChainSha256 Editor</translation>
+      <translation>打開 pinnedPeerCerCercatateChainSha256 編輯器</translation>
     </message>
     <message>
       <source>Method</source>
-      <translation type="unfinished">Method</translation>
+      <translation>方法</translation>
     </message>
     <message>
       <source>Early Data Header Name</source>
-      <translation type="unfinished">Early Data Header Name</translation>
+      <translation>早期數據頭名稱</translation>
     </message>
     <message>
       <source>TCP Keepalive Interval</source>
-      <translation type="unfinished">TCP Keepalive Interval</translation>
+      <translation>TCP 保留存活時間</translation>
     </message>
   </context>
   <context>
@@ -3748,11 +3748,11 @@ Maybe you have downloaded the wrong core?</translation>
 &lt;p&gt;Some applications like Google Chrome would attempt to use QUIC protocol instead of TLS, which, won&apos;t benefit from XTLS at all. What&apos;s worse, QUIC over TCP will cause potential congestion control problem, downgrading your experience.&lt;/p&gt;
 
 &lt;p&gt;Non-&lt;code&gt;udp443&lt;/code&gt; methods block UDP 443 outbound traffic to workaround this situation. If you do want to let it go, use at your own peril.&lt;/p&gt;</source>
-      <translation type="unfinished">&lt;h3&gt;Notes for &lt;code&gt;udp443&lt;/code&gt; Methods&lt;/h3&gt;
+      <translation>&lt;h3&gt;關於 &lt;code&gt;udp443&lt;/code&gt; 流控方式&lt;/h3&gt;
 
-&lt;p&gt;Some applications like Google Chrome would attempt to use QUIC protocol instead of TLS, which, won&apos;t benefit from XTLS at all. What&apos;s worse, QUIC over TCP will cause potential congestion control problem, downgrading your experience.&lt;/p&gt;
+&lt;p&gt;某些應用程序如 Google Chrome 嘗試使用 QUIC 協議而不是 TLS 協議，這將導致其無法享受到 XTLS 的加成。更糟的是，QUIC over TCP 存在潛在的擁塞控制問題，可能會令你的體驗降級。 &lt;/p&gt;
 
-&lt;p&gt;Non-&lt;code&gt;udp443&lt;/code&gt; methods block UDP 443 outbound traffic to workaround this situation. If you do want to let it go, use at your own peril.&lt;/p&gt;</translation>
+&lt;p&gt;非 &lt;code&gt;udp443&lt;/code&gt; 的流控方式會阻斷 UDP 目標端口為 443 的出站流量以繞過此情形。若你確實需要放行 UDP 443，請自行斟酌。 &lt;/p&gt;</translation>
     </message>
   </context>
   <context>
@@ -3830,11 +3830,11 @@ Maybe you have downloaded the wrong core?</translation>
     <name>VmessOutboundEditor</name>
     <message>
       <source>Non AEAD VMess detected</source>
-      <translation type="unfinished">Non AEAD VMess detected</translation>
+      <translation>檢測到非 AEAD 的 VMess。</translation>
     </message>
     <message>
       <source>VMess MD5 with Non-zero AlterID has been deprecated, please use VMessAEAD.</source>
-      <translation type="unfinished">VMess MD5 with Non-zero AlterID has been deprecated, please use VMessAEAD.</translation>
+      <translation>VMess MD5 使用非零 AlterID 已廢棄，請使用 VMessAEAD。</translation>
     </message>
   </context>
   <context>
@@ -3845,14 +3845,14 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Inbound Tag</source>
-      <translation type="unfinished">Inbound Tag</translation>
+      <translation>入站標籤</translation>
     </message>
   </context>
   <context>
     <name>MainWindowWidget</name>
     <message>
       <source>Qv2ray Utilities</source>
-      <translation type="unfinished">Qv2ray Utilities</translation>
+      <translation>Qv2ray 工具</translation>
     </message>
   </context>
   <context>
@@ -3867,26 +3867,26 @@ Maybe you have downloaded the wrong core?</translation>
     </message>
     <message>
       <source>Total</source>
-      <translation type="unfinished">Total</translation>
+      <translation>總計</translation>
     </message>
   </context>
   <context>
     <name>ChainSha256Editor</name>
     <message>
       <source>pinnedPeerCertificateChainSha256 Editor</source>
-      <translation type="unfinished">pinnedPeerCertificateChainSha256 Editor</translation>
+      <translation>pinnedPeerCerCercatateChainSha256 編輯器</translation>
     </message>
     <message>
       <source>Invalid Certificate Hash Chain</source>
-      <translation type="unfinished">Invalid Certificate Hash Chain</translation>
+      <translation>證書雜湊鏈無效</translation>
     </message>
     <message>
       <source>invalid SHA256: %1</source>
-      <translation type="unfinished">invalid SHA256: %1</translation>
+      <translation>無效 SHA256: %1</translation>
     </message>
     <message>
       <source>One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </source>
-      <translation type="unfinished">One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </translation>
+      <translation>每行一個 SHA-256 ，例如: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </translation>
     </message>
   </context>
 </TS>

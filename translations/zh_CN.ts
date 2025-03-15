@@ -2008,7 +2008,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
     </message>
     <message>
       <source>Click Close Button to Exit</source>
-      <translation>点击关闭按钮退出</translation>
+      <translation>点击关闭按钮退出程序</translation>
     </message>
     <message>
       <source>Exit instead of minimizing to tray when the close button clicked.
@@ -3882,11 +3882,11 @@ Maybe you have downloaded the wrong core?</source>
     </message>
     <message>
       <source>invalid SHA256: %1</source>
-      <translation>invalid SHA256: %1</translation>
+      <translation>无效的 SHA256: %1</translation>
     </message>
     <message>
       <source>One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </source>
-      <translation>One SHA-256 per line. eg: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </translation>
+      <translation>每行一个 SHA-256 ，例如: 50c393f158c3de2db92fa9661bfb00eda5b67c3a777c88524ed3417509631625 6e6ed938298daf79a0173ebca30521a72ab07a9f535bfd6b178e0fc39dff2f4d b635d5701f7b12310fa94fae8040d3fc816a4dc2f0682a14ed4103aae39c0bd6 </translation>
     </message>
   </context>
 </TS>
