@@ -2574,10 +2574,6 @@ Maybe you have downloaded the wrong core?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Configuration Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Invalid V2Ray Instance Status.</source>
         <translation type="unfinished"></translation>
     </message>

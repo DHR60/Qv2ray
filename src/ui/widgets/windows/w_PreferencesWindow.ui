@@ -3,7 +3,7 @@
  <class>PreferencesWindow</class>
  <widget class="QDialog" name="PreferencesWindow">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -23,10 +23,10 @@
    <item row="2" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
      </property>
     </widget>
    </item>
@@ -54,7 +54,7 @@
                <string>Adapt Dark Theme</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -71,7 +71,7 @@
                <string>Adapt Dark Tray Theme</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -88,7 +88,7 @@
                <string>UI Theme</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -108,7 +108,7 @@
                <string>Language</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -134,7 +134,7 @@
                <string>Recent Jumplist</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -160,7 +160,7 @@
                <string>Maximum log lines</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -218,7 +218,7 @@
                <string>Launch at Login</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -235,7 +235,7 @@
                <string>Quiet Mode</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -269,12 +269,12 @@
             </item>
             <item row="3" column="1">
              <widget class="QCheckBox" name="exitByCloseEventCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
               <property name="toolTip">
                <string>Exit instead of minimizing to tray when the close button clicked.
 This option may be useful for some desktop environments without tray support.</string>
+              </property>
+              <property name="text">
+               <string>Enabled</string>
               </property>
              </widget>
             </item>
@@ -284,7 +284,7 @@ This option may be useful for some desktop environments without tray support.</s
                <string>Auto Connect</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -299,7 +299,7 @@ This option may be useful for some desktop environments without tray support.</s
                  <string>Config</string>
                 </property>
                 <property name="textFormat">
-                 <enum>Qt::PlainText</enum>
+                 <enum>Qt::TextFormat::PlainText</enum>
                 </property>
                </widget>
               </item>
@@ -319,7 +319,7 @@ This option may be useful for some desktop environments without tray support.</s
                  <string>Group</string>
                 </property>
                 <property name="textFormat">
-                 <enum>Qt::PlainText</enum>
+                 <enum>Qt::TextFormat::PlainText</enum>
                 </property>
                </widget>
               </item>
@@ -385,7 +385,7 @@ This option may be useful for some desktop environments without tray support.</s
 For example, for updating subscriptions.</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -395,7 +395,7 @@ For example, for updating subscriptions.</string>
                <string>User-Agent</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -436,7 +436,7 @@ For example, for updating subscriptions.</string>
                <string>Latency Test Method</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -484,7 +484,7 @@ For example, for updating subscriptions.</string>
                <string>Qv2ray Proxy</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -530,7 +530,7 @@ For example, for updating subscriptions.</string>
                  <string>Type</string>
                 </property>
                 <property name="textFormat">
-                 <enum>Qt::PlainText</enum>
+                 <enum>Qt::TextFormat::PlainText</enum>
                 </property>
                </widget>
               </item>
@@ -554,7 +554,7 @@ For example, for updating subscriptions.</string>
                  <string>Server</string>
                 </property>
                 <property name="textFormat">
-                 <enum>Qt::PlainText</enum>
+                 <enum>Qt::TextFormat::PlainText</enum>
                 </property>
                </widget>
               </item>
@@ -569,14 +569,14 @@ For example, for updating subscriptions.</string>
                    <string>:</string>
                   </property>
                   <property name="alignment">
-                   <set>Qt::AlignCenter</set>
+                   <set>Qt::AlignmentFlag::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QSpinBox" name="qvProxyPortCB">
                   <property name="buttonSymbols">
-                   <enum>QAbstractSpinBox::NoButtons</enum>
+                   <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
                   </property>
                   <property name="minimum">
                    <number>0</number>
@@ -603,7 +603,6 @@ For example, for updating subscriptions.</string>
              <widget class="QLabel" name="label_84">
               <property name="font">
                <font>
-                <weight>50</weight>
                 <italic>true</italic>
                 <bold>false</bold>
                </font>
@@ -616,7 +615,7 @@ For example, for updating subscriptions.</string>
 But could damage your server if improperly used.</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -626,7 +625,7 @@ But could damage your server if improperly used.</string>
                <string>Test Latency Periodically</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -677,7 +676,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -706,7 +705,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>Log Level</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -757,7 +756,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>V2Ray Core Executable Path</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -785,7 +784,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>V2Ray Assets Directory</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -823,7 +822,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>V2Ray API Subsystem</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -840,7 +839,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>V2Ray API Port</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -912,7 +911,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>Enabling V2Ray Integration will allow the kernel benefit from the V2Ray routing engine.</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -922,7 +921,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              <string>V2Ray Integration</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -947,7 +946,7 @@ Custom DNS Settings</string>
              <string>Qv2ray will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -957,7 +956,7 @@ Custom DNS Settings</string>
              <string>Port Allocation Start</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -980,7 +979,7 @@ Custom DNS Settings</string>
              <string>Only V2Ray Core v4.21+ is supported.</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -990,7 +989,7 @@ Custom DNS Settings</string>
        <item>
         <spacer name="verticalSpacer_5">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1010,7 +1009,7 @@ Custom DNS Settings</string>
        <item row="0" column="0">
         <widget class="QScrollArea" name="scrollArea_2">
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -1020,8 +1019,8 @@ Custom DNS Settings</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1331</width>
-            <height>894</height>
+            <width>893</width>
+            <height>630</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
@@ -1033,7 +1032,7 @@ Custom DNS Settings</string>
                 <string>Listening Address</string>
                </property>
                <property name="textFormat">
-                <enum>Qt::PlainText</enum>
+                <enum>Qt::TextFormat::PlainText</enum>
                </property>
               </widget>
              </item>
@@ -1050,7 +1049,7 @@ Custom DNS Settings</string>
                 <string>Set System Proxy</string>
                </property>
                <property name="textFormat">
-                <enum>Qt::PlainText</enum>
+                <enum>Qt::TextFormat::PlainText</enum>
                </property>
               </widget>
              </item>
@@ -1114,7 +1113,7 @@ Custom DNS Settings</string>
                    <string>Network Options</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1137,7 +1136,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_2">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1155,7 +1154,7 @@ Custom DNS Settings</string>
                    <string>Destination Override</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1192,7 +1191,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_3">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1210,7 +1209,7 @@ Custom DNS Settings</string>
                    <string>Mode</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1240,7 +1239,7 @@ Custom DNS Settings</string>
                    <string>Outbound Mark</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1263,7 +1262,7 @@ Custom DNS Settings</string>
                    <string>Listening IPv4 Address</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1273,7 +1272,7 @@ Custom DNS Settings</string>
                    <string>Listening IPv6 Address</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1316,7 +1315,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_4">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1349,7 +1348,7 @@ Custom DNS Settings</string>
                    <string>Port</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1372,7 +1371,7 @@ Custom DNS Settings</string>
                    <string>UDP Support</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1389,7 +1388,7 @@ Custom DNS Settings</string>
                    <string>UDP Local IP</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1406,7 +1405,7 @@ Custom DNS Settings</string>
                    <string>Authentication</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1423,7 +1422,7 @@ Custom DNS Settings</string>
                    <string>Username</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1440,7 +1439,7 @@ Custom DNS Settings</string>
                    <string>Password</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1457,7 +1456,7 @@ Custom DNS Settings</string>
                    <string>Sniffing</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1480,7 +1479,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_5">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1498,7 +1497,7 @@ Custom DNS Settings</string>
                    <string>Destination Override</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1535,7 +1534,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_6">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1568,7 +1567,7 @@ Custom DNS Settings</string>
                    <string>Port</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1591,7 +1590,7 @@ Custom DNS Settings</string>
                    <string>Authentication</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1608,7 +1607,7 @@ Custom DNS Settings</string>
                    <string>Username</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1625,7 +1624,7 @@ Custom DNS Settings</string>
                    <string>Password</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1642,7 +1641,7 @@ Custom DNS Settings</string>
                    <string>Sniffing</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1665,7 +1664,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_7">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1683,7 +1682,7 @@ Custom DNS Settings</string>
                    <string>Destination Override</string>
                   </property>
                   <property name="textFormat">
-                   <enum>Qt::PlainText</enum>
+                   <enum>Qt::TextFormat::PlainText</enum>
                   </property>
                  </widget>
                 </item>
@@ -1720,7 +1719,7 @@ Custom DNS Settings</string>
                   <item>
                    <spacer name="horizontalSpacer_8">
                     <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                     <enum>Qt::Orientation::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
@@ -1821,7 +1820,7 @@ Custom DNS Settings</string>
              <string>Force Direct for All Connections</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1852,7 +1851,7 @@ Custom DNS Settings</string>
              <string>Bypass CN Mainland</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1869,7 +1868,7 @@ Custom DNS Settings</string>
              <string>Bypass Bittorrent Protocol</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1886,7 +1885,7 @@ Custom DNS Settings</string>
              <string>Use V2Ray DNS for Direct Connection</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1903,7 +1902,7 @@ Custom DNS Settings</string>
              <string>DNS Intercept</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1935,7 +1934,7 @@ Custom DNS Settings</string>
              <string>Only simple config is supported.</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1945,7 +1944,7 @@ Custom DNS Settings</string>
              <string>Type</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1969,7 +1968,7 @@ Custom DNS Settings</string>
              <string>Host Address</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -1982,7 +1981,7 @@ Custom DNS Settings</string>
              <string>Port</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -2005,7 +2004,7 @@ Custom DNS Settings</string>
              <string>Authentication</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -2022,7 +2021,7 @@ Custom DNS Settings</string>
              <string>Username</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -2035,7 +2034,7 @@ Custom DNS Settings</string>
              <string>Password</string>
             </property>
             <property name="textFormat">
-             <enum>Qt::PlainText</enum>
+             <enum>Qt::TextFormat::PlainText</enum>
             </property>
            </widget>
           </item>
@@ -2078,7 +2077,7 @@ Custom DNS Settings</string>
           <string>You can configure default routing rules for all simple connection config here.</string>
          </property>
          <property name="textFormat">
-          <enum>Qt::PlainText</enum>
+          <enum>Qt::TextFormat::PlainText</enum>
          </property>
         </widget>
        </item>
@@ -2113,7 +2112,7 @@ Custom DNS Settings</string>
          <item>
           <spacer name="verticalSpacer_2">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -2139,7 +2138,7 @@ Custom DNS Settings</string>
                <string/>
               </property>
               <property name="textInteractionFlags">
-               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
               </property>
              </widget>
             </item>
@@ -2162,7 +2161,7 @@ Custom DNS Settings</string>
                <string>Ignored Version</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -2186,7 +2185,7 @@ Custom DNS Settings</string>
                <string>Update Channel</string>
               </property>
               <property name="textFormat">
-               <enum>Qt::PlainText</enum>
+               <enum>Qt::TextFormat::PlainText</enum>
               </property>
              </widget>
             </item>
@@ -2222,7 +2221,7 @@ Custom DNS Settings</string>
             <string>Qv2ray</string>
            </property>
            <property name="textFormat">
-            <enum>Qt::PlainText</enum>
+            <enum>Qt::TextFormat::PlainText</enum>
            </property>
           </widget>
          </item>
@@ -2239,7 +2238,7 @@ Custom DNS Settings</string>
               <string>Version:</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2254,17 +2253,17 @@ Custom DNS Settings</string>
               <cursorShape>IBeamCursor</cursorShape>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
            <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -2284,7 +2283,7 @@ Custom DNS Settings</string>
               <string>Build Info</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2294,10 +2293,10 @@ Custom DNS Settings</string>
               <string/>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -2313,13 +2312,13 @@ Custom DNS Settings</string>
               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a style=&quot; text-decoration: none; color:#2980b9;&quot; href=&quot;https://github.com/Qv2ray/Qv2ray&quot;&gt;https://github.com/Qv2ray/Qv2ray&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::RichText</enum>
+              <enum>Qt::TextFormat::RichText</enum>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::TextBrowserInteraction</set>
+              <set>Qt::TextInteractionFlag::TextBrowserInteraction</set>
              </property>
             </widget>
            </item>
@@ -2329,7 +2328,7 @@ Custom DNS Settings</string>
               <string>Official Repo</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2350,7 +2349,7 @@ Custom DNS Settings</string>
               <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;GPLv3 (&lt;a style=&quot; text-decoration: none; color:#2980b9;&quot; href=&quot;https://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;https://www.gnu.org/licenses/gpl-3.0.txt&lt;/a&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::RichText</enum>
+              <enum>Qt::TextFormat::RichText</enum>
              </property>
              <property name="wordWrap">
               <bool>false</bool>
@@ -2359,7 +2358,7 @@ Custom DNS Settings</string>
               <bool>true</bool>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::TextBrowserInteraction</set>
+              <set>Qt::TextInteractionFlag::TextBrowserInteraction</set>
              </property>
             </widget>
            </item>
@@ -2369,7 +2368,7 @@ Custom DNS Settings</string>
               <string>Extra Build Info</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2379,7 +2378,7 @@ Custom DNS Settings</string>
               <string>Built Time</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2389,7 +2388,7 @@ Custom DNS Settings</string>
               <string>Plugin Interface</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2399,7 +2398,7 @@ Custom DNS Settings</string>
               <string/>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2409,10 +2408,10 @@ Custom DNS Settings</string>
               <string/>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -2422,10 +2421,10 @@ Custom DNS Settings</string>
               <string/>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
              <property name="textInteractionFlags">
-              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -2435,7 +2434,7 @@ Custom DNS Settings</string>
               <string>License</string>
              </property>
              <property name="textFormat">
-              <enum>Qt::PlainText</enum>
+              <enum>Qt::TextFormat::PlainText</enum>
              </property>
             </widget>
            </item>
@@ -2444,7 +2443,7 @@ Custom DNS Settings</string>
          <item>
           <widget class="QTextBrowser" name="textBrowser">
            <property name="lineWrapMode">
-            <enum>QTextEdit::NoWrap</enum>
+            <enum>QTextEdit::LineWrapMode::NoWrap</enum>
            </property>
            <property name="readOnly">
             <bool>true</bool>

@@ -126,7 +126,6 @@ jobs:
           cmake .. -GNinja \
             -DCMAKE_INSTALL_PREFIX=installed \
             -DQV2RAY_UI_TYPE=${{ matrix.ui_type }} \
-            -DQV2RAY_QT6=ON \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13 \
             -DDS_STORE_SCRIPT=ON \
@@ -147,7 +146,6 @@ jobs:
           cd build
           cmake .. -GNinja \
             -DQV2RAY_UI_TYPE=${{ matrix.ui_type }} \
-            -DQV2RAY_QT6=ON \
             -DCMAKE_INSTALL_PREFIX=./deployment \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
           cmake --build . --parallel $(nproc)
@@ -162,7 +160,6 @@ jobs:
           cd build
           cmake .. -GNinja \
             -DQV2RAY_UI_TYPE=${{ matrix.ui_type }} \
-            -DQV2RAY_QT6=ON \
             -DCMAKE_INSTALL_PREFIX=./AppDir/usr \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
             -DQV2RAY_TRANSLATION_PATH=QApplication::applicationDirPath\(\)+"/../share/qv2ray/lang"
