@@ -9,13 +9,8 @@
 #define QV2RAY_GENERATED_FILE_PATH (QV2RAY_GENERATED_DIR + "config.gen.json")
 #define QV_MODULE_NAME             "V2RayInteraction"
 
-#ifdef QV2RAY_USE_V5_CORE
-#define V2RAY_CORE_VERSION_ARGV "version"
-#define V2RAY_CORE_CONFIG_ARGV  "run", "-config"
-#else
-#define V2RAY_CORE_VERSION_ARGV "--version"
-#define V2RAY_CORE_CONFIG_ARGV  "--config"
-#endif
+#define V2RAY_CORE_VERSION_ARGV    "version"
+#define V2RAY_CORE_CONFIG_ARGV     "run", "-config"
 
 namespace Qv2ray::core::kernel
 {
@@ -176,11 +171,7 @@ std::optional<QString> V2RayKernelInstance::ValidateConfig(const QString &path)
         QProcess process;
         process.setProcessEnvironment(env);
         DEBUG("Starting V2Ray core with test options");
-#ifdef QV2RAY_USE_V5_CORE
         process.start(kernelPath, { "test", "-c", path }, QIODevice::ReadWrite | QIODevice::Text);
-#else
-        process.start(kernelPath, { "-test", "-config", path }, QIODevice::ReadWrite | QIODevice::Text);
-#endif
         process.waitForFinished();
 
         if (process.exitCode() != 0)

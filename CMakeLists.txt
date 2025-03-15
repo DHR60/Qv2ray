@@ -130,11 +130,6 @@ option(QV2RAY_HAS_SINGLEAPPLICATION "Build With SingleApplication" ON)
 set(QV2RAY_UI_TYPE "QWidget" CACHE STRING "Qv2ray GUI Component")
 QVLOG(QV2RAY_UI_TYPE)
 
-option(QV2RAY_USE_V5_CORE "Use V5 Core" ON)
-QVLOG(QV2RAY_USE_V5_CORE)
-
-option(QV2RAY_QT6 "Use Qt6" OFF)
-
 if(QV2RAY_UI_TYPE STREQUAL "QWidget")
     set(QV2RAY_USE_QWIDGET ON)
     set(QV2RAY_USE_QML OFF)
@@ -153,7 +148,6 @@ if(ANDROID)
     set(QV2RAY_USE_QML ON)
     set(QV2RAY_USE_QWIDGET OFF)
     set(QV2RAY_HAS_SINGLEAPPLICATION OFF)
-    set(QV2RAY_QT6 ON)
     message("-- Use Qt6 for Android build.")
 endif()
 
@@ -168,7 +162,6 @@ if(QV2RAY_HAS_SINGLEAPPLICATION)
 endif()
 
 if(QV2RAY_USE_QML)
-    set(QV2RAY_QT6 ON)
     message("-- Use Qt6 for QML build.")
     option(QV2RAY_QML_LIVE_UPDATE "Use QMLLive for live updated QML" OFF)
     QVLOG(QV2RAY_QML_LIVE_UPDATE)
@@ -179,19 +172,10 @@ elseif(QV2RAY_USE_QWIDGET)
     QVLOG(QV2RAY_QNODEEDITOR_PROVIDER)
 endif()
 
-QVLOG(QV2RAY_QT6)
-
-if(QV2RAY_QT6)
-    cmake_policy(SET CMP0072 NEW)
-    set(QV_QT_MAJOR_VERSION 6)
-    set(QV_QT_MINOR_VERSION 0)
-    set(QV_QT_LIBNAME Qt6)
-    add_definitions(-DQV2RAY_QT6=1)
-else()
-    set(QV_QT_MAJOR_VERSION 5)
-    set(QV_QT_MINOR_VERSION 11)
-    set(QV_QT_LIBNAME Qt5)
-endif()
+cmake_policy(SET CMP0072 NEW)
+set(QV_QT_MAJOR_VERSION 6)
+set(QV_QT_MINOR_VERSION 0)
+set(QV_QT_LIBNAME Qt6)
 
 
 # ==================================================================================
@@ -332,11 +316,6 @@ target_include_directories(qv2ray_baselib PUBLIC
     ${Protobuf_INCLUDE_DIRS}
     )
 
-if(QV2RAY_USE_V5_CORE)
-    message("-- Use V2Ray Core V5")
-    target_compile_definitions(qv2ray_baselib PUBLIC QV2RAY_USE_V5_CORE)
-endif()
-
 # ==================================================================================
 # Qv2ray Builtin Plugins
 # ==================================================================================
@@ -404,13 +383,7 @@ set(QV2RAY_FULL_SOURCES
 QVLOG(QV2RAY_QM_FILES)
 QVLOG(QV2RAY_QRC_RESOURCES)
 
-if(QV2RAY_QT6)
-    qt6_add_executable(qv2ray ${GUI_TYPE} ${QV2RAY_FULL_SOURCES})
-    # For Qt5, Android
-    # add_library(qv2ray SHARED ${QV2RAY_FULL_SOURCES})
-else()
-    add_executable(qv2ray ${GUI_TYPE} ${QV2RAY_FULL_SOURCES})
-endif()
+qt6_add_executable(qv2ray ${GUI_TYPE} ${QV2RAY_FULL_SOURCES})
 
 # set_target_properties(MAIN PROPERTIES OUTPUT_NAME "qv2ray")
 

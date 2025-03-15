@@ -277,7 +277,7 @@ void ImportConfigWindow::on_beginImportBtn_clicked()
 
         if (!linkErrors.isEmpty())
         {
-            for (const auto &item : qAsConst(linkErrors))
+            for (const auto &item : std::as_const(linkErrors))
             {
                 vmessConnectionStringTxt->appendPlainText(linkErrors.key(item));
                 errorsList->addItem(item);

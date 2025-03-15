@@ -61,16 +61,13 @@ using namespace Qv2ray::base::objects::transfer;
 #define QV2RAY_GENERATED_DIR         (QV2RAY_CONFIG_DIR + "generated/")
 
 #if !defined(QV2RAY_DEFAULT_VCORE_PATH) && !defined(QV2RAY_DEFAULT_VASSETS_PATH)
-#define QV2RAY_DEFAULT_VASSETS_PATH (QV2RAY_CONFIG_DIR + "vcore/")
-#define QV2RAY_DEFAULT_VCORE_PATH   (QV2RAY_CONFIG_DIR + "vcore/v2ray" QV2RAY_EXECUTABLE_SUFFIX)
-#if !defined(QV2RAY_USE_V5_CORE)
-#define QV2RAY_DEFAULT_VCTL_PATH (QV2RAY_CONFIG_DIR + "vcore/v2ctl" QV2RAY_EXECUTABLE_SUFFIX)
-#endif
+#define QV2RAY_DEFAULT_VASSETS_PATH (QV2RAY_CONFIG_DIR + "bin/")
+#define QV2RAY_DEFAULT_VCORE_PATH   (QV2RAY_CONFIG_DIR + "bin/xray" QV2RAY_EXECUTABLE_SUFFIX)
 #elif defined(QV2RAY_DEFAULT_VCORE_PATH) && defined(QV2RAY_DEFAULT_VASSETS_PATH)
 // ---- Using user-specified VCore and VAssets path
-#else
+#else // !defined(QV2RAY_DEFAULT_VCORE_PATH) && !defined(QV2RAY_DEFAULT_VASSETS_PATH)
 #error Both QV2RAY_DEFAULT_VCORE_PATH and QV2RAY_DEFAULT_VASSETS_PATH need to be presented when using manually specify the paths.
-#endif
+#endif // !defined(QV2RAY_DEFAULT_VCORE_PATH) && !defined(QV2RAY_DEFAULT_VASSETS_PATH)
 
 #define QSTRN(num)                 QString::number(num)
 

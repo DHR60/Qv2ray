@@ -1834,12 +1834,6 @@ If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You may be about to set V2Ray core incorrectly to V2Ray Control executable, which is absolutely not correct.<byte value="xd"/>
-The filename of V2Ray core is usually &apos;v2ray&apos; or &apos;v2ray.exe&apos;. Make sure to choose it wisely.<byte value="xd"/>
-If you insist to proceed, we&apos;re not providing with any support.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Force Direct for All Connections</source>
         <translation type="unfinished"></translation>
     </message>

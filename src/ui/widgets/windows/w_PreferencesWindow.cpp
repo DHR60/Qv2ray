@@ -347,7 +347,7 @@ QvMessageBusSlotImpl(PreferencesWindow)
     }
 }
 
-PreferencesWindow::~PreferencesWindow() {};
+PreferencesWindow::~PreferencesWindow(){};
 
 std::optional<QString> PreferencesWindow::checkTProxySettings() const
 {
@@ -794,23 +794,14 @@ void PreferencesWindow::on_checkVCoreSettings_clicked()
                                 "If your V2Ray core filename happened to be 'qv2ray'-something, you are totally free to ignore this warning.");
         QvMessageBoxWarn(this, tr("Watch Out!"), content);
     }
-#if !defined(QV2RAY_USE_V5_CORE)
-    else if (vCorePathSmallCased.endsWith("v2ctl") || vCorePathSmallCased.endsWith("v2ctl.exe"))
-    {
-        const auto content = tr("You may be about to set V2Ray core incorrectly to V2Ray Control executable, which is absolutely not correct.\r\n"
-                                "The filename of V2Ray core is usually 'v2ray' or 'v2ray.exe'. Make sure to choose it wisely.\r\n"
-                                "If you insist to proceed, we're not providing with any support.");
-        QvMessageBoxWarn(this, tr("Watch Out!"), content);
-    }
-#endif
-#endif
+#endif // QV2RAY_FEATURE(kernel_check_filename)
 
     if (const auto &&[result, msg] = V2RayKernelInstance::ValidateKernel(vcorePath, vAssetsPath); !result)
     {
         QvMessageBoxWarn(this, tr("V2Ray Core Settings"), *msg);
     }
 #if QV2RAY_FEATURE(kernel_check_output)
-    else if (!msg->toLower().contains("v2ray") && !msg->toLower().contains("xray"))
+    else if (!msg->toLower().contains("xray"))
     {
         const auto content = tr("This does not seem like an output from V2Ray Core.") + NEWLINE +                         //
                              tr("If you are looking for plugins settings, you should go to plugin settings.") + NEWLINE + //
@@ -818,7 +809,7 @@ void PreferencesWindow::on_checkVCoreSettings_clicked()
                              NEWLINE + *msg;
         QvMessageBoxWarn(this, tr("'V2Ray Core' Settings"), content);
     }
-#endif
+#endif // QV2RAY_FEATURE(kernel_check_output)
     else
     {
         const auto content = tr("V2Ray path configuration check passed.") + NEWLINE + NEWLINE + tr("Current version of V2Ray is: ") + NEWLINE + *msg;
