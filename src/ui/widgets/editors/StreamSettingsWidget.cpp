@@ -85,6 +85,13 @@ void StreamSettingsWidget::SetStreamObject(const Qv2ray::Models::StreamSettingsO
     {
         grpcServiceNameTxt->setText(stream.grpcSettings->serviceName);
     }
+    // Hy2
+    {
+        hy2PasswordTxt->setText(stream.hy2Settings->password);
+        hy2UseUDPExtensionCB->setChecked(stream.hy2Settings->use_udp_extension);
+        hy2UpMbpsSB->setValue(stream.hy2Settings->congestion->up_mbps);
+        hy2DownMbpsSB->setValue(stream.hy2Settings->congestion->down_mbps);
+    }
     // SOCKOPT
     {
         tProxyCB->setCurrentText(stream.sockopt->tproxy);
@@ -306,4 +313,24 @@ void StreamSettingsWidget::on_wsEarlyDataSB_valueChanged(int arg1)
 void StreamSettingsWidget::on_wsBrowserForwardCB_stateChanged(int arg1)
 {
     stream.wsSettings->useBrowserForwarding = arg1 == Qt::Checked;
+}
+
+void StreamSettingsWidget::on_hy2PasswordTxt_textEdited(const QString &arg1)
+{
+    stream.hy2Settings->password = arg1;
+}
+
+void StreamSettingsWidget::on_hy2UseUDPExtensionCB_stateChanged(int arg1)
+{
+    stream.hy2Settings->use_udp_extension = arg1;
+}
+
+void StreamSettingsWidget::on_hy2UpMbpsSB_valueChanged(int arg1)
+{
+    stream.hy2Settings->congestion->up_mbps = arg1;
+}
+
+void StreamSettingsWidget::on_hy2DownMbpsSB_valueChanged(int arg1)
+{
+    stream.hy2Settings->congestion->down_mbps = arg1;
 }
