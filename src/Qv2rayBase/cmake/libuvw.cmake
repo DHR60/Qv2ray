@@ -1,15 +1,8 @@
 option(USE_SYSTEM_UVW "Use system libuvw" OFF)
 
 if(USE_SYSTEM_UVW)
-    # Special package name from vcpkg
-    find_package(unofficial-libuv CONFIG QUIET)
-    if(${unofficial-libuv_FOUND})
-        add_library(Qv2ray::libuv ALIAS unofficial::libuv::libuv)
-    else()
-        find_package(LibUV REQUIRED)
-        add_library(Qv2ray::libuv ALIAS LibUV::LibUV)
-    endif()
-
+    find_package(libuv REQUIRED)
+    add_library(Qv2ray::libuv ALIAS libuv::uv)
     find_package(uvw CONFIG REQUIRED)
     add_library(Qv2ray_uvw INTERFACE)
     target_link_libraries(Qv2ray_uvw INTERFACE uvw::uvw)

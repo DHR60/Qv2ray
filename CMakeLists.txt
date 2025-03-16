@@ -194,8 +194,8 @@ target_link_libraries(qv2ray PRIVATE
 if(USE_SYSTEM_LIBUV)
 # Qt deferred target finalizer will try looking for "unofficial::libuv::libuv" when USE_SYSTEM_LIBUV is on.
     if(WIN32)
-        find_package(unofficial-libuv CONFIG REQUIRED)
-        add_library(Qv2ray::libuv ALIAS unofficial::libuv::libuv)
+        find_package(libuv CONFIG REQUIRED)
+        add_library(Qv2ray::libuv ALIAS libuv::uv)
     endif()
 endif()
 # END SPECIAL CASE
