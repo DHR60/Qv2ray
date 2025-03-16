@@ -2797,7 +2797,7 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>GUIコンポーネント</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
         <source>Unsupported share link format.</source>
         <translation>この共有リンクはサポートされていないようです。</translation>
     </message>
@@ -2823,59 +2823,48 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>ホスト名とポートの間にコロン区切り記号が見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="24"/>
         <source>Invalid ssd link: json: field %1 must exist</source>
-        <translation>無効な ssd リンク: json: フィールド %1 が存在する必要があります</translation>
+        <translation type="vanished">無効な ssd リンク: json: フィールド %1 が存在する必要があります</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="31"/>
         <source>Invalid ssd link: json: field %1 must be valid port number</source>
-        <translation>無効な ssd リンク: json: フィールド %1 は有効なポート番号でなければなりません</translation>
+        <translation type="vanished">無効な ssd リンク: json: フィールド %1 は有効なポート番号でなければなりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="38"/>
         <source>Invalid ssd link: json: field %1 must be of type &apos;string&apos;</source>
-        <translation>無効なリンク：json：フィールド％1は「文字列」タイプである必要があります</translation>
+        <translation type="vanished">無効なリンク：json：フィールド％1は「文字列」タイプである必要があります</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="45"/>
         <source>Invalid ssd link: json: field %1 must be an array</source>
-        <translation>無効な ssd リンク: json: フィールド %1 は配列でなければなりません</translation>
+        <translation type="vanished">無効な ssd リンク: json: フィールド %1 は配列でなければなりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="52"/>
         <source>Skipping invalid ssd server: server must be an object</source>
-        <translation>無効な ssd サーバーをスキップします: サーバーはオブジェクトでなければなりません</translation>
+        <translation type="vanished">無効な ssd サーバーをスキップします: サーバーはオブジェクトでなければなりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="58"/>
         <source>Skipping invalid ssd server: missing required field %1</source>
-        <translation>無効な ssd サーバーをスキップしています: 必須フィールド %1 がありません</translation>
+        <translation type="vanished">無効な ssd サーバーをスキップしています: 必須フィールド %1 がありません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="65"/>
         <source>Skipping invalid ssd server: field %1 should be of type &apos;string&apos;</source>
-        <translation>無効な ssd サーバーをスキップしています: フィールド %1 はタイプ &apos;文字列でなければなりません&apos;</translation>
+        <translation type="vanished">無効な ssd サーバーをスキップしています: フィールド %1 はタイプ &apos;文字列でなければなりません&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="75"/>
         <source>Invalid ssd link: should begin with ssd://</source>
-        <translation>無効な ssd リンク: ssd:// で始まる必要があります</translation>
+        <translation type="vanished">無効な ssd リンク: ssd:// で始まる必要があります</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="85"/>
         <source>Invalid ssd link: base64 parse failed</source>
-        <translation>無効な ssd リンクです: base64 パースに失敗しました</translation>
+        <translation type="vanished">無効な ssd リンクです: base64 パースに失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="92"/>
         <source>Invalid ssd link: json parse failed: </source>
-        <translation>無効な ssd リンクです: json parse: </translation>
+        <translation type="vanished">無効な ssd リンクです: json parse: </translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="115"/>
         <source>Invalid ssd link: rc4-md5 encryption is not supported by v2ray-core</source>
-        <translation>無効な ssd リンクです: v2ray-core では、rc4-md5 暗号化はサポートされていません</translation>
+        <translation type="vanished">無効な ssd リンクです: v2ray-core では、rc4-md5 暗号化はサポートされていません</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vmess.cpp" line="99"/>

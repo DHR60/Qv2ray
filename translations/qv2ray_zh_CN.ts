@@ -2846,7 +2846,7 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>GUI 组件</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
         <source>Unsupported share link format.</source>
         <translation>不支持的分享链接格式。</translation>
     </message>
@@ -2872,59 +2872,48 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>主机名和端口之间缺少冒号分隔符</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="24"/>
         <source>Invalid ssd link: json: field %1 must exist</source>
-        <translation>无效的 ssd 链接: json: 字段 %1 必须存在</translation>
+        <translation type="vanished">无效的 ssd 链接: json: 字段 %1 必须存在</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="31"/>
         <source>Invalid ssd link: json: field %1 must be valid port number</source>
-        <translation>无效的 ssd 链接: json: 字段 %1 必须是有效的端口号</translation>
+        <translation type="vanished">无效的 ssd 链接: json: 字段 %1 必须是有效的端口号</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="38"/>
         <source>Invalid ssd link: json: field %1 must be of type &apos;string&apos;</source>
-        <translation>无效的 ssd 链接: json: 字段 %1 必须是 &apos;字符串&apos; 类型</translation>
+        <translation type="vanished">无效的 ssd 链接: json: 字段 %1 必须是 &apos;字符串&apos; 类型</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="45"/>
         <source>Invalid ssd link: json: field %1 must be an array</source>
-        <translation>无效的 ssd 链接: json: 字段 %1 必须是一个数组</translation>
+        <translation type="vanished">无效的 ssd 链接: json: 字段 %1 必须是一个数组</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="52"/>
         <source>Skipping invalid ssd server: server must be an object</source>
-        <translation>跳过无效的 ssd 服务器：服务器必须是对象</translation>
+        <translation type="vanished">跳过无效的 ssd 服务器：服务器必须是对象</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="58"/>
         <source>Skipping invalid ssd server: missing required field %1</source>
-        <translation>跳过无效的 ssd 服务器: 缺少必填字段 %1</translation>
+        <translation type="vanished">跳过无效的 ssd 服务器: 缺少必填字段 %1</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="65"/>
         <source>Skipping invalid ssd server: field %1 should be of type &apos;string&apos;</source>
-        <translation>跳过无效的 ssd 服务器: 字段 %1 应该是 &apos;字符串&apos; 类型</translation>
+        <translation type="vanished">跳过无效的 ssd 服务器: 字段 %1 应该是 &apos;字符串&apos; 类型</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="75"/>
         <source>Invalid ssd link: should begin with ssd://</source>
-        <translation>无效的 ssd 链接: 应以 ssd:// 开头</translation>
+        <translation type="vanished">无效的 ssd 链接: 应以 ssd:// 开头</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="85"/>
         <source>Invalid ssd link: base64 parse failed</source>
-        <translation>无效的 ssd 链接: Base64 解析失败</translation>
+        <translation type="vanished">无效的 ssd 链接: Base64 解析失败</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="92"/>
         <source>Invalid ssd link: json parse failed: </source>
-        <translation>无效的 ssd 链接: json 解析失败: </translation>
+        <translation type="vanished">无效的 ssd 链接: json 解析失败: </translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ssd.cpp" line="115"/>
         <source>Invalid ssd link: rc4-md5 encryption is not supported by v2ray-core</source>
-        <translation>无效的 ssd 链接: rc4-md5 加密不被 v2ray-core 支持</translation>
+        <translation type="vanished">无效的 ssd 链接: rc4-md5 加密不被 v2ray-core 支持</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vmess.cpp" line="99"/>

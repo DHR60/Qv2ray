@@ -41,12 +41,6 @@ QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &lin
         auto conf = ss::Deserialize(link, aliasPrefix, errMessage);
         connectionConf << std::pair{ *aliasPrefix, conf };
     }
-    else if (link.startsWith("ssd://"))
-    {
-        QStringList errMessageList;
-        connectionConf << ssd::Deserialize(link, newGroup, &errMessageList);
-        *errMessage = errMessageList.join(NEWLINE);
-    }
     else
     {
         bool ok = false;
