@@ -15,7 +15,7 @@ jobs:
     name: Check if the workflow has been disabled.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Get commit message
         id: get_message
         run: |
@@ -26,13 +26,14 @@ jobs:
     if: ${{ !contains( needs.check_commit_msg.outputs.commit_message, '!NSIS') }}
     strategy:
       matrix:
-        qt_version: [5.15.0]
+        qt_version: [6.8.2]
         platform: [windows-latest]
         arch: [x64]
         include:
           - platform: windows-latest
             arch: x64
-            qtarch: win64_msvc2019_64
+            qt_host: windows
+            qtarch: win64_msvc2022_64
       fail-fast: false
 
     runs-on: ${{ matrix.platform }}
@@ -47,40 +48,27 @@ jobs:
         shell: bash
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Checking out sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Install Python 3.7 version
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.7"
-          architecture: ${{ matrix.arch }}
       # =========================================================================================================
-      - name: Install MSVC compiler
-        uses: ilammy/msvc-dev-cmd@v1
+      - name: Setup MSVC environment
+        uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
-          # 14.1 is for vs2017, 14.2 is vs2019, following the upstream vcpkg build from Qv2ray-deps repo
-          toolset: 14.2
-          arch: ${{ matrix.arch }}
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: QtCache-${{ matrix.platform }}-${{ matrix.arch }}-${{ matrix.qt_version }}
+          arch: x64
       - name: Installing Qt - ${{ matrix.arch }}
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v4
         with:
+          cache: 'true'
           version: ${{ matrix.qt_version }}
           arch: ${{ matrix.qtarch }}
-          mirror: "http://mirrors.ocf.berkeley.edu/qt/"
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          host: ${{ matrix.qt_host }}
+          target: 'desktop'
       # =========================================================================================================
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Setup Ninja
         uses: ashutoshvarma/setup-ninja@master
         with:
-          # ninja version to download. Default: 1.10.0
-          version: 1.10.0
+          version: 1.12.1
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Build preparation - Download Dependencies
         shell: bash
         run: |
@@ -109,7 +97,7 @@ jobs:
           path: build/${{ steps.get_package.outputs.NAME }}
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags/')
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/${{ steps.get_package.outputs.NAME }}
