@@ -272,7 +272,7 @@ std::optional<std::pair<QString, IOConnectionSettings>> DeserializeTrojan(const 
         conn.streamSettings = stream;
     }
 
-    return std::make_pair(url.fragment(), conn);
+    return std::make_pair(url.fragment(QUrl::FullyDecoded), conn);
 }
 
 std::optional<std::pair<QString, IOConnectionSettings>> DeserializeHysteria2(const QString &link)
