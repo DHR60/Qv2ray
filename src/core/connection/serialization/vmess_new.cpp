@@ -12,7 +12,7 @@ namespace serialization::vmess_new
 {
 const static QStringList NetworkType{ "tcp", "http", "ws", "kcp", "quic", "grpc" };
 const static QStringList QuicSecurityTypes{ "none", "aes-128-gcm", "chacha20-poly1305" };
-const static QStringList QuicKcpHeaderTypes{ "none", "srtp", "utp", "wechat-video", "dtls", "wireguard" };
+const static QStringList QuicKcpHeaderTypes{ "none", "srtp", "utp", "wechat-video", "dtls", "wireguard", "dns" };
 const static QStringList FalseTypes{ "false", "False", "No", "Off", "0" };
 
 CONFIGROOT Deserialize(const QString &vmessStr, QString *alias, QString *errMessage)
@@ -170,6 +170,8 @@ const QString Serialize(const StreamSettingsObject &stream, const VMessServerObj
             query.addQueryItem("seed", stream.kcpSettings.seed);
         if (!stream.kcpSettings.header.type.isEmpty() && stream.kcpSettings.header.type != "none")
             query.addQueryItem("type", stream.kcpSettings.header.type);
+        if (!stream.kcpSettings.header.domain.isEmpty() && stream.kcpSettings.header.domain != "")
+            query.addQueryItem("host", stream.kcpSettings.header.domain);
     }
     else if (stream.network == "quic")
     {

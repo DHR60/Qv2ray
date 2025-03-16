@@ -41,6 +41,7 @@ const QString Serialize(const StreamSettingsObject &transfer, const VMessServerO
     else if (transfer.network == "kcp")
     {
         vmessUriRoot["type"] = transfer.kcpSettings.header.type;
+        vmessUriRoot["host"] = transfer.kcpSettings.header.domain;
     }
     else if (transfer.network == "quic")
     {
@@ -200,7 +201,8 @@ CONFIGROOT Deserialize(const QString &vmessStr, QString *alias, QString *errMess
                                     << "http"                                                                                   //
                                     << "srtp"                                                                                   //
                                     << "utp"                                                                                    //
-                                    << "wechat-video");                                                                         //
+                                    << "wechat-video"                                                                           //
+                                    << "dns");                                                                                  //
                                                                                                                                 //
         __vmess_checker__func(net, << "tcp"                                                                                     //
                                    << "http"                                                                                    //
@@ -224,7 +226,7 @@ CONFIGROOT Deserialize(const QString &vmessStr, QString *alias, QString *errMess
         {                                                            //
             LOG("Reset obfs settings from " + type + " to none");    //
             type = "none";                                           //
-        } //
+        }                                                            //
     }
 
     port = vmessConf["port"].toVariant().toInt();
@@ -273,6 +275,8 @@ CONFIGROOT Deserialize(const QString &vmessStr, QString *alias, QString *errMess
     else if (net == "kcp")
     {
         streaming.kcpSettings.header.type = type;
+        if (!host.isEmpty())
+            streaming.kcpSettings.header.domain = host;
     }
     else if (net == "quic")
     {

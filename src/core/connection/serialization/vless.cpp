@@ -72,8 +72,8 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
 
     // handle type
     const auto hasType = query.hasQueryItem("type");
-    const auto type = hasType ? query.queryItemValue("type") : "tcp";
-    if (type != "tcp")
+    const auto type = hasType ? query.queryItemValue("type") : "raw";
+    if (type != "raw" || type != "tcp")
         QJsonIO::SetValue(stream, type, "network");
 
     // handle encryption
@@ -95,6 +95,18 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
         const auto headerType = hasHeaderType ? query.queryItemValue("headerType") : "none";
         if (headerType != "none")
             QJsonIO::SetValue(stream, headerType, { "kcpSettings", "header", "type" });
+
+        // https://github.com/2dust/v2rayN/pull/6852
+        // https://github.com/2dust/v2rayNG/pull/4368
+        // https://github.com/XTLS/Xray-core/discussions/716#discussioncomment-12387674
+        // 目前 mkcp dns 伪装域名使用 host 字段
+
+        const auto hasHost = query.hasQueryItem("host");
+        if (hasHost)
+        {
+            const auto hosts = query.queryItemValue("host");
+            QJsonIO::SetValue(stream, hosts, { "kcpSettings", "header", "domain" });
+        }
     }
     else if (type == "http")
     {

@@ -18,7 +18,7 @@ struct DNSObject
         QList<QString> domains;
         QList<QString> expectIPs;
         DNSServerObject()
-            : QV2RAY_DNS_IS_COMPLEX_DNS(false), port(53) {};
+            : QV2RAY_DNS_IS_COMPLEX_DNS(false), port(53){};
         DNSServerObject(const QString &_address)
             : DNSServerObject()
         {
@@ -157,13 +157,13 @@ struct HTTPRequestObject
     HTTPRequestObject()
     {
         headers = {
-            { "Host",            { "www.baidu.com", "www.bing.com" }                                                                                                 },
+            {"Host",             { "www.baidu.com", "www.bing.com" }                                                                                                },
             { "User-Agent",
              { "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-                "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46" } },
-            { "Accept-Encoding", { "gzip, deflate" }                                                                                                                 },
-            { "Connection",      { "keep-alive" }                                                                                                                    },
-            { "Pragma",          { "no-cache" }                                                                                                                      }
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46" }},
+            { "Accept-Encoding", { "gzip, deflate" }                                                                                                                },
+            { "Connection",      { "keep-alive" }                                                                                                                   },
+            { "Pragma",          { "no-cache" }                                                                                                                     }
         };
     }
     JSONSTRUCT_COMPARE(HTTPRequestObject, version, method, path, headers)
@@ -180,10 +180,10 @@ struct HTTPResponseObject
     HTTPResponseObject()
     {
         headers = {
-            { "Content-Type",      { "application/octet-stream", "video/mpeg" } }, //
-            { "Transfer-Encoding", { "chunked" }                                }, //
-            { "Connection",        { "keep-alive" }                             }, //
-            { "Pragma",            { "no-cache" }                               }
+            {"Content-Type",       { "application/octet-stream", "video/mpeg" }}, //
+            { "Transfer-Encoding", { "chunked" }                               }, //
+            { "Connection",        { "keep-alive" }                            }, //
+            { "Pragma",            { "no-cache" }                              }
         };
     }
     JSONSTRUCT_COMPARE(HTTPResponseObject, version, status, reason, headers)
@@ -204,8 +204,15 @@ struct TCPHeader_Internal
 struct ObfsHeaderObject
 {
     QString type = "none";
-    JSONSTRUCT_COMPARE(ObfsHeaderObject, type)
-    JSONSTRUCT_REGISTER(ObfsHeaderObject, F(type))
+
+    // https://github.com/2dust/v2rayN/pull/6852
+    // https://github.com/2dust/v2rayNG/pull/4368
+    // https://github.com/XTLS/Xray-core/discussions/716#discussioncomment-12387674
+    // 目前 mkcp dns 伪装域名使用 host 字段
+
+    QString domain;
+    JSONSTRUCT_COMPARE(ObfsHeaderObject, type, domain)
+    JSONSTRUCT_REGISTER(ObfsHeaderObject, A(type), F(domain))
 };
 //
 //
@@ -228,7 +235,7 @@ struct KCPObject
     int writeBufferSize = 2;
     QString seed;
     ObfsHeaderObject header;
-    KCPObject() {};
+    KCPObject(){};
     JSONSTRUCT_COMPARE(KCPObject, mtu, tti, uplinkCapacity, downlinkCapacity, congestion, readBufferSize, writeBufferSize, seed, header)
     JSONSTRUCT_REGISTER(KCPObject, F(mtu, tti, uplinkCapacity, downlinkCapacity, congestion, readBufferSize, writeBufferSize, header, seed))
 };
