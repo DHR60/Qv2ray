@@ -124,7 +124,6 @@ QVLOG(QV2RAY_DISABLE_AUTO_UPDATE)
 option(QV2RAY_HAS_BUILTIN_PLUGINS "Build with builtin plugins" ON)
 QVLOG(QV2RAY_HAS_BUILTIN_PLUGINS)
 
-option(QV2RAY_EMBED_TRANSLATIONS "Embed Translations" OFF)
 option(QV2RAY_HAS_SINGLEAPPLICATION "Build With SingleApplication" ON)
 
 set(QV2RAY_UI_TYPE "QWidget" CACHE STRING "Qv2ray GUI Component")
@@ -144,14 +143,12 @@ else()
 endif()
 
 if(ANDROID)
-    set(QV2RAY_EMBED_TRANSLATIONS ON)
     set(QV2RAY_USE_QML ON)
     set(QV2RAY_USE_QWIDGET OFF)
     set(QV2RAY_HAS_SINGLEAPPLICATION OFF)
     message("-- Use Qt6 for Android build.")
 endif()
 
-QVLOG(QV2RAY_EMBED_TRANSLATIONS)
 QVLOG(QV2RAY_USE_QML)
 QVLOG(QV2RAY_USE_QWIDGET)
 QVLOG(QV2RAY_HAS_SINGLEAPPLICATION)
@@ -186,19 +183,6 @@ if(QV2RAY_DEFAULT_VCORE_PATH AND NOT QV2RAY_DEFAULT_VCORE_PATH STREQUAL "unset")
 endif()
 if(QV2RAY_DEFAULT_VASSETS_PATH AND NOT QV2RAY_DEFAULT_VASSETS_PATH STREQUAL "unset")
     add_definitions(-DQV2RAY_DEFAULT_VASSETS_PATH="${QV2RAY_DEFAULT_VASSETS_PATH}")
-endif()
-
-# ==================================================================================
-# Embed Translations, Translation Search Path
-# ==================================================================================
-set(QV2RAY_TRANSLATION_PATH "unset" CACHE STRING "Qv2ray translations path")
-if(QV2RAY_TRANSLATION_PATH AND NOT QV2RAY_TRANSLATION_PATH STREQUAL "unset")
-    add_definitions(-DQV2RAY_TRANSLATION_PATH="${QV2RAY_TRANSLATION_PATH}")
-endif()
-if(QV2RAY_EMBED_TRANSLATIONS)
-    add_definitions(-DQV2RAY_EMBED_TRANSLATIONS)
-    configure_file(translations/translations.qrc ${CMAKE_BINARY_DIR} COPYONLY)
-    set(QV2RAY_EMBED_TRANSLATION_QRC ${CMAKE_BINARY_DIR}/translations.qrc)
 endif()
 
 # ==================================================================================
@@ -247,7 +231,7 @@ include(3rdparty/QJsonStruct/QJsonStruct.cmake)
 # Qv2ray Base, Qt Libraries, Qv2ray GUI Libraries, libThreads
 # ==================================================================================
 find_package(Threads REQUIRED)
-find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Core Network REQUIRED)
+find_package(${QV_QT_LIBNAME} ${QV_QT_MAJOR_VERSION}.${QV_QT_MINOR_VERSION} COMPONENTS Core Network LinguistTools REQUIRED)
 list(APPEND QV2RAY_QT_LIBS ${QV_QT_LIBNAME}::Core ${QV_QT_LIBNAME}::Network)
 
 cmake_policy(SET CMP0071 NEW)
@@ -274,6 +258,14 @@ elseif(QV2RAY_USE_QWIDGET)
     set(_QV2RAY_HAS_GUI_INTERNAL_ ON)
 else()
 endif()
+
+qt_standard_project_setup(
+    REQUIRES 6.5
+    I18N_TRANSLATED_LANGUAGES zh_CN zh_TW ja_JP yue
+)
+qt_add_translations(${PROJECT_NAME}
+    TS_FILE_DIR translations
+)
 
 # Qv2ray baselib sources
 include(cmake/components/qv2ray-base.cmake)
@@ -363,7 +355,6 @@ endif()
 
 # Platform Dependent Sources
 include(cmake/components/qv2ray-platform.cmake)
-include(cmake/translations.cmake)
 
 list(APPEND QV2RAY_QRC_RESOURCES
     ${CMAKE_SOURCE_DIR}/resources.qrc

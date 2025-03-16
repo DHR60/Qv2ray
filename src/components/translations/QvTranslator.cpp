@@ -12,10 +12,7 @@ QStringList getLanguageSearchPaths()
 {
     // Configuration Path
     QStringList list = QvCoreApplication->GetAssetsPaths("lang");
-#ifdef QV2RAY_EMBED_TRANSLATIONS
-    // If the translations have been embedded.
-    list << QString(":/translations/");
-#endif
+    list << QString(":/i18n/");
 #ifdef QV2RAY_TRANSLATION_PATH
     // Platform-specific dir, if specified.
     list << QString(QV2RAY_TRANSLATION_PATH);
