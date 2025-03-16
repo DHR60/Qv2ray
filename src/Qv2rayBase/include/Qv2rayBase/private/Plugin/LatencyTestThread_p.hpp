@@ -29,7 +29,7 @@
 
 namespace uvw
 {
-    class TimerHandle;
+    class timer_handle;
 }
 
 namespace Qv2rayBase::Plugin
@@ -48,15 +48,15 @@ namespace Qv2rayBase::Plugin
 
       private:
 #ifndef QV2RAYBASE_NO_LIBUV
-        void doTest(Qv2rayBase::Plugin::LatencyTestHost *parent, uvw::TimerHandle &handle);
+        void doTest(Qv2rayBase::Plugin::LatencyTestHost *parent, uvw::timer_handle &handle);
 #else
         void doTest(Qv2rayBase::Plugin::LatencyTestHost *parent);
 #endif
 
       private:
-        std::shared_ptr<uvw::Loop> loop;
+        std::shared_ptr<uvw::loop> loop;
         bool isStop = false;
-        std::shared_ptr<uvw::TimerHandle> stopTimer;
+        std::shared_ptr<uvw::timer_handle> stopTimer;
         std::vector<Qv2rayPlugin::Latency::LatencyTestRequest> requests;
         std::mutex m;
     };

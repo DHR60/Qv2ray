@@ -48,10 +48,10 @@ namespace Qv2rayBase::Plugin
     void LatencyTestThread::run()
     {
 #ifndef QV2RAYBASE_NO_LIBUV
-        loop = uvw::Loop::create();
-        stopTimer = loop->resource<uvw::TimerHandle>();
-        stopTimer->on<uvw::TimerEvent>([this](auto &, auto &handle) { doTest(qobject_cast<Qv2rayBase::Plugin::LatencyTestHost *>(parent()), handle); });
-        stopTimer->start(uvw::TimerHandle::Time{ 500 }, uvw::TimerHandle::Time{ 500 });
+        loop = uvw::loop::create();
+        stopTimer = loop->resource<uvw::timer_handle>();
+        stopTimer->on<uvw::timer_event>([this](auto &, auto &handle) { doTest(qobject_cast<Qv2rayBase::Plugin::LatencyTestHost *>(parent()), handle); });
+        stopTimer->start(uvw::timer_handle::time{ 500 }, uvw::timer_handle::time{ 500 });
         loop->run();
 #else
         while (true)
@@ -63,7 +63,7 @@ namespace Qv2rayBase::Plugin
     }
 
 #ifndef QV2RAYBASE_NO_LIBUV
-    void LatencyTestThread::doTest(Qv2rayBase::Plugin::LatencyTestHost *parent, uvw::TimerHandle &handle)
+    void LatencyTestThread::doTest(Qv2rayBase::Plugin::LatencyTestHost *parent, uvw::timer_handle &handle)
 #else
     void LatencyTestThread::doTest(Qv2rayBase::Plugin::LatencyTestHost *parent)
 #endif
@@ -87,7 +87,7 @@ namespace Qv2rayBase::Plugin
             {
                 handle.stop();
                 handle.close();
-                loop->clear();
+                // loop->clear();
                 loop->close();
                 loop->stop();
             }
