@@ -2,7 +2,7 @@
 
 namespace RoutingA::Converter
 {
-    QPair<QList<InboundObject>, QList<OutboundObject>> FromRADefines(const QList<Defination> &defines)
+    QPair<QList<InboundObject>, QList<OutboundObject>> FromRADefines(const QList<Definition> &defines)
     {
         QList<InboundObject> inbounds;
         QList<OutboundObject> outbounds;
