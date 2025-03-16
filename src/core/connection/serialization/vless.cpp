@@ -11,6 +11,8 @@ namespace serialization::vless
 {
 CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
 {
+    // VMessAEAD / VLESS 分享链接标准提案 https://github.com/XTLS/Xray-core/discussions/716
+
     // must start with vless://
     if (!str.startsWith("vless://"))
     {
@@ -172,10 +174,11 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
         }
     }
 
-    // tls-wise settings
+    // tls/reality-wise settings
     const auto hasSecurity = query.hasQueryItem("security");
     const auto security = hasSecurity ? query.queryItemValue("security") : "none";
-    const auto tlsKey = security == "xtls" ? "xtlsSettings" : "tlsSettings";
+    // tlsSettings rawSettings realitySettings
+    const auto securitySettings = QString(security).append(QStringLiteral("Settings"));
     if (security != "none")
     {
         QJsonIO::SetValue(stream, security, "security");
@@ -185,22 +188,54 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
     if (hasSNI)
     {
         const auto sni = query.queryItemValue("sni");
-        QJsonIO::SetValue(stream, sni, { tlsKey, "serverName" });
+        QJsonIO::SetValue(stream, sni, { securitySettings, "serverName" });
     }
-    // alpn
-    const auto hasALPN = query.hasQueryItem("alpn");
-    if (hasALPN)
+    // fingerprint
+    const auto hasFingerprint = query.hasQueryItem("fp");
+    if (hasFingerprint)
     {
-        const auto alpnRaw = QUrl::fromPercentEncoding(query.queryItemValue("alpn").toUtf8());
-        const auto alpnArray = QJsonArray::fromStringList(alpnRaw.split(","));
-        QJsonIO::SetValue(stream, alpnArray, { tlsKey, "alpn" });
+        const auto fingerprint = query.queryItemValue("fp");
+        QJsonIO::SetValue(stream, fingerprint, { securitySettings, "fingerprint" });
     }
-    // xtls-specific
-    if (security == "xtls")
+
+    // reality-specific
+    if (security == "reality")
     {
-        const auto flow = query.queryItemValue("flow");
-        QJsonIO::SetValue(outbound, flow, { "settings", "vnext", 0, "users", 0, "flow" });
+        const auto publicKey = query.queryItemValue("pbk");
+        if (publicKey.isEmpty())
+        {
+            *errMessage = QObject::tr("missing publicKey");
+            return CONFIGROOT();
+        }
+        QJsonIO::SetValue(stream, publicKey, { securitySettings, "publicKey" });
+
+        const auto hasShortId = query.hasQueryItem("sid");
+        if (hasShortId)
+        {
+            const auto shortId = query.queryItemValue("sid");
+            QJsonIO::SetValue(stream, shortId, { securitySettings, "shortId" });
+        }
+
+        const auto hasSpiderX = query.hasQueryItem("spx");
+        if (hasSpiderX)
+        {
+            // 使用 URIComponent 转义
+            const auto spiderX = QUrl::fromPercentEncoding(query.queryItemValue("spx").toUtf8());
+            QJsonIO::SetValue(stream, spiderX, { securitySettings, "spiderX" });
+        }
     }
+    else // raw(tls)-specific
+    {
+        const auto hasALPN = query.hasQueryItem("alpn");
+        if (hasALPN)
+        {
+            const auto alpnRaw = QUrl::fromPercentEncoding(query.queryItemValue("alpn").toUtf8());
+            const auto alpnArray = QJsonArray::fromStringList(alpnRaw.split(","));
+            QJsonIO::SetValue(stream, alpnArray, { securitySettings, "alpn" });
+        }
+    }
+
+    // 没有 allowInsecure 这个字段。不安全的节点，不适合分享。
 
     // assembling config
     CONFIGROOT root;

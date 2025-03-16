@@ -14,9 +14,9 @@ class IDType
 {
 public:
     explicit IDType()
-        : m_id("null") {};
+        : m_id("null"){};
     explicit IDType(const QString &id)
-        : m_id(id) {};
+        : m_id(id){};
     friend bool operator==(const IDType<T> &lhs, const IDType<T> &rhs)
     {
         return lhs.m_id == rhs.m_id;
@@ -59,9 +59,9 @@ class ConnectionGroupPair
 {
 public:
     ConnectionGroupPair()
-        : connectionId(NullConnectionId), groupId(NullGroupId) {};
+        : connectionId(NullConnectionId), groupId(NullGroupId){};
     ConnectionGroupPair(const ConnectionId &conn, const GroupId &group)
-        : connectionId(conn), groupId(group) {};
+        : connectionId(conn), groupId(group){};
     Q_PROPERTY(ConnectionId connectionId MEMBER)
     Q_PROPERTY(GroupId groupId MEMBER)
     //
@@ -158,7 +158,7 @@ struct GroupObject : __Qv2rayConfigObjectBase
     GroupRoutingId routeConfigId;
     SubscriptionConfigObject subscriptionOption;
     GroupObject()
-        : __Qv2rayConfigObjectBase() {};
+        : __Qv2rayConfigObjectBase(){};
     JSONSTRUCT_COMPARE(GroupObject, isSubscription, connections, routeConfigId, subscriptionOption)
     JSONSTRUCT_REGISTER(GroupObject, F(connections, isSubscription, routeConfigId, subscriptionOption), B(__Qv2rayConfigObjectBase))
 };
@@ -190,6 +190,7 @@ struct ConnectionStatsEntryObject
         upLinkData = d.first;
         downLinkData = d.second;
     }
+    // TODO 退出程序时，此处 Stopped
     JSONSTRUCT_REGISTER(ConnectionStatsEntryObject, F(upLinkData, downLinkData))
 };
 
@@ -245,12 +246,12 @@ struct ProtocolSettingsInfoObject
     QString protocol;
     QString address;
     int port;
-    ProtocolSettingsInfoObject() {};
+    ProtocolSettingsInfoObject(){};
     ProtocolSettingsInfoObject(const QString &_protocol, const QString _address, int _port)
         : protocol(_protocol), //
           address(_address),   //
           port(_port)          //
-    {};
+          {};
     JSONSTRUCT_REGISTER(ProtocolSettingsInfoObject, F(protocol, address, port))
 };
 
