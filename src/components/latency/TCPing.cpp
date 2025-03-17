@@ -45,7 +45,7 @@ void TCPing::start()
     af = isAddr();
     if (af == -1)
     {
-        getAddrHandle = loop->resource<uvw::GetAddrInfoReq>();
+        getAddrHandle = loop->resource<uvw::get_addr_info_req>();
         sprintf(digitBuffer, "%d", req.port);
     }
     async_DNS_lookup(0, 0);
@@ -68,30 +68,36 @@ void TCPing::ping()
 {
     for (; data.totalCount < req.totalCount; ++data.totalCount)
     {
-        auto tcpClient = loop->resource<uvw::TCPHandle>();
+        auto tcpClient = loop->resource<uvw::tcp_handle>();
         tcpClient->open(getSocket(af, SOCK_STREAM, IPPROTO_TCP));
-        tcpClient->once<uvw::ErrorEvent>([ptr = shared_from_this(), this](const uvw::ErrorEvent &e, uvw::TCPHandle &h)
-                                         {
-                                             LOG("error connecting to host: " + req.host + ":" + QSTRN(req.port) + " " + e.what());
-                                             data.failedCount += 1;
-                                             data.errorMessage = e.what();
-                                             notifyTestHost();
-                                             h.clear();
-                                             h.close();
-                                         });
-        tcpClient->once<uvw::ConnectEvent>([ptr = shared_from_this(), start = system_clock::now(), this](auto &, auto &h)
-                                           {
-                                               ++successCount;
-                                               system_clock::time_point end = system_clock::now();
-                                               auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-                                               long ms = milliseconds.count();
-                                               data.avg += ms;
-                                               data.worst = std::max(data.worst, ms);
-                                               data.best = std::min(data.best, ms);
-                                               notifyTestHost();
-                                               h.clear();
-                                               h.close();
-                                           });
+        tcpClient->on<uvw::error_event>([ptr = shared_from_this(), this](const uvw::error_event &e, uvw::tcp_handle &h)
+                                        {
+                                            LOG("error connecting to host: " + req.host + ":" + QSTRN(req.port) + " " + e.what());
+                                            data.failedCount += 1;
+                                            data.errorMessage = e.what();
+                                            notifyTestHost();
+                                            h.reset();
+                                            h.close();
+
+                                            // 手动移除error_event监听器
+                                            h.reset<uvw::error_event>();
+                                        });
+        tcpClient->on<uvw::connect_event>([ptr = shared_from_this(), start = system_clock::now(), this](auto &, auto &h)
+                                          {
+                                              ++successCount;
+                                              system_clock::time_point end = system_clock::now();
+                                              auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+                                              long ms = milliseconds.count();
+                                              data.avg += ms;
+                                              data.worst = std::max(data.worst, ms);
+                                              data.best = std::min(data.best, ms);
+                                              notifyTestHost();
+                                              h.reset();
+                                              h.close();
+
+                                              // 手动移除监听器
+                                              h.template reset<uvw::connect_event>();
+                                          });
         tcpClient->connect(reinterpret_cast<const sockaddr &>(storage));
     }
 }

@@ -75,7 +75,7 @@ void ICMPPing::start(int ttl)
     data.avg = 0;
     if (isAddr() == -1)
     {
-        getAddrHandle = loop->resource<uvw::GetAddrInfoReq>();
+        getAddrHandle = loop->resource<uvw::get_addr_info_req>();
         sprintf(digitBuffer, "%d", req.port);
     }
     async_DNS_lookup(0, 0);
@@ -110,28 +110,28 @@ bool ICMPPing::notifyTestHost()
 
 void ICMPPing::ping()
 {
-    timeoutTimer = loop->resource<uvw::TimerHandle>();
-    uvw::OSSocketHandle osSocketHandle{ socketId };
-    pollHandle = loop->resource<uvw::PollHandle>(osSocketHandle);
-    timeoutTimer->once<uvw::TimerEvent>([this, ptr = std::weak_ptr<ICMPPing>{ shared_from_this() }](auto &, uvw::TimerHandle &h)
-                                        {
-                                            if (ptr.expired())
-                                                return;
-                                            else
-                                            {
-                                                auto p = ptr.lock();
-                                                pollHandle->clear();
-                                                if (!pollHandle->closing())
-                                                    pollHandle->stop();
-                                                pollHandle->close();
-                                                successCount = 0;
-                                                data.failedCount = data.totalCount = req.totalCount;
-                                                notifyTestHost();
-                                            }
-                                        });
-    timeoutTimer->start(uvw::TimerHandle::Time{ 10000 }, uvw::TimerHandle::Time{ 0 });
-    auto pollEvent = uvw::Flags<uvw::PollHandle::Event>::from<uvw::PollHandle::Event::READABLE>();
-    pollHandle->on<uvw::PollEvent>([this, ptr = shared_from_this()](uvw::PollEvent &, uvw::PollHandle &h)
+    timeoutTimer = loop->resource<uvw::timer_handle>();
+    uvw::os_socket_handle osSocketHandle{ socketId };
+    pollHandle = loop->resource<uvw::poll_handle>(osSocketHandle);
+    timeoutTimer->once<uvw::timer_event>([this, ptr = std::weak_ptr<ICMPPing>{ shared_from_this() }](auto &, uvw::timer_handle &h)
+                                         {
+                                             if (ptr.expired())
+                                                 return;
+                                             else
+                                             {
+                                                 auto p = ptr.lock();
+                                                 pollHandle->clear();
+                                                 if (!pollHandle->closing())
+                                                     pollHandle->stop();
+                                                 pollHandle->close();
+                                                 successCount = 0;
+                                                 data.failedCount = data.totalCount = req.totalCount;
+                                                 notifyTestHost();
+                                             }
+                                         });
+    timeoutTimer->start(uvw::timer_handle::time{ 10000 }, uvw::timer_handle::time{ 0 });
+    auto pollEvent = uvw::Flags<uvw::poll_handle::event>::from<uvw::poll_handle::event::READABLE>();
+    pollHandle->on<uvw::PollEvent>([this, ptr = shared_from_this()](uvw::PollEvent &, uvw::poll_handle &h)
                                    {
                                        timeval end;
                                        sockaddr_in addr;

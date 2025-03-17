@@ -25,8 +25,8 @@ private:
     unsigned short seq = 1;
     // socket
     int socketId = -1;
-    std::shared_ptr<uvw::TimerHandle> timeoutTimer;
-    std::shared_ptr<uvw::PollHandle> pollHandle;
+    std::shared_ptr<uvw::timer_handle> timeoutTimer;
+    std::shared_ptr<uvw::poll_handle> pollHandle;
     std::vector<timeval> startTimevals;
 };
 } // namespace Qv2ray::components::latency::icmping

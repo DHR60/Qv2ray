@@ -7,15 +7,15 @@
 #include <utility>
 namespace uvw
 {
-class Loop;
-class TimerHandle;
+class loop;
+class timer_handle;
 } // namespace uvw
 namespace Qv2ray::components::latency::realping
 {
 class RealPing : public std::enable_shared_from_this<RealPing>
 {
 public:
-    RealPing(std::shared_ptr<uvw::Loop> loopin, LatencyTestRequest &req, LatencyTestHost *testHost);
+    RealPing(std::shared_ptr<uvw::loop> loopin, LatencyTestRequest &req, LatencyTestHost *testHost);
     ~RealPing();
     void start();
     void notifyTestHost();
@@ -28,8 +28,8 @@ private:
     LatencyTestRequest req;
     LatencyTestResult data;
     LatencyTestHost *testHost;
-    std::shared_ptr<uvw::Loop> loop;
-    std::shared_ptr<uvw::TimerHandle> timeout;
+    std::shared_ptr<uvw::loop> loop;
+    std::shared_ptr<uvw::timer_handle> timeout;
     std::unordered_map<CURL *, std::chrono::system_clock::time_point> reqStartTime;
 };
 } // namespace Qv2ray::components::latency::realping

@@ -28,7 +28,7 @@ private:
 
 private:
     uint64_t timeout = DEFAULT_TIMEOUT;
-    std::shared_ptr<uvw::TimerHandle> waitHandleTimer;
+    std::shared_ptr<uvw::timer_handle> waitHandleTimer;
 };
 } // namespace Qv2ray::components::latency::icmping
 #endif

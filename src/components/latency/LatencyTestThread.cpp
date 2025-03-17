@@ -30,68 +30,68 @@ void LatencyTestThread::pushRequest(const ConnectionId &id, int totalTestCount, 
 
 void LatencyTestThread::run()
 {
-    loop = uvw::Loop::create();
-    stopTimer = loop->resource<uvw::TimerHandle>();
-    stopTimer->on<uvw::TimerEvent>([this](auto &, auto &handle)
-                                   {
-                                       if (isStop)
-                                       {
-                                           if (!requests.empty())
-                                               requests.clear();
-                                           int timer_count = 0;
-                                           uv_walk(
-                                               loop->raw(),
-                                               [](uv_handle_t *handle, void *arg)
-                                               {
-                                                   int &counter = *static_cast<int *>(arg);
-                                                   if (uv_is_closing(handle) == 0)
-                                                       counter++;
-                                               },
-                                               &timer_count);
-                                           if (timer_count == 1) // only current timer
-                                           {
-                                               handle.stop();
-                                               handle.close();
-                                               loop->clear();
-                                               loop->close();
-                                               loop->stop();
-                                           }
-                                       }
-                                       else
-                                       {
-                                           if (requests.empty())
-                                               return;
-                                           std::unique_lock<std::mutex> lockGuard{ m };
-                                           auto parent = qobject_cast<LatencyTestHost *>(this->parent());
-                                           for (auto &req : requests)
-                                           {
-                                               switch (req.method)
-                                               {
-                                               case ICMPING:
-                                               {
-                                                   auto ptr = std::make_shared<icmping::ICMPPing>(loop, req, parent);
-                                                   ptr->start();
-                                               }
-                                               break;
-                                               case TCPING:
-                                               default:
-                                               {
-                                                   auto ptr = std::make_shared<tcping::TCPing>(loop, req, parent);
-                                                   ptr->start();
-                                                   break;
-                                               }
-                                               case REALPING:
-                                               {
-                                                   auto ptr = std::make_shared<realping::RealPing>(loop, req, parent);
-                                                   ptr->start();
-                                                   break;
-                                               }
-                                               }
-                                           }
-                                           requests.clear();
-                                       }
-                                   });
-    stopTimer->start(uvw::TimerHandle::Time{ 500 }, uvw::TimerHandle::Time{ 500 });
+    loop = uvw::loop::create();
+    stopTimer = loop->resource<uvw::timer_handle>();
+    stopTimer->on<uvw::timer_event>([this](auto &, auto &handle)
+                                    {
+                                        if (isStop)
+                                        {
+                                            if (!requests.empty())
+                                                requests.clear();
+                                            int timer_count = 0;
+                                            uv_walk(
+                                                loop->raw(),
+                                                [](uv_handle_t *handle, void *arg)
+                                                {
+                                                    int &counter = *static_cast<int *>(arg);
+                                                    if (uv_is_closing(handle) == 0)
+                                                        counter++;
+                                                },
+                                                &timer_count);
+                                            if (timer_count == 1) // only current timer
+                                            {
+                                                handle.stop();
+                                                handle.close();
+                                                loop.reset();
+                                                loop->close();
+                                                loop->stop();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (requests.empty())
+                                                return;
+                                            std::unique_lock<std::mutex> lockGuard{ m };
+                                            auto parent = qobject_cast<LatencyTestHost *>(this->parent());
+                                            for (auto &req : requests)
+                                            {
+                                                switch (req.method)
+                                                {
+                                                case ICMPING:
+                                                {
+                                                    auto ptr = std::make_shared<icmping::ICMPPing>(loop, req, parent);
+                                                    ptr->start();
+                                                }
+                                                break;
+                                                case TCPING:
+                                                default:
+                                                {
+                                                    auto ptr = std::make_shared<tcping::TCPing>(loop, req, parent);
+                                                    ptr->start();
+                                                    break;
+                                                }
+                                                case REALPING:
+                                                {
+                                                    auto ptr = std::make_shared<realping::RealPing>(loop, req, parent);
+                                                    ptr->start();
+                                                    break;
+                                                }
+                                                }
+                                            }
+                                            requests.clear();
+                                        }
+                                    });
+    stopTimer->start(uvw::timer_handle::time{ 500 }, uvw::timer_handle::time{ 500 });
     loop->run();
 }
 void LatencyTestThread::pushRequest(const QList<ConnectionId> &ids, int totalTestCount, Qv2rayLatencyTestingMethod method)

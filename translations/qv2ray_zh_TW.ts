@@ -2765,8 +2765,13 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="vanished">Qv2ray - 跨平台的 V2Ray Qt 前端。</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/DNSBase.h" line="49"/>
-        <location filename="../src/components/latency/DNSBase.h" line="60"/>
+        <location filename="../src/components/latency/DNSBase.h" line="46"/>
+        <source>DNS lookup failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/components/latency/DNSBase.h" line="57"/>
+        <location filename="../src/components/latency/DNSBase.h" line="66"/>
         <source>DNS not resolved</source>
         <translation>無法解析 DNS</translation>
     </message>

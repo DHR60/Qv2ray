@@ -2716,8 +2716,13 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>Qv2rayを終了</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/DNSBase.h" line="49"/>
-        <location filename="../src/components/latency/DNSBase.h" line="60"/>
+        <location filename="../src/components/latency/DNSBase.h" line="46"/>
+        <source>DNS lookup failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/components/latency/DNSBase.h" line="57"/>
+        <location filename="../src/components/latency/DNSBase.h" line="66"/>
         <source>DNS not resolved</source>
         <translation>DNSが解決されませんでした</translation>
     </message>

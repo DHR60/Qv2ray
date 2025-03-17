@@ -29,22 +29,22 @@ ICMPPing ::~ICMPPing()
 }
 void ICMPPing::ping()
 {
-    waitHandleTimer = loop->resource<uvw::TimerHandle>();
-    waitHandleTimer->on<uvw::TimerEvent>([ptr = shared_from_this(), this](auto &&, auto &&)
-                                         {
-                                             SleepEx(0, TRUE);
-                                             if (data.failedCount + successCount == data.totalCount)
-                                             {
-                                                 waitHandleTimer->stop();
-                                                 waitHandleTimer->close();
-                                                 waitHandleTimer->clear();
-                                             }
-                                         });
+    waitHandleTimer = loop->resource<uvw::timer_handle>();
+    waitHandleTimer->on<uvw::timer_event>([ptr = shared_from_this(), this](auto &&, auto &&)
+                                          {
+                                              SleepEx(0, TRUE);
+                                              if (data.failedCount + successCount == data.totalCount)
+                                              {
+                                                  waitHandleTimer->stop();
+                                                  waitHandleTimer->close();
+                                                  waitHandleTimer.reset();
+                                              }
+                                          });
     for (; data.totalCount < req.totalCount; ++data.totalCount)
     {
         pingImpl();
     }
-    waitHandleTimer->start(uvw::TimerHandle::Time{ 500 }, uvw::TimerHandle::Time{ 500 });
+    waitHandleTimer->start(uvw::timer_handle::time{ 500 }, uvw::timer_handle::time{ 500 });
 }
 void ICMPPing::pingImpl()
 {
@@ -143,7 +143,7 @@ void ICMPPing::start()
     af = isAddr();
     if (af == -1)
     {
-        getAddrHandle = loop->resource<uvw::GetAddrInfoReq>();
+        getAddrHandle = loop->resource<uvw::get_addr_info_req>();
         sprintf(digitBuffer, "%d", req.port);
     }
     async_DNS_lookup(0, 0);

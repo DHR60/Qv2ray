@@ -2,7 +2,7 @@
 #include "base/Qv2rayBase.h"
 namespace uvw
 {
-class Loop;
+class loop;
 } // namespace uvw
 struct sockaddr_storage;
 namespace Qv2ray::components::latency
