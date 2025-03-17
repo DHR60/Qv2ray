@@ -56,8 +56,8 @@ if(WIN32)
         VERSION_MINOR      ${CMAKE_PROJECT_VERSION_MINOR}
         VERSION_PATCH      ${CPACK_PACKAGE_VERSION_PATCH}
         VERSION_REVISION   ${QV2RAY_BUILD_VERSION}
-        COMPANY_NAME       "Qv2ray Workgroup"
-        COMPANY_COPYRIGHT  "Qv2ray Workgroup 2021"
+        COMPANY_NAME       "DHR60"
+        COMPANY_COPYRIGHT  "DHR60 2025"
         FILE_DESCRIPTION   "Qv2ray Main Application"
         )
     add_definitions(-DUNICODE -D_UNICODE -DNOMINMAX)
