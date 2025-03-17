@@ -1,20 +1,28 @@
+进行中：
+1. 基于反射生成对应的 JSON 数据
+2. 移除 libuv 和 uvw 依赖
+
 p1：
 
-- [ ] 根据反射生成对应 json
-- [ ] VLESS 和 trojan 的分享链接导出
+- [ ] 基于反射生成对应的 JSON 数据
+- [ ] 移除 libuv 和 uvw 依赖
+    * 原因：
+        1. libuv 引入了大量的编译警告
+        2. uvw 在 v3 版本中进行了重大更改，部分代码迁移困难，且现有代码中 uvw 的使用包含了大量宏和协程，维护成本高
+- [ ] 实现 VLESS 和 Trojan 协议的分享链接导出功能
 
-- [x] 使用 Xray-Core 内核
-    * [x] 替换 v2ray 为 xray
-        * api 相关
-            * ~~替换 v2ray proto 为 xray proto~~ 暂时维持现状
-    * [x] 替换配置生成，使其支持 Xray-Core
-        - [x] ss
-        - [x] vmess + ws + tls
-        - [x] trojan
-        - [x] VLESS
+- [x] 切换至 Xray-Core 内核
+    * [x] 将 v2ray 替换为 xray
+        * API 相关
+            * ~~暂时维持现状，不替换 v2ray 的 proto 文件为 xray 的 proto 文件~~
+    * [x] 调整配置生成方式，使其兼容 Xray-Core
+        - [x] 支持 Shadowsocks (ss) 协议
+        - [x] 支持 Vmess + WebSocket (ws) + TLS 协议
+        - [x] 支持 Trojan 协议
+        - [x] 支持 VLESS 协议
 
 p2：
-- [ ] 代码质量优化
+- [ ] 优化代码质量
 
 p3：
-- [ ] 使用 xray grpc 调用 api
+- [ ] 使用 gRPC 调用 Xray API

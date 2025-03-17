@@ -33,6 +33,10 @@ DHR60 写于 2025-03-17
 
 详细的更改日志请参见 [Commit History](https://github.com/DHR60/Qv2ray/commits/dev/)。
 
+## 进行中的更改和 TODO list
+
+参见 [TODO.md](/TODO.md)
+
 ## Availability & CI/CD Status
 
 [![Snap Status](https://img.shields.io/travis/com/DHR60/Qv2ray?label=snapcraft-travis&logo=github)](https://travis-ci.com/DHR60/Qv2ray)
