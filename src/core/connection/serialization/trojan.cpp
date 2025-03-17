@@ -3,25 +3,24 @@
 #include "core/connection/Serialization.h"
 #include "utils/QvHelpers.h"
 
-#define QV_MODULE_NAME "VLESSImporter"
+#define QV_MODULE_NAME "TrojanImporter"
 
 namespace Qv2ray::core::connection
 {
-namespace serialization::vless
+namespace serialization::trojan
 {
-CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
+CONFIGROOT Deserialize(const QString &trojanUri, QString *alias, QString *errMessage)
 {
-    // VMessAEAD / VLESS 分享链接标准提案 https://github.com/XTLS/Xray-core/discussions/716
+    ShadowSocksServerObject server;
+    QString d_name;
 
-    // must start with vless://
-    if (!str.startsWith("vless://"))
+    if (!trojanUri.startsWith("trojan://"))
     {
-        *errMessage = QObject::tr("VLESS link should start with vless://");
+        *errMessage = QObject::tr("trojan link should start with trojan://");
         return CONFIGROOT();
     }
 
-    // parse url
-    QUrl url(str);
+    QUrl url(trojanUri);
     if (!url.isValid())
     {
         *errMessage = QObject::tr("link parse failed: %1").arg(url.errorString());
@@ -64,12 +63,11 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
     QJsonObject outbound;
     QJsonObject stream;
 
-    QJsonIO::SetValue(outbound, "vless", "protocol");
-    QJsonIO::SetValue(outbound, host, { "settings", "vnext", 0, "address" });
-    QJsonIO::SetValue(outbound, port, { "settings", "vnext", 0, "port" });
-    QJsonIO::SetValue(outbound, uuid, { "settings", "vnext", 0, "users", 0, "id" });
+    QJsonIO::SetValue(outbound, "trojan", "protocol");
+    QJsonIO::SetValue(outbound, host, { "settings", "servers", 0, "address" });
+    QJsonIO::SetValue(outbound, port, { "settings", "servers", 0, "port" });
+    QJsonIO::SetValue(outbound, uuid, { "settings", "servers", 0, "password" });
 
-    // parse query
     QUrlQuery query(url.query());
 
     // handle type
@@ -77,14 +75,6 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
     const auto type = hasType ? query.queryItemValue("type") : "raw";
     if (type != "raw" || type != "tcp")
         QJsonIO::SetValue(stream, type, "network");
-
-    // handle encryption
-    const auto hasEncryption = query.hasQueryItem("encryption");
-    const auto encryption = hasEncryption ? query.queryItemValue("encryption") : "none";
-    const auto flow = query.queryItemValue("flow");
-
-    QJsonIO::SetValue(outbound, flow, { "settings", "vnext", 0, "users", 0, "flow" });
-    QJsonIO::SetValue(outbound, encryption, { "settings", "vnext", 0, "users", 0, "encryption" });
 
     // type-wise settings
     if (type == "kcp")
@@ -250,5 +240,6 @@ CONFIGROOT Deserialize(const QString &str, QString *alias, QString *errMessage)
     // return
     return root;
 }
-} // namespace serialization::vless
+
+} // namespace serialization::trojan
 } // namespace Qv2ray::core::connection

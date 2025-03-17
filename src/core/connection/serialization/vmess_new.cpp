@@ -200,11 +200,6 @@ const QString Serialize(const StreamSettingsObject &stream, const VMessServerObj
         if (!stream.tlsSettings.serverName.isEmpty())
             query.addQueryItem("tlsServerName", stream.tlsSettings.serverName);
     }
-    else if (stream.security == "xtls")
-    {
-        if (!stream.xtlsSettings.serverName.isEmpty())
-            query.addQueryItem("tlsServerName", stream.xtlsSettings.serverName);
-    }
     url.setPath("/");
     url.setScheme("vmess");
     url.setPassword(server.users.first().id + "-" + QSTRN(server.users.first().alterId));

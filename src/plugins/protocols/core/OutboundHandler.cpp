@@ -41,12 +41,18 @@ const Qv2rayPlugin::OutboundInfoObject BuiltinSerializer::GetOutboundInfo(const 
         obj[INFO_SERVER] = ss.address;
         obj[INFO_PORT] = ss.port;
     }
+    else if (protocol == "trojan")
+    {
+        const auto ss = ShadowSocksServerObject::fromJson(outbound["servers"].toArray().first());
+        obj[INFO_SERVER] = ss.address;
+        obj[INFO_PORT] = ss.port;
+    }
     return obj;
 }
 
 const void BuiltinSerializer::SetOutboundInfo(const QString &protocol, const Qv2rayPlugin::OutboundInfoObject &info, QJsonObject &outbound) const
 {
-    if ((QStringList{ "http", "socks", "shadowsocks" }).contains(protocol))
+    if ((QStringList{ "http", "socks", "shadowsocks", "trojan" }).contains(protocol))
     {
         QJsonIO::SetValue(outbound, info[INFO_SERVER].toString(), "servers", 0, "address");
         QJsonIO::SetValue(outbound, info[INFO_PORT].toInt(), "servers", 0, "port");
@@ -157,14 +163,14 @@ const QString BuiltinSerializer::SerializeOutbound(const QString &protocol, cons
                 query.addQueryItem("mode", "multi");
         }
         // -------- TLS RELATED --------
-        const auto tlsKey = security == "xtls" ? "xtlsSettings" : "tlsSettings";
+        const auto securitySettings = QString(security).append(QStringLiteral("Settings"));
 
-        const auto sni = QJsonIO::GetValue(objStream, { tlsKey, "serverName" }).toString();
+        const auto sni = QJsonIO::GetValue(objStream, { securitySettings, "serverName" }).toString();
         if (!sni.isEmpty())
             query.addQueryItem("sni", sni);
 
         // ALPN
-        const auto alpnArray = QJsonIO::GetValue(objStream, { tlsKey, "alpn" }).toArray();
+        const auto alpnArray = QJsonIO::GetValue(objStream, { securitySettings, "alpn" }).toArray();
         QStringList alpnList;
         for (const auto v : alpnArray)
         {

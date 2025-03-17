@@ -1908,6 +1908,14 @@ For example, for updating subscriptions.</source>
         <translation>選擇</translation>
     </message>
     <message>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="875"/>
+        <source>Currently:
+- vmess/shadowsocks/vless/trojan/socks/http will be treated as PROXY.
+- freedom will be treated as DIRECT
+- blackhole will be treated as BLOCK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="905"/>
         <source>Plugin Kernel Settings</source>
         <translation>外掛程式內核設定</translation>
@@ -2375,12 +2383,11 @@ If your V2Ray core filename happened to be &apos;qv2ray&apos;-something, you are
         <translation>聯網對時</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="875"/>
         <source>Currently:
 - vmess/shadowsocks/socks/http will be treated as PROXY.
 - freedom will be treated as DIRECT
 - blackhole will be treated as BLOCK</source>
-        <translation>當前：
+        <translation type="vanished">當前：
 - VMess/Shadowsocks/SOCKS/HTTP 將被認作代理流量；
 - 直連出站（Freedom）將被認作直連流量；
 - 黑洞出站（Blackhole）將被認作阻斷流量</translation>
@@ -2846,7 +2853,7 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>圖形元件</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
         <source>Unsupported share link format.</source>
         <translation>不支援的分享鏈接格式。</translation>
     </message>
@@ -2916,17 +2923,17 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="vanished">無效的 ssd 鏈接: rc4-md5 加密不被 v2ray-core 支援</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="99"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="95"/>
         <source>VMess string should start with &apos;vmess://&apos;</source>
         <translation>VMess 鏈接應以 &apos;vmess://&apos; 開頭</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="106"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="102"/>
         <source>VMess string should be a valid base64 string</source>
         <translation>VMess 字符串應該是一個有效的 Base64 字符串</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="123"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="119"/>
         <source>JSON should not be empty</source>
         <translation>JSON 不應該為空</translation>
     </message>
@@ -3160,27 +3167,37 @@ This option may be useful for some desktop environments without tray support.</s
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="27"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="26"/>
         <source>link parse failed: %1</source>
         <translation>鏈接解析失敗： %1</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="35"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="34"/>
         <source>empty host</source>
         <translation>主機名為空</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="44"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="43"/>
         <source>missing port</source>
         <translation>缺少端口</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="59"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="58"/>
         <source>missing uuid</source>
         <translation>缺少 UUID</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="207"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="197"/>
         <source>missing publicKey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="19"/>
+        <source>trojan link should start with trojan://</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4662,6 +4679,31 @@ Maybe you have downloaded the wrong core?</source>
         <location filename="../src/plugins/protocols/ui/outbound/socksout.ui" line="34"/>
         <source>Password</source>
         <translation>密碼</translation>
+    </message>
+</context>
+<context>
+    <name>trojanOutEditor</name>
+    <message>
+        <location filename="../src/plugins/protocols/ui/outbound/trojan.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">視窗</translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/protocols/ui/outbound/trojan.ui" line="20"/>
+        <source>Password</source>
+        <translation type="unfinished">密碼</translation>
+    </message>
+    <message>
+        <source>UUID</source>
+        <translation type="obsolete">UUID</translation>
+    </message>
+    <message>
+        <source>Alter ID</source>
+        <translation type="obsolete">Alter ID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="obsolete">安全選項</translation>
     </message>
 </context>
 <context>

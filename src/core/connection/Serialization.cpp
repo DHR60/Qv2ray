@@ -13,7 +13,7 @@ QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &lin
     const auto TLSOptionsFilter = [](QJsonObject &conf)
     {
         const auto disableSystemRoot = GlobalConfig.advancedConfig.disableSystemRoot;
-        for (const QString &prefix : { "tls", "xtls" })
+        for (const QString &prefix : { "tls" })
             QJsonIO::SetValue(conf, disableSystemRoot, { "outbounds", 0, "streamSettings", prefix + "Settings", "disableSystemRoot" });
     };
 
@@ -39,6 +39,12 @@ QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &lin
     else if (link.startsWith("ss://") && !link.contains("plugin="))
     {
         auto conf = ss::Deserialize(link, aliasPrefix, errMessage);
+        connectionConf << std::pair{ *aliasPrefix, conf };
+    }
+    else if (link.startsWith("trojan://"))
+    {
+        auto conf = trojan::Deserialize(link, aliasPrefix, errMessage);
+        TLSOptionsFilter(conf);
         connectionConf << std::pair{ *aliasPrefix, conf };
     }
     else

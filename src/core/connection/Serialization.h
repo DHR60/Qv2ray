@@ -33,6 +33,11 @@ CONFIGROOT Deserialize(const QString &ss, QString *alias, QString *errMessage);
 const QString Serialize(const ShadowSocksServerObject &server, const QString &alias, bool isSip002);
 } // namespace ss
 
+namespace trojan
+{
+CONFIGROOT Deserialize(const QString &trojanUri, QString *alias, QString *errMessage);
+} // namespace trojan
+
 } // namespace Qv2ray::core::connection::serialization
 
 using namespace Qv2ray::core;

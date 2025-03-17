@@ -94,3 +94,14 @@ struct VMessServerObject
     JSONSTRUCT_COMPARE(VMessServerObject, address, port, users)
     JSONSTRUCT_REGISTER(VMessServerObject, F(address, port, users))
 };
+
+//
+// Trojan
+struct TrojanServerObject
+{
+    QString address;
+    int port = 0;
+    QString password;
+    JSONSTRUCT_COMPARE(TrojanServerObject, address, port, password)
+    JSONSTRUCT_REGISTER(TrojanServerObject, F(address, port, password))
+};

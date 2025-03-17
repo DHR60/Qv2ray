@@ -12,6 +12,7 @@
 #include "outbound/loopback.h"
 #include "outbound/shadowsocks.h"
 #include "outbound/socksout.h"
+#include "outbound/trojan.h"
 #include "outbound/vless.h"
 #include "outbound/vmess.h"
 
@@ -20,8 +21,8 @@ using namespace Qv2rayPlugin;
 class ProtocolGUIInterface : public PluginGUIInterface
 {
 public:
-    explicit ProtocolGUIInterface() {};
-    ~ProtocolGUIInterface() {};
+    explicit ProtocolGUIInterface(){};
+    ~ProtocolGUIInterface(){};
     QList<PluginGuiComponentType> GetComponents() const override
     {
         return {
@@ -47,6 +48,7 @@ public:
             MakeEditorInfoPair<VmessOutboundEditor>("vmess", "VMess"),                   //
             MakeEditorInfoPair<VlessOutboundEditor>("vless", "VLESS"),                   //
             MakeEditorInfoPair<ShadowsocksOutboundEditor>("shadowsocks", "Shadowsocks"), //
+            MakeEditorInfoPair<TrojanOutboundEditor>("trojan", "Trojan"),                //
             MakeEditorInfoPair<HttpOutboundEditor>("http", "HTTP"),                      //
             MakeEditorInfoPair<SocksOutboundEditor>("socks", "SOCKS"),                   //
             MakeEditorInfoPair<FreedomOutboundEditor>("freedom", "Freedom"),             //

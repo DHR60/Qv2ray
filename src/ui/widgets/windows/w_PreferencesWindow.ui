@@ -873,7 +873,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
            <widget class="QCheckBox" name="V2RayOutboundStatsCB">
             <property name="toolTip">
              <string>Currently:
-- vmess/shadowsocks/socks/http will be treated as PROXY.
+- vmess/shadowsocks/vless/trojan/socks/http will be treated as PROXY.
 - freedom will be treated as DIRECT
 - blackhole will be treated as BLOCK</string>
             </property>

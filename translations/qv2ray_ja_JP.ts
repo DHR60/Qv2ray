@@ -1908,6 +1908,14 @@ For example, for updating subscriptions.</source>
         <translation>選択</translation>
     </message>
     <message>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="875"/>
+        <source>Currently:
+- vmess/shadowsocks/vless/trojan/socks/http will be treated as PROXY.
+- freedom will be treated as DIRECT
+- blackhole will be treated as BLOCK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="905"/>
         <source>Plugin Kernel Settings</source>
         <translation>プラグインのカーネル設定</translation>
@@ -2324,12 +2332,11 @@ But could damage your server if improperly used.</source>
         <translation>インターネットからシステムの日時を確認する</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="875"/>
         <source>Currently:
 - vmess/shadowsocks/socks/http will be treated as PROXY.
 - freedom will be treated as DIRECT
 - blackhole will be treated as BLOCK</source>
-        <translation>現在のところ
+        <translation type="vanished">現在のところ
 - vmess/shadowsocks/socks/http は PROXY として扱われます。
 - freedom は DIRECT として扱われます。
 - ブラックホールはBLOCKとして扱われます</translation>
@@ -2797,7 +2804,7 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>GUIコンポーネント</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
         <source>Unsupported share link format.</source>
         <translation>この共有リンクはサポートされていないようです。</translation>
     </message>
@@ -2867,17 +2874,17 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation type="vanished">無効な ssd リンクです: v2ray-core では、rc4-md5 暗号化はサポートされていません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="99"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="95"/>
         <source>VMess string should start with &apos;vmess://&apos;</source>
         <translation>VMess string should start with &apos;vmess://&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="106"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="102"/>
         <source>VMess string should be a valid base64 string</source>
         <translation>VMess string should be a valid base64 string</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="123"/>
+        <location filename="../src/core/connection/serialization/vmess.cpp" line="119"/>
         <source>JSON should not be empty</source>
         <translation>JSONは空にできません</translation>
     </message>
@@ -3102,26 +3109,31 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="27"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="26"/>
         <source>link parse failed: %1</source>
         <translation>リンク解析に失敗しました: %1</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="35"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="34"/>
         <source>empty host</source>
         <translation>空のホスト</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="44"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="43"/>
         <source>missing port</source>
         <translation>ポートがありません</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="59"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="58"/>
         <source>missing uuid</source>
         <translation>uuid がありません</translation>
     </message>
     <message>
         <location filename="../src/core/connection/serialization/vless.cpp" line="207"/>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="197"/>
         <source>missing publicKey</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3133,6 +3145,11 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
     <message>
         <location filename="../src/ui/Qv2rayPlatformApplication.cpp" line="190"/>
         <source>Qv2ray - A cross-platform Qt frontend for Xray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/connection/serialization/trojan.cpp" line="19"/>
+        <source>trojan link should start with trojan://</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4606,6 +4623,31 @@ Maybe you have downloaded the wrong core?</source>
         <location filename="../src/plugins/protocols/ui/outbound/socksout.ui" line="34"/>
         <source>Password</source>
         <translation>パスワード</translation>
+    </message>
+</context>
+<context>
+    <name>trojanOutEditor</name>
+    <message>
+        <location filename="../src/plugins/protocols/ui/outbound/trojan.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location filename="../src/plugins/protocols/ui/outbound/trojan.ui" line="20"/>
+        <source>Password</source>
+        <translation type="unfinished">パスワード</translation>
+    </message>
+    <message>
+        <source>UUID</source>
+        <translation type="obsolete">UUID</translation>
+    </message>
+    <message>
+        <source>Alter ID</source>
+        <translation type="obsolete">アルターID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="obsolete">セキュリティ</translation>
     </message>
 </context>
 <context>

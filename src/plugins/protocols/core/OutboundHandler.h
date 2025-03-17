@@ -6,7 +6,7 @@ class BuiltinSerializer : public Qv2rayPlugin::PluginOutboundHandler
 {
 public:
     explicit BuiltinSerializer()
-        : Qv2rayPlugin::PluginOutboundHandler() {};
+        : Qv2rayPlugin::PluginOutboundHandler(){};
     const QString SerializeOutbound(const QString &protocol, const QString &name, const QString &group, const QJsonObject &obj,
                                     const QJsonObject &stream) const override;
     const QPair<QString, QJsonObject> DeserializeOutbound(const QString &link, QString *alias, QString *errorMessage) const override;
@@ -15,6 +15,6 @@ public:
     const QList<QString> SupportedLinkPrefixes() const override;
     const QList<QString> SupportedProtocols() const override
     {
-        return { "http", "socks", "shadowsocks", "vmess", "vless" };
+        return { "http", "socks", "shadowsocks", "vmess", "vless", "trojan" };
     }
 };
