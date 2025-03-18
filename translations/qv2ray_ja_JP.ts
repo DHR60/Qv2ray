@@ -2809,23 +2809,23 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>この共有リンクはサポートされていないようです。</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="21"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="24"/>
         <source>SS URI is too short</source>
         <translation>このSSのURIがは短すぎて有効ではありません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="47"/>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="86"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="50"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="89"/>
         <source>Can&apos;t find the colon separator between method and password</source>
         <translation>メソッドとパスワードの間にコロン区切り記号が見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="57"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="60"/>
         <source>Can&apos;t find the at separator between password and hostname</source>
         <translation>パスワードとホスト名の間にアンペアサット区切り文字が見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="67"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="70"/>
         <source>Can&apos;t find the colon separator between hostname and port</source>
         <translation>ホスト名とポートの間にコロン区切り記号が見つかりません</translation>
     </message>

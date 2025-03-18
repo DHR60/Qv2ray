@@ -2858,23 +2858,23 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>不支援的分享鏈接格式。</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="21"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="24"/>
         <source>SS URI is too short</source>
         <translation>Shadowsocks 分享鏈接過短</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="47"/>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="86"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="50"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="89"/>
         <source>Can&apos;t find the colon separator between method and password</source>
         <translation>模式和密碼之間缺少冒號</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="57"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="60"/>
         <source>Can&apos;t find the at separator between password and hostname</source>
         <translation>密碼和主機名之間缺少分隔符</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="67"/>
+        <location filename="../src/core/connection/serialization/ss.cpp" line="70"/>
         <source>Can&apos;t find the colon separator between hostname and port</source>
         <translation>主機名和端口之間缺少冒號分隔符</translation>
     </message>

@@ -28,6 +28,6 @@
 [submodule "3rdparty/QJsonStruct"]
 	path = 3rdparty/QJsonStruct
 	url = https://github.com/DHR60/QJsonStruct
-[submodule "3rdparty/QSerializer"]
-	path = 3rdparty/QSerializer
-	url = https://github.com/DHR60/QSerializer
+[submodule "3rdparty/XConfigGen"]
+	path = 3rdparty/XConfigGen
+	url = https://github.com/DHR60/XConfigGen

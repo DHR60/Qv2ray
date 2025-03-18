@@ -277,8 +277,11 @@ else()
     add_definitions(-DQV2RAY_NO_SINGLEAPPLICATON)
 endif()
 
+include(cmake/XConfigGen.cmake)
+
 add_library(qv2ray_baselib STATIC
     ${QV2RAY_BASE_SOURCES}
+    ${XConfigGen_SOURCES}
     ${SINGLEAPPLICATION_SOURCES}
     ${QVPLUGIN_INTERFACE_HEADERS}
     ${LIBSEMVER_SOURCES}
@@ -390,14 +393,14 @@ target_include_directories(qv2ray PRIVATE
     ${CMAKE_BINARY_DIR}
     ${QNODEEDITOR_INCLUDE_PATH}
     ${Protobuf_INCLUDE_DIRS}
-    )
+)
 
 target_link_libraries(qv2ray PUBLIC
     qv2ray_baselib
     ${QNODEEDITOR_LIBRARY}
     ${QV2RAY_PLATFORM_LIBS}
     ${QV2RAY_QRENCODE_LIBRARY}
-    )
+)
 
 
 # ==================================================================================
