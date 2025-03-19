@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-24.04, windows-latest]
+        os: [ubuntu-24.04, windows-latest, macos-latest]
         build_type: [RelWithDebInfo, Release]
         ui_type: [QWidget]
         qt_version: [6.8.2]
@@ -17,6 +17,9 @@ jobs:
           - os: windows-latest
             qt_host: windows
             arch: win64_msvc2022_64
+          - os: macos-latest
+            qt_host: mac
+            arch: clang_64
 
     runs-on: ${{ matrix.os }}
     env:
@@ -58,7 +61,7 @@ jobs:
           #sudo add-apt-repository ppa:carsten-uppenbrink-net/openssl
           sudo apt update
           sudo apt install -y libgl-dev libx11-dev libxkbcommon-x11-dev libxcb-image0-dev libxcb-icccm4-dev libssl-dev libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0
-          sudo apt install -y libprotobuf-dev protobuf-compiler protobuf-c-compiler libgrpc++-dev protobuf-compiler-grpc ninja-build fcitx-frontend-qt5 libcurl4-openssl-dev
+          sudo apt install -y libprotobuf-dev protobuf-compiler protobuf-c-compiler libgrpc++-dev protobuf-compiler-grpc ninja-build fcitx-frontend-qt6 libcurl4-openssl-dev
       # --------------------------------------------------------
       - name: macOS - ${{ matrix.qt_version }} - Build preparation - Install Packages
         if: matrix.os == 'macos-latest'
@@ -142,7 +145,7 @@ jobs:
           cmake --install .
       # ========================================================================================================= Deployments
       - name: Linux - ${{ matrix.qt_version }} - Generating AppImage
-        if: false #matrix.os == 'ubuntu-24.04'
+        if: matrix.os == 'ubuntu-24.04'
         run: |
           cd build
           cd AppDir
@@ -166,7 +169,7 @@ jobs:
             -extra-plugins=iconengines,imageformats,platforminputcontexts
           mv ./Qv2ray*.AppImage ./Qv2ray.AppImage
       - name: Linux - ${{ matrix.qt_version }} - Uploading Artifact
-        if: false #matrix.os == 'ubuntu-24.04'
+        if: matrix.os == 'ubuntu-24.04'
         uses: actions/upload-artifact@master
         with:
           name: Qv2ray-${{ github.sha }}.linux-${{ matrix.ui_type }}.qt${{ matrix.qt_version }}-${{ matrix.build_type }}.AppImage
