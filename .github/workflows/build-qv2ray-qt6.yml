@@ -143,21 +143,22 @@ jobs:
       - name: Linux - ${{ matrix.qt_version }} - Generating AppImage
         if: matrix.os == 'ubuntu-24.04'
         run: |
+          sudo add-apt-repository universe
+          sudo apt install libfuse2t64
           cd build
           cd AppDir
           mkdir -p ./usr/{lib,optional}/
           mkdir -p ./usr/optional/libstdc++/
           mkdir -p ./usr/optional/libgcc_s/
-          wget -c https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64 -O AppRun
-          wget -c https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so -O ./usr/optional/exec.so
+          wget -c https://github.com/darealshinji/linuxdeploy-plugin-checkrt/releases/download/r2/linuxdeploy-plugin-checkrt.sh -O AppRun
           chmod a+x AppRun
           cp -fv /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ./usr/optional/libstdc++/
           cp -fv /lib/x86_64-linux-gnu/libgcc_s.so.1 ./usr/optional/libgcc_s/
-          cp -fv /usr/lib/x86_64-linux-gnu/{libssl.so.1.1,libcrypto.so.1.1} ./usr/lib/
+          cp -fv /usr/lib/x86_64-linux-gnu/{libssl.so.3,libssl3.so} ./usr/lib/
           cd ..
-          wget https://github.com/probonopd/linuxdeployqt/releases/download/6/linuxdeployqt-6-x86_64.AppImage
-          chmod +x ./linuxdeployqt-6-x86_64.AppImage
-          ./linuxdeployqt-6-x86_64.AppImage AppDir/usr/share/applications/qv2ray.desktop \
+          wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
+          chmod a+x ./linuxdeployqt-continuous-x86_64.AppImage
+          ./linuxdeployqt-continuous-x86_64.AppImage AppDir/usr/share/applications/qv2ray.desktop \
             -unsupported-allow-new-glibc \
             -appimage \
             -no-strip \
