@@ -50,7 +50,7 @@
 <context>
     <name>Qv2ray::core::handler::QvConfigHandler</name>
     <message numerus="yes">
-        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="560"/>
+        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="557"/>
         <source>%n entrie(s) have been found from the subscription source, do you want to continue?</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -58,7 +58,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="648"/>
+        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="644"/>
         <source>%1 out of %n entrie(s) have been filtered out, do you want to continue?</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -66,7 +66,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="698"/>
+        <location filename="../../../src/core/handler/ConfigHandler.cpp" line="692"/>
         <source>There&apos;re %n connection(s) in the group that do not belong the current subscription (any more).</source>
         <translation type="unfinished">
             <numerusform></numerusform>

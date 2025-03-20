@@ -103,7 +103,7 @@ void ConnectionInfoWidget::ShowDetails(const ConnectionGroupPair &_identifier)
         QStringList shareLinks;
         for (const auto &connection : ConnectionManager->GetConnections(groupId))
         {
-            shareLinks << ConvertConfigToString({ connection, groupId }, !GlobalConfig.uiConfig.useOldShareLinkFormat);
+            shareLinks << ConvertConfigToString({connection, groupId});
         }
         //
         auto complexCount = shareLinks.removeAll(QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER);
@@ -126,7 +126,7 @@ ConnectionInfoWidget::~ConnectionInfoWidget()
 void ConnectionInfoWidget::OnConnectionModified(const ConnectionId &id)
 {
     if (id == this->connectionId)
-        ShowDetails({ id, groupId });
+        ShowDetails({id, groupId});
 }
 
 void ConnectionInfoWidget::OnConnectionModified_Pair(const ConnectionGroupPair &id)
@@ -146,13 +146,13 @@ void ConnectionInfoWidget::OnGroupRenamed(const GroupId &id, const QString &oldN
 
 void ConnectionInfoWidget::on_connectBtn_clicked()
 {
-    if (ConnectionManager->IsConnected({ connectionId, groupId }))
+    if (ConnectionManager->IsConnected({connectionId, groupId}))
     {
         ConnectionManager->StopConnection();
     }
     else
     {
-        ConnectionManager->StartConnection({ connectionId, groupId });
+        ConnectionManager->StartConnection({connectionId, groupId});
     }
 }
 
@@ -204,7 +204,7 @@ bool ConnectionInfoWidget::eventFilter(QObject *object, QEvent *event)
 
 void ConnectionInfoWidget::OnConnected(const ConnectionGroupPair &id)
 {
-    if (id == ConnectionGroupPair{ connectionId, groupId })
+    if (id == ConnectionGroupPair {connectionId, groupId})
     {
         connectBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("stop")));
     }
@@ -212,7 +212,7 @@ void ConnectionInfoWidget::OnConnected(const ConnectionGroupPair &id)
 
 void ConnectionInfoWidget::OnDisConnected(const ConnectionGroupPair &id)
 {
-    if (id == ConnectionGroupPair{ connectionId, groupId })
+    if (id == ConnectionGroupPair {connectionId, groupId})
     {
         connectBtn->setIcon(QIcon(QV2RAY_COLORSCHEME_FILE("start")));
     }

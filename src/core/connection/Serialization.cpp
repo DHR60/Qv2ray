@@ -7,71 +7,67 @@ namespace Qv2ray::core::connection
 {
 namespace serialization
 {
-QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &link, QString *aliasPrefix, QString *errMessage,
-                                                              QString *newGroup)
+QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &link, QString &aliasPrefix, QString &errMessage, const QString &tag, std::optional<QString> newGroup)
 {
-    const auto TLSOptionsFilter = [](QJsonObject &conf)
+    const auto TLSOptionsFilter = [](XConfigGen::Xray::Outbounds4Ray &conf)
     {
-        const auto disableSystemRoot = GlobalConfig.advancedConfig.disableSystemRoot;
-        for (const QString &prefix : { "tls" })
-            QJsonIO::SetValue(conf, disableSystemRoot, { "outbounds", 0, "streamSettings", prefix + "Settings", "disableSystemRoot" });
+        if (!conf.streamSettings) // streamSettings 为空时直接返回
+            return;
+
+        auto &settings = *conf.streamSettings;
+        if (settings.security.value_or(QStringLiteral("none")) != QStringLiteral("tls"))
+            return;
+
+        // 使用 emplace 避免创建临时对象
+        settings.tlsSettings.emplace(settings.tlsSettings.value_or(XConfigGen::Xray::TlsSettings4Ray()))
+            .disableSystemRoot = GlobalConfig.advancedConfig.disableSystemRoot;
     };
 
+    const QStringList protocols = {"vmess", "vless", "ss", "trojan"};
+
     QList<std::pair<QString, CONFIGROOT>> connectionConf;
-    if (link.startsWith("vmess://") && link.contains("@"))
+
+    for (const auto &protocol : protocols)
     {
-        auto conf = vmess_new::Deserialize(link, aliasPrefix, errMessage);
-        TLSOptionsFilter(conf);
-        connectionConf << std::pair{ *aliasPrefix, conf };
-    }
-    else if (link.startsWith("vless://"))
-    {
-        auto conf = vless::Deserialize(link, aliasPrefix, errMessage);
-        TLSOptionsFilter(conf);
-        connectionConf << std::pair{ *aliasPrefix, conf };
-    }
-    else if (link.startsWith("vmess://"))
-    {
-        auto conf = vmess::Deserialize(link, aliasPrefix, errMessage);
-        TLSOptionsFilter(conf);
-        connectionConf << std::pair{ *aliasPrefix, conf };
-    }
-    else if (link.startsWith("ss://") && !link.contains("plugin="))
-    {
-        auto conf = ss::Deserialize(link, aliasPrefix, errMessage);
-        connectionConf << std::pair{ *aliasPrefix, conf };
-    }
-    else if (link.startsWith("trojan://"))
-    {
-        auto conf = trojan::Deserialize(link, aliasPrefix, errMessage);
-        TLSOptionsFilter(conf);
-        connectionConf << std::pair{ *aliasPrefix, conf };
-    }
-    else
-    {
-        bool ok = false;
-        const auto configs = PluginHost->TryDeserializeShareLink(link, aliasPrefix, errMessage, newGroup, ok);
-        if (ok)
+        if (link.startsWith(protocol + "://"))
         {
-            errMessage->clear();
-            for (const auto &[_alias, _protocol, _outbound] : configs)
-            {
-                CONFIGROOT root;
-                auto outbound = GenerateOutboundEntry(OUTBOUND_TAG_PROXY, _protocol, OUTBOUNDSETTING(_outbound), {});
-                QJsonIO::SetValue(root, outbound, "outbounds", 0);
-                connectionConf << std::pair{ _alias, root };
-            }
-        }
-        else if (errMessage->isEmpty())
-        {
-            *errMessage = QObject::tr("Unsupported share link format.");
+            auto outbound = XConfigGen::Xray::Deserialize(link, aliasPrefix, errMessage, tag);
+            TLSOptionsFilter(outbound);
+            QJsonObject outboundJson = outbound.toJson();
+
+            CONFIGROOT root;
+            root["outbounds"] = QJsonArray {outboundJson};
+            connectionConf << std::pair {aliasPrefix, root};
+            return connectionConf;
         }
     }
+
+    bool ok = false;
+    QString pAliasPrefix, pErrMessage, pNewGroup;
+    const auto configs = PluginHost->TryDeserializeShareLink(link, &pAliasPrefix, &pErrMessage, &pNewGroup, ok);
+    if (ok)
+    {
+        pErrMessage.clear();
+        for (const auto &[_alias, _protocol, _outbound] : configs)
+        {
+            CONFIGROOT root;
+            auto outbound = GenerateOutboundEntry(OUTBOUND_TAG_PROXY, _protocol, OUTBOUNDSETTING(_outbound), {});
+            QJsonIO::SetValue(root, outbound, "outbounds", 0);
+            connectionConf << std::pair {_alias, root};
+        }
+    }
+    else if (pErrMessage.isEmpty())
+    {
+        pErrMessage = QObject::tr("Unsupported share link format.");
+    }
+    aliasPrefix = pAliasPrefix;
+    errMessage = pErrMessage;
+    newGroup = pNewGroup;
 
     return connectionConf;
 }
 
-const QString ConvertConfigToString(const ConnectionGroupPair &identifier, bool isSip002)
+const QString ConvertConfigToString(const ConnectionGroupPair &identifier)
 {
     auto alias = GetDisplayName(identifier.connectionId);
     if (IsComplexConfig(identifier.connectionId))
@@ -79,42 +75,32 @@ const QString ConvertConfigToString(const ConnectionGroupPair &identifier, bool 
         return QV2RAY_SERIALIZATION_COMPLEX_CONFIG_PLACEHOLDER;
     }
     auto server = ConnectionManager->GetConnectionRoot(identifier.connectionId);
-    return ConvertConfigToString(alias, GetDisplayName(identifier.groupId), server, isSip002);
+    return ConvertConfigToString(alias, GetDisplayName(identifier.groupId), server);
 }
 
-const QString ConvertConfigToString(const QString &alias, const QString &groupName, const CONFIGROOT &server, bool isSip002)
+const QString ConvertConfigToString(const QString &alias, const QString &groupName, const CONFIGROOT &server)
 {
-    const auto outbound = OUTBOUND(server["outbounds"].toArray().first().toObject());
-    const auto type = outbound["protocol"].toString();
-    const auto settings = outbound["settings"].toObject();
-    const auto streamSettings = outbound["streamSettings"].toObject();
+    const auto outboundJson = server["outbounds"].toArray().first().toObject();
+
+    XConfigGen::Xray::Outbounds4Ray outbound;
+    outbound.fromJson(outboundJson);
 
     QString sharelink;
 
-    if (type.isEmpty())
+    const auto result = XConfigGen::Xray::Serialize(outbound, alias);
+    if (result.isEmpty())
     {
-        return "";
-    }
-
-    if (type == "vmess")
-    {
-        const auto vmessServer = VMessServerObject::fromJson(settings["vnext"].toArray().first().toObject());
-        const auto transport = StreamSettingsObject::fromJson(streamSettings);
-        if (GlobalConfig.uiConfig.useOldShareLinkFormat)
-            sharelink = vmess::Serialize(transport, vmessServer, alias);
-        else
-            sharelink = vmess_new::Serialize(transport, vmessServer, alias);
-    }
-    else if (type == "shadowsocks")
-    {
-        auto ssServer = ShadowSocksServerObject::fromJson(settings["servers"].toArray().first().toObject());
-        sharelink = ss::Serialize(ssServer, alias, isSip002);
+        bool ok = false;
+        const auto outbound = OUTBOUND(server["outbounds"].toArray().first().toObject());
+        const auto type = outbound["protocol"].toString();
+        const auto settings = outbound["settings"].toObject();
+        const auto streamSettings = outbound["streamSettings"].toObject();
+        sharelink = PluginHost->SerializeOutbound(type, settings, streamSettings, alias, groupName, &ok);
+        Q_UNUSED(ok)
     }
     else
     {
-        bool ok = false;
-        sharelink = PluginHost->SerializeOutbound(type, settings, streamSettings, alias, groupName, &ok);
-        Q_UNUSED(ok)
+        sharelink = result;
     }
 
     return sharelink;

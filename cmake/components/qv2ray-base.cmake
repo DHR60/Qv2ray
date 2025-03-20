@@ -76,11 +76,6 @@ set(QV2RAY_BASE_SOURCES
     ${QV2RAY_BASEDIR_CORE}/connection/generation/misc.cpp
     ${QV2RAY_BASEDIR_CORE}/connection/Serialization.cpp
     ${QV2RAY_BASEDIR_CORE}/connection/Serialization.h
-    ${QV2RAY_BASEDIR_CORE}/connection/serialization/ss.cpp
-    ${QV2RAY_BASEDIR_CORE}/connection/serialization/vmess.cpp
-    ${QV2RAY_BASEDIR_CORE}/connection/serialization/vmess_new.cpp
-    ${QV2RAY_BASEDIR_CORE}/connection/serialization/vless.cpp
-    ${QV2RAY_BASEDIR_CORE}/connection/serialization/trojan.cpp
     #
     ${QV2RAY_BASEDIR_CORE}/CoreUtils.cpp
     ${QV2RAY_BASEDIR_CORE}/CoreUtils.h

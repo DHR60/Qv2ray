@@ -17,10 +17,10 @@
 
 namespace Qv2ray::common
 {
-QString SafeBase64Decode(QString string);
+std::optional<QString> SafeBase64Decode(QString string);
 QString SafeBase64Encode(const QString &string, bool trim);
 QString Base64Encode(const QString &string);
-QString Base64Decode(const QString &string);
+std::optional<QString> Base64Decode(const QString &string);
 //
 //
 QJsonObject JsonFromString(const QString &string);
@@ -95,7 +95,7 @@ inline bool IsValidDNSServer(const QString &addr)
 
 void QvMessageBoxWarn(QWidget *parent, const QString &title, const QString &text);
 void QvMessageBoxInfo(QWidget *parent, const QString &title, const QString &text);
-MessageOpt QvMessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &opt = { Yes, No });
+MessageOpt QvMessageBoxAsk(QWidget *parent, const QString &title, const QString &text, const QList<MessageOpt> &opt = {Yes, No});
 } // namespace Qv2ray::common
 
 using namespace Qv2ray::common;

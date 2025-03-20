@@ -42,7 +42,7 @@ QString StringFromFile(QFile &source)
     if (!wasOpened)
         source.close();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    for (const auto &encoding : { QStringDecoder::Utf8, QStringDecoder::Utf16, QStringDecoder::System })
+    for (const auto &encoding : {QStringDecoder::Utf8, QStringDecoder::Utf16, QStringDecoder::System})
     {
         auto converter = QStringDecoder(encoding, QStringConverter::Flag::ConvertInvalidToNull);
         const auto data = converter(byteArray).data;
@@ -72,7 +72,7 @@ bool StringToFile(const QString &text, const QString &targetpath)
         if (!override && !info.dir().exists())
             info.dir().mkpath(info.dir().path());
     }
-    QSaveFile f{ targetpath };
+    QSaveFile f {targetpath};
     f.open(QIODevice::WriteOnly);
     f.write(text.toUtf8());
     f.commit();
@@ -111,36 +111,52 @@ QString VerifyJsonString(const QString &source)
 
 QJsonObject JsonFromString(const QString &string)
 {
-    auto removeComment = RemoveComment(string.trimmed()).trimmed();
+    const auto removeComment = RemoveComment(string.trimmed()).trimmed();
     if (removeComment != string.trimmed())
     {
         LOG("Some comments have been removed from the json.");
     }
-    QJsonDocument doc = QJsonDocument::fromJson(removeComment.toUtf8());
+    const QJsonDocument doc = QJsonDocument::fromJson(removeComment.toUtf8());
     return doc.object();
 }
 
 // backported from QvPlugin-SSR.
-QString SafeBase64Decode(QString string)
+std::optional<QString> SafeBase64Decode(QString string)
 {
     QByteArray ba = string.replace(QChar('-'), QChar('+')).replace(QChar('_'), QChar('/')).toUtf8();
-    return QByteArray::fromBase64(ba, QByteArray::Base64Option::OmitTrailingEquals);
+    const auto result = QByteArray::fromBase64Encoding(ba, QByteArray::Base64Option::OmitTrailingEquals);
+    if (result.decodingStatus == QByteArray::Base64DecodingStatus::Ok)
+        return QString(result.decoded);
+    return std::nullopt;
 }
 
 // backported from QvPlugin-SSR.
 QString SafeBase64Encode(const QString &string, bool trim)
 {
-    const auto base64 = QString(string.toUtf8().toBase64()).replace(QChar('+'), QChar('-')).replace(QChar('/'), QChar('_'));
-    if (!trim)
+    // const auto base64 = QString(string.toUtf8().toBase64()).replace(QChar('+'), QChar('-')).replace(QChar('/'), QChar('_'));
+    // if (!trim)
+    // {
+    //     return base64;
+    // }
+    // auto tmp = base64;
+    // auto crbedin = tmp.crbegin();
+    // auto idx = tmp.length();
+    // while (crbedin != tmp.crend() && (*crbedin) == '=')
+    //     idx -= 1, crbedin++;
+    // return idx != tmp.length() ? tmp.remove(idx, tmp.length() - idx) : tmp;
+
+    QByteArray base64 = string.toUtf8().toBase64();
+    base64.replace('+', '-').replace('/', '_');
+
+    if (trim)
     {
-        return base64;
+        while (base64.endsWith('='))
+        {
+            base64.chop(1);
+        }
     }
-    auto tmp = base64;
-    auto crbedin = tmp.crbegin();
-    auto idx = tmp.length();
-    while (crbedin != tmp.crend() && (*crbedin) == '=')
-        idx -= 1, crbedin++;
-    return idx != tmp.length() ? tmp.remove(idx, tmp.length() - idx) : tmp;
+
+    return QString::fromUtf8(base64);
 }
 
 QString Base64Encode(const QString &string)
@@ -148,23 +164,20 @@ QString Base64Encode(const QString &string)
     return string.toUtf8().toBase64();
 }
 
-QString Base64Decode(const QString &string)
+std::optional<QString> Base64Decode(const QString &string)
 {
     return QByteArray::fromBase64(string.toUtf8());
 }
 
 QStringList SplitLines(const QString &_string)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    return _string.split(QRegularExpression("[\r\n]"), Qt::SplitBehaviorFlags::SkipEmptyParts);
-#else
-    return _string.split(QRegularExpression("[\r\n]"), QString::SkipEmptyParts);
-#endif
+    static const QRegularExpression regex("[\r\n]");
+    return _string.split(regex, Qt::SplitBehaviorFlags::SkipEmptyParts);
 }
 
 QStringList GetFileList(const QDir &dir)
 {
-    return dir.entryList(QStringList{ "*", "*.*" }, QDir::Hidden | QDir::Files);
+    return dir.entryList(QStringList {"*", "*.*"}, QDir::Hidden | QDir::Files);
 }
 
 bool FileExistsIn(const QDir &dir, const QString &fileName)
@@ -174,7 +187,7 @@ bool FileExistsIn(const QDir &dir, const QString &fileName)
 
 QString FormatBytes(const int64_t b)
 {
-    const static char *sizes[5] = { "B", "KB", "MB", "GB", "TB" };
+    const static char *sizes[5] = {"B", "KB", "MB", "GB", "TB"};
     auto _bytes = b;
     char str[64];
     int i;

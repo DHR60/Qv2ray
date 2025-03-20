@@ -2804,30 +2804,25 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>GUIコンポーネント</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
         <source>Unsupported share link format.</source>
         <translation>この共有リンクはサポートされていないようです。</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="24"/>
         <source>SS URI is too short</source>
-        <translation>このSSのURIがは短すぎて有効ではありません</translation>
+        <translation type="vanished">このSSのURIがは短すぎて有効ではありません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="50"/>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="89"/>
         <source>Can&apos;t find the colon separator between method and password</source>
-        <translation>メソッドとパスワードの間にコロン区切り記号が見つかりません</translation>
+        <translation type="vanished">メソッドとパスワードの間にコロン区切り記号が見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="60"/>
         <source>Can&apos;t find the at separator between password and hostname</source>
-        <translation>パスワードとホスト名の間にアンペアサット区切り文字が見つかりません</translation>
+        <translation type="vanished">パスワードとホスト名の間にアンペアサット区切り文字が見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="70"/>
         <source>Can&apos;t find the colon separator between hostname and port</source>
-        <translation>ホスト名とポートの間にコロン区切り記号が見つかりません</translation>
+        <translation type="vanished">ホスト名とポートの間にコロン区切り記号が見つかりません</translation>
     </message>
     <message>
         <source>Invalid ssd link: json: field %1 must exist</source>
@@ -2874,39 +2869,32 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation type="vanished">無効な ssd リンクです: v2ray-core では、rc4-md5 暗号化はサポートされていません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="95"/>
         <source>VMess string should start with &apos;vmess://&apos;</source>
-        <translation>VMess string should start with &apos;vmess://&apos;</translation>
+        <translation type="vanished">VMess string should start with &apos;vmess://&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="102"/>
         <source>VMess string should be a valid base64 string</source>
-        <translation>VMess string should be a valid base64 string</translation>
+        <translation type="vanished">VMess string should be a valid base64 string</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="119"/>
         <source>JSON should not be empty</source>
-        <translation>JSONは空にできません</translation>
+        <translation type="vanished">JSONは空にできません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="26"/>
         <source>vmess:// url is invalid</source>
-        <translation>vmess:// url は無効です</translation>
+        <translation type="vanished">vmess:// url は無効です</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="51"/>
         <source>Invalid streamSettings protocol: </source>
-        <translation>無効な streamSettings プロトコル: </translation>
+        <translation type="vanished">無効な streamSettings プロトコル: </translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="120"/>
         <source>Unknown transport method: </source>
-        <translation>不明な転送方法： </translation>
+        <translation type="vanished">不明な転送方法： </translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="144"/>
         <source>(Empty Users)</source>
-        <translation>(空のユーザー)</translation>
+        <translation type="vanished">(空のユーザー)</translation>
     </message>
     <message>
         <location filename="../src/core/CoreUtils.cpp" line="31"/>
@@ -3103,38 +3091,47 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>Github経由でバグを報告し、ファイルはこちらにあります： </translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="19"/>
         <source>VLESS link should start with vless://</source>
-        <translation>VLESS リンクは vless:// で始まる必要があります</translation>
+        <translation type="vanished">VLESS リンクは vless:// で始まる必要があります</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="27"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="26"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="118"/>
+        <source>unsupported protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="131"/>
         <source>link parse failed: %1</source>
         <translation>リンク解析に失敗しました: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="35"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="34"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="139"/>
         <source>empty host</source>
         <translation>空のホスト</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="44"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="43"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="148"/>
         <source>missing port</source>
         <translation>ポートがありません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="59"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="58"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="163"/>
         <source>missing uuid</source>
         <translation>uuid がありません</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="207"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="197"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="331"/>
         <source>missing publicKey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="414"/>
+        <source>URI may be invalid or empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="420"/>
+        <source>not supported vmess v1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3145,11 +3142,6 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
     <message>
         <location filename="../src/ui/Qv2rayPlatformApplication.cpp" line="190"/>
         <source>Qv2ray - A cross-platform Qt frontend for Xray.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="19"/>
-        <source>trojan link should start with trojan://</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3296,50 +3288,50 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>接続を開始できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="530"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>Unknown subscription type: %1</source>
         <translation>不明なサブスクリプションタイプ: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="559"/>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="647"/>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="697"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="557"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="644"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="691"/>
         <source>Update Subscription</source>
         <translation>サブスクリプションを更新</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="560"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="557"/>
         <source>%n entrie(s) have been found from the subscription source, do you want to continue?</source>
         <translation>
             <numerusform>サブスクリプションソースから%n 件のエントリが見つかりました。続行しますか？</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="648"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="644"/>
         <source>%1 out of %n entrie(s) have been filtered out, do you want to continue?</source>
         <translation>
             <numerusform>%nつのエントリのうち%1つが選択されましたが、続行しますか？</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="698"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="692"/>
         <source>There&apos;re %n connection(s) in the group that do not belong the current subscription (any more).</source>
         <translation>
             <numerusform>現在のサブスクリプショングループに属していない接続が%n個あります。</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="700"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="695"/>
         <source>Would you like to remove them?</source>
         <translation>削除しますか？</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="529"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>Cannot Update Subscription</source>
         <translation>サブスクリプションを更新できません</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="530"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>A subscription plugin is missing?</source>
         <translation>サブスクリプションプラグインがありません。</translation>
     </message>

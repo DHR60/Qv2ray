@@ -250,7 +250,7 @@ void ImportConfigWindow::on_beginImportBtn_clicked()
 
             QString errMessage;
             QString newGroupName;
-            const auto config = ConvertConfigFromString(link, &aliasPrefix, &errMessage, &newGroupName);
+            const auto config = ConvertConfigFromString(link, aliasPrefix, errMessage, newGroupName);
 
             // If the config is empty or we have any err messages.
             if (config.isEmpty() || !errMessage.isEmpty())

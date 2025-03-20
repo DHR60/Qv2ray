@@ -2853,30 +2853,25 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>圖形元件</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/Serialization.cpp" line="67"/>
+        <location filename="../src/core/connection/Serialization.cpp" line="61"/>
         <source>Unsupported share link format.</source>
         <translation>不支援的分享鏈接格式。</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="24"/>
         <source>SS URI is too short</source>
-        <translation>Shadowsocks 分享鏈接過短</translation>
+        <translation type="vanished">Shadowsocks 分享鏈接過短</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="50"/>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="89"/>
         <source>Can&apos;t find the colon separator between method and password</source>
-        <translation>模式和密碼之間缺少冒號</translation>
+        <translation type="vanished">模式和密碼之間缺少冒號</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="60"/>
         <source>Can&apos;t find the at separator between password and hostname</source>
-        <translation>密碼和主機名之間缺少分隔符</translation>
+        <translation type="vanished">密碼和主機名之間缺少分隔符</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/ss.cpp" line="70"/>
         <source>Can&apos;t find the colon separator between hostname and port</source>
-        <translation>主機名和端口之間缺少冒號分隔符</translation>
+        <translation type="vanished">主機名和端口之間缺少冒號分隔符</translation>
     </message>
     <message>
         <source>Invalid ssd link: json: field %1 must exist</source>
@@ -2923,39 +2918,32 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="vanished">無效的 ssd 鏈接: rc4-md5 加密不被 v2ray-core 支援</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="95"/>
         <source>VMess string should start with &apos;vmess://&apos;</source>
-        <translation>VMess 鏈接應以 &apos;vmess://&apos; 開頭</translation>
+        <translation type="vanished">VMess 鏈接應以 &apos;vmess://&apos; 開頭</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="102"/>
         <source>VMess string should be a valid base64 string</source>
-        <translation>VMess 字符串應該是一個有效的 Base64 字符串</translation>
+        <translation type="vanished">VMess 字符串應該是一個有效的 Base64 字符串</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess.cpp" line="119"/>
         <source>JSON should not be empty</source>
-        <translation>JSON 不應該為空</translation>
+        <translation type="vanished">JSON 不應該為空</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="26"/>
         <source>vmess:// url is invalid</source>
-        <translation>無效的 vmess:// 鏈接</translation>
+        <translation type="vanished">無效的 vmess:// 鏈接</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="51"/>
         <source>Invalid streamSettings protocol: </source>
-        <translation>無效的流設置協議：</translation>
+        <translation type="vanished">無效的流設置協議：</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="120"/>
         <source>Unknown transport method: </source>
-        <translation>未知傳輸方式：</translation>
+        <translation type="vanished">未知傳輸方式：</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vmess_new.cpp" line="144"/>
         <source>(Empty Users)</source>
-        <translation>(空用戶)</translation>
+        <translation type="vanished">(空用戶)</translation>
     </message>
     <message>
         <location filename="../src/core/CoreUtils.cpp" line="31"/>
@@ -3161,43 +3149,47 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>請通過 GitHub 報告該文件的錯誤訊息：</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="19"/>
         <source>VLESS link should start with vless://</source>
-        <translation>VLess 鏈接應以 vless:// 開頭</translation>
+        <translation type="vanished">VLess 鏈接應以 vless:// 開頭</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="27"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="26"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="118"/>
+        <source>unsupported protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="131"/>
         <source>link parse failed: %1</source>
         <translation>鏈接解析失敗： %1</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="35"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="34"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="139"/>
         <source>empty host</source>
         <translation>主機名為空</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="44"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="43"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="148"/>
         <source>missing port</source>
         <translation>缺少端口</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="59"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="58"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="163"/>
         <source>missing uuid</source>
         <translation>缺少 UUID</translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/vless.cpp" line="207"/>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="197"/>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="331"/>
         <source>missing publicKey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/connection/serialization/trojan.cpp" line="19"/>
-        <source>trojan link should start with trojan://</source>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="414"/>
+        <source>URI may be invalid or empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../3rdparty/XConfigGen/src/XConfigGen.cpp" line="420"/>
+        <source>not supported vmess v1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3344,50 +3336,50 @@ This option may be useful for some desktop environments without tray support.</s
         <translation>啟動連線失敗</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="530"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>Unknown subscription type: %1</source>
         <translation>未知訂閱類型： %1</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="559"/>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="647"/>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="697"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="557"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="644"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="691"/>
         <source>Update Subscription</source>
         <translation>更新訂閱</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="560"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="557"/>
         <source>%n entrie(s) have been found from the subscription source, do you want to continue?</source>
         <translation>
             <numerusform>在訂閱源只找到了 %n 個條目，您想要繼續嗎？</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="648"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="644"/>
         <source>%1 out of %n entrie(s) have been filtered out, do you want to continue?</source>
         <translation>
             <numerusform>%1 個條目中的 %n 個條目已被過濾出來，您想要繼續嗎？</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="698"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="692"/>
         <source>There&apos;re %n connection(s) in the group that do not belong the current subscription (any more).</source>
         <translation>
             <numerusform>有 %n 個連接已不再屬於當前訂閱分組。</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="700"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="695"/>
         <source>Would you like to remove them?</source>
         <translation>您想要刪除它們嗎？</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="529"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>Cannot Update Subscription</source>
         <translation>無法更新訂閱</translation>
     </message>
     <message>
-        <location filename="../src/core/handler/ConfigHandler.cpp" line="530"/>
+        <location filename="../src/core/handler/ConfigHandler.cpp" line="528"/>
         <source>A subscription plugin is missing?</source>
         <translation>缺少訂閱插件？</translation>
     </message>
