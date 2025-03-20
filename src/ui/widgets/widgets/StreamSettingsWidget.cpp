@@ -12,6 +12,10 @@ StreamSettingsWidget::StreamSettingsWidget(QWidget *parent)
 {
     setupUi(this);
     QvMessageBusConnect(StreamSettingsWidget);
+
+    securityScrollArea->setVisible(false);
+    tlsGroupBox->setVisible(false);
+    realityGroupBox->setVisible(false);
 }
 
 QvMessageBusSlotImpl(StreamSettingsWidget)
@@ -37,10 +41,10 @@ void StreamSettingsWidget::SetStreamObject(const StreamSettingsObject &sso)
     transportCombo->setCurrentText(stream.network);
     // TLS XTLS
     {
-        const static QMap<QString, int> securityIndexMap{
-            {"none",  0},
-            { "tls",  1},
-            { "xtls", 2}
+        const static QMap<QString, int> securityIndexMap {
+            {"none",    0},
+            {"tls",     1},
+            {"reality", 2}
         };
         if (securityIndexMap.contains(stream.security))
             securityTypeCB->setCurrentIndex(securityIndexMap[stream.security]);
@@ -290,7 +294,13 @@ void StreamSettingsWidget::on_transportCombo_currentIndexChanged(int arg1)
 
 void StreamSettingsWidget::on_securityTypeCB_currentIndexChanged(int arg1)
 {
-    stream.security = securityTypeCB->itemText(arg1).toLower();
+    const auto security = securityTypeCB->itemText(arg1).toLower();
+    stream.security = security;
+    const bool tls = security == "tls";
+    const bool reality = security == "reality";
+    securityScrollArea->setVisible(tls || reality);
+    tlsGroupBox->setVisible(tls);
+    realityGroupBox->setVisible(reality);
 }
 
 //
@@ -389,4 +399,24 @@ void StreamSettingsWidget::on_httpHeadersEditBtn_clicked()
     auto json = HttpObject().toJson();
     json["headers"] = rJson;
     stream.httpSettings.headers = HttpObject::fromJson(json).headers;
+}
+
+void StreamSettingsWidget::on_dnsDomainTxt_textEdited(const QString &arg1)
+{
+}
+
+void StreamSettingsWidget::on_fingerprintTxt_textEdited(const QString &arg1)
+{
+}
+
+void StreamSettingsWidget::on_publicKeyTxt_textEdited(const QString &arg1)
+{
+}
+
+void StreamSettingsWidget::on_shortIdsTxt_textEdited(const QString &arg1)
+{
+}
+
+void StreamSettingsWidget::on_spiderXTxt_textEdited(const QString &arg1)
+{
 }

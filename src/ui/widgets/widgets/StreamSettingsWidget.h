@@ -81,6 +81,16 @@ private slots:
     //
     void on_pinnedPeerCertificateChainSha256Btn_clicked();
 
+    void on_dnsDomainTxt_textEdited(const QString &arg1);
+
+    void on_fingerprintTxt_textEdited(const QString &arg1);
+
+    void on_publicKeyTxt_textEdited(const QString &arg1);
+
+    void on_shortIdsTxt_textEdited(const QString &arg1);
+
+    void on_spiderXTxt_textEdited(const QString &arg1);
+
 private:
     QvMessageBusSlotDecl;
     StreamSettingsObject stream;

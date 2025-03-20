@@ -1,7 +1,7 @@
 进行中：
 1. 基于反射生成对应的 JSON 数据
    - [x] step1: 基于反射生成对应的 JSON 数据
-   - [ ] step2: 优化代码
+   - [ ] step2: 使用 `XConfigGen` 替代原有的 `Qv2ray::base::objects` ~~虽然乍一看 `Qv2ray::base::objects` 的实现也不算差，不过使用了使用了大量的宏，并且缺少注释~~
 2. 移除 libuv 和 uvw 依赖
 
 p1：
@@ -25,6 +25,7 @@ p1：
 
 p2：
 - [ ] 优化代码质量
+- [ ] 类似于 v2rayN 的路由编辑界面，以及类似于 nekoray 的 json 高级路由编辑
 
 p3：
 - [ ] 使用 Xray proto gRPC 调用 Xray API

@@ -18,7 +18,7 @@ struct DNSObject
         QList<QString> domains;
         QList<QString> expectIPs;
         DNSServerObject()
-            : QV2RAY_DNS_IS_COMPLEX_DNS(false), port(53){};
+            : QV2RAY_DNS_IS_COMPLEX_DNS(false), port(53) {};
         DNSServerObject(const QString &_address)
             : DNSServerObject()
         {
@@ -119,8 +119,17 @@ struct RuleObject
     QList<QString> protocol;
     QString attrs;
     JSONSTRUCT_COMPARE(RuleObject, type, outboundTag, balancerTag, //
-                       QV2RAY_RULE_ENABLED, QV2RAY_RULE_TAG,       //
-                       domain, ip, port, sourcePort, network, source, inboundTag, protocol, attrs)
+                       QV2RAY_RULE_ENABLED,
+                       QV2RAY_RULE_TAG, //
+                       domain,
+                       ip,
+                       port,
+                       sourcePort,
+                       network,
+                       source,
+                       inboundTag,
+                       protocol,
+                       attrs)
     JSONSTRUCT_REGISTER(RuleObject,                              //
                         A(type, outboundTag, balancerTag),       //
                         A(QV2RAY_RULE_ENABLED, QV2RAY_RULE_TAG), //
@@ -152,18 +161,18 @@ struct HTTPRequestObject
 {
     QString version = "1.1";
     QString method = "GET";
-    QList<QString> path = { "/" };
+    QList<QString> path = {"/"};
     QMap<QString, QList<QString>> headers;
     HTTPRequestObject()
     {
         headers = {
-            {"Host",             { "www.baidu.com", "www.bing.com" }                                                                                                },
-            { "User-Agent",
-             { "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-                "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46" }},
-            { "Accept-Encoding", { "gzip, deflate" }                                                                                                                },
-            { "Connection",      { "keep-alive" }                                                                                                                   },
-            { "Pragma",          { "no-cache" }                                                                                                                     }
+            {"Host",            {"www.baidu.com", "www.bing.com"}                                                                                                },
+            {"User-Agent",
+             {"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+              "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"}},
+            {"Accept-Encoding", {"gzip, deflate"}                                                                                                                },
+            {"Connection",      {"keep-alive"}                                                                                                                   },
+            {"Pragma",          {"no-cache"}                                                                                                                     }
         };
     }
     JSONSTRUCT_COMPARE(HTTPRequestObject, version, method, path, headers)
@@ -180,10 +189,10 @@ struct HTTPResponseObject
     HTTPResponseObject()
     {
         headers = {
-            {"Content-Type",       { "application/octet-stream", "video/mpeg" }}, //
-            { "Transfer-Encoding", { "chunked" }                               }, //
-            { "Connection",        { "keep-alive" }                            }, //
-            { "Pragma",            { "no-cache" }                              }
+            {"Content-Type",      {"application/octet-stream", "video/mpeg"}}, //
+            {"Transfer-Encoding", {"chunked"}                               }, //
+            {"Connection",        {"keep-alive"}                            }, //
+            {"Pragma",            {"no-cache"}                              }
         };
     }
     JSONSTRUCT_COMPARE(HTTPResponseObject, version, status, reason, headers)
@@ -235,7 +244,7 @@ struct KCPObject
     int writeBufferSize = 2;
     QString seed;
     ObfsHeaderObject header;
-    KCPObject(){};
+    KCPObject() {};
     JSONSTRUCT_COMPARE(KCPObject, mtu, tti, uplinkCapacity, downlinkCapacity, congestion, readBufferSize, writeBufferSize, seed, header)
     JSONSTRUCT_REGISTER(KCPObject, F(mtu, tti, uplinkCapacity, downlinkCapacity, congestion, readBufferSize, writeBufferSize, header, seed))
 };
@@ -324,10 +333,8 @@ struct TLSObject
     QList<QString> alpn;
     QList<QString> pinnedPeerCertificateChainSha256;
     QList<CertificateObject> certificates;
-    JSONSTRUCT_COMPARE(TLSObject, serverName, allowInsecure, enableSessionResumption, disableSystemRoot, alpn,
-                       pinnedPeerCertificateChainSha256, certificates)
-    JSONSTRUCT_REGISTER(TLSObject, F(serverName, allowInsecure, enableSessionResumption, disableSystemRoot, alpn,
-                                     pinnedPeerCertificateChainSha256, certificates))
+    JSONSTRUCT_COMPARE(TLSObject, serverName, allowInsecure, enableSessionResumption, disableSystemRoot, alpn, pinnedPeerCertificateChainSha256, certificates)
+    JSONSTRUCT_REGISTER(TLSObject, F(serverName, allowInsecure, enableSessionResumption, disableSystemRoot, alpn, pinnedPeerCertificateChainSha256, certificates))
 };
 //
 //
@@ -359,9 +366,15 @@ struct StreamSettingsObject
     transfer::QuicObject quicSettings;
     transfer::gRPCObject grpcSettings;
     JSONSTRUCT_COMPARE(StreamSettingsObject, network, security, sockopt, //
-                       tcpSettings, tlsSettings, kcpSettings, wsSettings, httpSettings, dsSettings, quicSettings, grpcSettings)
-    JSONSTRUCT_REGISTER(StreamSettingsObject, F(network, security, sockopt),
-                        F(tcpSettings, tlsSettings, kcpSettings, wsSettings, httpSettings, dsSettings, quicSettings, grpcSettings))
+                       tcpSettings,
+                       tlsSettings,
+                       kcpSettings,
+                       wsSettings,
+                       httpSettings,
+                       dsSettings,
+                       quicSettings,
+                       grpcSettings)
+    JSONSTRUCT_REGISTER(StreamSettingsObject, F(network, security, sockopt), F(tcpSettings, tlsSettings, kcpSettings, wsSettings, httpSettings, dsSettings, quicSettings, grpcSettings))
 };
 
 struct FakeDNSObject

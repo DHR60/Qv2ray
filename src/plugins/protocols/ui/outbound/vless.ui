@@ -80,37 +80,12 @@
      </property>
      <item>
       <property name="text">
-       <string notr="true"/>
+       <string notr="true">xtls-rprx-vision</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string notr="true">xtls-rprx-splice</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string notr="true">xtls-rprx-direct</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string notr="true">xtls-rprx-origin</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string notr="true">xtls-rprx-splice-udp443</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string notr="true">xtls-rprx-direct-udp443</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string notr="true">xtls-rprx-origin-udp443</string>
+       <string notr="true">xtls-rprx-vision-udp443</string>
       </property>
      </item>
     </widget>
