@@ -59,11 +59,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QCheckBox" name="darkThemeCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="darkThemeCB"/>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_36">
@@ -76,11 +72,7 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QCheckBox" name="darkTrayCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="darkTrayCB"/>
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_35">
@@ -141,7 +133,7 @@
             <item row="5" column="1">
              <widget class="QSpinBox" name="jumpListCountSB">
               <property name="suffix">
-               <string> Connections</string>
+               <string>Connections</string>
               </property>
               <property name="minimum">
                <number>3</number>
@@ -176,7 +168,7 @@
                <bool>true</bool>
               </property>
               <property name="suffix">
-               <string> lines</string>
+               <string>lines</string>
               </property>
               <property name="minimum">
                <number>10</number>
@@ -197,11 +189,7 @@
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QCheckBox" name="glyphTrayCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="glyphTrayCB"/>
             </item>
            </layout>
           </widget>
@@ -223,11 +211,7 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QCheckBox" name="startWithLoginCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="startWithLoginCB"/>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_86">
@@ -240,11 +224,7 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QCheckBox" name="quietModeCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="quietModeCB"/>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_38">
@@ -254,11 +234,7 @@
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QCheckBox" name="useOldShareLinkFormatCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="useOldShareLinkFormatCB"/>
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_94">
@@ -269,12 +245,12 @@
             </item>
             <item row="3" column="1">
              <widget class="QCheckBox" name="exitByCloseEventCB">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="toolTip">
                <string>Exit instead of minimizing to tray when the close button clicked.
 This option may be useful for some desktop environments without tray support.</string>
-              </property>
-              <property name="text">
-               <string>Enabled</string>
               </property>
              </widget>
             </item>
@@ -356,11 +332,7 @@ This option may be useful for some desktop environments without tray support.</s
                </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QCheckBox" name="startMinimizedCB">
-                <property name="text">
-                 <string>Enabled</string>
-                </property>
-               </widget>
+               <widget class="QCheckBox" name="startMinimizedCB"/>
               </item>
              </layout>
             </item>
@@ -635,9 +607,6 @@ But could damage your server if improperly used.</string>
                <string>Run TCPing or ICMPing periodically after connecting to a server.
 Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</string>
               </property>
-              <property name="text">
-               <string>Enabled</string>
-              </property>
              </widget>
             </item>
             <item row="2" column="0">
@@ -648,11 +617,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QCheckBox" name="disableSystemRootCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="disableSystemRootCB"/>
             </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_44">
@@ -662,11 +627,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QCheckBox" name="setTestLatencyOnConnectedCB">
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
+             <widget class="QCheckBox" name="setTestLatencyOnConnectedCB"/>
             </item>
            </layout>
           </widget>
@@ -827,11 +788,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QCheckBox" name="enableAPI">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="enableAPI"/>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="label_8">
@@ -877,9 +834,6 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
 - freedom will be treated as DIRECT
 - blackhole will be treated as BLOCK</string>
             </property>
-            <property name="text">
-             <string>Enabled</string>
-            </property>
            </widget>
           </item>
           <item row="6" column="0">
@@ -890,11 +844,7 @@ Qv2ray will give a more accurate latency value if Enabled, but makes it easy to 
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QCheckBox" name="hasDirectStatisticsCB">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="hasDirectStatisticsCB"/>
           </item>
          </layout>
         </widget>
@@ -934,9 +884,6 @@ Advanced Routing Settings
 Bypass CN websites and IPs
 Direct connection of Local LAN addresses
 Custom DNS Settings</string>
-            </property>
-            <property name="text">
-             <string>Enabled</string>
             </property>
            </widget>
           </item>
@@ -1299,11 +1246,7 @@ Custom DNS Settings</string>
                 <item row="3" column="1">
                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                   <item>
-                   <widget class="QCheckBox" name="tproxySniffingCB">
-                    <property name="text">
-                     <string>Enabled</string>
-                    </property>
-                   </widget>
+                   <widget class="QCheckBox" name="tproxySniffingCB"/>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="tproxySniffingMetadataOnlyCB">
@@ -1376,11 +1319,7 @@ Custom DNS Settings</string>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QCheckBox" name="socksUDPCB">
-                  <property name="text">
-                   <string>Enabled</string>
-                  </property>
-                 </widget>
+                 <widget class="QCheckBox" name="socksUDPCB"/>
                 </item>
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_25">
@@ -1410,11 +1349,7 @@ Custom DNS Settings</string>
                  </widget>
                 </item>
                 <item row="3" column="1">
-                 <widget class="QCheckBox" name="socksAuthCB">
-                  <property name="text">
-                   <string>Enabled</string>
-                  </property>
-                 </widget>
+                 <widget class="QCheckBox" name="socksAuthCB"/>
                 </item>
                 <item row="4" column="0">
                  <widget class="QLabel" name="label_11">
@@ -1463,11 +1398,7 @@ Custom DNS Settings</string>
                 <item row="6" column="1">
                  <layout class="QHBoxLayout" name="horizontalLayout_15">
                   <item>
-                   <widget class="QCheckBox" name="socksSniffingCB">
-                    <property name="text">
-                     <string>Enabled</string>
-                    </property>
-                   </widget>
+                   <widget class="QCheckBox" name="socksSniffingCB"/>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="socksSniffingMetadataOnly">
@@ -1595,11 +1526,7 @@ Custom DNS Settings</string>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QCheckBox" name="httpAuthCB">
-                  <property name="text">
-                   <string>Enabled</string>
-                  </property>
-                 </widget>
+                 <widget class="QCheckBox" name="httpAuthCB"/>
                 </item>
                 <item row="2" column="0">
                  <widget class="QLabel" name="label_2">
@@ -1648,11 +1575,7 @@ Custom DNS Settings</string>
                 <item row="4" column="1">
                  <layout class="QHBoxLayout" name="horizontalLayout_16">
                   <item>
-                   <widget class="QCheckBox" name="httpSniffingCB">
-                    <property name="text">
-                     <string>Enabled</string>
-                    </property>
-                   </widget>
+                   <widget class="QCheckBox" name="httpSniffingCB"/>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="httpSniffingMetadataOnly">
@@ -1825,11 +1748,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QCheckBox" name="proxyDefaultCb">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="proxyDefaultCb"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_41">
@@ -1839,11 +1758,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QCheckBox" name="bypassPrivateCb">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="bypassPrivateCb"/>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_17">
@@ -1856,11 +1771,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QCheckBox" name="bypassCNCb">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="bypassCNCb"/>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_76">
@@ -1873,11 +1784,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QCheckBox" name="bypassBTCb">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="bypassBTCb"/>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="label_75">
@@ -1890,11 +1797,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QCheckBox" name="dnsFreedomCb">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="dnsFreedomCb"/>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="label_39">
@@ -1907,11 +1810,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QCheckBox" name="dnsIntercept">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="dnsIntercept"/>
           </item>
          </layout>
         </widget>
@@ -2009,11 +1908,7 @@ Custom DNS Settings</string>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QCheckBox" name="fpUseAuthCB">
-            <property name="text">
-             <string>Enabled</string>
-            </property>
-           </widget>
+           <widget class="QCheckBox" name="fpUseAuthCB"/>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="label_52">

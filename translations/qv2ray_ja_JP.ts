@@ -1691,224 +1691,196 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation>外観</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="64"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="81"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="202"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="228"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="245"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="259"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="277"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="361"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="639"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="653"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="667"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="832"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="881"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="895"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="939"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1304"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1381"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1415"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1468"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1600"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1653"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1830"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1844"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1861"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1878"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1895"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1912"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2014"/>
         <source>Enabled</source>
-        <translation>有効</translation>
+        <translation type="vanished">有効</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="88"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="80"/>
         <source>UI Theme</source>
         <translation>UIテーマ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="108"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="100"/>
         <source>Language</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="160"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="152"/>
         <source>Maximum log lines</source>
         <translation>最大ログ行</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="179"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="171"/>
         <source> lines</source>
         <translation> 行</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="134"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="126"/>
         <source>Recent Jumplist</source>
         <translation>最近の項目</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="144"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="136"/>
         <source> Connections</source>
         <translation> 個</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="212"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="200"/>
         <source>Behavior</source>
         <translation>動作</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="218"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="206"/>
         <source>Launch at Login</source>
         <translation>ログイン時に起動</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="284"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="257"/>
         <source>Auto Connect</source>
         <translation>自動接続</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="299"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="272"/>
         <source>Config</source>
         <translation>項目</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="319"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="292"/>
         <source>Group</source>
         <translation>グループ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="331"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="498"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="304"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="467"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="338"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="311"/>
         <source>Last Connected</source>
         <translation>最後に接続された項目</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="345"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="318"/>
         <source>Fixed</source>
         <translation>固定項目</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="235"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="219"/>
         <source>Quiet Mode</source>
         <translation>サイレントモード</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="373"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="342"/>
         <source>Network Settings</source>
         <translation>ネットワーク設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="384"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="353"/>
         <source>These settings are used by Qv2ray itself.
 For example, for updating subscriptions.</source>
         <translation>これらの設定はQv2ray自体のためのものです。
 例えば、サブスクリプションの更新などです。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="395"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="364"/>
         <source>User-Agent</source>
         <translation>ユーザーエージェント</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="436"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="405"/>
         <source>Latency Test Method</source>
         <translation>遅延テスト方法</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="448"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="417"/>
         <source>TCPing</source>
         <translation>TCPing</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="458"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="427"/>
         <source>ICMPing</source>
         <translation>ICMPing</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="484"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="453"/>
         <source>Qv2ray Proxy</source>
         <translation>Qv2ray プロキシ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="508"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="477"/>
         <source>System Proxy</source>
         <translation>システムプロキシを使う</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="518"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="487"/>
         <source>Custom Proxy</source>
         <translation>カスタムプロキシを使う</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="530"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1944"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="499"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1840"/>
         <source>Type</source>
         <translation>タイプ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="554"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="523"/>
         <source>Server</source>
         <translation>サーバー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="569"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="538"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="599"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="568"/>
         <source>Advanced Behavior</source>
         <translation>高度的な動作</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="693"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="651"/>
         <source>Kernel Settings</source>
         <translation>カーネル設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="705"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="663"/>
         <source>Log Level</source>
         <translation>ログレベル</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="728"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="686"/>
         <source>none</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="733"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="691"/>
         <source>debug</source>
         <translation>デバッグ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="738"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="696"/>
         <source>info</source>
         <translation>info</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="743"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="701"/>
         <source>warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="748"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="706"/>
         <source>error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="775"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="799"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="733"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="757"/>
         <source>Select</source>
         <translation>選択</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="875"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="829"/>
         <source>Currently:
 - vmess/shadowsocks/vless/trojan/socks/http will be treated as PROXY.
 - freedom will be treated as DIRECT
@@ -1916,12 +1888,12 @@ For example, for updating subscriptions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="905"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="852"/>
         <source>Plugin Kernel Settings</source>
         <translation>プラグインのカーネル設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="931"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="878"/>
         <source>If not checked, these features will be disabled:
 
 Advanced Routing Settings
@@ -1936,259 +1908,259 @@ Custom DNS Settings</source>
 カスタムDNS設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="946"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="890"/>
         <source>Qv2ray will allocate ports, for HTTP and SOCKS respectively, if enabled, for each kernel plugin.</source>
         <translation>有効な場合、Qv2ray は各カーネルプラグインにそれぞれ HTTP と SOCKS 用のポートを割り当てます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="956"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="900"/>
         <source>Port Allocation Start</source>
         <translation>ポート割り当て開始</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1006"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="950"/>
         <source>Inbound Settings</source>
         <translation>インバウンド設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1032"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="976"/>
         <source>Listening Address</source>
         <translation>リスニングアドレス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1042"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="986"/>
         <source>IPv4 address, e.g. &apos;127.0.0.1&apos; or IPv6 address, e.g. ::1</source>
         <translation>IPv4アドレス、例えば、127.0.0.1；またはIPv6アドレス、例えば、::1</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1049"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1059"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="993"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1003"/>
         <source>Set System Proxy</source>
         <translation>システムプロキシに設定する</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1336"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1276"/>
         <source>SOCKS Settings</source>
         <translation>SOCKS設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1091"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1348"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1567"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1981"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1035"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1288"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1495"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1877"/>
         <source>Port</source>
         <translation>ポート</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1371"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1311"/>
         <source>UDP Support</source>
         <translation>UDPサポート</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1388"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1324"/>
         <source>UDP Local IP</source>
         <translation>UDP ローカル IP</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1405"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1590"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2004"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1341"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1518"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1900"/>
         <source>Authentication</source>
         <translation>認証</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1422"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1607"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2021"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1354"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1531"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1913"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1439"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1624"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2034"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1371"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1548"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1926"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1295"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1456"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1641"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1239"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1388"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1565"/>
         <source>Sniffing</source>
         <translation>フィルター</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1555"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1483"/>
         <source>HTTP Settings</source>
         <translation>HTTP設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1084"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1028"/>
         <source>IPv4 address, e.g. &apos;127.0.0.1&apos;</source>
         <translation>IPv4アドレス、例えば、127.0.0.1</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1113"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1057"/>
         <source>Network Options</source>
         <translation>ネットワーク設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1125"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1069"/>
         <source>TCP</source>
         <translation>TCP</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1132"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1076"/>
         <source>UDP</source>
         <translation>UDP</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1902"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1802"/>
         <source>DNS Intercept</source>
         <translation>DNSインターセプト</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1209"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1153"/>
         <source>Mode</source>
         <translation>モード</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1239"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1183"/>
         <source>Outbound Mark</source>
         <translation>アウトバウンドマーク</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1262"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1206"/>
         <source>Listening IPv4 Address</source>
         <translation>リスニングIPv4アドレス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1272"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1216"/>
         <source>Listening IPv6 Address</source>
         <translation>リスニングIPv6アドレス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1288"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1232"/>
         <source>IPv6 address, e.g. ::1. Leave blank will disable ipv6.</source>
         <translation>IPv6アドレス、例えば、::1。空欄のままにしておくとIPv6を無効にします。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1808"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1728"/>
         <source>Connection Settings</source>
         <translation>接続設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1814"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1734"/>
         <source>General Connection Settings</source>
         <translation>一般接続設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1851"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1763"/>
         <source>Bypass CN Mainland</source>
         <translation>中国本土をバイパス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1868"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1776"/>
         <source>Bypass Bittorrent Protocol</source>
         <translation>ビットトレントプロトコルをバイパス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2051"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1943"/>
         <source>DNS Settings</source>
         <translation>DNS設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1922"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1818"/>
         <source>Forward Proxy</source>
         <translation>フォワードプロキシ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1934"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1830"/>
         <source>Only simple config is supported.</source>
         <translation>簡易構成のみがサポートされています。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1968"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1864"/>
         <source>Host Address</source>
         <translation>ホストアドレス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2068"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1960"/>
         <source>Advanced Route Settings</source>
         <translation>ルート詳細設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2088"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1980"/>
         <source>About</source>
         <translation>このソフトについて</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2161"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2053"/>
         <source>Ignored Version</source>
         <translation>バージョン無視</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2178"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2070"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2185"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2077"/>
         <source>Update Channel</source>
         <translation>更新チャネル</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2196"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2088"/>
         <source>Stable Release</source>
         <translation>安定版</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2201"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2093"/>
         <source>Testing</source>
         <translation>テスト版</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2221"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2113"/>
         <source>Qv2ray</source>
         <translation>Qv2ray</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2238"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2130"/>
         <source>Version:</source>
         <translation>バージョン：</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2388"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2280"/>
         <source>Plugin Interface</source>
         <translation>プラグインインタフェース</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2368"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2260"/>
         <source>Extra Build Info</source>
         <translation>追加ビルド情報</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2378"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2270"/>
         <source>Built Time</source>
         <translation>ビルド時間</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2283"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2175"/>
         <source>Build Info</source>
         <translation>ビルド情報</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2328"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2220"/>
         <source>Official Repo</source>
         <translation>公式レポ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2434"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2326"/>
         <source>License</source>
         <translation>ライセンス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2465"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2357"/>
         <source>About Qt</source>
         <translation>Qtについて</translation>
     </message>
@@ -2300,12 +2272,12 @@ Custom DNS Settings</source>
         <translation>サーバの検索に失敗しました：%1</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2057"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1949"/>
         <source>You can configure default DNS settings for all simple connection config here.</source>
         <translation>ここでは、すべてのシンプルな接続設定のデフォルトDNS設定を行うことができます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2077"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1969"/>
         <source>You can configure default routing rules for all simple connection config here.</source>
         <translation>ここでは、すべてのシンプルな接続設定のデフォルトのルーティングルールを設定することができます。</translation>
     </message>
@@ -2315,7 +2287,7 @@ Custom DNS Settings</source>
         <translation>DNSの設定が無効です。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="614"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="583"/>
         <source>These settings may be useful.
 But could damage your server if improperly used.</source>
         <translation>これらの設定は役に立つかもしれません。
@@ -2327,7 +2299,7 @@ But could damage your server if improperly used.</source>
         <translation>気を付けて！</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="815"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="773"/>
         <source>Check System Date and Time from the Internet</source>
         <translation>インターネットからシステムの日時を確認する</translation>
     </message>
@@ -2342,12 +2314,12 @@ But could damage your server if improperly used.</source>
 - ブラックホールはBLOCKとして扱われます</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="888"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="839"/>
         <source>Include Direct Connection</source>
         <translation>直接接続を含む</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="252"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="232"/>
         <source>Old Share Link Format</source>
         <translation>旧リンク形式</translation>
     </message>
@@ -2357,77 +2329,77 @@ But could damage your server if improperly used.</source>
         <translation>適応ダークテーマ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="71"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="67"/>
         <source>Adapt Dark Tray Theme</source>
         <translation>適応ダークトレイのテーマ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="699"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="657"/>
         <source>V2Ray Core Settings</source>
         <translation>V2Rayコア設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="756"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="714"/>
         <source>V2Ray Core Executable Path</source>
         <translation>V2Ray コアのパス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="784"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="742"/>
         <source>V2Ray Assets Directory</source>
         <translation>V2Ray アセットフォルダー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="808"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="766"/>
         <source>Check V2Ray Core Settings</source>
         <translation>V2Rayコア設定を確認する</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="822"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="780"/>
         <source>V2Ray API Subsystem</source>
         <translation>V2Ray APIサブシステム</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="839"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="793"/>
         <source>V2Ray API Port</source>
         <translation>V2Ray APIポート</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="868"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="822"/>
         <source>Outbound Statistics (V2Ray Core v4.26+)</source>
         <translation>アウトバウンド統計（V2Rayコアv4.26以降）</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="911"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="858"/>
         <source>Enabling V2Ray Integration will allow the kernel benefit from the V2Ray routing engine.</source>
         <translation>V2Ray統合を有効にすると、カーネルはV2Rayルーティングエンジンの恩恵を受けることができます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="921"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="868"/>
         <source>V2Ray Integration</source>
         <translation>V2Rayの統合</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="979"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="923"/>
         <source>Only V2Ray Core v4.21+ is supported.</source>
         <translation>V2Rayコアv4.21以降のみ対応しています。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1885"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1789"/>
         <source>Use V2Ray DNS for Direct Connection</source>
         <translation>フリーダムアウトバウンドにはV2Ray DNSを使用</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1820"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1740"/>
         <source>Force Direct for All Connections</source>
         <translation>すべての接続に直接を</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="470"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="439"/>
         <source>RealPing Test URL</source>
         <translation>実質レイテンシテストURL</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1837"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1753"/>
         <source>Bypass Private Addresses</source>
         <translation>プライベートアドレスのバイパス</translation>
     </message>
@@ -2452,58 +2424,58 @@ But could damage your server if improperly used.</source>
         <translation>再接続が必要</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1070"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1014"/>
         <source>Dokodemo Door Settings</source>
         <translation>ドコデモドーアの設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="646"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="612"/>
         <source>Disable System Root Certificates</source>
         <translation>システムルート証明書を無効にする</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2131"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2023"/>
         <source>Config Directory</source>
         <translation>設定ディレクトリ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2148"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="2040"/>
         <source>Open Directory</source>
         <translation>ディレクトリを開く</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="660"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="622"/>
         <source>Test Latency On Connected</source>
         <translation>接続時のレイテンシーテスト</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="354"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="327"/>
         <source>Start Minimized</source>
         <translation>最小化して起動</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="195"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="187"/>
         <source>Adapt Glyph Tray Icon</source>
         <translation>グリフトレイアイコンを調整</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1154"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1497"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1682"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1098"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1425"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1602"/>
         <source>Destination Override</source>
         <translation>目標上書き</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1166"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1509"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1694"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1110"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1437"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1614"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1173"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1516"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1701"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1117"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1444"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1621"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
@@ -2543,16 +2515,16 @@ But could damage your server if improperly used.</source>
         <translation>Qv2rayはNTPサポートでは構築されませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1311"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1475"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1660"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1251"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1403"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1580"/>
         <source>Metadata Only</source>
         <translation>メタデータのみ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1180"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1523"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1708"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1124"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1451"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1628"/>
         <source>FakeDNS</source>
         <translation>FakeDNS</translation>
     </message>
@@ -2562,53 +2534,53 @@ But could damage your server if improperly used.</source>
         <translation>無効な tproxy listening ipv4 アドレスです。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1743"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1663"/>
         <source>Browser Forwarder Settings</source>
         <translation>ブラウザーフォワーダーの設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1755"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1675"/>
         <source>Listening Address</source>
         <comment>Listening Address for Browser Forwarder</comment>
         <translation>リスニングアドレス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1769"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1689"/>
         <source>Listening Port</source>
         <comment>Listening Port for Browser Forwarder</comment>
         <translation>リスニングポート</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1791"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1711"/>
         <source>This applies to Simple Configs with Browser Forwarder on.</source>
         <translation>これはブラウザーフォワーダーがオンのシンプルな構成に適用されます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="625"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="594"/>
         <source>Test Latency Periodically</source>
         <translation>定期的にテスト遅延</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="635"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="604"/>
         <source>Run TCPing or ICMPing periodically after connecting to a server.
 Qv2ray will give a more accurate latency value if Enabled, but makes it easy to fingerprint the connection.</source>
         <translation>サーバに接続した後は、定期的にTCPまたはICMPingを実行します。
 有効にするとQv2rayはより正確なレイテンシー値を与えますが、接続の指紋化は容易になります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1187"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1530"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1715"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1131"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1458"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="1635"/>
         <source>FakeDNS+Others</source>
         <translation>FakeDNS+その他</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="266"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="242"/>
         <source>Click Close Button to Exit</source>
         <translation>閉じるボタンをクリックして終了</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="273"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="249"/>
         <source>Exit instead of minimizing to tray when the close button clicked.
 This option may be useful for some desktop environments without tray support.</source>
         <translation>閉じるボタンがクリックされたときにトレイに最小化する代わりに終了します。
