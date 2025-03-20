@@ -1,16 +1,18 @@
 进行中：
 1. 基于反射生成对应的 JSON 数据
+   - [x] step1: 基于反射生成对应的 JSON 数据
+   - [ ] step2: 优化代码
 2. 移除 libuv 和 uvw 依赖
 
 p1：
 
-- [ ] 基于反射生成对应的 JSON 数据
 - [ ] 移除 libuv 和 uvw 依赖
     * 原因：
         1. libuv 引入了大量的编译警告
         2. uvw 在 v3 版本中进行了重大更改，部分代码迁移困难，且现有代码中 uvw 的使用包含了大量宏和协程，维护成本高
-- [ ] 实现 VLESS 和 Trojan 协议的分享链接导出功能
 
+- [x] 基于反射生成对应的 JSON 数据
+- [x] 实现 VLESS 和 Trojan 协议的分享链接导出功能
 - [x] 切换至 Xray-Core 内核
     * [x] 将 v2ray 替换为 xray
         * API 相关
@@ -25,4 +27,4 @@ p2：
 - [ ] 优化代码质量
 
 p3：
-- [ ] 使用 gRPC 调用 Xray API
+- [ ] 使用 Xray proto gRPC 调用 Xray API

@@ -223,7 +223,7 @@ jobs:
         if: matrix.os == 'ubuntu-24.04'
         uses: DuckSoft/create-7z-action@v1.0
         with:
-          pathSource: ./build/deployment/
+          pathSource: ./build/
           pathTarget: ./release.7z
       - name: Linux - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.os == 'ubuntu-24.04'
