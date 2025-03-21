@@ -1,3 +1,5 @@
+add_compile_definitions(STATIC_IN_RELEASE=static)
+
 set(QT_QRENCODE_BASEDIR ${CMAKE_SOURCE_DIR}/3rdparty/qt-qrcode/lib)
 
 include_directories(${QT_QRENCODE_BASEDIR})
