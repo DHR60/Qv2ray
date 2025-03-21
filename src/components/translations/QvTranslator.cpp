@@ -33,11 +33,11 @@ void QvTranslator::refreshTranslations()
     languages.clear();
     for (const auto &path : searchPaths)
     {
-        languages << QDir(path).entryList({ "*.qm" }, QDir::Hidden | QDir::Files);
+        languages << QDir(path).entryList({"*.qm"}, QDir::Hidden | QDir::Files);
     }
     std::transform(languages.begin(), languages.end(), languages.begin(), [](QString &fileName)
                    {
-                       return fileName.replace(".qm", "");
+                       return fileName.replace(".qm", "").replace("qv2ray_", "");
                    });
     languages.removeDuplicates();
     DEBUG("Found translations: " + languages.join(" "));
@@ -47,11 +47,11 @@ bool QvTranslator::InstallTranslation(const QString &code)
 {
     for (const auto &path : searchPaths)
     {
-        if (FileExistsIn(QDir(path), code + ".qm"))
+        if (FileExistsIn(QDir(path), "qv2ray_" + code + ".qm"))
         {
             DEBUG("Found " + code + " in folder: " + path);
             QTranslator *translatorNew = new QTranslator();
-            bool success = translatorNew->load(code + ".qm", path);
+            bool success = translatorNew->load("qv2ray_" + code + ".qm", path);
             if (!success)
             {
                 LOG("Cannot load translation: " + code);

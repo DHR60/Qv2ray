@@ -56,7 +56,7 @@ struct Qv2rayConfig_UI
 #else
     QString theme = "Fusion";
 #endif
-    QString language = "en_US";
+    QString language = "zh_CN";
     QList<ConnectionGroupPair> recentConnections;
     Qv2rayConfig_Graph graphConfig;
     bool quietMode = false;
