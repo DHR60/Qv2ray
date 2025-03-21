@@ -134,7 +134,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
                 auto newFilePath = newDirPath + "/" + subsConnectionId + QV2RAY_CONFIG_FILE_EXTENSION;
                 //
                 QJsonObject subsConnection;
-                subsConnection["displayName"] = fileName.chopped(QString(QV2RAY_CONFIG_FILE_EXTENSION).count());
+                subsConnection["displayName"] = fileName.chopped(QString(QV2RAY_CONFIG_FILE_EXTENSION).size());
                 QFile(baseFilePath).rename(newFilePath);
                 UPGRADELOG("Moved subscription file from: " + baseFilePath + " to: " + newFilePath);
                 subsConnectionIds << subsConnectionId;
@@ -200,10 +200,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
         if (root["inboundConfig"].toObject()["pacConfig"].toObject()["enablePAC"].toBool(false))
         {
             QvMessageBoxWarn(
-                nullptr, QObject::tr("Deprecated"),
-                QObject::tr("PAC is now deprecated and is not encouraged to be used anymore.") + NEWLINE +
-                    QObject::tr("It will be removed or be provided as a plugin in the future.") + NEWLINE + NEWLINE +
-                    QObject::tr("PAC will still work currently, but please switch to the Xray built-in routing as soon as possible."));
+                nullptr, QObject::tr("Deprecated"), QObject::tr("PAC is now deprecated and is not encouraged to be used anymore.") + NEWLINE + QObject::tr("It will be removed or be provided as a plugin in the future.") + NEWLINE + NEWLINE + QObject::tr("PAC will still work currently, but please switch to the Xray built-in routing as soon as possible."));
         }
         else
         {
@@ -216,7 +213,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
     case 11:
     {
         // Process AutoStartSettings
-        ConnectionGroupPair autoStartIdPair{ ConnectionId{ root["autoStartId"].toString() }, NullGroupId };
+        ConnectionGroupPair autoStartIdPair {ConnectionId {root["autoStartId"].toString()}, NullGroupId};
 
         // Process connection entries.
         //
@@ -281,7 +278,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
                 if (autoStartIdPair.groupId != NullGroupId &&
                     aSubscription["connections"].toArray().contains(autoStartIdPair.connectionId.toString()))
                 {
-                    autoStartIdPair.groupId = GroupId{ key };
+                    autoStartIdPair.groupId = GroupId {key};
                 }
                 //
                 for (const auto &cid : aSubscription["connections"].toArray())
@@ -312,7 +309,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
                 if (autoStartIdPair.groupId != NullGroupId &&
                     aGroup["connections"].toArray().contains(autoStartIdPair.connectionId.toString()))
                 {
-                    autoStartIdPair.groupId = GroupId{ key };
+                    autoStartIdPair.groupId = GroupId {key};
                 }
                 for (const auto &cid : aGroup["connections"].toArray())
                 {
@@ -422,9 +419,7 @@ QJsonObject UpgradeConfig_Inc(int fromVersion, const QJsonObject &original)
         // https://github.com/Qv2ray/Qv2ray/issues/353#issuecomment-586117507
         // for more information, see commit 2f716a9a443b71ddb96aaab081de73c0095cb637
         //
-        QvMessageBoxWarn(nullptr, QObject::tr("Configuration Upgrade Failed"),
-                         QObject::tr("Unsupported config version number: ") + QSTRN(fromVersion) + NEWLINE + NEWLINE +
-                             QObject::tr("Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again."));
+        QvMessageBoxWarn(nullptr, QObject::tr("Configuration Upgrade Failed"), QObject::tr("Unsupported config version number: ") + QSTRN(fromVersion) + NEWLINE + NEWLINE + QObject::tr("Please upgrade firstly up to Qv2ray v2.0/v2.1 and try again."));
         LOG("The configuration version of your old Qv2ray installation is out-of-date and that"
             " version is not supported anymore, please try to update to an intermediate version of Qv2ray first.");
         qApp->exit(1);

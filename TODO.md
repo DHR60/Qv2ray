@@ -1,16 +1,21 @@
 进行中：
-1. 基于反射生成对应的 JSON 数据
+1. 使用 `zxing-cpp` 替代 `qt-qrcode`
+2. 基于反射生成对应的 JSON 数据
    - [x] step1: 基于反射生成对应的 JSON 数据
    - [ ] step2: 使用 `XConfigGen` 替代原有的 `Qv2ray::base::objects` ~~虽然乍一看 `Qv2ray::base::objects` 的实现也不算差，不过使用了使用了大量的宏，并且缺少注释~~
-2. 移除 libuv 和 uvw 依赖
 
 p1：
 
-- [ ] 移除 libuv 和 uvw 依赖
+- [ ] 使用 `zxing-cpp` 替代 `qt-qrcode`
+    * 原因：
+        1. `qt-qrcode` 最后一次更新是 12 年前
+        2. 其依赖 `libqrencode` 最后一次更新是 5 年前
+        3. 最近一次 commit 动了 3rdparty，无法正常生成二维码，但是不报错
+- [ ] 使用 `XConfigGen` 替代原有的 `Qv2ray::base::objects`
+- [x] 移除 libuv 和 uvw 依赖
     * 原因：
         1. libuv 引入了大量的编译警告
         2. uvw 在 v3 版本中进行了重大更改，部分代码迁移困难，且现有代码中 uvw 的使用包含了大量宏和协程，维护成本高
-
 - [x] 基于反射生成对应的 JSON 数据
 - [x] 实现 VLESS 和 Trojan 协议的分享链接导出功能
 - [x] 切换至 Xray-Core 内核

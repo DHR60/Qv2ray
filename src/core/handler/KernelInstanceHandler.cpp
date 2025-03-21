@@ -42,7 +42,7 @@ KernelInstanceHandler::~KernelInstanceHandler()
     StopConnection();
 }
 
-std::optional<QString> KernelInstanceHandler::CheckPort(const QMap<QString, ProtocolSettingsInfoObject> &info, int plugins)
+std::optional<QString> KernelInstanceHandler::CheckPort(const QMap<QString, ProtocolSettingsInfoObject> &info, size_t plugins)
 {
     QStringList portDetectionErrorMessage;
     auto portDetectionMsg = tr("There are other processes occupying the ports necessary to start the connection:") + NEWLINE + NEWLINE;
@@ -80,7 +80,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
     //
     const auto inboundPorts = GetInboundPorts();
     const auto inboundHosts = GetInboundHosts();
-    PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connecting });
+    PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connecting});
     // QList<std::tuple<QString, int, QString>> inboundInfo;
     // for (const auto &inbound_v : fullConfig["inbounds"].toArray())
     //{
@@ -123,7 +123,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             _inboundSettings[KERNEL_LISTEN_ADDRESS] = "127.0.0.1";
             LOG("Sending connection settings to kernel.");
             kernel->SetConnectionSettings(_inboundSettings, outbound["settings"].toObject());
-            activeKernels.push_back({ outProtocol, std::move(kernel) });
+            activeKernels.push_back({outProtocol, std::move(kernel)});
             //
             const auto pluginOutSettings = GenerateHTTPSOCKSOut("127.0.0.1", pluginPort, false, "", "");
             //
@@ -158,10 +158,8 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             {
                 LOG("Starting kernel for protocol: " + outboundProtocol);
                 bool status = kernelObject->StartKernel();
-                connect(kernelObject.get(), &PluginKernel::OnKernelCrashed, this, &KernelInstanceHandler::OnKernelCrashed_p,
-                        Qt::QueuedConnection);
-                connect(kernelObject.get(), &PluginKernel::OnKernelLogAvailable, this, &KernelInstanceHandler::OnPluginKernelLog_p,
-                        Qt::QueuedConnection);
+                connect(kernelObject.get(), &PluginKernel::OnKernelCrashed, this, &KernelInstanceHandler::OnKernelCrashed_p, Qt::QueuedConnection);
+                connect(kernelObject.get(), &PluginKernel::OnKernelLogAvailable, this, &KernelInstanceHandler::OnPluginKernelLog_p, Qt::QueuedConnection);
                 hasAllKernelStarted = hasAllKernelStarted && status;
                 if (!status)
                 {
@@ -182,13 +180,13 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             if (result.has_value())
             {
                 StopConnection();
-                PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Disconnected });
+                PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Disconnected});
                 return result;
             }
             else
             {
                 emit OnConnected(id);
-                PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected });
+                PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected});
             }
         }
         else if (kernelMap.contains(firstOutboundProtocol))
@@ -198,12 +196,11 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             {
                 auto kernel =
                     PluginHost->GetPlugin(kernelMap[firstOutbound["protocol"].toString()])->pluginInterface->GetKernel()->CreateKernel();
-                activeKernels.push_back({ firstOutboundProtocol, std::move(kernel) });
+                activeKernels.push_back({firstOutboundProtocol, std::move(kernel)});
             }
             Q_ASSERT(activeKernels.size() == 1);
 #define theKernel (activeKernels.front().second.get())
-            connect(theKernel, &PluginKernel::OnKernelStatsAvailable, this, &KernelInstanceHandler::OnPluginStatsDataRcvd_p,
-                    Qt::QueuedConnection);
+            connect(theKernel, &PluginKernel::OnKernelStatsAvailable, this, &KernelInstanceHandler::OnPluginStatsDataRcvd_p, Qt::QueuedConnection);
             connect(theKernel, &PluginKernel::OnKernelCrashed, this, &KernelInstanceHandler::OnKernelCrashed_p, Qt::QueuedConnection);
             connect(theKernel, &PluginKernel::OnKernelLogAvailable, this, &KernelInstanceHandler::OnPluginKernelLog_p, Qt::QueuedConnection);
             currentId = id;
@@ -229,7 +226,7 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             if (kernelStarted)
             {
                 emit OnConnected(id);
-                PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected });
+                PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected});
             }
             else
             {
@@ -244,14 +241,14 @@ std::optional<QString> KernelInstanceHandler::StartConnection(const ConnectionGr
             auto result = vCoreInstance->StartConnection(fullConfig);
             if (result.has_value())
             {
-                PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Disconnected });
+                PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Disconnected});
                 StopConnection();
                 return result;
             }
             else
             {
                 emit OnConnected(id);
-                PluginHost->SendEvent({ GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected });
+                PluginHost->SendEvent({GetDisplayName(id.connectionId), inboundPorts, Events::Connectivity::Connected});
             }
         }
     }
@@ -293,7 +290,7 @@ void KernelInstanceHandler::StopConnection()
     if (isConnected)
     {
         const auto inboundPorts = GetInboundPorts();
-        PluginHost->SendEvent({ GetDisplayName(currentId.connectionId), inboundPorts, Events::Connectivity::Disconnecting });
+        PluginHost->SendEvent({GetDisplayName(currentId.connectionId), inboundPorts, Events::Connectivity::Disconnecting});
         if (vCoreInstance->IsKernelRunning())
         {
             vCoreInstance->StopConnection();
@@ -305,7 +302,7 @@ void KernelInstanceHandler::StopConnection()
         }
         pluginLogPrefixPadding = 0;
         emit OnDisconnected(currentId);
-        PluginHost->SendEvent({ GetDisplayName(currentId.connectionId), inboundPorts, Events::Connectivity::Disconnected });
+        PluginHost->SendEvent({GetDisplayName(currentId.connectionId), inboundPorts, Events::Connectivity::Disconnected});
     }
     else
     {
@@ -326,7 +323,7 @@ void KernelInstanceHandler::OnV2RayStatsDataRcvd_p(const QMap<StatisticsType, Qv
 void KernelInstanceHandler::OnPluginStatsDataRcvd_p(const long uploadSpeed, const long downloadSpeed)
 {
     OnV2RayStatsDataRcvd_p({
-        {API_OUTBOUND_PROXY, { uploadSpeed, downloadSpeed }}
+        {API_OUTBOUND_PROXY, {uploadSpeed, downloadSpeed}}
     });
 }
 } // namespace Qv2ray::core::handler

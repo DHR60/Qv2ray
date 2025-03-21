@@ -56,7 +56,7 @@ private slots:
 
 private:
     void emitLogMessage(const QString &);
-    static std::optional<QString> CheckPort(const QMap<QString, ProtocolSettingsInfoObject> &info, int plugins);
+    static std::optional<QString> CheckPort(const QMap<QString, ProtocolSettingsInfoObject> &info, size_t plugins);
 
 private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
