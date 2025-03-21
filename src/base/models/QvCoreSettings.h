@@ -19,7 +19,7 @@ struct QvConfig_Route
     };
 
     QString domainStrategy;
-    QString domainMatcher = "mph";
+    QString domainMatcher = "hybrid";
     QvRouteConfig_Impl domains;
     QvRouteConfig_Impl ips;
     QvConfig_Route() {};
@@ -61,8 +61,11 @@ struct QvConfig_Connection
     bool v2rayFreedomDNS = false;
     bool dnsIntercept = false;
     JSONSTRUCT_COMPARE(QvConfig_Connection, enableProxy, //
-                       bypassCN, bypassBT, bypassLAN,    //
-                       v2rayFreedomDNS, dnsIntercept)
+                       bypassCN,
+                       bypassBT,
+                       bypassLAN, //
+                       v2rayFreedomDNS,
+                       dnsIntercept)
     JSONSTRUCT_REGISTER(QvConfig_Connection, F(bypassCN, bypassBT, bypassLAN, enableProxy, v2rayFreedomDNS, dnsIntercept))
 };
 
@@ -78,7 +81,7 @@ struct Qv2rayConfig_ProtocolInboundBase
     int port = 0;
     bool useAuth = false;
     bool sniffing = false;
-    QList<QString> destOverride = { "http", "tls" };
+    QList<QString> destOverride = {"http", "tls"};
     objects::AccountObject account;
     bool metadataOnly = true;
     Qv2rayConfig_ProtocolInboundBase() {};
@@ -150,8 +153,7 @@ struct QvConfig_Inbounds
     QvConfig_SystemProxy systemProxySettings;
     QvConfig_BrowserForwarder browserForwarderSettings;
     //
-    JSONSTRUCT_COMPARE(QvConfig_Inbounds, listenip, useSocks, useHTTP, useTPROXY, tProxySettings, httpSettings, socksSettings,
-                       systemProxySettings, browserForwarderSettings);
+    JSONSTRUCT_COMPARE(QvConfig_Inbounds, listenip, useSocks, useHTTP, useTPROXY, tProxySettings, httpSettings, socksSettings, systemProxySettings, browserForwarderSettings);
     JSONSTRUCT_REGISTER(QvConfig_Inbounds,                         //
                         A(socksSettings),                          //
                         F(listenip, useSocks, useHTTP, useTPROXY), //

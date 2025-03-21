@@ -49,9 +49,7 @@ struct Qv2rayConfig_Graph
 
 struct Qv2rayConfig_UI
 {
-#ifdef Q_OS_WIN
-    QString theme = "windowsvista";
-#elif defined(Q_OS_MACOS)
+#ifdef Q_OS_MACOS
     QString theme = "macintosh";
 #else
     QString theme = "Fusion";

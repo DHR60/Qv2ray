@@ -486,16 +486,31 @@ void StreamSettingsWidget::on_securityTypeCB_currentIndexChanged(int arg1)
 
 void StreamSettingsWidget::on_serverNameTxt_textEdited(const QString &arg1)
 {
-    auto updateSettings = [&](std::optional<XConfigGen::Xray::TlsSettings4Ray> &settings)
-    {
-        if (settings.has_value())
-        {
-            settings->serverName = arg1.trimmed();
-        }
-    };
+    XConfigGen::Xray::TlsSettings4Ray tlsSettings;
+    QString currentSecurity = securityTypeCB->currentText(); // 获取当前的安全类型
 
-    updateSettings(stream.tlsSettings);
-    updateSettings(stream.realitySettings);
+    // 根据 securityTypeCB 的文本选择 tlsSettings 或 realitySettings
+    if (currentSecurity == "tls" && stream.tlsSettings.has_value())
+    {
+        tlsSettings = stream.tlsSettings.value();
+    }
+    else if (currentSecurity == "reality" && stream.realitySettings.has_value())
+    {
+        tlsSettings = stream.realitySettings.value();
+    }
+
+    // 更新 serverName
+    tlsSettings.serverName = arg1.trimmed();
+
+    // 将更新后的设置保存回对应的设置
+    if (currentSecurity == "tls")
+    {
+        stream.tlsSettings = tlsSettings;
+    }
+    else if (currentSecurity == "reality")
+    {
+        stream.realitySettings = tlsSettings;
+    }
 }
 
 void StreamSettingsWidget::on_allowInsecureCB_stateChanged(int arg1)
@@ -603,16 +618,31 @@ void StreamSettingsWidget::on_httpHeadersEditBtn_clicked()
 
 void StreamSettingsWidget::on_fingerprintTxt_textEdited(const QString &arg1)
 {
-    auto updateSettings = [&](std::optional<XConfigGen::Xray::TlsSettings4Ray> &settings)
-    {
-        if (settings.has_value())
-        {
-            settings->fingerprint = arg1.trimmed();
-        }
-    };
+    XConfigGen::Xray::TlsSettings4Ray tlsSettings;
+    QString currentSecurity = securityTypeCB->currentText(); // 获取当前的安全类型
 
-    updateSettings(stream.tlsSettings);
-    updateSettings(stream.realitySettings);
+    // 根据 securityTypeCB 的文本选择 tlsSettings 或 realitySettings
+    if (currentSecurity == "tls" && stream.tlsSettings.has_value())
+    {
+        tlsSettings = stream.tlsSettings.value();
+    }
+    else if (currentSecurity == "reality" && stream.realitySettings.has_value())
+    {
+        tlsSettings = stream.realitySettings.value();
+    }
+
+    // 更新 fingerprint
+    tlsSettings.fingerprint = arg1.trimmed();
+
+    // 将更新后的设置保存回对应的设置
+    if (currentSecurity == "tls")
+    {
+        stream.tlsSettings = tlsSettings;
+    }
+    else if (currentSecurity == "reality")
+    {
+        stream.realitySettings = tlsSettings;
+    }
 }
 
 void StreamSettingsWidget::on_publicKeyTxt_textEdited(const QString &arg1)
