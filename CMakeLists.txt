@@ -319,7 +319,7 @@ endif()
 # ==================================================================================
 if(_QV2RAY_HAS_GUI_INTERNAL_)
     add_definitions(-DQV2RAY_GUI)
-    include(cmake/qrencode.cmake)
+    include(cmake/QtQrCodeGenerator.cmake)
 
     include(cmake/components/qv2ray-ui.cmake)
     list(APPEND QV2RAY_UI_SOURCES ${QV2RAY_UI_COMMON_SOURCES})
@@ -366,6 +366,7 @@ set(QV2RAY_FULL_SOURCES
     ${QV2RAY_EMBED_TRANSLATION_QRC}
     ${QV2RAY_QRC_RESOURCES}
     ${QV2RAY_QM_FILES}
+    ${QtQrCodeGenerator_SOURCES}
     )
 
 QVLOG(QV2RAY_QM_FILES)
@@ -393,7 +394,6 @@ target_link_libraries(qv2ray PUBLIC
     qv2ray_baselib
     ${QNODEEDITOR_LIBRARY}
     ${QV2RAY_PLATFORM_LIBS}
-    ${QV2RAY_QRENCODE_LIBRARY}
 )
 
 

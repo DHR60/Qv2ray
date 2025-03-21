@@ -16,12 +16,12 @@
 [submodule "3rdparty/QCodeEditor"]
 	path = 3rdparty/QCodeEditor
 	url = https://github.com/cpeditor/QCodeEditor
-[submodule "3rdparty/qt-qrcode"]
-	path = 3rdparty/qt-qrcode
-	url = https://github.com/danielsanfr/qt-qrcode
 [submodule "3rdparty/QJsonStruct"]
 	path = 3rdparty/QJsonStruct
 	url = https://github.com/DHR60/QJsonStruct
 [submodule "3rdparty/XConfigGen"]
 	path = 3rdparty/XConfigGen
 	url = https://github.com/DHR60/XConfigGen
+[submodule "3rdparty/QtQrCodeGenerator"]
+	path = 3rdparty/QtQrCodeGenerator
+	url = https://github.com/alex-spataru/Qt-QrCodeGenerator.git

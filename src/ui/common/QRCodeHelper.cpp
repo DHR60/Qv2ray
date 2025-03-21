@@ -1,7 +1,6 @@
 #include "QRCodeHelper.h"
 
-#include "QtQrCode"
-#include "QtQrCodePainter"
+#include "QrCodeGenerator.h"
 
 #include <QImage>
 
@@ -14,8 +13,7 @@ QString DecodeQRCode(const QImage &)
 
 QImage EncodeQRCode(const QString content, int size)
 {
-    QtQrCode c;
-    c.setData(content.toUtf8());
-    return QtQrCodePainter(2.0).toImage(c, size);
+    QrCodeGenerator c;
+    return c.generateQr(content, size, 2);
 }
 } // namespace Qv2ray::ui
