@@ -41,11 +41,6 @@ set(QV2RAY_BASE_SOURCES
     ${QV2RAY_BASEDIR_COMPONENTS}/latency/TCPing.h
     ${QV2RAY_BASEDIR_COMPONENTS}/latency/RealPing.cpp
     ${QV2RAY_BASEDIR_COMPONENTS}/latency/RealPing.h
-    ${QV2RAY_BASEDIR_COMPONENTS}/latency/DNSBase.h
-    ${QV2RAY_BASEDIR_COMPONENTS}/latency/win/ICMPPing.cpp
-    ${QV2RAY_BASEDIR_COMPONENTS}/latency/win/ICMPPing.h
-    ${QV2RAY_BASEDIR_COMPONENTS}/latency/unix/ICMPPing.cpp
-    ${QV2RAY_BASEDIR_COMPONENTS}/latency/unix/ICMPPing.h
     #
     ${QV2RAY_BASEDIR_COMPONENTS}/ntp/QvNTPClient.cpp
     ${QV2RAY_BASEDIR_COMPONENTS}/ntp/QvNTPClient.h

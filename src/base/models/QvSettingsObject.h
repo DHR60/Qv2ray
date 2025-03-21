@@ -37,13 +37,13 @@ struct Qv2rayConfig_Graph
     safetype::QvEnumMap<StatisticsType, safetype::QvPair<QvGraphPenConfig>> colorConfig;
     JSONSTRUCT_COMPARE(Qv2rayConfig_Graph, useOutboundStats, hasDirectStats, colorConfig)
     JSONSTRUCT_REGISTER(Qv2rayConfig_Graph, F(useOutboundStats, hasDirectStats, colorConfig))
-    const static inline QvPair<QvGraphPenConfig> DefaultPen{
-        { 134, 196, 63,  1.5f, Qt::SolidLine },
-        { 50,  153, 255, 1.5f, Qt::SolidLine }
+    const static inline QvPair<QvGraphPenConfig> DefaultPen {
+        {134, 196, 63,  1.5f, Qt::SolidLine},
+        {50,  153, 255, 1.5f, Qt::SolidLine}
     };
-    const static inline QvPair<QvGraphPenConfig> DirectPen{
-        { 0,   210, 240, 1.5f, Qt::DotLine },
-        { 235, 220, 42,  1.5f, Qt::DotLine }
+    const static inline QvPair<QvGraphPenConfig> DirectPen {
+        {0,   210, 240, 1.5f, Qt::DotLine},
+        {235, 220, 42,  1.5f, Qt::DotLine}
     };
 };
 
@@ -68,10 +68,8 @@ struct Qv2rayConfig_UI
     bool useOldShareLinkFormat = false;
     bool startMinimized = true;
     bool exitByCloseEvent = false;
-    JSONSTRUCT_COMPARE(Qv2rayConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines,
-                       maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent)
-    JSONSTRUCT_REGISTER(Qv2rayConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon,
-                                           maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent))
+    JSONSTRUCT_COMPARE(Qv2rayConfig_UI, theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent)
+    JSONSTRUCT_REGISTER(Qv2rayConfig_UI, F(theme, language, quietMode, graphConfig, useDarkTheme, useDarkTrayIcon, useGlyphTrayIcon, maximumLogLines, maxJumpListCount, recentConnections, useOldShareLinkFormat, startMinimized, exitByCloseEvent))
 };
 
 struct Qv2rayConfig_Plugin
@@ -119,9 +117,12 @@ struct Qv2rayConfig_Kernel
 #undef _VARNAME_VASSETSPATH_
 
     JSONSTRUCT_COMPARE(Qv2rayConfig_Kernel, enableAPI, statsPort, //
-                       v2CorePath_linux, v2AssetsPath_linux,      //
-                       v2CorePath_macx, v2AssetsPath_macx,        //
-                       v2CorePath_win, v2AssetsPath_win)
+                       v2CorePath_linux,
+                       v2AssetsPath_linux, //
+                       v2CorePath_macx,
+                       v2AssetsPath_macx, //
+                       v2CorePath_win,
+                       v2AssetsPath_win)
     JSONSTRUCT_REGISTER(Qv2rayConfig_Kernel,                     //
                         F(enableAPI, statsPort),                 //
                         F(v2CorePath_linux, v2AssetsPath_linux), //
@@ -154,8 +155,7 @@ struct Qv2rayConfig_Advanced
 enum Qv2rayLatencyTestingMethod
 {
     TCPING = 0,
-    ICMPING = 1,
-    REALPING = 2
+    REALPING = 1
 };
 
 struct Qv2rayConfig_Network
@@ -213,8 +213,7 @@ struct Qv2rayConfigObject
 #else
     Q_DISABLE_COPY_MOVE(Qv2rayConfigObject);
 #endif
-    JSONSTRUCT_COMPARE(Qv2rayConfigObject, config_version, logLevel, autoStartId, lastConnectedId, autoStartBehavior, uiConfig, pluginConfig,
-                       kernelConfig, updateConfig, networkConfig, inboundConfig, outboundConfig, advancedConfig, defaultRouteConfig)
+    JSONSTRUCT_COMPARE(Qv2rayConfigObject, config_version, logLevel, autoStartId, lastConnectedId, autoStartBehavior, uiConfig, pluginConfig, kernelConfig, updateConfig, networkConfig, inboundConfig, outboundConfig, advancedConfig, defaultRouteConfig)
     JSONSTRUCT_REGISTER_NOCOPYMOVE(Qv2rayConfigObject,                                                                   //
                                    A(config_version, autoStartId, lastConnectedId, autoStartBehavior, logLevel),         //
                                    A(uiConfig, advancedConfig, pluginConfig, updateConfig, kernelConfig, networkConfig), //

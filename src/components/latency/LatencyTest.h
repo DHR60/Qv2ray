@@ -1,10 +1,6 @@
 #pragma once
 #include "base/Qv2rayBase.h"
-namespace uvw
-{
-class Loop;
-} // namespace uvw
-struct sockaddr_storage;
+
 namespace Qv2ray::components::latency
 {
 class LatencyTestThread;
@@ -40,7 +36,7 @@ public:
     ~LatencyTestHost() override;
 
 signals:
-    void OnLatencyTestCompleted(ConnectionId id, LatencyTestResult data);
+    void OnLatencyTestCompleted(Qv2ray::base::ConnectionId id, LatencyTestResult data);
 
 private:
     int totalTestCount;

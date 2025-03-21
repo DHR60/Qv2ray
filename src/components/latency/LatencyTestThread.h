@@ -1,16 +1,14 @@
 #pragma once
 #include "LatencyTest.h"
+#include "RealPing.h"
+#include "TCPing.h"
 
+#include <QMutex>
+#include <QQueue>
+#include <QSharedPointer>
 #include <QThread>
-#include <curl/curl.h>
-#include <mutex>
-#include <unordered_set>
+#include <QTimer>
 
-namespace uvw
-{
-class Loop;
-class TimerHandle;
-} // namespace uvw
 namespace Qv2ray::components::latency
 {
 class LatencyTestThread : public QThread
@@ -19,36 +17,26 @@ class LatencyTestThread : public QThread
 
 public:
     explicit LatencyTestThread(QObject *parent = nullptr);
-    void stopLatencyTest()
-    {
-        isStop = true;
-    }
+    void stopLatencyTest();
     void pushRequest(const QList<ConnectionId> &ids, int totalTestCount, Qv2rayLatencyTestingMethod method);
     void pushRequest(const ConnectionId &id, int totalTestCount, Qv2rayLatencyTestingMethod method);
 
 protected:
     void run() override;
 
-private:
-    struct CURLGlobal
-    {
-        CURLGlobal()
-        {
-            curl_global_init(CURL_GLOBAL_ALL);
-        }
-        ~CURLGlobal()
-        {
-            curl_global_cleanup();
-        }
-    };
-    std::shared_ptr<uvw::Loop> loop;
-    CURLGlobal curlGlobal;
-    bool isStop = false;
-    std::shared_ptr<uvw::TimerHandle> stopTimer;
-    std::vector<LatencyTestRequest> requests;
-    std::mutex m;
+private slots:
+    void onTimerTimeout();
+    void onLatencyTestCompleted();
 
-    // static LatencyTestResult TestLatency_p(const ConnectionId &id, const int count);
+private:
+    bool isStop = false;
+    QQueue<LatencyTestRequest> requests; // 使用队列来管理请求
+    QMutex m;
+    QTimer *stopTimer = nullptr; // 使用 Qt 定时器替代 uvw::TimerHandle
+
+    QSharedPointer<tcping::TCPing> currentTcpingTest;
+    QSharedPointer<realping::RealPing> currentRealPingTest;
+    QMutex currentTestMutex;
 };
 
 } // namespace Qv2ray::components::latency

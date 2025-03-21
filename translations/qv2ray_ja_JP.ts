@@ -1673,10 +1673,10 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     <name>PreferencesWindow</name>
     <message>
         <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="17"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="403"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="407"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="411"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="415"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="404"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="408"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="412"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="416"/>
         <source>Preferences</source>
         <translation>設定</translation>
     </message>
@@ -2178,27 +2178,27 @@ Custom DNS Settings</source>
         <translation>バージョン: %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="281"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="282"/>
         <source>Update is disabled by your vendor.</source>
         <translation>ベンダーによって更新が無効になっています。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="403"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="404"/>
         <source>Duplicated port numbers detected, please check the port number settings.</source>
         <translation>重複したポート番号が検出されました。ポート番号の設定を確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="407"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="408"/>
         <source>Invalid inbound listening address.</source>
         <translation>無効なインバウンドリスニングアドレス。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="362"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="363"/>
         <source>Invalid tproxy listening ipv6 address.</source>
         <translation>無効なtProxyリスニングIPv6アドレス。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="606"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="607"/>
         <source>Note</source>
         <translation>ご注意</translation>
     </message>
@@ -2208,74 +2208,74 @@ Custom DNS Settings</source>
         <translation>プロトコルを認識するためには、受信側のプロキシでスニッフィングオプションを有効にする必要があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="608"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="607"/>
         <source>tproxy inbound&apos;s sniffing is enabled by default.</source>
         <translation>tProxyインバウンドのスニッフィングはデフォルトで有効になっています。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="725"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="724"/>
         <source>Start with boot</source>
         <translation>システム起動時に起動します</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="725"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="724"/>
         <source>Failed to set auto start option.</source>
         <translation>自動起動オプションの設定に失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="915"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="925"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="914"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="924"/>
         <source>Dangerous Operation</source>
         <translation>危険操作</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="915"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="925"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="914"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="924"/>
         <source>This will (probably) make it easy to fingerprint your connection.</source>
         <translation>そのため、(おそらく)あなたの接続が特定しやすくなります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1144"/>
         <source>NTP Checker</source>
         <translation>ネットワークタイムチェッカー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1146"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145"/>
         <source>Check date and time from server:</source>
         <translation>サーバーからの日時の確認：</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1158"/>
         <source>Your time offset is %1 seconds, which is too high.</source>
         <translation>あなたの時間オフセットは %1 秒ですが、これは高すぎます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1162"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160"/>
         <source>Time Inaccurate</source>
         <translation>時間不正確</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1166"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1164"/>
         <source>Your time offset is %1 seconds, which is a little high.</source>
         <translation>あなたの時間オフセットは %1 秒で、少し高いです。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1168"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1166"/>
         <source>Time Somewhat Inaccurate</source>
         <translation>時間多少不正確</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1172"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1170"/>
         <source>Your time offset is %1 seconds, which looks good.</source>
         <translation>あなたの時間オフセットは %1 秒ですが、これは良さそうです。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1174"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1172"/>
         <source>Time Accurate</source>
         <translation>時間正確</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1180"/>
         <source>Failed to lookup server: %1</source>
         <translation>サーバの検索に失敗しました：%1</translation>
     </message>
@@ -2290,7 +2290,7 @@ Custom DNS Settings</source>
         <translation>ここでは、すべてのシンプルな接続設定のデフォルトのルーティングルールを設定することができます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="415"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="416"/>
         <source>Invalid DNS settings.</source>
         <translation>DNSの設定が無効です。</translation>
     </message>
@@ -2302,7 +2302,7 @@ But could damage your server if improperly used.</source>
 しかし、不適切な使い方をするとサーバーにダメージを与える可能性があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="795"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794"/>
         <source>Watch Out!</source>
         <translation>気を付けて！</translation>
     </message>
@@ -2412,22 +2412,22 @@ But could damage your server if improperly used.</source>
         <translation>プライベートアドレスのバイパス</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="451"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="452"/>
         <source>You may need to reconnect to apply the settings now.</source>
         <translation>今すぐ設定を適用するには、再接続が必要な場合があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="452"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="453"/>
         <source>Otherwise they will be applied next time you connect to a server.</source>
         <translation>そうしないと、次回サーバーに接続したときに変更が適用されます。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="454"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="455"/>
         <source>Do you want to reconnect now?</source>
         <translation>今すぐ再接続しますか？</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="455"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="456"/>
         <source>Reconnect Required</source>
         <translation>再接続が必要</translation>
     </message>
@@ -2488,37 +2488,37 @@ But could damage your server if improperly used.</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1161"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1159"/>
         <source>Please synchronize your system to use the VMess protocol.</source>
         <translation>VMessプロトコルを使用するには、システムを同期してください。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1167"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1165"/>
         <source>VMess protocol may still work, but we suggest you synchronize your clock.</source>
         <translation>VMess プロトコルはまだ動作するかもしれませんが、時計を同期させることをお勧めします。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1173"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1171"/>
         <source>VMess protocol may not suffer from time inaccuracy.</source>
         <translation>VMess のプロトコルは、時間の不正確さに苦しむことはありません。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="808"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="807"/>
         <source>Output:</source>
         <translation>出力:</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="807"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="806"/>
         <source>If you are looking for plugins settings, you should go to plugin settings.</source>
         <translation>プラグインの設定を探している場合は、プラグインの設定に進んでください。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1184"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
         <source>No NTP Backend</source>
         <translation>NTPバックエンドがありません</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1184"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
         <source>Qv2ray was not built with NTP support.</source>
         <translation>Qv2rayはNTPサポートでは構築されませんでした。</translation>
     </message>
@@ -2537,7 +2537,7 @@ But could damage your server if improperly used.</source>
         <translation>FakeDNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="358"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="359"/>
         <source>Invalid tproxy listening ipv4 address.</source>
         <translation>無効な tproxy listening ipv4 アドレスです。</translation>
     </message>
@@ -2595,45 +2595,45 @@ This option may be useful for some desktop environments without tray support.</s
 トレイサポートがないデスクトップ環境の場合に便利です。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="558"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="559"/>
         <source>Open Xray assets folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="569"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="570"/>
         <source>Open Xray core file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="792"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="791"/>
         <source>You may be about to set Xray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
 This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
 If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="801"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="816"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="800"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
         <source>Xray Core Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="806"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="805"/>
         <source>This does not seem like an output from Xray Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="810"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="809"/>
         <source>&apos;Xray Core&apos; Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="814"/>
         <source>Xray path configuration check passed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="814"/>
         <source>Current version of Xray is: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2696,35 +2696,28 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>Qv2rayを終了</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/DNSBase.h" line="49"/>
-        <location filename="../src/components/latency/DNSBase.h" line="60"/>
         <source>DNS not resolved</source>
-        <translation>DNSが解決されませんでした</translation>
+        <translation type="vanished">DNSが解決されませんでした</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="59"/>
         <source>Socket creation failed</source>
-        <translation>ソケットの作成に失敗</translation>
+        <translation type="vanished">ソケットの作成に失敗</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="67"/>
         <source>Failed to setup TTL value</source>
-        <translation>TTLの値の設定に失敗しました</translation>
+        <translation type="vanished">TTLの値の設定に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="176"/>
         <source>Destination unreachable</source>
-        <translation>宛先に到達不能です</translation>
+        <translation type="vanished">宛先に到達不能です</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="186"/>
         <source>Timeout</source>
-        <translation>時間切れ</translation>
+        <translation type="vanished">時間切れ</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="196"/>
         <source>Unknown error</source>
-        <translation>不明なエラー</translation>
+        <translation type="vanished">不明なエラー</translation>
     </message>
     <message>
         <location filename="../src/components/plugins/QvPluginHost.cpp" line="335"/>

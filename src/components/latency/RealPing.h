@@ -1,35 +1,40 @@
 #pragma once
 #include "LatencyTest.h"
 
-#include <curl/curl.h>
-#include <memory>
-#include <unordered_map>
-#include <utility>
-namespace uvw
-{
-class Loop;
-class TimerHandle;
-} // namespace uvw
+#include <QNetworkReply>
+
+class QNetworkAccessManager;
+
 namespace Qv2ray::components::latency::realping
 {
-class RealPing : public std::enable_shared_from_this<RealPing>
+class RealPing : public QObject
 {
+    Q_OBJECT
+
 public:
-    RealPing(std::shared_ptr<uvw::Loop> loopin, LatencyTestRequest &req, LatencyTestHost *testHost);
+    RealPing(LatencyTestRequest &req, LatencyTestHost *testHost, QObject *parent = nullptr);
     ~RealPing();
     void start();
-    void notifyTestHost();
-    void recordHanleTime(CURL *);
-    long getHandleTime(CURL *);
-    std::string getProxyAddress();
+
+private slots:
+    void onRequestFinished(QNetworkReply *reply);
+    void onTimeout();
 
 private:
-    int successCount = 0;
-    LatencyTestRequest req;
-    LatencyTestResult data;
+    void notifyTestHost();
+    void sendRequest();
+
+    QNetworkAccessManager *networkManager;
+    QTimer *timeoutTimer;
+    QElapsedTimer requestTimer;
+    LatencyTestRequest request;
+    LatencyTestResult result;
     LatencyTestHost *testHost;
-    std::shared_ptr<uvw::Loop> loop;
-    std::shared_ptr<uvw::TimerHandle> timeout;
-    std::unordered_map<CURL *, std::chrono::system_clock::time_point> reqStartTime;
+    int currentRequestCount;
+
+    QNetworkReply *currentReply = nullptr;
+
+signals:
+    void latencyTestCompleted(Qv2ray::base::ConnectionId id, Qv2ray::components::latency::LatencyTestResult data);
 };
 } // namespace Qv2ray::components::latency::realping

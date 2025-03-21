@@ -221,8 +221,6 @@ message("Qv2ray Version: ${_QV2RAY_BUILD_INFO_STR_} - ${_QV2RAY_BUILD_EXTRA_INFO
 # ==================================================================================
 # 3rdparty Sources
 # ==================================================================================
-include(cmake/libuv.cmake)
-include(cmake/libcurl.cmake)
 include(cmake/libsemver.cmake)
 include(cmake/backend.cmake)
 include(3rdparty/QJsonStruct/QJsonStruct.cmake)
@@ -294,8 +292,6 @@ add_library(qv2ray_baselib STATIC
 target_link_libraries(qv2ray_baselib
     ${QV2RAY_QT_LIBS}
     ${QV2RAY_BACKEND_LIBRARY}
-    ${LibUV_LIBRARIES}
-    ${CURL_LIBRARIES}
     ${SINGLEAPPLICATION_LIBRARY}
     Threads::Threads
     )
@@ -303,9 +299,7 @@ target_link_libraries(qv2ray_baselib
 target_include_directories(qv2ray_baselib PUBLIC
     ${CMAKE_BINARY_DIR}
     ${QV2RAY_BASEDIR_COMPONENTS}
-    ${LibUV_INCLUDE_DIR}
     ${SINGLEAPPLICATION_DIR}
-    ${CURL_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${Protobuf_INCLUDE_DIRS}

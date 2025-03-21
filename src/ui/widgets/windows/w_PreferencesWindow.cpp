@@ -49,38 +49,38 @@ using Qv2ray::common::validation::IsValidIPAddress;
 PreferencesWindow::PreferencesWindow(QWidget *parent)
     : QvDialog("PreferenceWindow", parent), CurrentConfig()
 {
-    addStateOptions("width", { [&]
+    addStateOptions("width", {[&]
+                              {
+                                  return width();
+                              },
+                              [&](QJsonValue val)
+                              {
+                                  resize(val.toInt(), size().height());
+                              }});
+    addStateOptions("height", {[&]
                                {
-                                   return width();
+                                   return height();
                                },
                                [&](QJsonValue val)
                                {
-                                   resize(val.toInt(), size().height());
-                               } });
-    addStateOptions("height", { [&]
-                                {
-                                    return height();
-                                },
-                                [&](QJsonValue val)
-                                {
-                                    resize(size().width(), val.toInt());
-                                } });
-    addStateOptions("x", { [&]
-                           {
-                               return x();
-                           },
-                           [&](QJsonValue val)
-                           {
-                               move(val.toInt(), y());
-                           } });
-    addStateOptions("y", { [&]
-                           {
-                               return y();
-                           },
-                           [&](QJsonValue val)
-                           {
-                               move(x(), val.toInt());
-                           } });
+                                   resize(size().width(), val.toInt());
+                               }});
+    addStateOptions("x", {[&]
+                          {
+                              return x();
+                          },
+                          [&](QJsonValue val)
+                          {
+                              move(val.toInt(), y());
+                          }});
+    addStateOptions("y", {[&]
+                          {
+                              return y();
+                          },
+                          [&](QJsonValue val)
+                          {
+                              move(x(), val.toInt());
+                          }});
 
     setupUi(this);
     //
@@ -242,7 +242,8 @@ PreferencesWindow::PreferencesWindow(QWidget *parent)
     //
     //
     latencyTCPingRB->setChecked(CurrentConfig.networkConfig.latencyTestingMethod == TCPING);
-    latencyICMPingRB->setChecked(CurrentConfig.networkConfig.latencyTestingMethod == ICMPING);
+    latencyICMPingRB->setEnabled(false);
+    latencyICMPingRB->setChecked(false);
     latencyRealPingTestURLTxt->setText(CurrentConfig.networkConfig.latencyRealPingTestURL);
     //
     {
@@ -347,7 +348,7 @@ QvMessageBusSlotImpl(PreferencesWindow)
     }
 }
 
-PreferencesWindow::~PreferencesWindow(){};
+PreferencesWindow::~PreferencesWindow() {};
 
 std::optional<QString> PreferencesWindow::checkTProxySettings() const
 {
@@ -603,9 +604,7 @@ void PreferencesWindow::on_bypassBTCb_stateChanged(int arg1)
     NEEDRESTART
     if (arg1 == Qt::Checked)
     {
-        QvMessageBoxInfo(this, tr("Note"),
-                         tr("To recognize the protocol of a connection, one must enable sniffing option in inbound proxy.") + NEWLINE +
-                             tr("tproxy inbound's sniffing is enabled by default."));
+        QvMessageBoxInfo(this, tr("Note"), tr("To recognize the protocol of a connection, one must enable sniffing option in inbound proxy.") + NEWLINE + tr("tproxy inbound's sniffing is enabled by default."));
     }
     CurrentConfig.defaultRouteConfig.connectionConfig.bypassBT = arg1 == Qt::Checked;
 }
@@ -1144,8 +1143,7 @@ void PreferencesWindow::on_pushButton_clicked()
 #if QV2RAY_FEATURE(util_has_ntp)
     const auto ntpTitle = tr("NTP Checker");
     const auto ntpHint = tr("Check date and time from server:");
-    const static QStringList ntpServerList = { "cn.pool.ntp.org", "cn.ntp.org.cn", "edu.ntp.org.cn",
-                                               "time.pool.aliyun.com", "time1.cloud.tencent.com", "ntp.neu.edu.cn" };
+    const static QStringList ntpServerList = {"cn.pool.ntp.org", "cn.ntp.org.cn", "edu.ntp.org.cn", "time.pool.aliyun.com", "time1.cloud.tencent.com", "ntp.neu.edu.cn"};
     bool ok = false;
     const auto ntpServer = QInputDialog::getItem(this, ntpTitle, ntpHint, ntpServerList, 0, true, &ok).trimmed();
     if (!ok)
@@ -1219,10 +1217,10 @@ void PreferencesWindow::on_latencyTCPingRB_clicked()
 
 void PreferencesWindow::on_latencyICMPingRB_clicked()
 {
-    LOADINGCHECK
-    CurrentConfig.networkConfig.latencyTestingMethod = ICMPING;
-    latencyICMPingRB->setChecked(true);
-    latencyTCPingRB->setChecked(false);
+    // LOADINGCHECK
+    // CurrentConfig.networkConfig.latencyTestingMethod = ICMPING;
+    // latencyICMPingRB->setChecked(true);
+    // latencyTCPingRB->setChecked(false);
 }
 
 void PreferencesWindow::on_qvNetworkUATxt_editTextChanged(const QString &arg1)

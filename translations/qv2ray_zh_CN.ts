@@ -1673,10 +1673,10 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
     <name>PreferencesWindow</name>
     <message>
         <location filename="../src/ui/widgets/windows/w_PreferencesWindow.ui" line="17"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="403"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="407"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="411"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="415"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="404"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="408"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="412"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="416"/>
         <source>Preferences</source>
         <translation>首选项</translation>
     </message>
@@ -2178,37 +2178,37 @@ Custom DNS Settings</source>
         <translation>版本：%1</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="281"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="282"/>
         <source>Update is disabled by your vendor.</source>
         <translation>自动更新已被供应者禁用。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="403"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="404"/>
         <source>Duplicated port numbers detected, please check the port number settings.</source>
         <translation>检测到重复的端口号，请检查端口号设置。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="407"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="408"/>
         <source>Invalid inbound listening address.</source>
         <translation>入站监听地址不可用。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="362"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="363"/>
         <source>Invalid tproxy listening ipv6 address.</source>
         <translation>无效的透明代理 IPv6 监听地址。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="558"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="559"/>
         <source>Open Xray assets folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="569"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="570"/>
         <source>Open Xray core file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="606"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="607"/>
         <source>Note</source>
         <translation>注意</translation>
     </message>
@@ -2218,107 +2218,107 @@ Custom DNS Settings</source>
         <translation>要识别网络连接的协议，必须要启用入站代理中的嗅探选项。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="608"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="607"/>
         <source>tproxy inbound&apos;s sniffing is enabled by default.</source>
         <translation>tProxy 入站的嗅探选项默认开启。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="725"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="724"/>
         <source>Start with boot</source>
         <translation>开机启动</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="725"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="724"/>
         <source>Failed to set auto start option.</source>
         <translation>无法设置自动启动选项。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="792"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="791"/>
         <source>You may be about to set Xray core incorrectly to Qv2ray itself, which is absolutely not correct.<byte value="xd"/>
 This won&apos;t trigger a fork bomb, however, since Qv2ray works in singleton mode.<byte value="xd"/>
 If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are totally free to ignore this warning.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="801"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="816"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="800"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
         <source>Xray Core Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="806"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="805"/>
         <source>This does not seem like an output from Xray Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="810"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="809"/>
         <source>&apos;Xray Core&apos; Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="814"/>
         <source>Xray path configuration check passed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="815"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="814"/>
         <source>Current version of Xray is: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="915"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="925"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="914"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="924"/>
         <source>Dangerous Operation</source>
         <translation>危险操作</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="915"/>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="925"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="914"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="924"/>
         <source>This will (probably) make it easy to fingerprint your connection.</source>
         <translation>这将让 GFW 更容易识别出您的连接。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1144"/>
         <source>NTP Checker</source>
         <translation>网络时间检查器</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1146"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1145"/>
         <source>Check date and time from server:</source>
         <translation>从NTP服务器检查日期与时间：</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1158"/>
         <source>Your time offset is %1 seconds, which is too high.</source>
         <translation>你的时间偏差为 %1 秒，太高了。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1162"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1160"/>
         <source>Time Inaccurate</source>
         <translation>时间不准</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1166"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1164"/>
         <source>Your time offset is %1 seconds, which is a little high.</source>
         <translation>你的时间偏差为 %1 秒，有点高。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1168"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1166"/>
         <source>Time Somewhat Inaccurate</source>
         <translation>时间略有偏差</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1172"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1170"/>
         <source>Your time offset is %1 seconds, which looks good.</source>
         <translation>你的时间偏差为 %1 秒，没有问题。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1174"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1172"/>
         <source>Time Accurate</source>
         <translation>时间准确</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1180"/>
         <source>Failed to lookup server: %1</source>
         <translation>无法查找服务器：%1</translation>
     </message>
@@ -2333,7 +2333,7 @@ If your Xray core filename happened to be &apos;qv2ray&apos;-something, you are 
         <translation>你可在此为所有简单连接配置默认路由规则。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="415"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="416"/>
         <source>Invalid DNS settings.</source>
         <translation>无效的 DNS 设置。</translation>
     </message>
@@ -2345,7 +2345,7 @@ But could damage your server if improperly used.</source>
 但若使用不当，将会造成不良后果。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="795"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="794"/>
         <source>Watch Out!</source>
         <translation>小心！</translation>
     </message>
@@ -2491,22 +2491,22 @@ V2Ray 核心可执行文件的文件名通常是 &apos;v2ray&apos; 或者 &apos;
         <translation>绕过私有地址</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="451"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="452"/>
         <source>You may need to reconnect to apply the settings now.</source>
         <translation>你可能需要重新连接方能应用设定。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="452"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="453"/>
         <source>Otherwise they will be applied next time you connect to a server.</source>
         <translation>否则将在下次连接时生效。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="454"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="455"/>
         <source>Do you want to reconnect now?</source>
         <translation>要现在重连吗？</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="455"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="456"/>
         <source>Reconnect Required</source>
         <translation>需要重连</translation>
     </message>
@@ -2567,17 +2567,17 @@ V2Ray 核心可执行文件的文件名通常是 &apos;v2ray&apos; 或者 &apos;
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1161"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1159"/>
         <source>Please synchronize your system to use the VMess protocol.</source>
         <translation>请同步系统时间，否则无法正常使用 VMess 协议。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1167"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1165"/>
         <source>VMess protocol may still work, but we suggest you synchronize your clock.</source>
         <translation>VMess 协议可能不受影响，但我们建议您同步系统时间。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1173"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1171"/>
         <source>VMess protocol may not suffer from time inaccuracy.</source>
         <translation>VMess协议可能不会因时间不准确而受到影响。</translation>
     </message>
@@ -2586,22 +2586,22 @@ V2Ray 核心可执行文件的文件名通常是 &apos;v2ray&apos; 或者 &apos;
         <translation type="vanished">这似乎不是来自 V2Ray Core 的输出。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="808"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="807"/>
         <source>Output:</source>
         <translation>输出：</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="807"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="806"/>
         <source>If you are looking for plugins settings, you should go to plugin settings.</source>
         <translation>如果你正在寻找插件设置，你应该去插件设置。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1184"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
         <source>No NTP Backend</source>
         <translation>无 NTP 后端</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1184"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="1182"/>
         <source>Qv2ray was not built with NTP support.</source>
         <translation>Qv2ray 构建时未开启 NTP 支持选项。</translation>
     </message>
@@ -2620,7 +2620,7 @@ V2Ray 核心可执行文件的文件名通常是 &apos;v2ray&apos; 或者 &apos;
         <translation>FakeDNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="358"/>
+        <location filename="../src/ui/widgets/windows/w_PreferencesWindow.cpp" line="359"/>
         <source>Invalid tproxy listening ipv4 address.</source>
         <translation>无效的透明代理 IPv4 监听地址。</translation>
     </message>
@@ -2745,35 +2745,28 @@ This option may be useful for some desktop environments without tray support.</s
         <translation type="vanished">Qv2ray - 跨平台的 V2Ray Qt 前端。</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/DNSBase.h" line="49"/>
-        <location filename="../src/components/latency/DNSBase.h" line="60"/>
         <source>DNS not resolved</source>
-        <translation>无法解析 DNS</translation>
+        <translation type="vanished">无法解析 DNS</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="59"/>
         <source>Socket creation failed</source>
-        <translation>套接字创建失败</translation>
+        <translation type="vanished">套接字创建失败</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="67"/>
         <source>Failed to setup TTL value</source>
-        <translation>无法设置 TTL 值</translation>
+        <translation type="vanished">无法设置 TTL 值</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="176"/>
         <source>Destination unreachable</source>
-        <translation>目标不可达</translation>
+        <translation type="vanished">目标不可达</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="186"/>
         <source>Timeout</source>
-        <translation>超时</translation>
+        <translation type="vanished">超时</translation>
     </message>
     <message>
-        <location filename="../src/components/latency/unix/ICMPPing.cpp" line="196"/>
         <source>Unknown error</source>
-        <translation>未知错误</translation>
+        <translation type="vanished">未知错误</translation>
     </message>
     <message>
         <location filename="../src/components/plugins/QvPluginHost.cpp" line="335"/>
