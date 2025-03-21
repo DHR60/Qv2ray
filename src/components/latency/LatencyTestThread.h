@@ -17,6 +17,7 @@ class LatencyTestThread : public QThread
 
 public:
     explicit LatencyTestThread(QObject *parent = nullptr);
+    ~LatencyTestThread();
     void stopLatencyTest();
     void pushRequest(const QList<ConnectionId> &ids, int totalTestCount, Qv2rayLatencyTestingMethod method);
     void pushRequest(const ConnectionId &id, int totalTestCount, Qv2rayLatencyTestingMethod method);

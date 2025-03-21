@@ -10,6 +10,28 @@ namespace Qv2ray::components::latency
 LatencyTestThread::LatencyTestThread(QObject *parent)
     : QThread(parent)
 {
+    // 在构造函数中创建定时器，但不启动它
+    stopTimer = new QTimer();
+    stopTimer->setSingleShot(false);
+    stopTimer->moveToThread(this); // 确保定时器在新线程中运行
+    connect(stopTimer, &QTimer::timeout, this, &LatencyTestThread::onTimerTimeout, Qt::DirectConnection);
+}
+
+LatencyTestThread::~LatencyTestThread()
+{
+    // 确保线程停止并清理资源
+    if (isRunning())
+    {
+        stopLatencyTest();
+        wait();
+    }
+
+    if (stopTimer)
+    {
+        stopTimer->stop();
+        delete stopTimer;
+        stopTimer = nullptr;
+    }
 }
 
 void LatencyTestThread::stopLatencyTest()
@@ -28,12 +50,12 @@ void LatencyTestThread::pushRequest(const ConnectionId &id, int totalTestCount, 
 
 void LatencyTestThread::run()
 {
-    stopTimer = new QTimer(this); // 使用 Qt 定时器
-    stopTimer->setSingleShot(false);
-    connect(stopTimer, &QTimer::timeout, this, &LatencyTestThread::onTimerTimeout);
-    stopTimer->start(100); // 设置定时器触发间隔，可以根据需要调整
-
+    // 线程开始运行时启动定时器
+    stopTimer->start(100);
     exec(); // 启动事件循环
+
+    // 在线程结束前停止定时器
+    stopTimer->stop();
 }
 
 void LatencyTestThread::onTimerTimeout()
@@ -43,9 +65,7 @@ void LatencyTestThread::onTimerTimeout()
         QMutexLocker locker {&m};
         requests.clear();
 
-        stopTimer->stop();
-        stopTimer->deleteLater();
-        quit();
+        quit(); // 退出事件循环
         return;
     }
 
