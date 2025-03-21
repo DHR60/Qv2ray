@@ -104,8 +104,7 @@ OUTBOUND OutboundEditor::generateConnectionJson()
     }
     if (!processed)
     {
-        QvMessageBoxWarn(this, tr("Unknown outbound type."),
-                         tr("The specified outbound type is not supported, this may happen due to a plugin failure."));
+        QvMessageBoxWarn(this, tr("Unknown outbound type."), tr("The specified outbound type is not supported, this may happen due to a plugin failure."));
     }
     auto root = GenerateOutboundEntry(tag, outboundType, settings, streaming, muxConfig);
     root[QV2RAY_USE_FPROXY_KEY] = useForwardProxy;
@@ -117,9 +116,9 @@ void OutboundEditor::reloadGUI()
     tag = originalConfig["tag"].toString();
     tagTxt->setText(tag);
     outboundType = originalConfig["protocol"].toString("vmess");
-    muxConfig = originalConfig.contains("mux") ? originalConfig["mux"].toObject() : QJsonObject{};
+    muxConfig = originalConfig.contains("mux") ? originalConfig["mux"].toObject() : QJsonObject {};
     useForwardProxy = originalConfig[QV2RAY_USE_FPROXY_KEY].toBool(false);
-    streamSettingsWidget->SetStreamObject(StreamSettingsObject::fromJson(originalConfig["streamSettings"].toObject()));
+    streamSettingsWidget->SetStreamObject(QSerializer::fromJson<XConfigGen::Xray::StreamSettings4Ray>(originalConfig["streamSettings"].toObject()));
     //
     useFPCB->setChecked(useForwardProxy);
     muxEnabledCB->setChecked(muxConfig["enabled"].toBool());
@@ -146,9 +145,7 @@ void OutboundEditor::reloadGUI()
     if (!processed)
     {
         LOG("Outbound type: ", outboundType, " is not supported.");
-        QvMessageBoxWarn(this, tr("Unknown outbound."),
-                         tr("The specified outbound type is invalid, this may be caused by a plugin failure.") + NEWLINE +
-                             tr("Please use the JsonEditor or reload the plugin."));
+        QvMessageBoxWarn(this, tr("Unknown outbound."), tr("The specified outbound type is invalid, this may be caused by a plugin failure.") + NEWLINE + tr("Please use the JsonEditor or reload the plugin."));
         reject();
     }
 }

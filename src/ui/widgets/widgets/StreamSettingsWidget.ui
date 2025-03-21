@@ -305,21 +305,14 @@
           <layout class="QGridLayout" name="gridLayout_9" rowstretch="0,0,1">
            <item row="0" column="0">
             <layout class="QFormLayout" name="formLayout_7">
-             <item row="0" column="0">
+             <item row="1" column="0">
               <widget class="QLabel" name="label_7">
                <property name="text">
                 <string>Path</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_12">
-               <property name="text">
-                <string>Max Early Data</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
+             <item row="1" column="1">
               <widget class="QLineEdit" name="wsPathTxt">
                <property name="text">
                 <string/>
@@ -329,53 +322,29 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="wsEarlyDataSB">
-               <property name="minimum">
-                <number>0</number>
-               </property>
-               <property name="maximum">
-                <number>99999</number>
-               </property>
-               <property name="value">
-                <number>1024</number>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_25">
                <property name="text">
-                <string>Browser Forwarding</string>
+                <string>AcceptProxyProtocol</string>
                </property>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QCheckBox" name="wsBrowserForwardCB">
+              <widget class="QCheckBox" name="wsAcceptProxyProtocolCB">
                <property name="text">
-                <string>Enabled</string>
+                <string/>
                </property>
               </widget>
              </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_30">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_12">
                <property name="text">
-                <string>Early Data Header Name</string>
+                <string>Host</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
-              <widget class="QComboBox" name="wsEarlyDataHeaderNameCB">
-               <item>
-                <property name="text">
-                 <string notr="true"/>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string notr="true">Sec-WebSocket-Protocol</string>
-                </property>
-               </item>
-              </widget>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="wsHostTxt"/>
              </item>
             </layout>
            </item>
@@ -652,22 +621,165 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="dsStackPage">
-          <layout class="QFormLayout" name="formLayout_2">
+         <widget class="QWidget" name="grpcStackPage">
+          <layout class="QFormLayout" name="formLayout_6">
            <item row="0" column="0">
-            <widget class="QLabel" name="label_17">
+            <widget class="QLabel" name="label_11">
              <property name="text">
-              <string>Path</string>
+              <string>Service Name</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="dsPathTxt">
+            <widget class="QLineEdit" name="grpcServiceNameTxt"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="modeLabel">
              <property name="text">
-              <string/>
+              <string>Mode</string>
              </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="grpcModeCB">
+             <item>
+              <property name="text">
+               <string notr="true">gun</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">multi</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="httpupgradeStackPage">
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Headers</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <layout class="QFormLayout" name="formLayout_2">
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="huHostTxt"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_30">
+               <property name="text">
+                <string>Host</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_39">
+               <property name="text">
+                <string>Path</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="huPathTxt"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_40">
+               <property name="text">
+                <string>AcceptProxyProtocol</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QCheckBox" name="huAcceptProxyProtocolCB">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPlainTextEdit" name="huHeadersTxt">
              <property name="placeholderText">
-              <string notr="true">/dsPath</string>
+              <string>Key|Value</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="xhttpStackPage">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>Extra</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <layout class="QFormLayout" name="formLayout_9">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_42">
+               <property name="text">
+                <string>Host</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="xhHostTxt"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_43">
+               <property name="text">
+                <string>Path</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="xhPathTxt"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_44">
+               <property name="text">
+                <string>Mode</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="xhModeCombo">
+               <item>
+                <property name="text">
+                 <string>auto</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>packet-up</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>stream-up</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>stream-one</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPlainTextEdit" name="xhExtra">
+             <property name="placeholderText">
+              <string>JsonObject</string>
              </property>
             </widget>
            </item>
@@ -774,41 +886,6 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="grpcStackPage">
-          <layout class="QFormLayout" name="formLayout_6">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_11">
-             <property name="text">
-              <string>Service Name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="grpcServiceNameTxt"/>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="modeLabel">
-             <property name="text">
-              <string>Mode</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="grpcModeCB">
-             <item>
-              <property name="text">
-               <string notr="true">gun</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">multi</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-          </layout>
-         </widget>
         </widget>
        </item>
        <item row="0" column="0">
@@ -844,17 +921,17 @@
            </item>
            <item>
             <property name="text">
-             <string notr="true">domainsocket</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string notr="true">quic</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
              <string notr="true">grpc</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>httpupgrade</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>xhttp</string>
             </property>
            </item>
           </widget>
@@ -877,7 +954,7 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-86</y>
+            <y>0</y>
             <width>425</width>
             <height>348</height>
            </rect>
@@ -1147,7 +1224,6 @@
   <tabstop>wsHeadersTxt</tabstop>
   <tabstop>kcpUploadCapacSB</tabstop>
   <tabstop>kcpDownCapacitySB</tabstop>
-  <tabstop>dsPathTxt</tabstop>
   <tabstop>quicSecurityCB</tabstop>
   <tabstop>quicKeyTxt</tabstop>
   <tabstop>quicHeaderTypeCB</tabstop>

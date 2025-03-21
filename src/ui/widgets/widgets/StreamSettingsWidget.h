@@ -1,5 +1,6 @@
 #pragma once
 
+#include "XConfigGen.h"
 #include "base/Qv2rayBase.h"
 #include "ui/common/QvMessageBus.h"
 #include "ui_StreamSettingsWidget.h"
@@ -14,8 +15,8 @@ class StreamSettingsWidget
 
 public:
     explicit StreamSettingsWidget(QWidget *parent = nullptr);
-    void SetStreamObject(const StreamSettingsObject &sso);
-    StreamSettingsObject GetStreamSettings() const;
+    void SetStreamObject(const XConfigGen::Xray::StreamSettings4Ray &sso);
+    XConfigGen::Xray::StreamSettings4Ray GetStreamSettings() const;
 
 private slots:
     void on_transportCombo_currentIndexChanged(int arg1);
@@ -24,7 +25,7 @@ private slots:
     void on_dsPathTxt_textEdited(const QString &arg1);
 
     // HTTP
-    void on_httpHostTxt_textChanged();
+    void on_httpHostTxt_textEdited();
     void on_httpPathTxt_textEdited(const QString &arg1);
     void on_httpMethodCB_currentTextChanged(const QString &arg1);
     void on_httpHeadersEditBtn_clicked();
@@ -71,9 +72,6 @@ private slots:
     // WebSocket
     void on_wsHeadersTxt_textChanged();
     void on_wsPathTxt_textEdited(const QString &arg1);
-    void on_wsEarlyDataSB_valueChanged(int arg1);
-    void on_wsBrowserForwardCB_stateChanged(int arg1);
-    void on_wsEarlyDataHeaderNameCB_currentIndexChanged(int arg1);
 
     // gRPC
     void on_grpcServiceNameTxt_textEdited(const QString &arg1);
@@ -91,7 +89,27 @@ private slots:
 
     void on_spiderXTxt_textEdited(const QString &arg1);
 
+    void on_wsHostTxt_textEdited(const QString &arg1);
+
+    void on_wsAcceptProxyProtocolCB_stateChanged(int arg1);
+
+    void on_huAcceptProxyProtocolCB_stateChanged(int arg1);
+
+    void on_huHostTxt_textEdited(const QString &arg1);
+
+    void on_huPathTxt_textEdited(const QString &arg1);
+
+    void on_huHeadersTxt_textChanged();
+
+    void on_xhHostTxt_textEdited(const QString &arg1);
+
+    void on_xhPathTxt_textEdited(const QString &arg1);
+
+    void on_xhModeCombo_currentTextChanged(const QString &arg1);
+
+    void on_xhExtra_textChanged();
+
 private:
     QvMessageBusSlotDecl;
-    StreamSettingsObject stream;
+    XConfigGen::Xray::StreamSettings4Ray stream;
 };

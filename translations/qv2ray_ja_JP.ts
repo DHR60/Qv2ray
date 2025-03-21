@@ -862,12 +862,12 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation>不明なインバウンド。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="149"/>
+        <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="148"/>
         <source>The specified inbound type is invalid, this may be caused by a plugin failure.</source>
         <translation>指定されたインバウンドタイプが無効な場合、プラグインの障害が原因である可能性があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="150"/>
+        <location filename="../src/ui/widgets/editors/w_InboundEditor.cpp" line="148"/>
         <source>Please use the JsonEditor or reload the plugin.</source>
         <translation>JsonEditorを使用するか、プラグインをリロードしてください。</translation>
     </message>
@@ -1580,27 +1580,27 @@ This entry is ignored by V2Ray core when using DoH servers.</source>
         <translation>不明なアウトバウンドタイプ。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="108"/>
+        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="107"/>
         <source>The specified outbound type is not supported, this may happen due to a plugin failure.</source>
         <translation>指定されたアウトバウンドがサポートされていないです、プラグインの問題の可能性があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="204"/>
+        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="201"/>
         <source>Forward proxy has been disabled when using plugin outbound</source>
         <translation>プラグインのアウトバウンドを使用している場合、フォワードプロキシが無効になっています</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="149"/>
+        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="148"/>
         <source>Unknown outbound.</source>
         <translation>不明なアウトバウンド。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="150"/>
+        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="148"/>
         <source>The specified outbound type is invalid, this may be caused by a plugin failure.</source>
         <translation>指定された送信アウトバウンドタイプが無効です、プラグインの問題の可能性があります。</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="151"/>
+        <location filename="../src/ui/widgets/editors/w_OutboundEditor.cpp" line="148"/>
         <source>Please use the JsonEditor or reload the plugin.</source>
         <translation>JsonEditorを使用するか、プラグインをリロードしてください。</translation>
     </message>
@@ -4085,236 +4085,290 @@ Maybe you have downloaded the wrong core?</source>
     <message>
         <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="169"/>
         <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="311"/>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="660"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="683"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="739"/>
         <source>Path</source>
         <translation>パス</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="246"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="342"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="676"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="729"/>
         <source>Host</source>
         <translation>ホスト</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="253"/>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="392"/>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="724"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="361"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="664"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="836"/>
         <source>Headers</source>
         <translation>ヘッダー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="586"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="555"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="563"/>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="570"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="532"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="539"/>
         <source>Congestion</source>
         <translation>輻輳制御</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="355"/>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1086"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1163"/>
         <source>Enabled</source>
         <translation>有効</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="681"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="793"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="707"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="819"/>
         <source>Key</source>
         <translation>キー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="717"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="829"/>
         <source>keys</source>
         <translation>keys</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="819"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="896"/>
         <source>Transport Protocol</source>
         <translation>転送プロトコル</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="868"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="945"/>
         <source>TLS Settings</source>
         <translation>TLS設定</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="977"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1054"/>
         <source>Allow Insecure Certificates</source>
         <translation>安全でない証明書を許可する</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="917"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="994"/>
         <source>ALPN</source>
         <translation>ALPN</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="993"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1070"/>
         <source>PublicKey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1003"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1080"/>
         <source>ShortIds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1013"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1090"/>
         <source>spiderX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="901"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="978"/>
         <source>Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1059"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1136"/>
         <source>SOCK Options</source>
         <translation>SOCKオプション</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1065"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1142"/>
         <source>Mark</source>
         <translation>マーク</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1079"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1156"/>
         <source>TCP Fast Open</source>
         <translation>TCP Fast Open</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1093"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1170"/>
         <source>tProxy Mode</source>
         <translation>tProxy モード</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="961"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1038"/>
         <source>Enable Session Resumption</source>
         <translation>セッション再開を有効にする</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1032"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1109"/>
         <source>Security Type</source>
         <translation>セキュリティタイプ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="403"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="372"/>
         <source>Header</source>
         <translation>ヘッダー</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="447"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="929"/>
+        <source>httpupgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="934"/>
+        <source>xhttp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="416"/>
         <source>dns</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="455"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="328"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="693"/>
+        <source>AcceptProxyProtocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="424"/>
         <source>Seed</source>
         <translation>種子</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="465"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="434"/>
         <source>Capacity</source>
         <translation>容量</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="480"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="449"/>
         <source>Up: </source>
         <translation>上: </translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="502"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="471"/>
         <source>Down: </source>
         <translation>下: </translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="517"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="486"/>
         <source>Buffer Size</source>
         <translation>バッファサイズ</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="532"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="501"/>
         <source>Write Size: </source>
         <translation>書き込みサイズ: </translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="548"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="517"/>
         <source>Read Size: </source>
         <translation>読み取りサイズ: </translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="577"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="546"/>
         <source>Options</source>
         <translation>オプション</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="615"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="584"/>
         <source>TTI</source>
         <translation>TTI</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="646"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="615"/>
         <source>DnsDomain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="891"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="709"/>
+        <source>Key|Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="720"/>
+        <source>Extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="757"/>
+        <source>auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="762"/>
+        <source>packet-up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="767"/>
+        <source>stream-up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="772"/>
+        <source>stream-one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="782"/>
+        <source>JsonObject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="968"/>
         <source>Server Address (SNI)</source>
         <translation>サーバーアドレス（SNI）</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="911"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="988"/>
         <source>tls</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="954"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1031"/>
         <source>Disable System Root Certificates</source>
         <translation>システムルート証明書を無効にする</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="940"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1017"/>
         <source>Open Certificate Editor</source>
         <translation>証明書エディタを開く</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="924"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1001"/>
         <source>Certificates</source>
         <translation>証明書</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="974"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1051"/>
         <source>AllowInsecure is insecure, do not allow insecure.</source>
         <translation>AllowInsecure is insecure, do not allowed insecure.</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="782"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="629"/>
         <source>Service Name</source>
         <translation>サービス名</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="318"/>
         <source>Max Early Data</source>
-        <translation>初期データの最大数</translation>
+        <translation type="vanished">初期データの最大数</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="348"/>
         <source>Browser Forwarding</source>
-        <translation>ブラウザ転送</translation>
+        <translation type="vanished">ブラウザ転送</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="792"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="639"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="749"/>
         <source>Mode</source>
         <translation>モード</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="947"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1024"/>
         <source>Open pinnedPeerCertificateChainSha256 Editor</source>
         <translation>pinnedPeerCertificateChainSha256 エディタを開く</translation>
     </message>
@@ -4324,17 +4378,16 @@ Maybe you have downloaded the wrong core?</source>
         <translation>方法</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="362"/>
         <source>Early Data Header Name</source>
-        <translation>アーリーデータヘッダ名</translation>
+        <translation type="vanished">アーリーデータヘッダ名</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="987"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1064"/>
         <source>reality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1119"/>
+        <location filename="../src/ui/widgets/widgets/StreamSettingsWidget.ui" line="1196"/>
         <source>TCP Keepalive Interval</source>
         <translation>TCPキープアライブ間隔</translation>
     </message>
