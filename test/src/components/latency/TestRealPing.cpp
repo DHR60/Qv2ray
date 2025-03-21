@@ -1,6 +1,5 @@
 #include "Common.hpp"
 #include "src/components/latency/RealPing.hpp"
-#include "uvw.hpp"
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
@@ -9,10 +8,9 @@ SCENARIO("Test RealPing get proxy address", "[RealPing]")
     QvTestApplication app;
     GIVEN("A realping object")
     {
-        auto loop = uvw::Loop::create();
         LatencyTestHost *p;
         LatencyTestRequest req;
-        auto realping = std::make_shared<Qv2ray::components::latency::realping::RealPing>(loop, req, p);
+        auto realping = std::make_shared<Qv2ray::components::latency::realping::RealPing>(req, p);
         WHEN("test IPv4 any address")
         {
             GlobalConfig.inboundConfig.listenip = "0.0.0.0";

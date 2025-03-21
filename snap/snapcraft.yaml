@@ -35,7 +35,6 @@ parts:
       - libprotobuf-dev
       - protobuf-compiler-grpc
       - pkg-config
-      - libcurl4-openssl-dev
       - mesa-common-dev
       - libgles-dev
     stage-packages:
@@ -43,7 +42,6 @@ parts:
       - libgrpc++1
       - libprotobuf23
       - libglib2.0-bin
-      - libcurl4
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release

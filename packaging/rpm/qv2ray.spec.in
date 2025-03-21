@@ -1,5 +1,4 @@
 %bcond_without  check
-%bcond_without  use_system_libuv
 
 Name:           qv2ray
 Version:        @VERSION@
@@ -20,20 +19,15 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  libappstream-glib
 %endif
 
-%if %{with use_system_libuv}
-BuildRequires:  libuv-devel >= 1.38.1
-%endif
-
 BuildRequires:  cmake >= 3.10.1
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
-BuildRequires:  libcurl-devel
 BuildRequires:  protobuf-devel
 BuildRequires:  grpc-devel
 BuildRequires:  grpc-plugins
-BuildRequires:  cmake(Qt5)
-BuildRequires:  cmake(Qt5Svg)
-BuildRequires:  cmake(Qt5LinguistTools)
+BuildRequires:  cmake(Qt6)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6LinguistTools)
 Requires:       hicolor-icon-theme
 
 Recommends:     %{name}-plugin-builtin-protocol-support%{?_isa} = %{version}-%{release}
@@ -73,7 +67,6 @@ Basic subscription support for Qv2ray.
 %build
 %cmake                    -DQV2RAY_DISABLE_AUTO_UPDATE=ON \
 %{?with_check:            -DBUILD_TESTING=ON} \
-%{?with_use_system_libuv: -DUSE_SYSTEM_LIBUV=ON} \
                           -DQV2RAY_BUILD_INFO="Qv2ray built from rpmbuild" \
                           -DQV2RAY_BUILD_EXTRA_INFO="$(rpmbuild --version), kernel-$(uname -r), qt-$(pkg-config --modversion Qt5Core)" \
                           -DQV2RAY_DEFAULT_VCORE_PATH="%{_bindir}/v2ray" \
