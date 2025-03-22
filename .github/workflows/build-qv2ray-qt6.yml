@@ -51,6 +51,9 @@ jobs:
           host: ${{ matrix.qt_host }}
           target: 'desktop'
       # =========================================================================================================
+      - name: Install 7z
+        uses: milliewalky/setup-7-zip@v2
+      # =========================================================================================================
       - name: Linux - ${{ matrix.qt_version }} - Build preparation - Install Packages
         if: matrix.os == 'ubuntu-24.04'
         run: |
@@ -199,9 +202,8 @@ jobs:
       # --------------------------------------------------------
       - name: Win - ${{ matrix.qt_version }} - Create 7z Release
         if: matrix.os == 'windows-latest'
-        uses: edgarrc/action-7z@v1
-        with:
-          args: 7z a -t7z -mx=5 release.7z ./build/deployment
+        shell: bash
+        run: 7z a -t7z -mx=9 -mfb=273 -ms -md=31 release.7z ./build/deployment
       - name: Win - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@master
@@ -220,9 +222,8 @@ jobs:
       # --------------------------------------------------------
       - name: Linux - ${{ matrix.qt_version }} - Create 7z Release
         if: matrix.os == 'ubuntu-24.04'
-        uses: edgarrc/action-7z@v1
-        with:
-          args: 7z a -t7z -mx=5 release.7z ./build/AppDir/usr
+        shell: bash
+        run: 7z a -t7z -mx=9 -mfb=273 -ms -md=31 -mx=5 release.7z ./build/AppDir/usr
       - name: Linux - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.os == 'ubuntu-24.04'
         uses: actions/upload-artifact@master
