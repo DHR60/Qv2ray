@@ -28,9 +28,14 @@ download_with_retry() {
 get_json_with_retry() {
     local url="$1"
     local retry=0
+    local auth_header=""
+    
+    if [ -n "$GITHUB_TOKEN" ]; then
+        auth_header="-H \"Authorization: token $GITHUB_TOKEN\""
+    fi
 
     while true; do
-        local json=$(curl -s "$url" | jq ".assets[] | {browser_download_url, name}" -c | grep "$DEPS_CATEGORY-$DEPS_OS")
+        local json=$(curl -s $auth_header "$url" | jq ".assets[] | {browser_download_url, name}" -c | grep "$DEPS_CATEGORY-$DEPS_OS")
         if [ -n "$json" ]; then
             echo "$json"
             return 0
@@ -52,8 +57,13 @@ mkdir -p downloaded; cd ./downloaded;
 
 DEPS_OS=$1
 DEPS_CATEGORY=$2
+GITHUB_TOKEN=$3
 
-_JSON=$(get_json_with_retry "https://api.github.com/repos/Qv2ray/Qv2ray-deps/releases/latest")
+if [ -n "$GITHUB_TOKEN" ]; then
+    echo "Using provided GitHub token for API requests"
+fi
+
+_JSON=$(get_json_with_retry "https://api.github.com/repos/DHR60/Qv2ray-deps/releases/latest")
 
 if [ $? -ne 0 ]; then
     exit 1

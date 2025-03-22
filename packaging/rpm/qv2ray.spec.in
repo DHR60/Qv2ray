@@ -9,7 +9,7 @@ URL:            https://qv2ray.net/
 
 # Source0 is created by:
 # pip install git-archive-all
-# git clone https://github.com/Qv2ray/Qv2ray.git
+# git clone https://github.com/DHR60/Qv2ray.git
 # cd Qv2ray
 # git archive-all --force-submodules ../@SOURCE0@
 Source0:        @SOURCE0@

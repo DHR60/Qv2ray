@@ -81,7 +81,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           cd ./libs
-          ./setup-libs.sh windows x64
+          ./setup-libs.sh windows x64 ${{ secrets.GITHUB_TOKEN }}
       # ========================================================================================================= Generate MakeFile and Build
 
       - uses: actions/setup-node@v3
@@ -199,10 +199,9 @@ jobs:
       # --------------------------------------------------------
       - name: Win - ${{ matrix.qt_version }} - Create 7z Release
         if: matrix.os == 'windows-latest'
-        uses: DuckSoft/create-7z-action@v1.0
+        uses: edgarrc/action-7z@v1
         with:
-          pathSource: ./build/deployment/
-          pathTarget: ./release.7z
+          args: 7z a -t7z -mx=5 release.7z ./build/deployment
       - name: Win - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@master
@@ -221,10 +220,9 @@ jobs:
       # --------------------------------------------------------
       - name: Linux - ${{ matrix.qt_version }} - Create 7z Release
         if: matrix.os == 'ubuntu-24.04'
-        uses: DuckSoft/create-7z-action@v1.0
+        uses: edgarrc/action-7z@v1
         with:
-          pathSource: ./build/
-          pathTarget: ./release.7z
+          args: 7z a -t7z -mx=5 release.7z ./build/AppDir/usr
       - name: Linux - ${{ matrix.qt_version }} - Uploading Artifact
         if: matrix.os == 'ubuntu-24.04'
         uses: actions/upload-artifact@master
