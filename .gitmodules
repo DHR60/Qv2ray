@@ -3,13 +3,13 @@
 	url = https://github.com/itay-grudev/SingleApplication
 [submodule "3rdparty/QNodeEditor"]
 	path = 3rdparty/QNodeEditor
-	url = https://github.com/Qv2ray/QNodeEditor
+	url = https://github.com/DHR60/QNodeEditor
 [submodule "3rdparty/puresource"]
 	path = 3rdparty/puresource
-	url = https://github.com/Qv2ray/PureSource
+	url = https://github.com/DHR60/PureSource
 [submodule "src/plugin-interface"]
 	path = src/plugin-interface
-	url = https://github.com/Qv2ray/QvPlugin-Interface
+	url = https://github.com/DHR60/QvPlugin-Interface
 [submodule "cmake/android"]
 	path = cmake/android
 	url = https://github.com/LaurentGomila/qt-android-cmake
