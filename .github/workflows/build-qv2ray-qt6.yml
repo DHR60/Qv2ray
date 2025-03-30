@@ -9,7 +9,7 @@ jobs:
         os: [ubuntu-24.04, windows-latest]
         build_type: [RelWithDebInfo, Release]
         ui_type: [QWidget]
-        qt_version: [6.8.2]
+        qt_version: [6.8.3]
         include:
           - os: ubuntu-24.04
             qt_host: linux

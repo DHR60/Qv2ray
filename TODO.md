@@ -1,10 +1,11 @@
 进行中：
+
+工作量过大，延后：
 1. 基于反射生成对应的 JSON 数据
    - [x] step1: 基于反射生成对应的 JSON 数据
    - [ ] step2: 使用 `XConfigGen` 替代原有的 `Qv2ray::base::objects` ~~虽然乍一看 `Qv2ray::base::objects` 的实现也不算差，不过使用了使用了大量的宏，并且缺少注释~~
 
 p1：
-
 - [ ] 使用 `XConfigGen` 替代原有的 `Qv2ray::base::objects`
 - [x] 使用 ~~`zxing-cpp`~~ (稍微有点过大了，源码约200m，还包含条形码，rMQR 和 DataMatrix 等) `Qt-QrCodeGenerator` 替代 `qt-qrcode`
     * 原因：
@@ -29,7 +30,9 @@ p1：
 
 p2：
 - [ ] 优化代码质量
-- [ ] 类似于 v2rayN 的路由编辑界面，以及类似于 nekoray 的 json 高级路由编辑
+- [ ] 类似于 v2rayN 的路由编辑界面
+- [ ] json 高级路由和DNS配置
+- [ ] 多服务器配置
 
 p3：
 - [ ] 使用 Xray proto gRPC 调用 Xray API
