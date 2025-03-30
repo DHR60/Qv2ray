@@ -8,8 +8,8 @@
 
 const inline QMap<int, QString> UpdateChannelLink //
     {
-        {0,  "https://api.github.com/repos/DHR60/Qv2ray/releases/latest"    }, //
-        { 1, "https://api.github.com/repos/DHR60/Qv2ray/releases?per_page=1"}  //
+        {0, "https://api.github.com/repos/DHR60/Qv2ray/releases/latest"    }, //
+        {1, "https://api.github.com/repos/DHR60/Qv2ray/releases?per_page=1"}  //
 };
 #define QV_MODULE_NAME "Update"
 
@@ -42,6 +42,13 @@ void QvUpdateChecker::VersionUpdate(const QByteArray &data)
     const auto root = doc.isArray() ? doc.array().first().toObject() : doc.object();
     if (root.isEmpty())
         return;
+
+    if (root.contains(QStringLiteral("message")))
+    {
+        const auto message = root["message"].toString();
+        LOG(QStringLiteral("Error occured: ").append(message));
+        return;
+    }
 
     const auto newVersionStr = root["tag_name"].toString("v").mid(1);
     const auto currentVersionStr = QString(QV2RAY_VERSION_STRING);
@@ -77,11 +84,9 @@ void QvUpdateChecker::VersionUpdate(const QByteArray &data)
         const auto link = root["html_url"].toString("");
         const auto versionMessage =
             QString("A new version of Qv2ray has been found:" NEWLINE "v%1" NEWLINE NEWLINE "%2" NEWLINE "------------" NEWLINE "%3")
-                .arg(newVersionStr)
-                .arg(name)
-                .arg(root["body"].toString());
+                .arg(newVersionStr, name, root["body"].toString());
 
-        const auto result = QvMessageBoxAsk(nullptr, tr("Qv2ray Update"), versionMessage, { Yes, No, Ignore });
+        const auto result = QvMessageBoxAsk(nullptr, tr("Qv2ray Update"), versionMessage, {Yes, No, Ignore});
         if (result == Yes)
         {
             QvCoreApplication->OpenURL(link);

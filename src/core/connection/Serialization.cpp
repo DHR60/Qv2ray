@@ -18,7 +18,6 @@ QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &lin
         if (settings.security.value_or(QStringLiteral("none")) != QStringLiteral("tls"))
             return;
 
-        // 使用 emplace 避免创建临时对象
         settings.tlsSettings.emplace(settings.tlsSettings.value_or(XConfigGen::Xray::TlsSettings4Ray()))
             .disableSystemRoot = GlobalConfig.advancedConfig.disableSystemRoot;
     };
@@ -27,19 +26,19 @@ QList<std::pair<QString, CONFIGROOT>> ConvertConfigFromString(const QString &lin
 
     QList<std::pair<QString, CONFIGROOT>> connectionConf;
 
-    for (const auto &protocol : protocols)
+    if (std::any_of(protocols.cbegin(), protocols.cend(), [&link](const auto &protocol)
+                    {
+                        return link.startsWith(protocol + "://");
+                    }))
     {
-        if (link.startsWith(protocol + "://"))
-        {
-            auto outbound = XConfigGen::Xray::Deserialize(link, aliasPrefix, errMessage, tag);
-            TLSOptionsFilter(outbound);
-            QJsonObject outboundJson = outbound.toJson();
+        auto outbound = XConfigGen::Xray::Deserialize(link, aliasPrefix, errMessage, tag);
+        TLSOptionsFilter(outbound);
+        QJsonObject outboundJson = outbound.toJson();
 
-            CONFIGROOT root;
-            root["outbounds"] = QJsonArray {outboundJson};
-            connectionConf << std::pair {aliasPrefix, root};
-            return connectionConf;
-        }
+        CONFIGROOT root;
+        root["outbounds"] = QJsonArray {outboundJson};
+        connectionConf << std::pair {aliasPrefix, root};
+        return connectionConf;
     }
 
     bool ok = false;

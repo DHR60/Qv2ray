@@ -14,13 +14,20 @@ namespace Qv2ray::common
 const QString GenerateRandomString(int len)
 {
     const QString possibleCharacters("abcdefghijklmnopqrstuvwxyz");
+    const int max = possibleCharacters.length();
+    QRandomGenerator *generator = QRandomGenerator::system();
     QString randomString;
 
+    if (len <= 0)
+    {
+        return randomString;
+    }
+
+    randomString.reserve(len);
     for (int i = 0; i < len; ++i)
     {
-        uint rand = QRandomGenerator::system()->generate();
-        uint max = static_cast<uint>(possibleCharacters.length());
-        QChar nextChar = possibleCharacters[rand % max];
+        int index = generator->bounded(max);
+        QChar nextChar = possibleCharacters[index];
         randomString.append(nextChar);
     }
 

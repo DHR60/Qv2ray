@@ -9,11 +9,11 @@
 #include <QJsonDocument>
 #include <QRegularExpression>
 
+#define REGEX_IPV4_ADDR \
+    R"((?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5]))"
 #define REGEX_IPV6_ADDR \
     R"(\[\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*\])"
-#define REGEX_IPV4_ADDR \
-    R"((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5]))"
-#define REGEX_PORT_NUMBER R"(([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-5]{2}[0-3][0-5])*)"
+#define REGEX_PORT_NUMBER R"(\b(?:[0-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-5][0-5][0-3][0-5])\b)"
 
 namespace Qv2ray::common
 {
@@ -63,7 +63,7 @@ void DeducePossibleFileName(const QString &baseDir, QString *fileName, const QSt
 //
 namespace validation
 {
-const inline QRegularExpression __regex_ipv4_full(REGEX_IPV4_ADDR "$");
+const inline QRegularExpression __regex_ipv4_full("^" REGEX_IPV4_ADDR "$");
 
 inline bool IsIPv4Address(const QString &addr)
 {
@@ -83,13 +83,7 @@ inline bool IsValidIPAddress(const QString &addr)
 
 inline bool IsValidDNSServer(const QString &addr)
 {
-    return IsIPv4Address(addr)                  //
-           || IsIPv6Address(addr)               //
-           || addr.startsWith("https://")       //
-           || addr.startsWith("https+local://") //
-           || addr.startsWith("quic+local://")  //
-           || addr == "localhost"               //
-           || addr == "fakedns";
+    return IsIPv4Address(addr) || IsIPv6Address(addr) || addr.startsWith(QStringLiteral("https")) || addr.startsWith(QStringLiteral("h2c")) || addr.startsWith(QStringLiteral("quic")) || addr == QStringLiteral("localhost") || addr == QStringLiteral("fakedns");
 }
 } // namespace validation
 
